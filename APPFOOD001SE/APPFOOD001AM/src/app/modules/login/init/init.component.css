@@ -1,0 +1,58 @@
+
+.ion-align-items-center {
+  display: flex;
+  align-items: center;
+}
+ion-toolbar {
+    --background: transparent;
+    --border-width: 0;
+    --box-shadow: none;
+  }
+  .icon{
+    background-color: lightgray;width: 100px; height: 100px;
+  }
+  .image{
+    width: 80px; height: 80px; margin-top: 10px;
+  }
+  .card{
+    background-color: #fa4b0ca9 ; 
+    
+    border-radius: 20px;
+  }
+ 
+  ion-fab {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .my-custom-fab-button {
+    width: 100px; 
+    height: 100px;
+    font-size: 24px;
+  }
+  
+  .curved-header {
+    /* margin-top: -5px;
+    margin-left: -5px;
+    margin-right: -5px;
+     */
+    /* background-color: #16202b;  */
+    /* border-bottom-left-radius: 30%;
+    border-bottom-right-radius: 30% 20px; */
+    /* overflow: hidden; */
+    margin: 10%;
+    text-align: center;
+    /* color: #fff;  */
+  }
+  
+  ion-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    
+  }
+  .forgotPass{
+    color: #FA4A0C
+    /* rgb(28, 28, 187); */
+  }

@@ -1,0 +1,348 @@
+
+*{
+  font-family: 'Work Sans', sans-serif;
+}
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/WorkSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: url('../assets/fonts/WorkSans-Italic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../assets/fonts/WorkSans-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  font-style: italic;
+  font-weight: 700;
+  src: url('../assets/fonts/WorkSans-BoldItalic.ttf') format('truetype');
+}
+
+:root {
+    --ion-color-primary: #007bff;
+    --ion-color-secondary: #32db64;
+    --ion-color-tertiary: #ffc409;
+  }
+  
+/* Ionic Variables and Theming. */
+/* This is just a placeholder file For more info, please see: */
+/* https://ionicframework.com/docs/theming/basics */
+
+/* To quickly generate your own theme, check out the color generator */
+/* https://ionicframework.com/docs/theming/color-generator */
+.black-button{
+    background-color: rgb(32, 32, 32);
+    color: white
+}
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(-10px);
+  }
+  30%, 50%, 70% {
+    transform: translateX(10px);
+  }
+}
+.invalid {
+  color: red; 
+  animation: shake 0.2s;
+}
+.valid {
+  color: green; 
+  animation: shake 0.2s;
+}
+.requiered{
+  color: red;
+  font-size: 14px;
+}
+
+.fade-in-out {
+  transition: opacity 0.3s ease-in-out;
+}
+.fade-in-out.ng-enter,
+.fade-in-out.ng-leave-to {
+  opacity: 0;
+}
+
+.fade-in-out.ng-enter-to,
+.fade-in-out.ng-leave {
+  opacity: 1;
+}
+.black{
+  background: black;
+  opacity: 80%;
+}
+.darkblue{
+  background: #11304b;
+  opacity: 80%;
+}
+.blue{
+  background: #355C7D;
+  opacity: 80%;
+}
+.low-purple{
+  background: #a283ac;
+  opacity: 80%;
+}
+.purple{
+  background: #725A7A;
+  opacity: 80%;
+}
+.violet{
+  background: #c56c86;
+  opacity: 80%;
+}
+.pink{
+  background: #FF7582;
+  opacity: 80%;
+}
+.dark-pink{
+  background: #E96D6D;
+  opacity: 80%;
+}
+.low-pink{
+  background: #E8AAAA;
+  opacity: 80%;
+}
+.mint{
+  background-color: #BCEBE2;
+}
+.low-mint{
+  background-color: #d7eeea;
+}
+
+.animated-text {
+  animation: slideUp 0.5s ease-in-out; /* Ajusta la duración y el efecto según tus preferencias */
+}
+.animated-top {
+  animation: slideDown 0.5s ease-in-out; /* Ajusta la duración y el efecto según tus preferencias */
+}
+
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animated-right {
+  animation: slideLeft 0.5s ease-in-out; /* Ajusta la duración y el efecto según tus preferencias */
+}
+@keyframes slideLeft {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+.animated-left {
+  animation: slideLeft 0.5s ease-in-out; /* Ajusta la duración y el efecto según tus preferencias */
+}
+@keyframes slideLeft {
+  from {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+ion-button.btn {
+  --background: #FA4A0C;
+}
+
+.orange{
+  background: #FA4A0C;
+}
+ion-checkbox {
+  --size: 22px;
+  /* --checkbox-background-checked: #FA4A0C; */
+  /* --checkbox-background:var(--background) */
+}
+
+ion-checkbox::part(container) {
+  border-radius: 6px;
+  border: 2px solid #FA4A0C;
+}
+.vermilion50{
+  color: #fff4ed;
+}
+.vermilion100{
+  color : #ffe7d5
+}
+.vermilion200{
+  color : #fecaaa
+}
+.vermilion300{
+  color : #fea573
+}
+.vermilion400{
+  color : #fc753b
+}
+.vermilion500{
+  color : #fa4a0c
+}
+.vermilion600{
+  color: #eb370b
+}
+.vermilion700{
+  color: #c3260b
+}
+.vermilion800{
+  color : #9b1f11
+}
+.vermilion900{
+  color: #7d1d11
+}
+.vermilion950{
+  color: #430b07
+}
+
+.back50{
+  background: #fff4ed;
+}
+.back100{
+  background : #ffe7d5
+}
+.back200{
+  background : #fecaaa
+}
+.back300{
+  background : #fea573
+}
+.back400{
+  background : #fc753b
+}
+.back500{
+  background : #fa4a0c
+}
+.back600{
+  background: #eb370b
+}
+.back700{
+  background: #c3260b
+}
+.back800{
+  background : #9b1f11
+}
+.back900{
+  background: #7d1d11
+}
+.back950{
+  background: #430b07
+}
+
+
+
+.wrapper {
+  right: 0;
+  
+}
+
+.wrapper {
+  height: 10px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.checkmark__circle {
+  
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #7ac142;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards
+  
+}
+
+.checkmark {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  /*  */
+  
+
+  display: block;
+  stroke-width: 2;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  margin: 10% auto;
+  box-shadow: inset 0px 0px 0px #7ac142;
+  animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both
+}
+
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0
+  }
+}
+
+@keyframes scale {
+
+  0%,
+  100% {
+    transform: none
+  }
+
+  50% {
+    transform: scale3d(1.1, 1.1, 1)
+  }
+}
+
+@keyframes fill {
+  100% {
+    box-shadow: inset 0px 0px 0px 30px #7ac142
+  }
+}

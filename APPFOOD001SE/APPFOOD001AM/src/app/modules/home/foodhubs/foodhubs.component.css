@@ -1,0 +1,148 @@
+.headerCard {
+  font-size: 18px;
+}
+
+.imgCardContainer {
+  position: relative;
+  width: 100%;
+  height: 50%;
+}
+
+.imgCard {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.imgCard:hover {
+  transform: scale(1.05);
+}
+.check{
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 15px;
+  padding: 5px;
+}
+
+.estrellas {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 8px;
+  /* Ajusta el margen según sea necesario */
+  background-color: white;
+  padding: 5px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+}
+
+.estrella,
+.estrella2,
+.estrellaGray {
+  width: 20px;
+  height: 20px;
+
+  margin-right: 4px;
+  /* Ajusta el margen entre estrellas según sea necesario */
+}
+
+.estrella {
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  background: #EF6C00;
+}
+
+.estrellaGray {
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  background: #a5a5a5;
+}
+
+.estrella2 {
+  position: relative;
+
+}
+
+.estrella2::before,
+.estrella2::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+}
+
+.estrella2::before {
+
+  background: #EF6C00;
+  /* Color de la parte izquierda */
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.estrella2::after {
+
+  background: #a5a5a5;
+  /* Color de la parte derecha */
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 50% 65%, 50% 69%, 50% 64%, 50% 44%);
+}
+
+
+
+p {
+  font-size: 16px;
+  color: black;
+}
+
+p span {
+  font-weight: bold;
+  color: #EF6C00;
+  /* Cambia el color según sea necesario */
+}
+
+
+.contenedor-search {
+  position: relative;
+}
+
+ion-searchbar {
+  /* position: absolute; */
+  top: 0;
+  width: 100%;
+}
+
+ion-list {
+  position: absolute;
+  top: 100%;
+  /* Coloca la lista justo debajo de la barra de búsqueda */
+  width: 100%;
+  background-color: #fff;
+  /* Ajusta el color de fondo según sea necesario */
+  border: 1px solid #ddd;
+  /* Ajusta el borde según sea necesario */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Ajusta la sombra según sea necesario */
+  z-index: 1;
+  /* Asegura que la lista esté sobre otros elementos */
+}
+
+.carta {
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Estilo cuando la carta está visible */
+.carta.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+ion-searchbar {
+  --border-radius: 10px;
+  --icon-color: #EF6C00;
+}

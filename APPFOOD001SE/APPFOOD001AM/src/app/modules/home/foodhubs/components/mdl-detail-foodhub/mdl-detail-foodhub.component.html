@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-start">
+      Detalle
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal(false)">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <map-cs [showRoute]="true" [Longitude]="foodHub.longitud" [Lattitude]="foodHub.latitud" [Zoom]="18" [Height]="'50%'" [displayActualUbication]="true" [showDuration]="true"></map-cs>
+  <!-- <ion-button id="open-modal" expand="block">Open Sheet Modal</ion-button> -->
+
+  <div class="handle-div" >
+    <ion-header>
+      <ion-toolbar>
+        <ion-button (click)="asignFoodHub()" color="success" fill="{{foodHub.asignado ? 'solid' : 'outline'}}"  shape="round">
+          <ion-icon class="ion-margin-end" name="checkmark-circle-outline"></ion-icon>
+          {{foodHub.asignado ? 'Asignado' : 'Asignar'}}
+        </ion-button>
+        <ion-title class="titl" slot="end"><strong>{{foodHub.ciudad}}, {{foodHub.nombreEstado}}</strong></ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <div class="cont">
+      <strong>{{foodHub.nombreHub}}</strong>
+      
+      <div class="estrellas">
+       <stars-cs [stars]="foodHub.calificacion" [total]="foodHub.calificacionesTotales" [showTotal]="true"> </stars-cs>
+      </div>
+      <p>{{foodHub.comentarios}}</p>
+      <p *ngIf="!foodHub.abierto">
+        <label class="cerrado">Cerrado</label> •
+        <ng-container *ngIf="foodHub.estadoHorario; else abrirHorario">
+          {{ foodHub.estadoHorario }}
+        </ng-container>
+        <ng-template #abrirHorario>
+          Abre hoy a las: {{ foodHub.horaApertura }}
+        </ng-template>
+      </p>
+      <p *ngIf="foodHub.abierto">
+        <label class="abierto">Abierto</label> •
+        <ng-container *ngIf="foodHub.estadoHorario; else abrirHorario">
+          {{ foodHub.estadoHorario }}
+        </ng-container>
+        <ng-template #abrirHorario>
+          Cierra hoy a las: {{ foodHub.horaApertura }}
+        </ng-template>
+      </p>
+      <p>
+        <ion-icon name="call-outline"></ion-icon> {{foodHub.telefonoContacto}}
+      </p>
+      <p style="margin-bottom: 20px;">
+        <ion-icon name="location-outline"></ion-icon>
+        {{foodHub.calle}}{{foodHub.entreCalles ? ' & ' : ''}}{{foodHub.entreCalles}}, {{foodHub.colonia}}. {{foodHub.codigoPostal}}  {{foodHub.municipio}}, {{foodHub.nombreEstado}}
+      </p>
+      <stars-average  *ngIf="lstCalifica" [calificaciones]="lstCalifica" ></stars-average>
+      <div class="comentarios" style="height: 300px;" *ngIf="lstCalifica">
+        <ion-list class="scroll-list">
+          <ion-item *ngFor="let calificacion of displayedCalificaciones" class="animated-top ">
+            <div class="imagenComentarios">
+              <img class="imgCard" [src]="imagenBase64(calificacion.foto)" slot="start">
+              
+              <div class="userInfo">
+                <h2>{{ calificacion.nombreUsuario }}</h2>
+                <ion-label class="comentDesc" slot="start" style=" margin-left: 0">
+                  <div class="rating-container">
+                    <stars-cs [stars]="calificacion.calificacion"></stars-cs>
+                    <label class="dateCalif">{{ calificacion.fechaCalificacion }}</label>
+                  </div>
+                  <label class="comment">{{ calificacion.comentarios }}</label>
+                </ion-label>
+              </div>
+            </div>
+          </ion-item>
+          <ion-infinite-scroll *ngIf="loadingData">
+            <ion-infinite-scroll-content loadingText="Cargando" loadingSpinner="bubbles"></ion-infinite-scroll-content>
+          </ion-infinite-scroll>
+          <ion-button expand="full" fill="clear" shape="round" (click)="loadData()" *ngIf="showLoadMoreButton()">Cargar más</ion-button>
+       
+        </ion-list>
+
+        
+      </div>
+      
+      
+    </div>
+  </div>
+  
+
+
+</ion-content>

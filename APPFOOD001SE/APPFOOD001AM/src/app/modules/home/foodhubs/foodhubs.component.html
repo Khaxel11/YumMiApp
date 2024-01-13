@@ -1,0 +1,60 @@
+
+  
+  <ion-content>
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-back-button defaultHref="/home"></ion-back-button>
+        </ion-buttons>
+        <ion-title><strong>FoodHubs</strong></ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <div class="contenedor-search">
+        <ion-searchbar [debounce]="100" [(ngModel)]="filtro" (ionChange)="handleChange($event)" placeholder="Buscar"></ion-searchbar>
+      
+        <ion-list *ngIf="results.length > 0 && filtro !== ''">
+          <ion-item  *ngFor="let result of results" (click)="selectFilteredHub(result)">
+            <ion-label>{{ result.nombreHub }}</ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+
+    <ion-card  *ngFor="let carta of lstFoodHub" (click)="seleccionarCarta(carta)">
+        <div class="animated-text">
+            <ion-card-header class="headerCard">
+                <strong class="ion-text-start">{{ carta.nombreHub }}</strong>
+                
+              </ion-card-header>
+            
+              <ion-card-content>
+                
+                  <div class="imgCardContainer">
+                      
+                      <img class="imgCard" [src]="imagenBase64(carta.picture)">
+                      <div class="check" *ngIf="carta.asignado">
+                        <div class="wrapper"> <svg class="checkmark" viewBox="0 0 52 52"> <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/> <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                        </svg>
+                        </div>
+                      </div>
+                      
+                      <div class="estrellas">
+                      <stars-cs  [stars]="carta.calificacion"></stars-cs>
+                      </div>
+                    </div>
+            
+                    <p><span>Calle:</span> {{ carta.calle }} <label *ngIf="carta.entreCalles">entre {{carta.entreCalles}}</label></p>
+                    <p><span>Colonia:</span> {{ carta.colonia }}</p>
+                    <p><span>Ciudad:</span> {{ carta.ciudad }}, {{carta.nombreEstado}}. {{carta.pais}}</p>
+                    
+                    <ion-button (click)="openMdlFoodHubDetail(carta)" color="dark" expand="block" fill="outline" shape="round">
+                      Ver Detalles
+                    </ion-button>
+                    
+            
+              </ion-card-content>
+        </div>    
+    </ion-card>
+    
+  </ion-content>
+  
+<!-- <app-mdl-detail-foodhub #mdlDetail></app-mdl-detail-foodhub> -->

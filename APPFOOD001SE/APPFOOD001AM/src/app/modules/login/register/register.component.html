@@ -1,0 +1,576 @@
+<!--  -->
+<ion-content [fullscreen]="true" class="ion-padding" scrollbar="true" *ngIf="start">
+    <div class="background">
+        <div class="circle"
+            [ngClass]="{'change swiper-slide': slideChangedTrigger, 'low-mint': actualIndex === 0 ||  actualIndex === 1, 'dark-pink': actualIndex >= 2 }">
+        </div>
+        <div class="circleOut"
+            [ngClass]="{'change swiper-slide': slideChangedTrigger, 'mint': actualIndex === 0 ||  actualIndex === 1, 'low-pink': actualIndex >= 2}">
+        </div>
+    </div>
+    <!-- <ion-scroll scrollY="true" style="height: 100%;"> -->
+    <div class="slides-container">
+        <ion-slides #slider pager="false" [options]="slideOpts" (ionSlideDidChange)="slideChanged($event)"
+            (ionSlideTouchStart)="onSlideTouchStart()" (ionSlideTouchEnd)="onSlideTouchEnd()">
+            <ion-slide>
+                <ion-grid style="height: 80%; width: 100%;">
+                    <ion-row class="ion-align-items-center ion-justify-content-center">
+                        <ion-col size-md="8" size-lg="6" class="ion-text-center">
+                            <p class="animated-top" style="font-size: 40px;"><strong>Acerca de Ti</strong></p>
+                            <p class="animated-top">Necesitamos datos de ti para que tus clientes te conozcan mejor</p>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="ion-align-items-center ion-justify-content-center">
+                        <ion-col size="8" size-lg="6">
+                            <ion-item class="transparent-item" #username
+                                [class.invalid]="!user.userName && validate.username">
+                                <ion-label position="floating">Nombre de Usuario <label
+                                        class="requiered">*</label></ion-label>
+                                <ion-input [required]="true" type="text" maxlength="10" [(ngModel)]="user.userName"
+                                    disabled></ion-input>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="ion-align-items-center ion-justify-content-center">
+                        <ion-col size="8" size-lg="6">
+                            <ion-item class="transparent-item" #nombre [class.invalid]="!user.name && validate.name">
+                                <ion-label position="floating">Nombre <label class="requiered">*</label></ion-label>
+                                <ion-input [required]="true" type="text" maxlength="50"
+                                    [(ngModel)]="user.name"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="ion-align-items-center ion-justify-content-center">
+                        <ion-col size="8" size-lg="6">
+                            <ion-item class="transparent-item" #lastName
+                                [class.invalid]="!user.lastName && validate.lastName">
+                                <ion-label position="floating">Apellido Paterno <label
+                                        class="requiered">*</label></ion-label>
+                                <ion-input [required]="true" type="text" maxlength="50"
+                                    [(ngModel)]="user.lastName"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="ion-align-items-center ion-justify-content-center">
+                        <ion-col size="8" size-lg="6">
+                            <ion-item class="transparent-item" #secondaryLastName
+                                [class.invalid]="!user.lastNameSecondary && validate.lastNameSecondary">
+                                <ion-label position="floating">Apellido Materno <label
+                                        class="requiered">*</label></ion-label>
+                                <ion-input [required]="true" type="text" maxlength="50"
+                                    [(ngModel)]="user.lastNameSecondary"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="ion-align-items-center ion-justify-content-center">
+                        <ion-col size="8" size-lg="6">
+                            <ion-item class="transparent-item" #birthDate
+                                [class.invalid]="!user.birthDate && validate.birthDate">
+                                <!-- value="2022-04-21T00:00:00" -->
+                                <ion-label position="floating">Fecha de Nacimiento <label
+                                        class="requiered">*</label></ion-label>
+                                <ion-datetime class="transparent-item" [(ngModel)]="user.birthDate"
+                                    value="2022-04-21T00:00:00" min="1900-03-01T00:00:00"
+                                    max="2023-01-01T23:59:59"></ion-datetime>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="ion-align-items-center ion-justify-content-center">
+                        <ion-col size="8" size-lg="6">
+                            <ion-item class="transparent-item" #gender
+                                [class.invalid]="!user.gender && validate.gender">
+                                <ion-label position="floating">Sexo <label class="requiered">*</label></ion-label>
+                                <ion-select [(ngModel)]="user.gender">
+                                    <ion-select-option *ngFor="let option of lstSexos" [value]="option.value">
+                                        {{ option.gender }}
+                                    </ion-select-option>
+                                </ion-select>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class=" animated-text ion-align-items-center ion-justify-content-center">
+                        <ion-col size="8" size-lg="6">
+                            <ion-button color="dark" shape="round" (click)="continueBussinessData()">
+                                <div>Continuar </div>
+                                <ion-icon name="arrow-forward-outline"
+                                    class="ion-margin-start ion-align-items-center ion-text-center ion-justify-content-center ion-align-self-center"></ion-icon>
+                            </ion-button>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+
+            </ion-slide>
+            <ion-slide>
+                <ion-grid style="height: 80%; width: 100%;">
+                    <ion-row class="ion-align-items-center ion-justify-content-center">
+                        <ion-col size-md="8" size-lg="6" class="ion-text-center">
+                            <p class="animated-top" style="font-size: 40px;"><strong>Foto</strong></p>
+                            <p class="animated-top">Puede ser una imagen tuya o de tu establecimiento. Esta foto sera
+                                publica</p>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="ion-align-items-center ion-justify-content-center ion-margin-top">
+                        <ion-col size="8" size-lg="6">
+                            <div class="circular-image-container">
+                                <ion-img [src]="photo"></ion-img>
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="ion-align-items-center ion-justify-content-center">
+                        <ion-col size="8" size-lg="6">
+                            <ion-button size="small" fill="outline" color="dark" shape="round" (click)="takePicture()">
+                                <div>Tomar Foto </div>
+                            </ion-button>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="ion-align-items-center ion-justify-content-center">
+                        <ion-col size="8" size-lg="6">
+                            <ion-button size="small" fill="outline" color="dark" shape="round" (click)="openGallery()">
+                                <div>Seleccionar Foto </div>
+                            </ion-button>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-row class=" animated-text ion-align-items-center ion-justify-content-center">
+                        <ion-col size="8" size-lg="6">
+                            <ion-button color="dark" shape="round" (click)="continueBussinessData()">
+                                <div>Continuar </div>
+                                <ion-icon name="arrow-forward-outline"
+                                    class="ion-margin-start ion-align-items-center ion-text-center ion-justify-content-center ion-align-self-center"></ion-icon>
+                            </ion-button>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-slide>
+            <ion-slide style="height: 95% !important;">
+                <ion-grid style="height: 80%; width: 100%;">
+                    <ion-row class="ion-align-items-center ion-justify-content-center">
+                        <ion-col size-md="8" size-lg="6" class="ion-text-center">
+                            <p class="animated-top" style="font-size: 40px;"><strong>Establecimiento</strong></p>
+                            <p class="animated-top">Tus clientes esperan conocer los datos de tu establecimiento o casa
+                            </p>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="ion-align-items-center ion-justify-content-center ion-margin-top">
+                        <ion-col size="8" size-lg="6">
+                            <ion-item class="transparent-item" #businessName
+                                [class.invalid]="!user.bussinessName && validate.bussinessName">
+                                <ion-label position="floating">Nombre del Establecimiento <label
+                                        class="requiered">*</label></ion-label>
+                                <ion-input type="text" maxlength="100" [(ngModel)]="user.bussinessName"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="ion-align-items-center ion-justify-content-center">
+                        <ion-col size="8" size-lg="6">
+                            <ion-item class="transparent-item" #businesstype
+                                [class.invalid]="!user.bussinessType && validate.bussinessType">
+                                <ion-label position="floating">Tipo Establecimiento <label
+                                        class="requiered">*</label></ion-label>
+                                <ion-select [(ngModel)]="user.bussinessType">
+                                    <ion-select-option [value]="'E'">
+                                        Establecimiento
+                                    </ion-select-option>
+                                    <ion-select-option [value]="'H'">
+                                        Hogar
+                                    </ion-select-option>
+                                </ion-select>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="ion-align-items-center ion-justify-content-center">
+                        <ion-col size="8" size-lg="6">
+                            <ion-item class="transparent-item" #street
+                                [class.invalid]="!user.street && validate.street">
+                                <ion-label position="floating">Calle <label class="requiered">*</label></ion-label>
+                                <ion-input type="text" maxlength="100" [(ngModel)]="user.street"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="ion-align-items-center ion-justify-content-center">
+                        <ion-col size="8" size-lg="6">
+                            <ion-item class="transparent-item" #betweenStreets>
+                                <ion-label position="floating">Entre Calles</ion-label>
+                                <ion-input type="text" maxlength="100" [(ngModel)]="user.betweenStreets"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="ion-align-items-center ion-justify-content-center">
+                        <ion-col size="4" size-lg="3">
+                            <ion-item class="transparent-item" #no [class.invalid]="!user.no && validate.no">
+                                <ion-label position="floating">Numero <label class="requiered">*</label></ion-label>
+                                <ion-input type="phone" maxlength="5" [(ngModel)]="user.no"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col size="4" size-lg="3">
+                            <ion-item class="transparent-item" #zipcode
+                                [class.invalid]="!user.zipCode && validate.zipCode">
+                                <ion-label position="floating">C. P. <label class="requiered">*</label></ion-label>
+                                <ion-input type="text" maxlength="5" [(ngModel)]="user.zipCode"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="ion-align-items-center ion-justify-content-center">
+                        <ion-col size="8" size-lg="6">
+                            <ion-item class="transparent-item" #neigh
+                                [class.invalid]="!user.neighborhood && validate.neighborhood">
+                                <ion-label position="floating">Colonia <label class="requiered">*</label></ion-label>
+                                <ion-input type="text" maxlength="50" [(ngModel)]="user.neighborhood"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="ion-align-items-center ion-justify-content-center">
+                        <ion-col size="8" size-lg="6">
+                            <ion-item class="transparent-item" #State 
+                                [class.invalid]="!user.idState && validate.idState">
+                                <!-- <ion-label position="floating">Estado <label class="requiered">*</label></ion-label>
+                                <ion-input type="text" [(ngModel)]="user.idState"></ion-input> -->
+                                <ion-label position="floating">Estado <label class="requiered">*</label></ion-label>
+                                <ion-select [(ngModel)]="user.idState" (ngModelChange)="onChangeState()">
+                                    <ion-select-option *ngFor="let option of lstStates" [value]="option.IdEstado">
+                                        {{ option.Nombre }}
+                                    </ion-select-option>
+                                </ion-select>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="ion-align-items-center ion-justify-content-center">
+                        <ion-col size="8" size-lg="6">
+                            <ion-item class="transparent-item" #city [class.invalid]="!user.city && validate.city">
+                                 <ion-label position="floating">Ciudad <label class="requiered">*</label></ion-label>
+                                <!-- <ion-input type="text" maxlength="50" [(ngModel)]="user.city"></ion-input>  -->
+                                <!-- <ion-label position="floating">Ciudad <label class="requiered">*</label></ion-label> -->
+                                <ion-select [(ngModel)]="user.city" [disabled]="user.idState === 0"> 
+                                    <ion-select-option *ngFor="let option of lstCitys" [value]="option.ClaveLocalidad">
+                                        {{ option.Nombre }}
+                                    </ion-select-option>
+                                </ion-select>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="ion-align-items-center ion-justify-content-center">
+                        <ion-col size="8" size-lg="6">
+                            <ion-item class="transparent-item" #municipality
+                                [class.invalid]="!user.municipality && validate.municipality">
+                                <ion-label position="floating">Delegación o Municipio <label
+                                        class="requiered">*</label></ion-label>
+                                <ion-input type="text" [(ngModel)]="user.municipality" [disabled]="!user.city"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                   
+                    <ion-row class="ion-align-items-center ion-justify-content-center">
+                        <ion-col size="8" size-lg="6">
+                            <ion-item class="transparent-item" #country
+                                [class.invalid]="!user.country&& validate.country">
+                                <ion-label position="floating">Pais <label class="requiered">*</label></ion-label>
+                                <ion-select [(ngModel)]="user.country">
+                                    <ion-select-option *ngFor="let option of lstCountrys" [value]="option.Abreviacion">
+                                        {{ option.NombrePais }}
+                                    </ion-select-option>
+                                </ion-select>
+                                <!-- <ion-label position="floating">Pais <label class="requiered">*</label></ion-label>
+                                <ion-input type="text" [(ngModel)]="user.country"></ion-input> -->
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="ion-align-items-center ion-justify-content-center">
+                        <ion-col size="8" size-lg="6">
+                            <ion-item class="transparent-item" #description>
+                                <ion-label position="floating">Datos Adicionales</ion-label>
+                                <ion-textarea [cols]="4" [rows]="4" maxlength="200" [(ngModel)]="user.description"
+                                    placeholder="Coloca alguna referencia de tu establecimiento para que tus clientes puedan identificarte"></ion-textarea>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class=" animated-text ion-align-items-center ion-justify-content-center">
+                        <ion-col size="8" size-lg="6">
+                            <ion-button color="dark" shape="round" (click)="continueBussinessData()">
+                                <div>Continuar </div>
+                                <ion-icon name="arrow-forward-outline"
+                                    class="ion-margin-start ion-align-items-center ion-text-center ion-justify-content-center ion-align-self-center"></ion-icon>
+                            </ion-button>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-slide>
+            <ion-slide style="height: 95% !important;">
+                <ion-grid style="height: 80%; width: 100%;" class="ion-padding-bottom">
+                    <ion-row class="ion-align-items-center ion-justify-content-center">
+                        <ion-col size-md="8" size-lg="6" class="ion-text-center">
+                            <p class="animated-top" style="font-size: 40px;"><strong>Datos de Envio</strong></p>
+                            <p class="animated-top">Cuenta a tus clientes si cuentas con un metodo de envio</p>
+
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="ion-align-items-center ion-justify-content-center ion-margin-top">
+                        <ion-col size="12" size-md="8" size-lg="6">
+                            <ion-label style="font-size: 18px;" position="floating"><strong>¿Cuenta con algún metodo de
+                                    envio a domicio?</strong></ion-label>
+                            <br>
+                            <ion-label style="text-align: justify;"><small>* Si no cuenta con un metodo de envio, pero
+                                    es posible que proximamente si, puede modificar después esta
+                                    información</small></ion-label>
+
+                            <ion-list #hasVehicle lines="none" style="background-color: transparent;">
+                                <ion-radio-group [(ngModel)]="user.hasVehicle">
+                                    <ion-item class="transparent-item" style="background-color: transparent;">
+                                        <ion-label>Si, cuento con envío</ion-label>
+                                        <ion-radio slot="start" [value]="true"></ion-radio>
+                                    </ion-item>
+
+                                    <ion-item class="transparent-item" style="background-color: transparent;">
+                                        <ion-label>No, no cuento con envío</ion-label>
+                                        <ion-radio slot="start" [value]="false"></ion-radio>
+                                    </ion-item>
+
+                                </ion-radio-group>
+                            </ion-list>
+
+                        </ion-col>
+
+                    </ion-row>
+                    <ion-row class="ion-align-items-center ion-justify-content-center" *ngIf="user.hasVehicle"
+                        style="animation: slideUp 0.2s ease-in-out;">
+                        <ion-col size="8" size-lg="6">
+                            <ion-item class="transparent-item" #Vehicl3
+                                [class.invalid]="!user.vehicleType && validate.vehicleType">
+                                <ion-label position="floating">¿Qué metodo de envio puedes ofrecer? <label
+                                        class="requiered">*</label></ion-label>
+                                <ion-select [(ngModel)]="user.vehicleType">
+                                    <ion-select-option *ngFor="let option of lstVehicles" [value]="option.vehicleType">
+                                        {{ option.vehicle }}
+                                    </ion-select-option>
+                                </ion-select>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="ion-align-items-center ion-justify-content-center"
+                        *ngIf="user.vehicleType === 4 && user.hasVehicle" style="animation: slideUp 0.2s ease-in-out;">
+                        <ion-col size="8" size-lg="6">
+                            <ion-item class="transparent-item">
+                                <ion-label position="floating">Especifique <label
+                                        class="requiered">*</label></ion-label>
+                                <ion-input type="text" [(ngModel)]="user.descriptionVehicle"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                    <!-- <div style="animation: slideUp 0.2s ease-in-out;" *ngIf="false" >
+                        <ion-row class="ion-align-items-center ion-justify-content-center"
+                            *ngIf="user.vehicleType === 1 || user.vehicleType === 2">
+                            <ion-col size="8" size-lg="6">
+                                <ion-item class="transparent-item">
+                                    <ion-label position="floating">Marca</ion-label>
+                                    <ion-input type="text" [(ngModel)]="user.brand"></ion-input>
+                                </ion-item>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row class="ion-align-items-center ion-justify-content-center"
+                            *ngIf="user.vehicleType === 1 || user.vehicleType === 2">
+                            <ion-col size="8" size-lg="6">
+                                <ion-item class="transparent-item">
+                                    <ion-label position="floating">Modelo</ion-label>
+                                    <ion-input type="text" [(ngModel)]="user.model"></ion-input>
+                                </ion-item>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row class="ion-align-items-center ion-justify-content-center"
+                            *ngIf="user.vehicleType === 1 || user.vehicleType === 2">
+                            <ion-col size="8" size-lg="6">
+                                <ion-item class="transparent-item">
+                                    <ion-label position="floating">Placas</ion-label>
+                                    <ion-input type="text" [(ngModel)]="user.plate"></ion-input>
+                                </ion-item>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row class="ion-align-items-center ion-justify-content-center"
+                            *ngIf="user.vehicleType === 1 || user.vehicleType === 2 || user.vehicleType === 3 ">
+                            <ion-col size="7" size-lg="5">
+                                <ion-item class="transparent-item">
+
+                                    <ion-label position="floating">Color</ion-label>
+                                    <ion-select placeholder="Colores" [(ngModel)]="user.color">
+                                        <ion-select-option value="red" style="color: red;">Rojo</ion-select-option>
+                                        <ion-select-option value="blue" style="color: blue;">Azul</ion-select-option>
+                                        <ion-select-option value="white"
+                                            style="color: white; background-color: #333;">Blanco</ion-select-option>
+                                        <ion-select-option value="green" style="color: green;">Verde</ion-select-option>
+                                        <ion-select-option value="orange"
+                                            style="color: orange;">Naranja</ion-select-option>
+                                        <ion-select-option value="purple"
+                                            style="color: purple;">Morado</ion-select-option>
+                                        <ion-select-option value="yellow"
+                                            style="color: yellow;">Amarillo</ion-select-option>
+                                    </ion-select>
+                                </ion-item>
+
+                            </ion-col>
+                            <ion-col size="1">
+                                <div class="color-box" [style.background-color]="user.color"></div>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row class="ion-align-items-center ion-justify-content-center"
+                            *ngIf="user.vehicleType === 1 || user.vehicleType === 2">
+                            <ion-col size="8" size-lg="6">
+                                <ion-item class="transparent-item">
+                                    <ion-label position="floating">Año</ion-label>
+                                    <ion-input type="number" [(ngModel)]="user.year" placeholder="2020"></ion-input>
+                                </ion-item>
+                            </ion-col>
+                        </ion-row>
+                    </div> -->
+
+
+                    <ion-row class="ion-align-items-center ion-justify-content-center ion-margin-top ion-text-center">
+                        <ion-col size="8" size-lg="6">
+                            <ion-button color="dark" shape="round" (click)="continueBussinessData()">
+                                <div>Continuar </div>
+                                <ion-icon name="arrow-forward-outline"
+                                    class="ion-margin-start ion-align-items-center ion-text-center ion-justify-content-center ion-align-self-center"></ion-icon>
+                            </ion-button>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="ion-align-items-center ion-justify-content-center ion-text-center">
+                        <p class="animated-top" style="text-align: justify;"><strong>Nota:</strong> ¡Los negocios que
+                            cuentan con un método de envío suelen tener más ventas!</p>
+                    </ion-row>
+
+                </ion-grid>
+            </ion-slide>
+            <ion-slide style="height: 95% !important;">
+                <ion-grid style="height: 80%; width: 100%;">
+                    <ion-row class="ion-align-items-center ion-justify-content-center">
+                        <ion-col size-md="8" size-lg="6" class="ion-text-center">
+                            <p class="animated-top" style="font-size: 40px;"><strong>Contacto</strong></p>
+                            <p class="animated-top">Proporciona información de tu negocio para que tus clientes puedan
+                                contactarte
+                            </p>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="ion-align-items-center ion-justify-content-center ion-margin-top">
+                        <ion-col size="8" size-lg="6">
+                            <ion-item class="transparent-item">
+                                <ion-label position="floating">Numero Telefonico</ion-label>
+                                <ion-input maxlength="10" type="number" [(ngModel)]="user.cellphone"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                    <ion-list class="transparent-item">
+                        <ion-item class="transparent-item" >
+                            <ion-buttons class="transparent-item" slot="end">
+                                <ion-button fill="clear" *ngIf="!showSocialMedia" (click)="showSocialMedia = true">
+                                    <ion-icon name="add-outline"></ion-icon>
+                                </ion-button>
+                                <ion-button fill="clear" *ngIf="showSocialMedia" (click)="showSocialMedia = false">
+                                    <ion-icon name="eye-off-outline"></ion-icon>
+                                </ion-button>
+                            </ion-buttons>
+                            <ion-label >Agregar Redes Sociales</ion-label> 
+                        </ion-item>
+                        <ion-item *ngFor="let socialMedia of socialMedia; let i = index" class="transparent-item">
+                            <ion-icon [name]="socialMedia.icon"></ion-icon>
+                            <ion-label class="ion-margin-start">{{ socialMedia.name }}</ion-label>
+                            <ion-label>{{ socialMedia.link }}</ion-label>
+                            <!-- <ion-button color="dark" shape="round" (click)="editarRedSocial(i)"><ion-icon name="create-outline"></ion-icon></ion-button> -->
+                            <ion-button color="dark" shape="round" style="color: red"
+                                (click)="eliminarRedSocial(i)"><ion-icon name="trash-outline"></ion-icon></ion-button>
+                        </ion-item>
+                    </ion-list>
+
+                    <ion-item *ngIf="showSocialMedia" class="transparent-item">
+                        <ion-label style="color: rgb(66, 66, 66)">Red Social</ion-label>
+                        <ion-select [(ngModel)]="selectedSocialMedia">
+                            <ion-select-option value="whatsapp">Whatsapp</ion-select-option>
+                            <ion-select-option value="facebook">Facebook</ion-select-option>
+                            <ion-select-option value="twitter">X (Twitter)</ion-select-option>
+                            <ion-select-option value="instagram">Instagram</ion-select-option>
+                            <ion-select-option value="tiktok">Tik Tok</ion-select-option>
+                            <ion-select-option value="google">Google</ion-select-option>
+                            <ion-select-option value="globe">Web</ion-select-option>
+                        </ion-select>
+                    </ion-item>
+
+                    <ion-item *ngIf="showSocialMedia" class="transparent-item">
+                        <ion-label style="color: rgb(66, 66, 66)">{{selectedSocialMedia === 'whatsapp' ? 'Numero' :
+                            'Usuario'}}</ion-label>
+                        <ion-input maxlength="15" *ngIf="selectedSocialMedia !== 'whatsapp'"
+                            placeholder="Nombre de usuario" [(ngModel)]="nameSocialMedia"></ion-input>
+                        <ion-input maxlength="15" *ngIf="selectedSocialMedia === 'whatsapp'"
+                            placeholder="Numero de Whatsapp" [(ngModel)]="nameSocialMedia"></ion-input>
+                    </ion-item>
+
+                    <ion-item *ngIf="showSocialMedia && (selectedSocialMedia && selectedSocialMedia !== 'whatsapp')">
+                        <ion-label style="color: rgb(66, 66, 66)">Enlace</ion-label>
+                        <ion-input placeholder="Enlace" [(ngModel)]="linkSocialMedia"></ion-input>
+                    </ion-item>
+
+                    <ion-button color="dark" fill="outline" shape="round" *ngIf="showSocialMedia"
+                        (click)="addSocialMedia()">Agregar Red Social</ion-button>
+
+
+                    <ion-row class="ion-align-items-center ion-justify-content-center ion-margin-top ion-text-center">
+                        <ion-col size="8" size-lg="6">
+                            <ion-button color="dark" (click)="registerNewUser()">
+                                <div>Registrarse</div>
+                                <!-- <ion-icon name="arrow-forward-outline" class="ion-margin-start ion-align-items-center ion-text-center ion-justify-content-center ion-align-self-center"></ion-icon> -->
+                            </ion-button>
+                        </ion-col>
+                        <p class="animated-top" style="text-align: justify;"><strong>Nota:</strong> ¡Contar con una red
+                            social ayuda a que tus clientes tengan más confianza!</p>
+                    </ion-row>
+
+                </ion-grid>
+            </ion-slide>
+        </ion-slides>
+    </div>
+    <div class="floating-balls">
+        <ion-icon name="ellipse" style="opacity: 90%; transition: color 0.1s, opacity 0.1s;"
+            *ngFor="let ball of balls; let i = index"
+            [ngStyle]="{ 'color': i === actualIndex ? 'darkcyan' : 'black' }"></ion-icon>
+    </div>
+
+
+
+    <!-- </ion-scroll> -->
+
+</ion-content>
+
+
+
+<ion-content fullscreen="true" class="ion-padding" scrollbar="true" *ngIf="!start">
+    <div class="background">
+
+        <div class="circleYellow low-purple animated-left "></div>
+
+        <div class="circleBlue purple animated-left"></div>
+        <div #img class="circleImage animated-left ">
+            <img src="..//..//../..//assets//Images//food-delivery-start.jpeg" alt="">
+        </div>
+        <!-- <div class="ion-margin-start">
+            
+        </div> -->
+        <ion-grid class="startgrid">
+            <ion-row>
+                <ion-col size="12">
+                    <p class="animated-text" style="font-size: 50px;"><strong>Empecemos</strong></p>
+                    <p class="animated-text" style="font-size: 25px;">
+                        Antes de empezar a cocinar, necesitamos de algunos datos para que tus clientes puedan
+                        encontrarte más facil
+                    </p>
+                </ion-col>
+            </ion-row>
+            <!--  -->
+            <ion-row class="ion-align-items-center ion-justify-content-center animated-text">
+                <ion-col size="12" class="ion-text-center">
+                    <ion-button size="large" color="dark" shape="round" [disabled]="block" (click)="start = !start"
+                        routerLinkActive="active">
+                        <div>Empezar</div>
+                        <ion-icon name="arrow-forward-outline"
+                            class="ion-margin-start ion-align-items-center ion-text-center ion-justify-content-center ion-align-self-center"></ion-icon>
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+
+</ion-content>

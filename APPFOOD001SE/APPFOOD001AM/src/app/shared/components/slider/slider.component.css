@@ -1,0 +1,25 @@
+.slider {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .slider-content {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .slide {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    border: 1px solid #ccc;
+  }
+  
+  .slider-controls {
+    margin-top: 10px;
+  
+    button {
+      margin-right: 10px;
+    }
+  }
+  

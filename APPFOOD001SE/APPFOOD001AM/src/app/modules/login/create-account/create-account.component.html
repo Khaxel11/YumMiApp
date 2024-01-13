@@ -1,0 +1,87 @@
+
+
+
+<ion-content class="ion-padding" >
+    <div class="background fade-in-out">
+         <div class="circleYellow " style="opacity: 50%;"></div>
+         <div class="circleBlue " style="opacity: 50%;"></div>
+     </div>
+     <ion-grid class="ion-align-items-center ion-justify-content-center grid-c" >
+     <!-- <ion-row style="margin-top: 40%;"></ion-row> -->
+     <ion-row class="ion-align-items-center ion-justify-content-center ion-margin-top ion-text-center">
+        <ion-col size="12" style="font-size: 20px;">
+            <strong>Registro</strong>
+        </ion-col>
+     </ion-row>
+     <ion-row  class="ion-align-items-center ion-justify-content-center ion-margin-top">
+        <!-- <ion-row class="ion-align-items-center ion-justify-content-center"> -->
+        <ion-col size="10" size-lg="10">
+            <ion-item class="transparent-item" #username [class.invalid]="(!user.userName && validate.username) || !validUsername ">
+                <ion-label position="floating">Nombre de Usuario <label class="requiered">*</label></ion-label>
+                <ion-input [required]="true" type="text" maxlength="10" (input)="onInput($event)" (change)="validateUsername()" [(ngModel)]="user.userName"
+                    [autofocus]="true"
+                    [clearOnEdit]="true" placeholder="Crea un nombre de usuario"
+                ></ion-input>
+                
+            </ion-item>
+            <ion-note *ngIf="mensaje" class="ion-padding-start" [class.invalid]="!validUsername" [class.valid]="validUsername"><small>{{mensaje}}</small></ion-note>
+        </ion-col>
+        <!-- </ion-row> -->
+    </ion-row>
+     <ion-row class="ion-align-items-center ion-justify-content-center">
+        <ion-col size="10" size-lg="10">
+            <ion-item  class="transparent-item" #email [class.invalid]="(!user.email && validate.email) || validate.email">
+                <ion-label position="floating">Correo</ion-label>
+                <ion-input class=" visible-input" type="email" placeholder="ejemplo@gmail.com"
+                [(ngModel)]="user.email"
+                ></ion-input>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-align-items-center ion-justify-content-center">
+        <ion-col size="10" size-lg="10">
+            <ion-item class="transparent-item" #password [class.invalid]="!user.password && validate.password ">
+                <ion-label position="floating">Contraseña</ion-label>
+                <ion-input type="password" (input)="onInputChange($event)"  (ionBlur)="blurPassword()" [clearInput]="true" placeholder="*****" [clearOnEdit]="true"
+                [(ngModel)]="user.password"></ion-input>
+             </ion-item>
+             <ion-note class="ion-margin-start" *ngIf="uppActivaded">* Mayusculas Activadas</ion-note>
+        </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center ion-justify-content-center">
+        <ion-col size="10" size-lg="10">
+            <ion-item class="transparent-item" #confirmpass [class.invalid]="!confirmPassword && validPassword " >
+                <ion-label position="floating">Confirmar Contraseña</ion-label>
+                <ion-input type="password" (input)="onInputChange($event)" [clearInput]="true" placeholder="*****" [clearOnEdit]="true"
+                [(ngModel)]="confirmPassword"></ion-input>
+             </ion-item>
+        </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center ion-justify-content-center" *ngIf="!validatePassword() && confirmPassword || pwMessage">
+        <ion-col size="10" size-lg="10">
+          <ion-text color="danger" class="ion-padding-start"><strong>{{pwMessage}}</strong></ion-text>
+        </ion-col>
+      </ion-row>
+    <ion-row class="ion-align-items-center ion-justify-content-center ion-margin-top">
+        <ion-col size="10" class="ion-text-center">
+            <ion-button shape="round" color="dark"  (click)="register()" routerLinkActive="active" routerDirection="back">
+                Crear Cuenta
+            </ion-button>
+        </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center ion-justify-content-center">
+        <ion-col size="10" size-lg="10" class="ion-text-center">
+            <ion-button  expand="block" fill="clear" shape="round">
+                <ion-icon name="logo-google"></ion-icon><div class="ion-margin-start">Continuar con Google</div>
+            </ion-button>
+        </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center ion-justify-content-center">
+        <ion-col size="10" class="ion-text-center" >
+                    <small class="forgotPass" routerLink="" routerDirection="back">¿Ya tienes una cuenta? ¡Inicia Sesión!</small>
+        </ion-col>
+    </ion-row>
+</ion-grid>
+   </ion-content>
+   

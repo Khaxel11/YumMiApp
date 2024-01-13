@@ -1,0 +1,116 @@
+
+<!-- <ion-toolbar> -->
+    <!-- <div class="curved-header" > -->
+        <!-- <ion-title style="color:black">
+            Food Delivery App
+        </ion-title> -->
+    <!-- </div> -->
+    
+<!-- </ion-toolbar> -->
+
+
+<!-- <ion-fab vertical="top" horizontal="top" slot="fixed"  style="width: 100px; height: 100px;  border-radius: 50%;">
+    <ion-fab-button color="#fffff" class="my-custom-fab-button" style="width: 100%; height: 100%;">
+      <img [src]="img_User" alt="User Image" s>
+    </ion-fab-button>
+  </ion-fab>
+   -->
+
+<ion-content [fullscreen]="true" class="ion-padding" scrollbar="true">
+    
+    <ion-grid style="margin-top: 10%;">
+     <ion-row class="ion-align-items-center ion-justify-content-center ">
+        <ion-col size="12" class="ion-text-center">
+            <button class="my-custom-button" class="ion-margin-top my-custom-image" style="width: 100px; height: 100px;  border-radius: 50%;">
+                <img [src]="img_User" alt="User Image" class="" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+              </button>
+        </ion-col>
+     </ion-row>   
+     <!-- <ion-row class="ion-align-items-center ion-justify-content-center ion-margin-top">
+        <ion-col size="12">
+          <button class="my-custom-button" style="width: 100px; height: 100px;  border-radius: 50%;">
+            <img [src]="img_User" alt="User Image" class="my-custom-image" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+          </button>
+        </ion-col>
+      </ion-row> -->
+      
+    <ion-row class="ion-align-items-center ion-justify-content-center ion-margin-top" >
+        <ion-col size="10">
+            <ion-row>
+                <ion-col size="12">
+                    <ion-item>
+                        <ion-label position="floating">Usuario</ion-label>
+                        <ion-input required #usernameInput class="custom-input" [(ngModel)]="userName" >
+                        </ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label position="floating">Contraseña</ion-label>
+                        <ion-input type="password" [(ngModel)]="password" (input)="onInputChange($event)" (keyup.enter)="clickToLogin()"></ion-input>
+                    </ion-item>
+                    <ion-note class="ion-margin-start" *ngIf="uppActivaded">* Mayusculas Activadas</ion-note>
+                </ion-col>
+            </ion-row>
+
+            <ion-row >
+                <ion-col size="7" class="ion-align-items-center">
+                    <ion-checkbox size="small" [(ngModel)]="stayConected" labelPlacement="end"></ion-checkbox>
+                    <small class="forgotPass" style="margin-left: 5px;">Permanecer Conectado</small>
+                  </ion-col>
+                <ion-col size="5" class="ion-text-right">
+                    <small class="forgotPass">Olvidé mi contraseña</small>
+                </ion-col>
+            </ion-row>
+        </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-align-items-center ion-justify-content-center">
+        <ion-col size="10" class="ion-text-center">
+            <ion-button class="btn" shape="round"  (click)="clickToLogin()" [disabled]="!userName || !password">
+                Iniciar Sesión
+            </ion-button>
+        </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center ion-justify-content-center">
+        <ion-col size="10" class="ion-text-center" >
+                    <small class="forgotPass" routerLink="/register" routerLinkActive="active">¿No tienes una cuenta? ¡Registrate Ahora!</small>
+        </ion-col>
+    </ion-row>
+</ion-grid>
+
+
+    <ion-grid >
+        <ion-row class="justify-content-center align-items-center ion-margin-top card" >
+            <ion-col size="12">
+                <ion-card>
+                    <ion-card-header>
+                        <ion-card-title>¿Qué es?</ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content>
+                        <p>Conoce más acerca de nuestros servicios y los beneficios de formar parte</p>
+                        <ion-button  expand="block" fill="clear" shape="round">
+                            Conoce más <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </ion-button>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-grid>
+        <ion-row class="justify-content-center align-items-center card" >
+            <ion-col size="12">
+                <ion-card>
+                    <ion-card-header>
+                        <ion-card-title>Preguntas Frecuentes</ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content>
+                        <p>¿Necesitas ayuda?, obten todas tus respuestas y comunicate con nosotros</p><i class="fas fa-save "></i>
+                        <ion-button  expand="block" fill="clear" shape="round">
+                            Ver <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </ion-button>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

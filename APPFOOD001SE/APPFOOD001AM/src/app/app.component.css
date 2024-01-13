@@ -1,0 +1,37 @@
+/* app.component.scss */
+
+:host {
+    display: block;
+  }
+  
+  router-outlet {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .fade-in-out {
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .fade-in-out.ng-enter,
+  .fade-in-out.ng-leave-to {
+    opacity: 0;
+  }
+  
+  .fade-in-out.ng-enter-to,
+  .fade-in-out.ng-leave {
+    opacity: 1;
+  }
+  
+
+  /* src/styles.scss o src/global.scss */
+ 
+  
+  /* :root {
+    --ion-font-family: 'Work Sans', sans-serif;
+  }
+   */
+  /* Otros estilos globales de la aplicación */
+  

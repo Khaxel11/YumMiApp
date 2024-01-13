@@ -1,0 +1,29 @@
+<ion-content class="ion-text-center" style="height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+  <ion-fab vertical="top" horizontal="top" slot="fixed" class="ion-margin-top" style="width: 100px; height: 100px;" *ngIf="img">
+    <ion-fab-button color="#fffff" class="my-custom-fab-button" style="width: 100%; height: 100%;">
+      <img [src]="img" alt="User Image" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+    </ion-fab-button>
+  </ion-fab>
+  <!-- <img src="../../../../assets//Images/ToyFaces_Tansparent_BG_29 (1).png" alt=""> -->
+  <img class="ima2" src="../../../../assets/Images/ToyFaces_Tansparent_BG_29 (1).png" />
+  <img class="ima1" src="../../../../assets/Images//ToyFaces_Tansparent_BG_49 (1).png" />
+  <div class="st1"></div>
+
+  <div class="loading-text" slot="fixed" style="margin-bottom: 40%;" >
+    {{username}}
+  </div>
+
+  <div class="loading-container">
+    <ion-spinner></ion-spinner>
+    <p class="loading-text">
+      <span>C</span>
+      <span>a</span>
+      <span>r</span>
+      <span>g</span>
+      <span>a</span>
+      <span>n</span>
+      <span>d</span>
+      <span>o</span>
+    </p>
+  </div>
+</ion-content>

@@ -1,0 +1,232 @@
+<!-- Tienes que agregar forma en el routing para hacerle referecia -->
+
+<!-- <ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Inicio</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+
+<ion-content id="main-menu" >
+  
+  <!-- <ion-header [class.hide-header]="isHeaderHidden"  translucent="true"> -->
+    <ion-toolbar class="toolHeader" id="main-content">
+      <ion-buttons slot="start" style="position: fixed;">
+        <ion-menu-button class="buttonImgProfile">
+          <img class="userImg" [src]="UserJwt.picture" alt="User Image">
+          <!-- <div class="mini-bubble">{{countNotification}}</div> -->
+        </ion-menu-button>
+      </ion-buttons>
+      <ion-title class="ion-text-center tittleMaster">
+        <ion-icon class="ion-align-items-center ion-justify-content-center iconHouse"
+          name="storefront-outline"></ion-icon>
+        <strong class="nameEstablecimiento">
+  
+          {{LogUser.nombreEstablecimiento}}
+        </strong>
+      </ion-title>
+      <ion-buttons slot="end" style="position: relative;">
+        <ion-button class="buttonImgNotif" (click)="openMdlNotificacion()">
+          <!-- <img class="userNotif" [src]="UserJwt.picture" alt="User Image"> -->
+          <ion-icon name="notifications-outline"></ion-icon>
+          <div class="mini-bubble" *ngIf="countNotification !== 0">{{countNotification}}</div>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  
+  <!-- </ion-header> -->
+
+  <div class="content-val">
+    <main-slider></main-slider>
+  </div>
+ 
+
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="receipt-outline">
+        <ion-icon name="receipt-outline"></ion-icon>
+  
+      </ion-tab-button>
+  
+      <ion-tab-button tab="calendar-outline">
+        <ion-icon name="calendar-outline"></ion-icon>
+  
+      </ion-tab-button>
+      <ion-tab-button tap="home">
+        <ion-icon name="home-outline"></ion-icon>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="fast-food-outline">
+        <ion-icon name="fast-food-outline"></ion-icon>
+  
+      </ion-tab-button>
+      <ion-tab-button tab="stats-chart-outline">
+        <ion-icon name="trophy-outline"></ion-icon>
+  
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+  
+</ion-content>
+
+
+<!-- Foot -->
+
+
+<!-- 
+<ion-menu contentId="main-content" side="start">
+
+  <ion-content>
+    <div>
+      <h3>Hola</h3>
+      <h1><strong>{{UserJwt.username}}</strong></h1>
+    </div>
+    <ion-list lines="none">
+      <ion-item >
+     
+        
+      </ion-item>
+    </ion-list>
+    <ion-card >
+      <ion-card-content>
+        <ion-grid>
+          <ion-row >
+            <ion-col size="4" class="ion-text-center">
+              <ion-button fill="" class="round-button" >
+                <ion-icon name="person"></ion-icon>
+              </ion-button>
+              <div class="small-text-justify">Datos de perfil</div>
+            </ion-col>
+            <ion-col size="4" class="ion-text-center" >
+              <ion-button class="round-button">
+                <ion-icon name="help"></ion-icon>
+                
+              </ion-button>
+              <div class="small-text-justify">Centro de ayuda</div>
+            </ion-col>
+            <ion-col size="4" class="ion-text-center">
+              <ion-button class="round-button">
+                <ion-icon name="time"></ion-icon>
+                
+              </ion-button>
+              <div class="small-text-justify">Historial de pedidos</div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card  color="light">
+      <ion-card-content>
+        <div class="metadata-end-wrapper" slot="start">
+          Conoce los <strong>beneficios exclusivos</strong> que tenemos para ti como cocinero
+        </div>
+        
+      </ion-card-content>
+      
+    </ion-card>
+    <ion-grid class="fullgrid">
+      <ion-row>
+        <ion-col size="12">
+          <div class="metadata-end-wrapper">
+            <ion-item lines="none">
+              <ion-label color="medium" style="font-size: 18px;"> Food Hubs </ion-label>
+              <ion-icon color="medium" slot="end" name="chevron-forward-outline"></ion-icon>
+            </ion-item>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row class="list">
+        <ion-col size="12">
+          <ion-list  [inset]="true">
+            <ion-item class="itembtn">
+              <ion-icon type="full" name="storefront-outline" slot="start" size="small" color="medium" class="ion-margin-end"></ion-icon>
+              <ion-label color="medium">Ver Food Hubs</ion-label>
+            </ion-item>
+            <ion-item class="itembtn">
+              <ion-icon type="full" name="storefront-outline" slot="start" size="small" color="medium" name="settings-outline"></ion-icon>
+              <ion-label color="medium">Configurar Food Hubs</ion-label>
+            </ion-item>
+          </ion-list>  
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <div class="metadata-end-wrapper">
+            <ion-item lines="none">
+              <ion-label color="medium" style="font-size: 18px;"> Productos </ion-label>
+              <ion-icon color="medium" slot="end" name="chevron-forward-outline"></ion-icon>
+            </ion-item>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row class="list">
+        <ion-col size="12">
+          <ion-list  [inset]="true">
+            <ion-item class="itembtn">
+              <ion-icon type="full" name="fast-food-outline" slot="start" size="small" color="medium" class="ion-margin-end"></ion-icon>
+              <ion-label color="medium">Ver mis productos</ion-label>
+            </ion-item>
+            <ion-item class="itembtn">
+              <ion-icon type="full" name="cash-outline" slot="start" size="small" color="medium"></ion-icon>
+              <ion-label color="medium">Promociones</ion-label>
+            </ion-item>
+          </ion-list>  
+        </ion-col>
+      </ion-row>
+      
+    </ion-grid>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <div class="metadata-end-wrapper">
+            <ion-item lines="none">
+              <ion-label color="medium" style="font-size: 18px;"> Mi perfil </ion-label>
+              <ion-icon color="medium" slot="end" name="chevron-forward-outline"></ion-icon>
+            </ion-item>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row class="list">
+        <ion-col size="12">
+          <ion-list  [inset]="true">
+            <ion-item class="itembtn">
+              <ion-icon type="full" name="home-outline" slot="start" size="small" color="medium" class="ion-margin-end"></ion-icon>
+              <ion-label color="medium">Ver establecimiento</ion-label>
+            </ion-item>
+            <ion-item class="itembtn">
+              <ion-icon type="full" name="trophy-outline" slot="start" size="small" color="medium" ></ion-icon>
+              <ion-label color="medium">Recompensas</ion-label>
+            </ion-item>
+            <ion-item class="itembtn">
+              <ion-icon type="full" name="mail-outline" slot="start" size="small" color="medium" ></ion-icon>
+              <ion-label color="medium">Mensajes</ion-label>
+            </ion-item>
+          </ion-list>  
+        </ion-col>
+      </ion-row>
+      
+    </ion-grid>
+    <ion-grid>
+      
+      <ion-row class="list">
+        <ion-col size="12">
+          <ion-list  [inset]="true">
+            <ion-item class="itembtn">
+              <ion-icon name="log-out-outline" slot="start" size="small" color="medium" class="ion-margin-end"></ion-icon>
+              
+              <ion-label color="medium">Cerrar Sesion</ion-label>
+            </ion-item>
+            
+          </ion-list>  
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+</ion-menu> -->
+<app-menu-start #menu></app-menu-start>

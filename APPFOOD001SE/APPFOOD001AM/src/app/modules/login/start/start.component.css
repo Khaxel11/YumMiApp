@@ -1,0 +1,156 @@
+/* loading-screen.component.scss */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background: linear-gradient(45deg, #405de6, #5851db, #f56040, #ff9f40);
+  /* Colores iniciales */
+  background-size: 600% 600%;
+  animation: gradientAnimation 10s ease infinite;
+  /* Duración de la animación */
+}
+
+.circleImage {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  position: absolute;
+  margin-left: 34%;
+  margin-top: 7%;
+}
+
+ion-spinner {
+  color: white;
+  animation: spin 1s infinite linear;
+}
+
+.loading-text {
+  font-size: 1.5em;
+  display: flex;
+  color: white
+}
+
+.loading-text span {
+  opacity: 0;
+  animation: fadeInUp 1s ease-in-out infinite alternate;
+}
+
+.loading-text span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.loading-text span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.loading-text span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.loading-text span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.loading-text span:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.loading-text span:nth-child(6) {
+  animation-delay: 0.5s;
+}
+
+.loading-text span:nth-child(7) {
+  animation-delay: 0.6s;
+}
+
+.loading-text span:nth-child(8) {
+  animation-delay: 0.7s;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeInUp {
+
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(10px);
+  }
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+ion-fab {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.my-custom-fab-button {
+  width: 100px;
+  height: 100px;
+  font-size: 24px;
+}
+
+.ima2 {
+  width: 225.398px;
+  height: 298.541px;
+  transform: rotate(8.568deg);
+  flex-shrink: 0;
+  position: fixed;
+  bottom: 10%;
+  transform: translate(10%, 50%);
+  /* position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  justify-content: center; */
+}
+
+.ima1 {
+  width: 358.10px;
+  height: 434.36px;
+  position: fixed;
+  bottom: 10%;
+  transform: translate(-80%, 30%);
+    /* transform-origin: 0 0 */
+}
+
+/* .st1 {
+  width: 394px;
+  height: 195px;
+  background: linear-gradient(180deg, rgba(255, 71, 11, 0.10) 0%, #FF470B 100%);
+  box-shadow: 30px 30px 30px;
+  transform: translate(0%, 350%);
+  filter: blur(30px);
+  position: fixed;
+} */

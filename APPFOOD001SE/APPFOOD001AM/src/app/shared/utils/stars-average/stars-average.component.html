@@ -1,0 +1,26 @@
+    <div class="promedio">
+        <label class="totalCal">
+            {{ prom() }}
+        </label>
+        <stars-cs [stars]="prom()" [showStars]="false"></stars-cs>
+        <label class="total">
+            {{ calificaciones.length }}
+        </label>
+    </div>
+    <div class="starcont">
+        <ng-container *ngFor="let category of [5, 4, 3, 2, 1]">
+          <div class="cal-category">
+            <div class="cal">
+                <!-- {{ countCalificacionesByCategory(category) }} -->
+                {{category}}
+            </div>
+            <div class="container">
+                <div class="star-bar" [style.width.%]="(countCalificacionesByCategory(category) / calificaciones.length) * 100"></div>
+
+            </div>
+          </div>
+        </ng-container>
+      </div>
+      
+    
+  

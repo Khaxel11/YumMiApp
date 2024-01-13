@@ -1,0 +1,56 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Mis Productos</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="padding">
+  
+   
+    <div style="height: 100%;">
+      <ion-grid >
+        <ion-row class="rowBento">
+          <ion-col size="6" *ngFor="let platillo of platillos">
+            
+            <ion-card class="animated-top" class="cardMargin" (click)="showProductDetails(platillo)">
+              
+              <div class="card-content">
+                <div class="image-container">
+                  <img [src]="platillo.imagen" class="imagen-platillo" />
+                </div>
+                <div class="textContainer">
+                  <ion-card-header>
+                    <ion-card-title>{{ platillo.nombre }}</ion-card-title>
+                  </ion-card-header>
+                  <ion-card-content>
+                    {{ platillo.descripcion }}
+                  </ion-card-content>
+                </div>
+              </div>
+            </ion-card>
+            
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+        <ion-fab-button (click)="goToCapture()">
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+    </div>
+
+    <!-- <ion-item class="productAction ion-text-center ion-align-self-center">
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="12" class="ion-text-center">
+            
+            <ion-button class="round-button ion-text-center" size="default" color="dark" fill="outline" shape="round">
+              <ion-icon name="add-outline"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+     
+     </ion-item> -->
+
+ 
+  </ion-content>

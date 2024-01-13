@@ -1,0 +1,73 @@
+.transparent-item {
+    --background: transparent !important;
+    border: none; 
+}
+
+.underline-label {
+    color: #000;
+    border-bottom: 1px solid #000;
+}
+
+.visible-input {
+    --background: transparent !important;
+    --border: none !important;
+    color: #000;
+    caret-color: #000;
+}
+
+
+
+.circleYellow {
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    position: absolute;
+    margin-left: -250px;
+    margin-top: -100px;
+    background: #c3260b;
+  }
+  
+ 
+  
+  .circleBlue {
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    position: absolute;
+    margin-left: 150px;
+    margin-top: 500px;
+    background: #9b1f11;
+  }
+  
+  .green {
+    background: green;
+  }
+  .transparent {
+    background: rgba(204, 35, 35, 0.925) !important;
+    }
+
+ 
+
+    .background {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      overflow: auto; /* Cambiado de 'hidden' a 'auto' */
+      background: #FF4B3A;
+  }
+  .grid-c {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 10%;
+    -webkit-box-shadow: -8px 8px 17px -3px rgba(0,0,0,0.63);
+    -moz-box-shadow: -8px 8px 17px -3px rgba(0,0,0,0.63);
+    box-shadow: -8px 8px 17px -3px rgba(0,0,0,0.63);
+  }
+  
