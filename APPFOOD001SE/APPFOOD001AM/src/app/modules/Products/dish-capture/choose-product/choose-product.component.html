@@ -11,16 +11,25 @@
         <div class="slot"></div>
       </div>
     </div>
-      <div class="containerFull" #slide1 hidden >
-        <ion-item class="transparent-item" #typeOf>
-          <ion-card-subtitle>¿Qué vas a capturar?<label class="requiered">*</label></ion-card-subtitle>
-          <ion-label position="floating">Selecciona que vas a capturar </ion-label>
-          <ion-select>
-            <ion-select-option *ngFor="let option of lstTypeof" [value]="option.tipo">
-              {{ option.nombre }}
-            </ion-select-option>
-          </ion-select>
-        </ion-item>
+      <div class="containerFull" #slide1  >
+        
+          
+          
+          <div class="container">
+            <h5>¿Qué vas a capturar?<label class="requiered">*</label></h5>
+            <ion-card *ngFor="let option of lstTypeof; let i = index"  [(ngModel)]="product.idTipo" >
+              <div [@fade]="in">
+                <ion-card-header>
+                  <ion-card-title>{{option.NombreTipo}}</ion-card-title>
+                  <div class="description">{{option.Descripcion}}</div>
+                </ion-card-header>
+                <ion-card-content>
+                  <img [src]="imagenBase64(option.Foto)" slot="start">
+                </ion-card-content>
+              </div>
+              
+            </ion-card>
+          </div>
         <ion-item>
           <ion-card-subtitle>¿Es de un grupo de alimentación en especifico?<label class="requiered">*</label></ion-card-subtitle>
           <ion-label position="floating">Selecciona Grupo</ion-label>
@@ -36,15 +45,7 @@
         <ion-item class="transparent-item" #typeOf>
          
         </ion-item>
-        <ion-item fill="outline" mode="md">
-          <ion-label position="stacked">Username</ion-label>
-          <ion-input
-            type="email"
-            
-            required
-            autofocus
-          ></ion-input>
-        </ion-item>
+        
       </div>
   </ion-card>
   <div class="containerBtn">
