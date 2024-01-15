@@ -26,7 +26,6 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              
               {
                 "glob": "**/*.svg",
                 "input": "node_modules/ionicons/dist/ionicons/svg",
@@ -137,7 +136,6 @@
             "styles": [
               "src/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
-
             ],
             "scripts": []
           }
@@ -180,9 +178,11 @@
             }
           }
         }
-       
       }
     }
   },
-  "defaultProject": "food-delivery-app"
+  "defaultProject": "food-delivery-app",
+  "cli": {
+    "analytics": false
+  }
 }

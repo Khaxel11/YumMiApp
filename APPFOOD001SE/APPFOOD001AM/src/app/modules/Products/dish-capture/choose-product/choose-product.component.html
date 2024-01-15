@@ -1,3 +1,55 @@
-<p>
-  choose-product works!
-</p>
+<ion-content >
+  
+  
+  <ion-card class="fullCard">  
+    <div class="containerSloter">
+      <div class="sloter">
+        <div class="slot selected"></div>
+        <div class="slot"></div>
+        <div class="slot"></div>
+        <div class="slot"></div>
+        <div class="slot"></div>
+      </div>
+    </div>
+      <div class="containerFull" #slide1 hidden >
+        <ion-item class="transparent-item" #typeOf>
+          <ion-card-subtitle>¿Qué vas a capturar?<label class="requiered">*</label></ion-card-subtitle>
+          <ion-label position="floating">Selecciona que vas a capturar </ion-label>
+          <ion-select>
+            <ion-select-option *ngFor="let option of lstTypeof" [value]="option.tipo">
+              {{ option.nombre }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-card-subtitle>¿Es de un grupo de alimentación en especifico?<label class="requiered">*</label></ion-card-subtitle>
+          <ion-label position="floating">Selecciona Grupo</ion-label>
+          <ion-select>
+            <ion-select-option *ngFor="let option of lstAlimentacion" [value]="option.tipo">
+              {{ option.nombre }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>    
+      </div>
+
+      <div class="containerFull" #slide1>
+        <ion-item class="transparent-item" #typeOf>
+         
+        </ion-item>
+        <ion-item fill="outline" mode="md">
+          <ion-label position="stacked">Username</ion-label>
+          <ion-input
+            type="email"
+            
+            required
+            autofocus
+          ></ion-input>
+        </ion-item>
+      </div>
+  </ion-card>
+  <div class="containerBtn">
+    <ion-button fill="outline" shape="round" color="dark" expand="block">
+      Continuar
+    </ion-button>
+  </div>
+</ion-content>

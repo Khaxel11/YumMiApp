@@ -11,18 +11,18 @@ export class DishCatalogComponent implements OnInit {
   selectedProduct: any;
 
   platillos = [
-    { nombre: 'Platillo 1', descripcion: 'Descripción del platillo 1', imagen: '../../../../assets/Images/blackpink.jpg' },
-    { nombre: 'Platillo 2', descripcion: 'Descripción del platillo 2', imagen: '../../../../assets/Images/genshin.jpeg' },
-    { nombre: 'Platillo 3', descripcion: 'Descripción del platillo 3', imagen: '../../../../assets/Images/zeri.jpg' },
-    { nombre: 'Platillo 3', descripcion: 'Descripción del platillo 3', imagen: '../../../../assets/Images/mencho.png' },
-    { nombre: 'Platillo 1', descripcion: 'Descripción del platillo 1', imagen: '../../../../assets/Images/blackpink.jpg' },
-    { nombre: 'Platillo 2', descripcion: 'Descripción del platillo 2', imagen: '../../../../assets/Images/genshin.jpeg' },
-    { nombre: 'Platillo 3', descripcion: 'Descripción del platillo 3', imagen: '../../../../assets/Images/zeri.jpg' },
-    { nombre: 'Platillo 3', descripcion: 'Descripción del platillo 3', imagen: '../../../../assets/Images/mencho.png' },
-    { nombre: 'Platillo 1', descripcion: 'Descripción del platillo 1', imagen: '../../../../assets/Images/blackpink.jpg' },
-    { nombre: 'Platillo 2', descripcion: 'Descripción del platillo 2', imagen: '../../../../assets/Images/genshin.jpeg' },
-    { nombre: 'Platillo 3', descripcion: 'Descripción del platillo 3', imagen: '../../../../assets/Images/zeri.jpg' },
-    { nombre: 'Platillo 3', descripcion: 'Descripción del platillo 3', imagen: '../../../../assets/Images/mencho.png' },
+    { nombre: 'Platillo 1', descripcion: 'Descripción del platillo 1', imagen: '../../../../assets/Images/gato.jpg' },
+    { nombre: 'Platillo 1', descripcion: 'Descripción del platillo 1', imagen: '../../../../assets/Images/gato.jpg' },
+    { nombre: 'Platillo 1', descripcion: 'Descripción del platillo 1', imagen: '../../../../assets/Images/gato.jpg' },
+    { nombre: 'Platillo 1', descripcion: 'Descripción del platillo 1', imagen: '../../../../assets/Images/gato.jpg' },
+    { nombre: 'Platillo 1', descripcion: 'Descripción del platillo 1', imagen: '../../../../assets/Images/gato.jpg' },
+    { nombre: 'Platillo 1', descripcion: 'Descripción del platillo 1', imagen: '../../../../assets/Images/gato.jpg' },
+    { nombre: 'Platillo 1', descripcion: 'Descripción del platillo 1', imagen: '../../../../assets/Images/gato.jpg' },
+    { nombre: 'Platillo 1', descripcion: 'Descripción del platillo 1', imagen: '../../../../assets/Images/gato.jpg' },
+    { nombre: 'Platillo 1', descripcion: 'Descripción del platillo 1', imagen: '../../../../assets/Images/gato.jpg' },
+    { nombre: 'Platillo 1', descripcion: 'Descripción del platillo 1', imagen: '../../../../assets/Images/gato.jpg' },
+    { nombre: 'Platillo 1', descripcion: 'Descripción del platillo 1', imagen: '../../../../assets/Images/gato.jpg' },
+    
   ];
   modalController: any;
   

@@ -1,0 +1,60 @@
+
+.sloter {
+    display: flex;
+    width: 90%;
+    margin: 10px auto; 
+  }
+  
+  .slot {
+    flex: 1;
+    height: 10px;
+    background-color: #ccc;
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  
+  .selected {
+    background-color: orange;
+     
+  }
+ion-card{
+    
+    overflow-y: hidden;
+} 
+ion-card {
+    overflow-y: hidden;
+}
+ion-card-subtitle{
+    top: 1rem;   
+    /* bottom: 1rem; */
+}
+.fullCard{
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    
+}
+.containerFull{
+    width: 90%;
+    margin: 0 auto; 
+    box-sizing: border-box;
+}
+.containerBtn {
+    position: fixed;
+    width: 70%;
+    left: 50%;
+    top: 90%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    box-sizing: border-box;
+  }
+  .containerSloter {
+    /* position: fixed; */
+    width: 100%;
+    /* left: 50%; */
+    top: 3rem;;
+    /* transform: translate(-50%, -50%); */
+    text-align: center;
+    box-sizing: border-box;
+  }

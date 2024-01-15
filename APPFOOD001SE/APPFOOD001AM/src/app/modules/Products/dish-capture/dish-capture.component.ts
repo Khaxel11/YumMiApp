@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { NavController } from '@ionic/angular';
 
 
 @Component({
@@ -9,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DishCaptureComponent implements OnInit {
 
-  constructor() { }
+  constructor(private navCtrl : NavController) { }
 
   ngOnInit(): void {
   }
-
+  goBack() {
+    this.navCtrl.back();
+  }
 }

@@ -2,7 +2,7 @@
 <ion-content [scrollEvents]="true" (touchstart)="onTouchStart($event)" (touchmove)="onTouchMove($event)" (touchend)="onTouchEnd()">
     
   
-    <div #backgroundImage class="background-image" [style.backgroundImage]="'url(../../../../assets/Images/zeri.jpg)'"></div>
+    <div #backgroundImage class="background-image" [style.backgroundImage]="'url(../../../../assets/Images/gato.jpg)'"></div>
     <div #faded class="background-image" ></div>
     <div class="buttonsOnTop">
       <ion-buttons slot="start">
@@ -12,14 +12,29 @@
       </ion-buttons>
       <ion-title *ngIf="reachedTop" class="animated-text">{{ productName }}</ion-title>
     </div>
-      <!-- Contenido de detalles del producto aquí -->
+    <ion-fab slot="fixed" vertical="top" horizontal="end" >
+      <ion-fab-button color="light">
+        <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-list side="start">
+        <ion-fab-button fill>
+          <ion-icon name="create-outline"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button>
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button>
+          <ion-icon name="share-social-outline"></ion-icon>
+        </ion-fab-button>
+      </ion-fab-list>
+    </ion-fab>
     <ion-card #container class="container" [style.overflow-y]="allowScroll ? 'scroll' : 'hidden'">
         <ion-card-header #tittle >
           <ion-card-title >{{ productName }}</ion-card-title>
         </ion-card-header>
     
         <ion-card-content>
-            
+          
         </ion-card-content>
       </ion-card>
   </ion-content>
