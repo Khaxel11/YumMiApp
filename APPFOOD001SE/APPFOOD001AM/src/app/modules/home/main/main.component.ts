@@ -150,6 +150,11 @@ export class MainComponent implements OnInit {
       await this.loading.dismiss();
     }
   }
+
+  goToProducts(){
+    this.navcontrol.navigateForward("products/catalog");
+  }
+
    closeMenu() {
     // document.querySelector('ion-menu-controller').then(menuCtrl => menuCtrl.close());
   }

@@ -1,6 +1,6 @@
 import { ToastController } from "@ionic/angular";
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-
+import { NavController } from "@ionic/angular";
 export class General {
     
     private toastController = new ToastController();
@@ -125,9 +125,11 @@ export class General {
     const imageUrl = 'data:image/jpeg;base64,' + base64String;
     return this.sanitizer.bypassSecurityTrustUrl(imageUrl);
   }     
+ 
 }
 export class MESSAGE{
    ERROR : string = "Error, intentelo de nuevo o revise su conexión a internet, si el problema persiste comuniquese con el equipo de soporte";
    LOG_ERROR : string = "Usuario o contraseña incorrectos";
    NET_ERROR : string = "Revise su conexión a internet e intentelo de nuevo"
 }
+

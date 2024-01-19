@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DishDetailComponent } from '../dish-detail/dish-detail.component';
 import { NavController } from '@ionic/angular';
+import { General } from 'src/app/functions/general';
 
 @Component({
   selector: 'app-dish-catalog',
@@ -9,7 +10,7 @@ import { NavController } from '@ionic/angular';
 })
 export class DishCatalogComponent implements OnInit {
   selectedProduct: any;
-
+  general = new General();
   platillos = [
     { nombre: 'Platillo 1', descripcion: 'Descripción del platillo 1', imagen: '../../../../assets/Images/gato.jpg' },
     { nombre: 'Platillo 1', descripcion: 'Descripción del platillo 1', imagen: '../../../../assets/Images/gato.jpg' },
@@ -40,5 +41,8 @@ export class DishCatalogComponent implements OnInit {
   }
   async goToCapture(){
     this.navCtrl.navigateForward('/products/capture', {});
+  }
+  goBack(){
+    this.navCtrl.back();
   }
 }

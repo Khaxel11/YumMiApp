@@ -5,7 +5,7 @@ import { General, MESSAGE } from 'src/app/functions/general';
 import { ProductsService } from 'src/app/services/products/products.service';
 import { trigger, style, animate, transition } from '@angular/animations';
 import { Product } from 'src/app/models/product';
-
+import { ProductBuilder } from 'src/app/models/buildProduct';
 @Component({
   selector: 'app-choose-product',
   templateUrl: './choose-product.component.html',
@@ -36,14 +36,27 @@ export class ChooseProductComponent implements OnInit {
   general : General;
   MESSAGE : MESSAGE;
   product : Product = new Product();
-
-
+  selectedIndexForType : number;
+  selectedIndexForGroup : number;
   constructor(private navCtrl : NavController,
     private service : ProductsService) { }
 
   ngOnInit() {
     this.getTiposComida();
     
+  }
+  async slider(e : any){
+    console.log(e);
+    if(e <= -50){
+      await this.incressIndex();
+      this.actualIndex;
+      return;
+    }
+    if(e >= 50){
+      this.decressIndex();
+      await this.actualIndex;
+      return;
+    }
   }
   startAnimation() {
     this.lstTypeof.forEach((_, index) => {
@@ -54,35 +67,50 @@ export class ChooseProductComponent implements OnInit {
     });
   }
   
-  async selectedOption(e : any){
+  async selectedOption(e : any, index : number){
     console.log(e);
     const value = e.IdTipo;
     this.product.idTipo = value;
-    this.incressIndex();
+    this.selectedIndexForType = index;
+    
   }
-
-  incressIndex(){
-    this.actualIndex += 1;
+  async selecterGroup(e : any, index : number){
+    this.product.idTipoAlimentacion = e.IdTipoAlimentacion
+    this.selectedIndexForGroup = index;
   }
+              
+              async incressIndex(){
+                this.actualIndex += 1;
+              }
+              async decressIndex(){
+                if(this.actualIndex <= 0){
+                  return;  
+                }
+                this.actualIndex -= 1;
+              }
 
-  validateSelectedType(){
+              
+    validateSelectedType(){
     return (this.product.idTipo && this.product.idTipo !== 0) ? true : false;
   }
+  cancelGroup(){
+    this.product.idTipoAlimentacion = 0;
+  }
+  cancelType(){
+    this.product.idTipo = 0;
+  }
+
+
   
   continue(){
-    if(!this.validateSelectedType()){
+    /*if(!this.validateSelectedType()){
       this.general.showMessage("Revise su conexión a internet e intentelo de nuevo. ", "danger");
       return;
-    }
+    }*/
     this.incressIndex();
   }
 
-  decressIndex(){
-    if(this.actualIndex <= 0){
-      return;  
-    }
-    this.actualIndex -= 1;
-  }
+  
   async getTiposComida(){
     try {
       let data = await this.service.getTiposComida();
@@ -102,7 +130,7 @@ export class ChooseProductComponent implements OnInit {
     this.navCtrl.back();
   }
   imagenBase64(base64String: string): SafeUrl {
-    const imageUrl = 'data:image/jpeg;base64,' + base64String;
+    const imageUrl = 'data:image/png;base64,' + base64String;
     return imageUrl;
   }
 }

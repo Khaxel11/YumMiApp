@@ -1,5 +1,13 @@
 <ion-header>
     <ion-toolbar>
+      <div class="buttonsOnTop">
+        <ion-buttons slot="start">
+          <ion-button class="btnReturn" (click)="goBack()">
+            <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+          </ion-button>
+          <h3>Capturar un nuevo producto</h3>
+        </ion-buttons>
+      </div>
         <ion-title>Mis Productos</ion-title>
     </ion-toolbar>
 </ion-header>

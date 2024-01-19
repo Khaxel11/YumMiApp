@@ -49,7 +49,7 @@ class UserDataBuilder {
         return this;
     }
 
-    setBussinessType(bussinessType: boolean): UserDataBuilder {
+    setBussinessType(bussinessType: any): UserDataBuilder {
         this.userData.bussinessType = bussinessType;
         return this;
     }
