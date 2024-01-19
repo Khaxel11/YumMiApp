@@ -68,7 +68,15 @@ ion-spinner {
 .loading-text span:nth-child(8) {
   animation-delay: 0.7s;
 }
-
+.loading-text span:nth-child(9) {
+  animation-delay: 0.8s;
+}
+.loading-text span:nth-child(10) {
+  animation-delay: 0.9s;
+}
+.loading-text span:nth-child(11) {
+  animation-delay: 1s;
+}
 @keyframes spin {
   from {
     transform: rotate(0deg);

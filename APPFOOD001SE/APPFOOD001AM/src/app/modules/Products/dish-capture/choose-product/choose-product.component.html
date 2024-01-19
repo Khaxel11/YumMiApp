@@ -4,20 +4,18 @@
   <ion-card class="fullCard">  
     <div class="containerSloter">
       <div class="sloter">
-        <div class="slot selected"></div>
-        <div class="slot"></div>
-        <div class="slot"></div>
-        <div class="slot"></div>
-        <div class="slot"></div>
+        <div class="slot" [ngClass]="actualIndex >= 0 ? 'selected' : ''"></div>
+        <div class="slot" [ngClass]="actualIndex >= 1 ? 'selected' : ''"></div>
+        <div class="slot" [ngClass]="actualIndex >= 2 ? 'selected' : ''"></div>
+        <div class="slot" [ngClass]="actualIndex >= 3 ? 'selected' : ''"></div>
+        <div class="slot" [ngClass]="actualIndex >= 4 ? 'selected' : ''"></div>
       </div>
     </div>
-      <div class="containerFull" #slide1  >
-        
-          
-          
+      <div class="containerFull" #slide1  *ngIf="actualIndex === 0">
+            
           <div class="container">
             <h5>¿Qué vas a capturar?<label class="requiered">*</label></h5>
-            <ion-card *ngFor="let option of lstTypeof; let i = index"  [(ngModel)]="product.idTipo" >
+            <ion-card *ngFor="let option of lstTypeof; let i = index" (click)="selectedOption(option)">
               <div [@fade]="in">
                 <ion-card-header>
                   <ion-card-title>{{option.NombreTipo}}</ion-card-title>
@@ -49,7 +47,7 @@
       </div>
   </ion-card>
   <div class="containerBtn">
-    <ion-button fill="outline" shape="round" color="dark" expand="block">
+    <ion-button fill="outline" shape="round" color="dark" expand="block" (click)="continue()">
       Continuar
     </ion-button>
   </div>

@@ -23,6 +23,19 @@ namespace APPFOODAPI001.Controllers
             conection.Conection = Connection.conect();
         }
 
+        [HttpGet("checkConnection")]
+        public async Task<IActionResult> checkConnection()
+        {
+            try
+            {
+                return Ok(true);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Error, {ex.Message}");
+            }
+        }
+
         [HttpGet("getUbication")]
         public async Task<IActionResult> getUbication(int Opcion, int Id)
         {

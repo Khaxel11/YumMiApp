@@ -58,5 +58,8 @@ export class KitchenService {
    
     return this.http.post(url,UserData).toPromise();
   }
-  
+  checkApiConnection(): Promise<any> {
+    const url = URL + 'checkConnection'; 
+    return this.http.get(url).toPromise();
+  }
 }

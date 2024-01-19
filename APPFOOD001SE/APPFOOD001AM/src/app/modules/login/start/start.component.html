@@ -16,14 +16,16 @@
   <div class="loading-container">
     <ion-spinner></ion-spinner>
     <p class="loading-text">
-      <span>C</span>
+      <span *ngFor="let key of listMensaje">{{key}}</span>
+      
+      <!-- <span>C</span>
       <span>a</span>
       <span>r</span>
       <span>g</span>
       <span>a</span>
       <span>n</span>
       <span>d</span>
-      <span>o</span>
+      <span>o</span> -->
     </p>
   </div>
 </ion-content>
