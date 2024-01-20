@@ -1,95 +1,153 @@
 <ion-content>
-<slider-cs (valuePosition)="slider($event)">
-  <ion-card class="fullCard">
-    <div class="containerSloter">
-      <div class="sloter">
-        <div class="slot" [ngClass]="actualIndex >= 0 ? 'selected' : ''"></div>
-        <div class="slot" [ngClass]="actualIndex >= 1 ? 'selected' : ''"></div>
-        <div class="slot" [ngClass]="actualIndex >= 2 ? 'selected' : ''"></div>
-        <div class="slot" [ngClass]="actualIndex >= 3 ? 'selected' : ''"></div>
-        <div class="slot" [ngClass]="actualIndex >= 4 ? 'selected' : ''"></div>
+  <slider-cs (valuePosition)="slider($event)">
+    <ion-card class="fullCard">
+      <div class="containerSloter">
+        <div class="sloter">
+          <div class="slot sl" [ngClass]="actualIndex >= 0 ? 'selected' : ''"></div>
+          <div class="slot sl" [ngClass]="actualIndex >= 1 ? 'selected' : ''"></div>
+          <div class="slot sl" [ngClass]="actualIndex >= 2 ? 'selected' : ''"></div>
+          <div class="slot sl" [ngClass]="actualIndex >= 3 ? 'selected' : ''"></div>
+          <div class="slot sl" [ngClass]="actualIndex >= 4 ? 'selected' : ''"></div>
+        </div>
       </div>
-    </div>
-    <div class="containerFull" #slide1 *ngIf="actualIndex === 0">
+      <div class="containerFull animated-right" #slide0 [hidden]="actualIndex !== 0">
 
-      <div class="container">
-        <h5>¿Qué vas a capturar?<label class="requiered">*</label></h5>
-        <div class="lecard" *ngIf="!product.idTipo">
-          <ion-card class=" animated-top" *ngFor="let option of lstTypeof; let i = index" (click)="selectedOption(option,i)">
+        <div class="container">
+          <h5>¿Qué vas a capturar?<label class="requiered">*</label></h5>
+          <div class="lecard" *ngIf="!product.idTipo">
+            <ion-card class=" animated-top" *ngFor="let option of lstTypeof; let i = index"
+              (click)="selectedOption(option,i)">
+              <div class="polygon-background">
+                <ion-card-header>
+                  <ion-card-title><strong>{{option.NombreTipo}}</strong></ion-card-title>
+                  <div class="description">{{option.Descripcion}}</div>
+                </ion-card-header>
+                <ion-card-content>
+                  <img [src]="imagenBase64(option.Foto)" slot="start">
+                </ion-card-content>
+              </div>
+            </ion-card>
+          </div>
+          <!-- selected -->
+          <div class="lecard selectedItem" *ngIf="product.idTipo">
+            <ion-card class="animated-top">
+              <div>
+                <ion-card-header>
+                  <ion-card-title><strong>{{lstTypeof[selectedIndexForType].NombreTipo}}</strong></ion-card-title>
+
+                  <ion-icon class="icon-right" name="close-circle-outline" (click)="cancelType()"></ion-icon>
+
+
+                  <div class="description">{{lstTypeof[selectedIndexForType].Descripcion}}</div>
+
+                </ion-card-header>
+                <ion-card-content>
+                  <img [src]="imagenBase64(lstTypeof[selectedIndexForType].Foto)" slot="start">
+                </ion-card-content>
+              </div>
+            </ion-card>
+          </div>
+        </div>
+        <div *ngIf="product.idTipo">
+          <h5>¿Es de un grupo de alimentación en especifico?<label class="requiered">*</label></h5>
+          <div class="lecard" *ngIf="!product.idTipoAlimentacion">
+            <ion-card class="animated-top" *ngFor="let option of lstAlimentacion; let i = index"
+              (click)="selecterGroup(option, i)">
+              <div>
+                <ion-card-header>
+                  <ion-card-title>{{option.TipoAlimentacion}}</ion-card-title>
+                  <div class="description">{{option.Descripcion}}</div>
+                </ion-card-header>
+
+              </div>
+            </ion-card>
+          </div>
+          <div class="selectedItem lecard" *ngIf="product.idTipoAlimentacion">
+            <ion-card>
+              <div>
+                <ion-card-header>
+                  <ion-icon class="icon-right" name="close-circle-outline" (click)="cancelGroup()"></ion-icon>
+
+                  <ion-card-title>{{lstAlimentacion[selectedIndexForGroup].TipoAlimentacion}}</ion-card-title>
+                  <div class="description">{{lstAlimentacion[selectedIndexForGroup].Descripcion}}</div>
+                </ion-card-header>
+
+              </div>
+            </ion-card>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="containerFull animated-right" #slide1 [hidden]="actualIndex !== 1">
+        <div class="container">
+          <h5>Seleccione Categoria(s) <small> (Máximo 5) </small><label class="requiered">*</label></h5>
+        </div>
+        <div class="category-container">
+          <div class="category">
+            <div class="itemCategory" *ngFor="let option of lstSelectedCategory">
+              <div>
+                <ion-icon class="icon-right-c" name="close-circle-outline" (click)="cancelType()"></ion-icon>
+                <ion-img [src]="imagenBase64(option.Foto)"></ion-img>
+                <div class="category-tittle">
+                  {{option.Categoria}}
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="lecard">
+          <ion-card class=" animated-top" *ngFor="let option of lstCategory; let i = index"
+            (click)="selectedCategory(option)">
             <div class="polygon-background">
               <ion-card-header>
-                <ion-card-title><strong>{{option.NombreTipo}}</strong></ion-card-title>
+                <ion-card-title><strong>{{option.Categoria}}</strong></ion-card-title>
                 <div class="description">{{option.Descripcion}}</div>
               </ion-card-header>
               <ion-card-content>
-                <img [src]="imagenBase64(option.Foto)" slot="start">
-              </ion-card-content>
-            </div>
-          </ion-card>
-        </div>
-        <!-- selected -->
-        <div class="lecard selectedItem" *ngIf="product.idTipo">
-          <ion-card class="animated-top">
-            <div >
-              <ion-card-header>
-                <ion-card-title><strong>{{lstTypeof[selectedIndexForType].NombreTipo}}</strong></ion-card-title>
-  
-                <ion-icon class="icon-right" name="close-circle-outline" (click)="cancelType()"></ion-icon>
-  
-  
-                <div class="description">{{lstTypeof[selectedIndexForType].Descripcion}}</div>
-  
-              </ion-card-header>
-              <ion-card-content>
-                <img [src]="imagenBase64(lstTypeof[selectedIndexForType].Foto)" slot="start">
+                <img [src]="imagenBase64(option.Foto)" slot="end">
               </ion-card-content>
             </div>
           </ion-card>
         </div>
       </div>
-      <div *ngIf="product.idTipo" >
-        <h5>¿Es de un grupo de alimentación en especifico?<label class="requiered">*</label></h5>
-        <div class="lecard" *ngIf="!product.idTipoAlimentacion">
-          <ion-card class="animated-top" *ngFor="let option of lstAlimentacion; let i = index" (click)="selecterGroup(option, i)">
-            <div>
-              <ion-card-header>
-                <ion-card-title>{{option.TipoAlimentacion}}</ion-card-title>
-                <div class="description">{{option.Descripcion}}</div>
-              </ion-card-header>
-             
-            </div>
-          </ion-card>
-        </div>
-        <div class="selectedItem lecard" *ngIf="product.idTipoAlimentacion">
-          <ion-card>
-            <div>
-              <ion-card-header>
-                <ion-icon class="icon-right" name="close-circle-outline" (click)="cancelGroup()"></ion-icon>
 
-                <ion-card-title>{{lstAlimentacion[selectedIndexForGroup].TipoAlimentacion}}</ion-card-title>
-                <div class="description">{{lstAlimentacion[selectedIndexForGroup].Descripcion}}</div>
-              </ion-card-header>
-             
+      <div class="containerFull animated-right" #slide2 [hidden]="actualIndex !== 2">
+        <div class="container">
+          <div class="center-container ion-margin-top">
+            <div class="circular_image">
+              <ion-img [src]="photo"></ion-img>
             </div>
-          </ion-card>
+          </div>
+          <div class="center-container ion-margin-top">
+            <ion-button size="small" fill="outline" color="dark" shape="round" (click)="takePicture()">
+              <div>Tomar Foto </div>
+            </ion-button>
+          </div>
+          <div class="center-container">
+            <ion-button size="small" fill="outline" color="dark" shape="round" (click)="openGallery()">
+              <div>Seleccionar Foto </div>
+            </ion-button>
+          </div>
+          <div class="center-container ion-margin-top">
+            <ion-item class="box" lines="none">
+              <ion-label position="floating">Nombre del Platillo</ion-label>
+              <ion-input></ion-input>
+            </ion-item>
+          </div>
         </div>
-      </div>  
-        
+
+      </div>
+    </ion-card>
+    <div class="containerBtn">
+      <ion-button fill="outline" shape="round" color="dark" expand="block" (click)="continue()">
+        Continuar
+      </ion-button>
     </div>
 
-    <div class="containerFull animated-right" #slide2 *ngIf="actualIndex === 1">
-     
 
-    </div>
-  </ion-card>
-  <div class="containerBtn">
-    <ion-button fill="outline" shape="round" color="dark" expand="block" (click)="continue()">
-      Continuar
-    </ion-button>
-  </div>
+  </slider-cs>
 
 
-</slider-cs>
-
-  
 </ion-content>

@@ -7,118 +7,265 @@
 
 
 .sloter {
-    display: flex;
-    width: 90%;
-    margin: 10px auto; 
-  }
-  
-  .slot {
-    flex: 1;
-    height: 10px;
-    background-color: #ccc;
-    margin-right: 5px;
-    cursor: pointer;
-    border-radius: 10px;
-  }
-  
-  .selected {
-    background-color: orange;
-     
-  }
+  display: flex;
+  width: 90%;
+  margin: 10px auto;
 
-ion-card-subtitle{
-    top: 1rem;   
-    /* bottom: 1rem; */
 }
-.fullCard{
-    margin: 0 auto;
-    width: 100%;
-    height: 100%;
-    
+
+.sloter ::after {
+  background-color: #ccc;
 }
-.containerFull{
-    border-radius: 20px;
-    width: 90%;
-    margin: 0 auto; 
-    /* box-sizing: border-box; */
+
+.sl {
+
+  transform: translateX(-10px);
 }
-.imgCard{
+
+.slot {
+  flex: 1;
+  height: 10px;
+  background-color: #ccc;
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  opacity: 0;
+
+
+
+}
+
+.selected {
+  background-color: orange;
+  opacity: 1;
+  /* Seleccionado con opacidad completa */
+  transform: translateX(0);
+  /* Sin desplazamiento horizontal */
+
+}
+
+ion-card-subtitle {
+  top: 1rem;
+  /* bottom: 1rem; */
+}
+
+.fullCard {
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+
+}
+
+.containerFull {
+  border-radius: 20px;
+  width: 90%;
+  margin: 0 auto;
+  /* box-sizing: border-box; */
+}
+
+.imgCard {
   position: relative;
   width: 100px;
   height: 80px;
   border-radius: 20px;
-  right:0;
+  right: 0;
   /* border: 4px solid; */
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
 }
 
-.description{
+.description {
   width: 70%;
   color: black
 }
+
 .containerBtn {
-    position: fixed;
-    width: 70%;
-    left: 50%;
-    top: 90%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    box-sizing: border-box;
-  }
-  .containerSloter {
-    /* position: fixed; */
-    width: 100%;
-    /* left: 50%; */
-    top: 3rem;;
-    /* transform: translate(-50%, -50%); */
-    text-align: center;
-    box-sizing: border-box;
+  position: fixed;
+  width: 70%;
+  left: 50%;
+  top: 90%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.containerSloter {
+  width: 100%;
+  top: 3rem;
+  ;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.container {
+  position: relative;
+  min-width: 100px;
+
+}
+
+.container img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 80px;
+  border-radius: 20px;
+  transform: translateY(-90%);
+  padding: 10px;
+  margin-right: 10px;
+  z-index: 0;
+}
+
+
+
+
+
+.icon-right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 2px;
+  font-size: 30px;
+  color: rgb(65, 3, 3);
+  z-index: 999;
+  background-color: rgb(255, 57, 57);
+  border-radius: 50% 50%;
+}
+
+.selectedItem ion-card {
+  animation: scaleUp 0.5s ease-out;
+}
+
+
+.circular_image {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ccc;
+}
+
+.circular_image ion-img {
+  width: 100%; 
+  min-width: 200px;
+  height: 100%; 
+  object-fit: cover; 
+}
+
+.box {
+  border-color: #242424;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 30px;
+  width: 90%;
+}
+
+
+@keyframes scaleUp {
+  from {
+    transform: scale(1);
+    opacity: 0;
   }
 
-  .container {
-    position: relative;
-    min-width: 100px;
-    
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes scale-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
   }
 
-  .container img {
-    position: absolute; 
-    top: 0;
-    right: 0;
-    width: 100px;
-    height: 80px;
-    border-radius: 20px;
-    transform: translateY(-90%);
-    padding: 10px;
-    margin-right: 10px;
-    /* border: 4px solid rgb(255, 255, 255); */
-    z-index: 0;
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
- 
-  .icon-right{
-    position: absolute;
-    right: 0;
-    top: 0;
-    margin: 2px;
-    font-size: 30px;
-    color: rgb(65, 3, 3);
-    z-index: 999;
-    background-color: rgb(255, 57, 57);
-    border-radius: 50% 50%;
+}
+
+@keyframes scale-out {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
   }
-  .selectedItem ion-card {
-    animation: scaleUp 0.5s ease-out;
+
+  100% {
+    opacity: 0;
+    transform: translateX(-50px);
   }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+.category-container {
+  display: flex;
+  flex-direction: row; /* Muestra los elementos en una fila hacia la derecha */
+  justify-content: center; /* Centra horizontalmente los elementos */
+  align-items: center;
+  margin: 20px;
+}
+
+.category {
+  display: flex;
+  text-align: center;
+  margin: 0 10px; /* Ajusta el margen horizontal entre elementos */
   
-  @keyframes scaleUp {
-    from {
-      transform: scale(1);
-      opacity: 0;
-    }
-    to {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
+}
+
+.itemCategory {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(127deg, rgba(253, 253, 254, 1) 0%, rgba(230, 229, 229, 1) 62%);
+  border-radius: 50%;
+  padding: 10px; /* Añade un espacio interno para el contenido */
+}
+.itemCategory .icon-right-c{
+  position: absolute;
+  right: 0;
+  top: 0 ;
+  margin: 10px;
+}
+
+.category-tittle {
+  position: absolute;
+  margin-top: 10px; 
+
+  font-weight: bold;
+  color: black;
+}
+
+.itemCategory ion-img {
+  width: 50px; /* Ajusta el ancho según tus necesidades */
+  height: 50px; /* Ajusta la altura según tus necesidades */
+  border-radius: 50%; /* Añade esquinas redondeadas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añade una sombra suave */
+}

@@ -32,6 +32,7 @@ namespace Data
                     commandType: CommandType.StoredProcedure);
                     objResult.data = await result.ReadAsync<Object>();
                     objResult.data2 = await result.ReadAsync<Object>();
+                    objResult.data3 = await result.ReadAsync<Object>();
                 }
                 return objResult;
             }

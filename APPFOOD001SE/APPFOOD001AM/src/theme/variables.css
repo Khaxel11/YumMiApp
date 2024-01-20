@@ -57,6 +57,12 @@
     transform: translateX(10px);
   }
 }
+
+.center-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .invalid {
   color: red; 
   animation: shake 0.2s;

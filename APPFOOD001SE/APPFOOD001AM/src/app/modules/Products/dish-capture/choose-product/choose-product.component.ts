@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { SafeUrl } from '@angular/platform-browser';
-import { NavController } from '@ionic/angular';
+import { LoadingController, NavController } from '@ionic/angular';
 import { General, MESSAGE } from 'src/app/functions/general';
 import { ProductsService } from 'src/app/services/products/products.service';
 import { trigger, style, animate, transition } from '@angular/animations';
 import { Product } from 'src/app/models/product';
 import { ProductBuilder } from 'src/app/models/buildProduct';
+import { CameraService } from 'src/app/services/common/camera.service';
 @Component({
   selector: 'app-choose-product',
   templateUrl: './choose-product.component.html',
@@ -31,6 +32,8 @@ import { ProductBuilder } from 'src/app/models/buildProduct';
 export class ChooseProductComponent implements OnInit {
   lstTypeof = [];
   lstAlimentacion = [];
+  lstCategory = [];
+  lstSelectedCategory = [];
   animatedItems: boolean[] = [];
   actualIndex : number = 0;
   general : General;
@@ -38,22 +41,29 @@ export class ChooseProductComponent implements OnInit {
   product : Product = new Product();
   selectedIndexForType : number;
   selectedIndexForGroup : number;
+
+  photo : string;
   constructor(private navCtrl : NavController,
-    private service : ProductsService) { }
+    private service : ProductsService,
+    private cdr: ChangeDetectorRef,
+    private Camera : CameraService,
+    private Load : LoadingController,) { }
 
   ngOnInit() {
     this.getTiposComida();
-    
+    this.photo = '../../../../assets/Images/fodicon.svg'
   }
   async slider(e : any){
-    console.log(e);
+    
     if(e <= -50){
+      console.log(e, "incrementa");
       await this.incressIndex();
       this.actualIndex;
       return;
     }
     if(e >= 50){
-      this.decressIndex();
+      console.log(e, "decrementa");
+      this.decreaseIndex();
       await this.actualIndex;
       return;
     }
@@ -61,7 +71,6 @@ export class ChooseProductComponent implements OnInit {
   startAnimation() {
     this.lstTypeof.forEach((_, index) => {
       setTimeout(() => {
-        // Agrega el elemento actual al final de la lista
         this.lstTypeof = [...this.lstTypeof, this.lstTypeof[index]];
       }, index * 100);
     });
@@ -72,7 +81,7 @@ export class ChooseProductComponent implements OnInit {
     const value = e.IdTipo;
     this.product.idTipo = value;
     this.selectedIndexForType = index;
-    
+    this.cdr.detectChanges();
   }
   async selecterGroup(e : any, index : number){
     this.product.idTipoAlimentacion = e.IdTipoAlimentacion
@@ -81,15 +90,19 @@ export class ChooseProductComponent implements OnInit {
               
               async incressIndex(){
                 this.actualIndex += 1;
+                this.cdr.detectChanges();
+
               }
-              async decressIndex(){
+              async decreaseIndex(){
                 if(this.actualIndex <= 0){
                   return;  
                 }
                 this.actualIndex -= 1;
+                this.cdr.detectChanges();
+
               }
 
-              
+
     validateSelectedType(){
     return (this.product.idTipo && this.product.idTipo !== 0) ? true : false;
   }
@@ -110,7 +123,11 @@ export class ChooseProductComponent implements OnInit {
     this.incressIndex();
   }
 
-  
+  selectedCategory(e : any){
+    this.lstSelectedCategory.push(e);
+    this.lstCategory = this.lstCategory.filter(item => item.IdCategoria !== e.IdCategoria);
+    this.cdr.detectChanges();
+  }
   async getTiposComida(){
     try {
       let data = await this.service.getTiposComida();
@@ -119,6 +136,8 @@ export class ChooseProductComponent implements OnInit {
        
 
         this.lstAlimentacion = data.data2;
+
+        this.lstCategory = data.data3;
         console.log(data);
       }
     } catch (error) {
@@ -132,5 +151,30 @@ export class ChooseProductComponent implements OnInit {
   imagenBase64(base64String: string): SafeUrl {
     const imageUrl = 'data:image/png;base64,' + base64String;
     return imageUrl;
+  }
+
+
+  async takePicture(){
+    const loading = await this.Load.create({
+      message: 'Cargando...', 
+    });
+    
+    let photo = await this.Camera.takePicture();
+    await loading.present();
+    this.photo = photo.uri;
+    this.product.foto = photo.base64Image;
+    await loading.dismiss();
+  }
+  async openGallery(){
+    const loading = await this.Load.create({
+      message: 'Cargando...', 
+    });
+    
+    let photo = await this.Camera.openGallery();
+    await loading.present();
+    this.photo = photo.uri;
+    this.product.foto = photo.base64Image;
+    await loading.dismiss();
+    
   }
 }
