@@ -21,5 +21,16 @@ namespace Business
                 throw new ArgumentException(ex.Message);
             }
         }
+        public async Task<Result> getIngredientes(UserJwt DatosToken, int IdTipoAlimentacion)
+        {
+            try
+            {
+                return await new ProductsData().getIngredientes(DatosToken, IdTipoAlimentacion);
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+        }
     }
 }

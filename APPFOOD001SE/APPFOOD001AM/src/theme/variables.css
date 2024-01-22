@@ -132,10 +132,10 @@
 }
 
 .animated-text {
-  animation: slideUp 0.5s ease-in-out; /* Ajusta la duración y el efecto según tus preferencias */
+  animation: slideUp 0.5s ease-in-out; 
 }
 .animated-top {
-  animation: slideDown 0.5s ease-in-out; /* Ajusta la duración y el efecto según tus preferencias */
+  animation: slideDown 0.5s ease-in-out; 
 }
 
 
@@ -152,7 +152,7 @@
 }
 
 .animated-right {
-  animation: slideLeft 0.5s ease-in-out; /* Ajusta la duración y el efecto según tus preferencias */
+  animation: slideLeft 0.5s ease-in-out; 
 }
 @keyframes slideLeft {
   from {
@@ -168,7 +168,7 @@
 
 
 .animated-left {
-  animation: slideLeft 0.5s ease-in-out; /* Ajusta la duración y el efecto según tus preferencias */
+  animation: slideLeft 0.5s ease-in-out; 
 }
 @keyframes slideLeft {
   from {
@@ -204,14 +204,21 @@ ion-button.btn {
 }
 ion-checkbox {
   --size: 22px;
-  /* --checkbox-background-checked: #FA4A0C; */
-  /* --checkbox-background:var(--background) */
+  --checkbox-background-checked: #FA4A0C;
+  --checkbox-background:var(--background)
 }
 
 ion-checkbox::part(container) {
   border-radius: 6px;
   border: 2px solid #FA4A0C;
 }
+/* styles.scss (o styles.css) */
+
+ion-checkbox {
+  --ion-color-primary: #f7a429; 
+  --color: #ca380c; 
+}
+
 .vermilion50{
   color: #fff4ed;
 }
@@ -310,7 +317,6 @@ ion-checkbox::part(container) {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  /*  */
   
 
   display: block;

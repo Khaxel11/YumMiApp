@@ -33,5 +33,17 @@ namespace APPFOODAPI001.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Error, {ex.Message}");
             }
         }
+        [HttpGet("getIngredientes")]
+        public async Task<IActionResult> getIngredientes(int IdTipoAlimentacion)
+        {
+            try
+            {
+                return Ok(await new ProductsBusiness().getIngredientes(conection, IdTipoAlimentacion));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Error, {ex.Message}");
+            }
+        }
     }
 }

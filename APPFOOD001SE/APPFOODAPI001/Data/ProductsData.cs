@@ -41,5 +41,30 @@ namespace Data
                 throw new ArgumentException(ex.Message);
             }
         }
+        public async Task<Result> getIngredientes(UserJwt DatosToken, int IdTipoAlimentacion)
+        {
+            Result objResult = new Result();
+            try
+            {
+
+                using (var con = new SqlConnection(DatosToken.Conection))
+                {
+                    var result = await con.QueryMultipleAsync(
+                        SP_CONSULTAS_CAPTURA,
+                        new
+                        {
+                            Opcion = 2,
+                            IdTipoAlimentacion = IdTipoAlimentacion
+                        },
+                    commandType: CommandType.StoredProcedure);
+                    objResult.data = await result.ReadAsync<Object>();
+                }
+                return objResult;
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+        }
     }
 }

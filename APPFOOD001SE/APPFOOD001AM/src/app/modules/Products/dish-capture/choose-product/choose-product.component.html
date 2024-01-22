@@ -55,7 +55,7 @@
               (click)="selecterGroup(option, i)">
               <div>
                 <ion-card-header>
-                  <ion-card-title>{{option.TipoAlimentacion}}</ion-card-title>
+                  <ion-card-title><strong>{{option.TipoAlimentacion}}</strong></ion-card-title>
                   <div class="description">{{option.Descripcion}}</div>
                 </ion-card-header>
 
@@ -68,7 +68,7 @@
                 <ion-card-header>
                   <ion-icon class="icon-right" name="close-circle-outline" (click)="cancelGroup()"></ion-icon>
 
-                  <ion-card-title>{{lstAlimentacion[selectedIndexForGroup].TipoAlimentacion}}</ion-card-title>
+                  <ion-card-title><strong>{{lstAlimentacion[selectedIndexForGroup].TipoAlimentacion}}</strong></ion-card-title>
                   <div class="description">{{lstAlimentacion[selectedIndexForGroup].Descripcion}}</div>
                 </ion-card-header>
 
@@ -86,9 +86,10 @@
         <div class="category-container">
           <div class="category">
             <div class="itemCategory" *ngFor="let option of lstSelectedCategory">
+              <ion-icon class="icon-right-c" name="close-circle-outline" (click)="cancelCategory(option)"></ion-icon>
               <div>
-                <ion-icon class="icon-right-c" name="close-circle-outline" (click)="cancelType()"></ion-icon>
-                <ion-img [src]="imagenBase64(option.Foto)"></ion-img>
+                
+                <img [src]="imagenBase64(option.Foto)" slot="start">
                 <div class="category-tittle">
                   {{option.Categoria}}
                 </div>
@@ -97,24 +98,27 @@
 
           </div>
         </div>
-        <div class="lecard">
-          <ion-card class=" animated-top" *ngFor="let option of lstCategory; let i = index"
-            (click)="selectedCategory(option)">
-            <div class="polygon-background">
-              <ion-card-header>
-                <ion-card-title><strong>{{option.Categoria}}</strong></ion-card-title>
-                <div class="description">{{option.Descripcion}}</div>
-              </ion-card-header>
-              <ion-card-content>
-                <img [src]="imagenBase64(option.Foto)" slot="end">
-              </ion-card-content>
-            </div>
-          </ion-card>
+        <div class="container">
+          <div class="lecard" >
+            <ion-card class=" animated-top" *ngFor="let option of lstCategory; let i = index"
+              (click)="selectedCategory(option)">
+              <div class="polygon-background">
+                <ion-card-header>
+                  <ion-card-title><strong>{{option.Categoria}}</strong></ion-card-title>
+                  <div class="description">{{option.Descripcion}}</div>
+                </ion-card-header>
+                <ion-card-content >
+                  <img class="im" [src]="imagenBase64(option.Foto)" slot="end">
+                </ion-card-content>
+              </div>
+            </ion-card>
+          </div>
         </div>
       </div>
 
       <div class="containerFull animated-right" #slide2 [hidden]="actualIndex !== 2">
         <div class="container">
+          <h5 class="center-container">Nombre y Foto</h5>
           <div class="center-container ion-margin-top">
             <div class="circular_image">
               <ion-img [src]="photo"></ion-img>
@@ -133,16 +137,85 @@
           <div class="center-container ion-margin-top">
             <ion-item class="box" lines="none">
               <ion-label position="floating">Nombre del Platillo</ion-label>
-              <ion-input></ion-input>
+              <ion-input [(ngModel)]="product.nombreProducto"></ion-input>
             </ion-item>
           </div>
+          <div class="center-container ion-margin-top">
+            <ion-item class="box" lines="none">
+              <ion-label position="floating">Descripción</ion-label>
+              <ion-textarea placeholder="Añadir una descripción ayuda a tus clientes a conocer más tu platillo" [(ngModel)]="product.descripcion"></ion-textarea>
+            </ion-item>
+          </div>
+          <div class="center-container ion-margin-top">
+            <p><small><strong>Nota: </strong> <label for="nota">Usa una imagen de tu platillo real (presentación sugerida) para que tus clientes puedan ver el platillo</label></small></p>
+          </div>
+          <div class="center-container">
+            <p><strong>Potencia tus ventas con autenticidad:</strong> El 99% de los clientes prefiere platillos con fotos reales. Captura la esencia de tus creaciones culinarias y atrae a más clientes mostrando la verdadera belleza de tus platillos. ¡Las imágenes reales hacen que el apetito crezca!</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="containerFull animated-right" #slide2 [hidden]="actualIndex !== 3">
+        <div class="container">
+          <ion-list lines="none">
+            <ion-item *ngFor="let ingrediente of lstIngredientes">
+              <ion-card class="ingredient-card">
+                <ion-card-content>
+                  <div class="ingredient-container">
+                    <div class="ingredient-img-container" *ngIf="ingrediente.Foto">
+                      <ion-img class="ingredient-img" [src]="imagenBase64(ingrediente.Foto)"></ion-img>
+                    </div>
+                    <div class="ingredient-details">
+                      <ion-item class="transparent-item">
+                        <ion-text class="ingredient-name" [innerHTML]="ingrediente.Ingrediente"></ion-text>
+                      </ion-item>
+                      <ion-item class="transparent-item">
+                        <ion-text>{{ ingrediente.Descripcion }}</ion-text>
+                      </ion-item>
+                    </div>
+                    <ion-checkbox slot="end" [(ngModel)]="ingrediente.selected"></ion-checkbox>
+                  </div>
+                </ion-card-content>
+              </ion-card>
+            </ion-item>
+          </ion-list>
+          
+        </div>
+
+      </div>
+
+      <div class="containerFull animated-right" #slide2 [hidden]="actualIndex !== 4">
+        <div class="container">
+          <div class="centerContainer">
+            <div class="check">
+              <div class="wrapper"> <svg class="checkmark" viewBox="0 0 52 52"> <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/> <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+              </svg>
+              </div>
+            </div>
+          </div>
+          <div class="center-container">
+            <h1><strong>Hemos terminado</strong></h1>
+          </div>
+         <div class="finMe">
+          <div class="center-container ">
+            <h4>
+              Hemos completado exitosamente la captura de la información de tu platillo.
+            </h4>
+          </div>
+          <div class="center-container ">
+            <h5>
+              Esta información sera util para que tus clientes conozcan los productos que ofreces.
+            </h5>
+          </div>
+         </div>
         </div>
 
       </div>
     </ion-card>
     <div class="containerBtn">
-      <ion-button fill="outline" shape="round" color="dark" expand="block" (click)="continue()">
-        Continuar
+      <ion-button [ngClass]="actualIndex !== 4 ? '': 'succ'"  shape="round"expand="block" (click)="continue()">
+        {{actualIndex !== 4 ? 'Continuar' : "Guardar"}}
       </ion-button>
     </div>
 

@@ -15,4 +15,11 @@ export class ProductsService {
     const params = new HttpParams()
     return this.http.get(url).toPromise();
   }
+
+  getIngredientes(IdTipoAlimentacion : number) : Promise<any>{
+    const url = URL + 'getIngredientes';
+    const params = new HttpParams()
+    .append('IdTipoAlimentacion', String(IdTipoAlimentacion))
+    return this.http.get(url, { params }).toPromise();
+  }
 }

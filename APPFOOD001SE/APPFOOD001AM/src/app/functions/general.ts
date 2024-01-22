@@ -130,6 +130,13 @@ export class General {
 export class MESSAGE{
    ERROR : string = "Error, intentelo de nuevo o revise su conexión a internet, si el problema persiste comuniquese con el equipo de soporte";
    LOG_ERROR : string = "Usuario o contraseña incorrectos";
-   NET_ERROR : string = "Revise su conexión a internet e intentelo de nuevo"
+   NET_ERROR : string = "Revise su conexión a internet e intentelo de nuevo";
+   
+   BLANK(value : string) : string{
+      return "Capture el campo " + value + " para poder continuar";
+   }
+   AT_LEAST(value : string) : string{
+    return "Debe seleccionar al menos " + value + " para poder continuar";
+   }
 }
 

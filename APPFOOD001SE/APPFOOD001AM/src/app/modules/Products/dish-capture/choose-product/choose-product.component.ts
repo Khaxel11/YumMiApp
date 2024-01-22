@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { SafeUrl } from '@angular/platform-browser';
-import { LoadingController, NavController } from '@ionic/angular';
+import { AlertController, LoadingController, NavController } from '@ionic/angular';
 import { General, MESSAGE } from 'src/app/functions/general';
 import { ProductsService } from 'src/app/services/products/products.service';
 import { trigger, style, animate, transition } from '@angular/animations';
@@ -34,30 +34,35 @@ export class ChooseProductComponent implements OnInit {
   lstAlimentacion = [];
   lstCategory = [];
   lstSelectedCategory = [];
+  lstIngredientes = [];
   animatedItems: boolean[] = [];
   actualIndex : number = 0;
-  general : General;
-  MESSAGE : MESSAGE;
+  General = new General();
+  MESSAGE = new MESSAGE();
   product : Product = new Product();
   selectedIndexForType : number;
   selectedIndexForGroup : number;
+  minIndex : number = 0;
+  maxIndex : number = 4;
 
   photo : string;
   constructor(private navCtrl : NavController,
     private service : ProductsService,
     private cdr: ChangeDetectorRef,
     private Camera : CameraService,
-    private Load : LoadingController,) { }
+    private Load : LoadingController,
+    private alert : AlertController) { }
 
   ngOnInit() {
     this.getTiposComida();
     this.photo = '../../../../assets/Images/fodicon.svg'
   }
   async slider(e : any){
-    
+   
     if(e <= -50){
       console.log(e, "incrementa");
-      await this.incressIndex();
+      await this.continue();
+
       this.actualIndex;
       return;
     }
@@ -86,11 +91,18 @@ export class ChooseProductComponent implements OnInit {
   async selecterGroup(e : any, index : number){
     this.product.idTipoAlimentacion = e.IdTipoAlimentacion
     this.selectedIndexForGroup = index;
+    if(this.product.idTipoAlimentacion){
+      await this.getIngredientes();
+
+     }
   }
               
               async incressIndex(){
-                this.actualIndex += 1;
-                this.cdr.detectChanges();
+                if(this.maxIndex > this.actualIndex){
+                  this.actualIndex += 1;
+                  this.cdr.detectChanges();
+                }
+                
 
               }
               async decreaseIndex(){
@@ -103,23 +115,53 @@ export class ChooseProductComponent implements OnInit {
               }
 
 
-    validateSelectedType(){
-    return (this.product.idTipo && this.product.idTipo !== 0) ? true : false;
-  }
+    
   cancelGroup(){
     this.product.idTipoAlimentacion = 0;
   }
   cancelType(){
     this.product.idTipo = 0;
   }
-
+  cancelCategory(e : any){
+    this.lstSelectedCategory = this.lstSelectedCategory.filter(item => item.IdCategoria !== e.IdCategoria);
+    this.lstCategory.push(e);
+    this.cdr.detectChanges();
+  }
 
   
-  continue(){
-    /*if(!this.validateSelectedType()){
-      this.general.showMessage("Revise su conexión a internet e intentelo de nuevo. ", "danger");
-      return;
-    }*/
+  async continue(){
+    if(this.actualIndex === 0){
+      if(!this.validateSelectedType()){
+        await this.General.showMessage(this.MESSAGE.BLANK("Tipo de Captura"), "warning");
+        return;
+      }
+      if(!this.validateSelectedAlimentacion()){
+        await this.General.showMessage(this.MESSAGE.BLANK("Categoria de Alimentación"), "warning");
+        return;
+      }
+    }
+    if(this.actualIndex === 1){
+      if(!this.validateSelectedCategory()){
+        await this.General.showMessage(this.MESSAGE.AT_LEAST("una Categoría"), "warning");
+        return;
+      }
+    }
+    if(this.actualIndex === 2){
+      if(!this.validateSelectedName()){
+        await this.General.showMessage(this.MESSAGE.BLANK("Nombre del platillo"), "warning");
+        return;
+      }
+    }
+    if(this.actualIndex === 3){
+      if(this.validateSelectedIngredients().length === 0){
+        await this.General.showMessage(this.MESSAGE.AT_LEAST("un ingrediente"), "warning");
+        return;
+      }
+    }
+
+    // if(!this.validateSelectedPicture()){
+    //   return;
+    // }
     this.incressIndex();
   }
 
@@ -136,14 +178,24 @@ export class ChooseProductComponent implements OnInit {
        
 
         this.lstAlimentacion = data.data2;
-
         this.lstCategory = data.data3;
         console.log(data);
       }
     } catch (error) {
-      this.general.showMessage(this.MESSAGE.NET_ERROR, 'danger');
+      this.General.showMessage(this.MESSAGE.NET_ERROR, 'danger');
     }
     
+  }
+  async getIngredientes(){
+    try {
+      let data = await this.service.getIngredientes(this.product.idTipoAlimentacion);
+      if(data){
+        this.lstIngredientes = data.data;
+        this.cdr.detectChanges();
+      }
+    } catch (error) {
+      this.General.showMessage(this.MESSAGE.NET_ERROR, 'danger');
+    }
   }
   goBack() {
     this.navCtrl.back();
@@ -176,5 +228,49 @@ export class ChooseProductComponent implements OnInit {
     this.product.foto = photo.base64Image;
     await loading.dismiss();
     
+  }
+ 
+  validateSelectedType() : boolean {   
+    return (this.product.idTipo && this.product.idTipo !== 0)
+  }
+  validateSelectedAlimentacion() : boolean {
+    return (this.product.idTipoAlimentacion && this.product.idTipoAlimentacion !== 0)
+  }
+  validateSelectedCategory() : boolean {
+    return (this.lstSelectedCategory.length > 0)
+  }
+  async validateSelectedPicture(){
+    //return (this.photo !== '../../../../assets/Images/fodicon.svg')
+    const alert = await this.alert.create({
+      header: '¿Continuar sin Foto?',
+      message: 'Sin foto tu producto no tendra tanta visualización, ¿Deseas continuar sin foto?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            return false;
+          },
+        },
+        {
+          text: 'Si, Continuar',
+          handler: () => {
+            return true;
+          },
+        },
+      ],
+    });
+
+    await alert.present();
+  }
+  validateSelectedName(){
+    return (this.product.nombreProducto && this.product.nombreProducto !== "")
+  }
+  validateSelectedDescription(){
+
+  }
+  validateSelectedIngredients() : any[]{
+    return this.lstIngredientes.filter(ingrediente => ingrediente.selected);
   }
 }
