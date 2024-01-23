@@ -1,4 +1,7 @@
 export class Product{
+    public idProducto: number;
+    public idCuenta: number;
+    public idCategoria: number;
     public idTipo : number = 0;
     public idTipoAlimentacion : number = 0;
     public nombreProducto : string = "";
@@ -12,8 +15,14 @@ export class Product{
     public etiquetaEspecial : boolean = false;
     public etiqueta : string = "";
     public popularidad : number = 0;
+    public preciosConfigurados: boolean;
+    public nombreTipo: string;
+    public tipoAlimentacion: string;
+    
 }
-
+export class Producto{
+    
+}
 export class Category{
     public idCategoria : number;
     public categoria : string;

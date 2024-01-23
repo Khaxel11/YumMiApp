@@ -158,12 +158,41 @@ export class ChooseProductComponent implements OnInit {
         return;
       }
     }
-
-    // if(!this.validateSelectedPicture()){
-    //   return;
-    // }
+   
     this.incressIndex();
   }
+
+  async saveProducto(){
+   
+    if(!this.validateSelectedPicture()){
+      return;
+    }
+    this.product.categorias = this.lstSelectedCategory;
+    this.product.ingredientes = this.validateSelectedIngredients();
+    const idCuenta = localStorage.getItem('idCuenta');
+    
+    try {
+      let data = await this.service.saveProducto(Number(idCuenta), this.product);
+      console.log(data);
+      if(!data.data.correct && !data.data2.correct && !data.data3.correct){
+        this.General.showMessage(this.MESSAGE.ERROR, 'danger');  
+        return;
+      }
+      if(data.data.correct && data.data2.correct && data.data3.correct){
+        this.General.showMessage("¡Guardado Correctamente!", 'success');  
+        this.goBack();
+        return;
+      }else{
+        this.General.showMessage("¡Guardado! puede revisar sus datos en la vista de sus productos", 'success');  
+        this.goBack();
+        return;
+      }
+      
+    } catch (error) {
+      this.General.showMessage(this.MESSAGE.ERROR + "-" + error.error, 'danger');
+    }
+  }
+
 
   selectedCategory(e : any){
     this.lstSelectedCategory.push(e);
@@ -239,30 +268,46 @@ export class ChooseProductComponent implements OnInit {
   validateSelectedCategory() : boolean {
     return (this.lstSelectedCategory.length > 0)
   }
-  async validateSelectedPicture(){
-    //return (this.photo !== '../../../../assets/Images/fodicon.svg')
-    const alert = await this.alert.create({
-      header: '¿Continuar sin Foto?',
-      message: 'Sin foto tu producto no tendra tanta visualización, ¿Deseas continuar sin foto?',
-      buttons: [
-        {
-          text: 'Cancelar',
-          role: 'cancel',
-          cssClass: 'secondary',
-          handler: () => {
-            return false;
+  async validateSelectedPicture(): Promise<boolean> {
+    let picture: boolean = false;
+  
+    if (this.photo === '../../../../assets/Images/fodicon.svg') {
+      const alert = await this.alert.create({
+        header: '¿Continuar sin Foto?',
+        message: 'Sin foto tu producto no tendrá tanta visualización, ¿Deseas continuar sin foto?',
+        buttons: [
+          {
+            text: 'Cancelar',
+            role: 'cancel',
+            cssClass: 'secondary',
+            handler: () => {
+              picture = false;
+            },
           },
-        },
-        {
-          text: 'Si, Continuar',
-          handler: () => {
-            return true;
+          {
+            text: 'Sí, Continuar',
+            handler: () => {
+              picture = true;
+            },
           },
-        },
-      ],
-    });
-
-    await alert.present();
+        ],
+      });
+  
+      // Espera a que el usuario responda a la alerta
+      await alert.present();
+      
+      // Espera a que la alerta se cierre y luego continúa con el código
+      const result = await alert.onDidDismiss();
+      
+      // Verifica la respuesta de la alerta y actualiza la variable 'picture' según sea necesario
+      if (result.role === 'cancel') {
+        picture = false;
+      } else {
+        picture = true;
+      }
+    }
+  
+    return picture;
   }
   validateSelectedName(){
     return (this.product.nombreProducto && this.product.nombreProducto !== "")

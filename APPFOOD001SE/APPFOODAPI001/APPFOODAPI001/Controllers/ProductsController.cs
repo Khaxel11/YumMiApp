@@ -21,6 +21,18 @@ namespace APPFOODAPI001.Controllers
         {
             conection.Conection = Connection.conect();
         }
+        [HttpGet("getProductos")]
+        public async Task<IActionResult> getProductos(int IdCuenta, int IdTipo, int IdTipoAlimentacion, int IdCategoria)
+        {
+            try
+            {
+                return Ok(await new ProductsBusiness().getProductos(conection, IdCuenta, IdTipo, IdTipoAlimentacion, IdCategoria));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Error, {ex.Message}");
+            }
+        }
         [HttpGet("getTiposComida")]
         public async Task<IActionResult> getTiposComida()
         {
@@ -39,6 +51,18 @@ namespace APPFOODAPI001.Controllers
             try
             {
                 return Ok(await new ProductsBusiness().getIngredientes(conection, IdTipoAlimentacion));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Error, {ex.Message}");
+            }
+        }
+        [HttpPost("saveProducto")]
+        public async Task<IActionResult> saveProducto(int IdCuenta, ProductEntity Producto)
+        {
+            try
+            {
+                return Ok(await new ProductsBusiness().saveProducto(conection, IdCuenta, Producto));
             }
             catch (Exception ex)
             {

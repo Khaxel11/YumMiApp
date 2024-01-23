@@ -1,6 +1,9 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { SafeUrl } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 import { ModalController, NavController } from '@ionic/angular';
-
+import { Product } from 'src/app/models/product';
+import { SharedDataService } from 'src/app/services/common/SharedService';
 @Component({
   selector: 'app-dish-detail',
   templateUrl: './dish-detail.component.html',
@@ -14,15 +17,26 @@ export class DishDetailComponent implements OnInit {
   startTop: number;
   startHeight: number;
   startImageSize: number;
+
+  Producto : Product = new Product();
+
+
    borderRadiusSet = false; // Variable para rastrear si ya se ha establecido el radio de borde
    allowScroll = false; // Variable para controlar si el desplazamiento está permitido
-
+  
   @Input() productImage: string;
   productName : string = "Nombre del Producto";
 
-  constructor(private modalController: ModalController, private navCtrl: NavController) { }
+  constructor(private modalController: ModalController, 
+    private navCtrl: NavController,
+    private route: ActivatedRoute,
+    private sharedDataService : SharedDataService) { }
 
   ngOnInit(): void {
+    this.sharedDataService.producto.subscribe(producto => {
+      this.Producto = producto
+    });
+    
   }
   
    onTouchStart(event: TouchEvent) {
@@ -90,5 +104,9 @@ export class DishDetailComponent implements OnInit {
   }
   closeModal() {
     this.modalController.dismiss();
+  }
+  imagenBase64(base64String: string): SafeUrl {
+    const imageUrl = 'data:image/png;base64,' + base64String;
+    return imageUrl;
   }
 }

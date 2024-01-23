@@ -297,7 +297,7 @@ ion-card-content img .im{
   --background: transparent !important;
   border: none; 
 }
-.containerBtn ion-button {
+/* .containerBtn ion-button {
   --background: white;
   --border-color: dark;
   --color	: dark;
@@ -308,7 +308,7 @@ ion-card-content img .im{
   --background: orange !important;
   --color: white !important;
   transition: --background 0.3s ease-in-out;
-}
+} */
 .center-container h1{
   margin-top: 10%;
 }

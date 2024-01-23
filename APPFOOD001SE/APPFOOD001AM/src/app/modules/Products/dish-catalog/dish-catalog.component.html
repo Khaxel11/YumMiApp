@@ -17,20 +17,22 @@
     <div style="height: 100%;">
       <ion-grid >
         <ion-row class="rowBento">
-          <ion-col size="6" *ngFor="let platillo of platillos">
+          <ion-col size="6" *ngFor="let platillo of lstProductos">
             
             <ion-card class="animated-top" class="cardMargin" (click)="showProductDetails(platillo)">
               
               <div class="card-content">
                 <div class="image-container">
-                  <img [src]="platillo.imagen" class="imagen-platillo" />
+                  <img [src]="imagenBase64(platillo.foto)" class="imagen-platillo" />
                 </div>
                 <div class="textContainer">
                   <ion-card-header>
-                    <ion-card-title>{{ platillo.nombre }}</ion-card-title>
+                    <ion-card-title>{{ platillo.nombreProducto }}</ion-card-title>
                   </ion-card-header>
                   <ion-card-content>
-                    {{ platillo.descripcion }}
+                    <div class="descripcion-recortada">
+                      {{ platillo.descripcion }}
+                    </div>
                   </ion-card-content>
                 </div>
               </div>

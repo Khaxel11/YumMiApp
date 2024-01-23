@@ -214,8 +214,12 @@
       </div>
     </ion-card>
     <div class="containerBtn">
-      <ion-button [ngClass]="actualIndex !== 4 ? '': 'succ'"  shape="round"expand="block" (click)="continue()">
-        {{actualIndex !== 4 ? 'Continuar' : "Guardar"}}
+      
+      <ion-button *ngIf="actualIndex !== 4" fill="outline" color="dark" shape="round" expand="block" (click)="continue()">
+        Continuar
+      </ion-button>
+      <ion-button *ngIf="actualIndex === 4" class="succ"  shape="round" expand="block" (click)="saveProducto()">
+        Guardar
       </ion-button>
     </div>
 

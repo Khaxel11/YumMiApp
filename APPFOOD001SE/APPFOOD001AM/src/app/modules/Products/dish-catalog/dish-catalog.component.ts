@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { DishDetailComponent } from '../dish-detail/dish-detail.component';
 import { NavController } from '@ionic/angular';
 import { General } from 'src/app/functions/general';
+import { Product } from 'src/app/models/product';
+import { ProductsService } from 'src/app/services/products/products.service';
+import { SafeUrl } from '@angular/platform-browser';
+import { SharedDataService } from 'src/app/services/common/SharedService';
 
 @Component({
   selector: 'app-dish-catalog',
@@ -11,32 +15,35 @@ import { General } from 'src/app/functions/general';
 export class DishCatalogComponent implements OnInit {
   selectedProduct: any;
   general = new General();
-  platillos = [
-    { nombre: 'Platillo 1', descripcion: 'Descripción del platillo 1', imagen: '../../../../assets/Images/gato.jpg' },
-    { nombre: 'Platillo 1', descripcion: 'Descripción del platillo 1', imagen: '../../../../assets/Images/gato.jpg' },
-    { nombre: 'Platillo 1', descripcion: 'Descripción del platillo 1', imagen: '../../../../assets/Images/gato.jpg' },
-    { nombre: 'Platillo 1', descripcion: 'Descripción del platillo 1', imagen: '../../../../assets/Images/gato.jpg' },
-    { nombre: 'Platillo 1', descripcion: 'Descripción del platillo 1', imagen: '../../../../assets/Images/gato.jpg' },
-    { nombre: 'Platillo 1', descripcion: 'Descripción del platillo 1', imagen: '../../../../assets/Images/gato.jpg' },
-    { nombre: 'Platillo 1', descripcion: 'Descripción del platillo 1', imagen: '../../../../assets/Images/gato.jpg' },
-    { nombre: 'Platillo 1', descripcion: 'Descripción del platillo 1', imagen: '../../../../assets/Images/gato.jpg' },
-    { nombre: 'Platillo 1', descripcion: 'Descripción del platillo 1', imagen: '../../../../assets/Images/gato.jpg' },
-    { nombre: 'Platillo 1', descripcion: 'Descripción del platillo 1', imagen: '../../../../assets/Images/gato.jpg' },
-    { nombre: 'Platillo 1', descripcion: 'Descripción del platillo 1', imagen: '../../../../assets/Images/gato.jpg' },
-    
-  ];
+  lstProductos = new Array<Product>();
   modalController: any;
-  
-  constructor(private navCtrl: NavController) { }
+  idCuenta : string;
+  idTipo : number = 0;
+  idTipoAlimentacion : number = 0;
+  idCategoria : number = 0;
+  constructor(private navCtrl: NavController, 
+    public service : ProductsService,
+    private sharedService : SharedDataService) { }
 
   ngOnInit(): void {
+      this.idCuenta = localStorage.getItem('idCuenta');
+      this.getProductos();
+  }
+  async getProductos(){
+    try {
+      let data = await this.service.getProductos(this.idCuenta, this.idTipoAlimentacion, this.idTipoAlimentacion, this.idCategoria);
+      this.lstProductos = data.data;
+    } catch (error) {
+      
+    }
+  }
+  imagenBase64(base64String: string): SafeUrl {
+    const imageUrl = 'data:image/png;base64,' + base64String;
+    return imageUrl;
   }
   async showProductDetails(product: any) {
+    this.sharedService.setProducto(product)
     this.navCtrl.navigateForward('/products/catalog/detail', {
-      // state: {
-      //   productName: product.nombre,
-      //   productImage: product.imagen,
-      // },
     });
   }
   async goToCapture(){
