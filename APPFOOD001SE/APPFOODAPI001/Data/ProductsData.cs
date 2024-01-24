@@ -96,6 +96,32 @@ namespace Data
             }
         }
 
+        public async Task<Result> getFiltros(UserJwt DatosToken)
+        {
+            Result objResult = new Result();
+            try
+            {
+
+                using (var con = new SqlConnection(DatosToken.Conection))
+                {
+                    var result = await con.QueryMultipleAsync(
+                        SP_CONSULTAS_CAPTURA,
+                        new
+                        {
+                            Opcion = 3,
+                        },
+                    commandType: CommandType.StoredProcedure);
+                    objResult.data = await result.ReadAsync<Object>();
+                }
+                return objResult;
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+        }
+
+
         public async Task<Result> saveProducto(UserJwt DatosToken, int IdCuenta, ProductEntity Producto)
         {
             Result objResult = new Result();

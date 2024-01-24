@@ -31,7 +31,8 @@
     </ion-fab>
     <ion-card #container class="container" [style.overflow-y]="allowScroll ? 'scroll' : 'hidden'">
         <ion-card-header #tittle >
-          <ion-card-title >{{ Producto.nombreProducto }}</ion-card-title>
+          <ion-card-title ><strong>{{ Producto.nombreProducto }}</strong></ion-card-title>
+          <ion-card-subtitle>{{Producto.descripcion}}</ion-card-subtitle>
         </ion-card-header>
     
         <ion-card-content>

@@ -21,6 +21,11 @@ export class DishCatalogComponent implements OnInit {
   idTipo : number = 0;
   idTipoAlimentacion : number = 0;
   idCategoria : number = 0;
+  lstProductosAgrupados = [];
+  
+
+
+
   constructor(private navCtrl: NavController, 
     public service : ProductsService,
     private sharedService : SharedDataService) { }
@@ -33,6 +38,8 @@ export class DishCatalogComponent implements OnInit {
     try {
       let data = await this.service.getProductos(this.idCuenta, this.idTipoAlimentacion, this.idTipoAlimentacion, this.idCategoria);
       this.lstProductos = data.data;
+      this.lstProductosAgrupados = this.agruparPorIDTipo(this.lstProductos);
+
     } catch (error) {
       
     }
@@ -52,4 +59,19 @@ export class DishCatalogComponent implements OnInit {
   goBack(){
     this.navCtrl.back();
   }
+  agruparPorIDTipo(lstProductos: any[]): any[] {
+    return lstProductos.reduce((result, platillo) => {
+      const grupoExistente = result.find(item => item.idTipo === platillo.idTipo);
+  
+      if (grupoExistente) {
+        grupoExistente.platillos.push(platillo);
+      } else {
+        const nuevoGrupo = { idTipo: platillo.idTipo, nombreTipo : platillo.nombreTipo , platillos: [platillo] };
+        result.push(nuevoGrupo);
+      }
+  
+      return result;
+    }, []);
+  }
+  
 }

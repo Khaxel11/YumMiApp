@@ -10,6 +10,8 @@ import { MapComponent } from './utils/map/map.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { StarsComponent } from './utils/stars/stars.component';
 import { StarsAverageComponent } from './utils/stars-average/stars-average.component';
+import { FilteredCategoriesComponent } from './utils/filtered-categories/filtered-categories.component';
+import { MdlFilterComponent } from './utils/filtered-categories/mdl-filter/mdl-filter.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { StarsAverageComponent } from './utils/stars-average/stars-average.compo
     MainSliderComponent,
     MapComponent,
     StarsComponent,
-    StarsAverageComponent
+    StarsAverageComponent,
+    FilteredCategoriesComponent,
+    MdlFilterComponent
   ],
   imports: [ 
     CommonModule,
@@ -35,7 +39,8 @@ import { StarsAverageComponent } from './utils/stars-average/stars-average.compo
     MainSliderComponent,
     MapComponent,
     StarsComponent,
-    StarsAverageComponent
+    StarsAverageComponent,
+    FilteredCategoriesComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

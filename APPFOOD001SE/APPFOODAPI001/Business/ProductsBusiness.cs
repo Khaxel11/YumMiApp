@@ -46,6 +46,17 @@ namespace Business
                 throw new ArgumentException(ex.Message);
             }
         }
+        public async Task<Result> getFiltros(UserJwt DatosToken)
+        {
+            try
+            {
+                return await new ProductsData().getFiltros(DatosToken);
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+        }
         public async Task<Result> saveProducto(UserJwt DatosToken, int IdCuenta, ProductEntity Producto)
         {
             try

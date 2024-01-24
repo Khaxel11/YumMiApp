@@ -1,0 +1,15 @@
+<ion-content>
+    <div class="filter">
+      <div class="filter-buttons-container">
+        <ion-button  shape="round" fill="outline" [color]="sort ? 'success' : 'dark'" size="small" slot="end" (ngModelchange)="onSelected()" (click)="openMdlFilters()">
+            <ion-icon name="filter-outline"></ion-icon>
+          </ion-button>
+        <ion-button fill="outline" shape="round" [color]="filter.selected ? 'success' : 'dark'" *ngFor="let filter of lstFiltros" size="small"
+            (click)="selectedCategory(filter)">
+          {{filter.Nombre}}
+        </ion-button>
+      </div>
+    </div>
+    
+  </ion-content>
+  

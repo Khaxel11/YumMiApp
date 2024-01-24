@@ -12,15 +12,16 @@
     </ion-toolbar>
 </ion-header>
 <ion-content class="padding">
-  
-   
-    <div style="height: 100%;">
-      <ion-grid >
+  <filtered-categories></filtered-categories>
+   <!-- style="height: 100%;" -->
+    <div >
+      <ion-grid>
         <ion-row class="rowBento">
-          <ion-col size="6" *ngFor="let platillo of lstProductos">
+          <ion-col size="12" *ngFor="let grupo of lstProductosAgrupados">
+            <h1><strong>{{ grupo.nombreTipo }}</strong></h1>
+      
             
-            <ion-card class="animated-top" class="cardMargin" (click)="showProductDetails(platillo)">
-              
+            <ion-card *ngFor="let platillo of grupo.platillos" class="animated-top" class="cardMargin" (click)="showProductDetails(platillo)">
               <div class="card-content">
                 <div class="image-container">
                   <img [src]="imagenBase64(platillo.foto)" class="imagen-platillo" />
@@ -37,7 +38,6 @@
                 </div>
               </div>
             </ion-card>
-            
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -48,6 +48,34 @@
       </ion-fab>
     </div>
 
+
+
+    <!-- <ion-grid >
+      <ion-row class="rowBento">
+        <ion-col size="6" *ngFor="let platillo of lstProductos">
+          
+          <ion-card class="animated-top" class="cardMargin" (click)="showProductDetails(platillo)">
+            
+            <div class="card-content">
+              <div class="image-container">
+                <img [src]="imagenBase64(platillo.foto)" class="imagen-platillo" />
+              </div>
+              <div class="textContainer">
+                <ion-card-header>
+                  <ion-card-title>{{ platillo.nombreProducto }}</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <div class="descripcion-recortada">
+                    {{ platillo.descripcion }}
+                  </div>
+                </ion-card-content>
+              </div>
+            </div>
+          </ion-card>
+          
+        </ion-col>
+      </ion-row>
+    </ion-grid> -->
     <!-- <ion-item class="productAction ion-text-center ion-align-self-center">
       <ion-grid fixed>
         <ion-row>
@@ -61,6 +89,32 @@
       </ion-grid>
      
      </ion-item> -->
-
+<!-- Iterar sobre los platillos dentro del grupo -->
+                <!-- <ion-grid >
+                  <ion-row class="rowBento">
+                    <ion-col size="6" *ngFor="let platillo of grupo.platillos">
+                      
+                      <ion-card class="animated-top" class="cardMargin" (click)="showProductDetails(platillo)">
+                        
+                        <div class="card-content">
+                          <div class="image-container">
+                            <img [src]="imagenBase64(platillo.foto)" class="imagen-platillo" />
+                          </div>
+                          <div class="textContainer">
+                            <ion-card-header>
+                              <ion-card-title>{{ platillo.nombreProducto }}</ion-card-title>
+                            </ion-card-header>
+                            <ion-card-content>
+                              <div class="descripcion-recortada">
+                                {{ platillo.descripcion }}
+                              </div>
+                            </ion-card-content>
+                          </div>
+                        </div>
+                      </ion-card>
+                      
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>  -->
  
   </ion-content>

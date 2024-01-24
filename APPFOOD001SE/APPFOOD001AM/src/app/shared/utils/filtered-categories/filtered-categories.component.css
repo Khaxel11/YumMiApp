@@ -1,0 +1,25 @@
+/* ion-icon{
+    color: rgb(48, 48, 48);
+} */
+
+ion-content {
+    width: 100%;
+    height: 5%;
+    
+}
+
+ion-content .filter {
+    color: rgb(48, 48, 48);
+    overflow-x: scroll;
+}
+
+.filter-buttons-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    margin: 5px 5px 5px 5px;
+}
+
+.filter-buttons-container::-webkit-scrollbar {
+    width: 0;
+}

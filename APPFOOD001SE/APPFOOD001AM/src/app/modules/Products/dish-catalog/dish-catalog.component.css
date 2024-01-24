@@ -11,6 +11,9 @@ ion-card-header ion-card-title{
     color: white;
     
 }
+ion-grid{
+  margin-top: -20px;
+}
 ion-tabs {
   position: fixed !important;
   bottom: 0 !important;

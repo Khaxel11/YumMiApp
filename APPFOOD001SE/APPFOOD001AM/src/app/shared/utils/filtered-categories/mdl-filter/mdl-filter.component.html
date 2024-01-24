@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-toolbar>
+        
+            <ion-title class="ion-text-center">
+                <strong>Todos los Filtros</strong>
+              </ion-title>
+        
+        <ion-buttons slot="end">
+            <ion-button (click)="clean()">
+                Limpiar
+            </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="start">
+            <ion-button (click)="closeModal(false)">
+                <ion-icon name="close"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="container">
+        <h1><strong>Filtrar por</strong></h1>
+        <ion-button fill="outline" shape="round" [color]="filter.selected ? 'success' : 'dark'" size="small" slot="end" *ngFor="let filter of lstFiltros"
+        (click)="selectedFilter(filter)">
+            {{filter.Nombre}}
+        </ion-button>
+        <h1><strong>Categorías</strong></h1>
+        <ion-button fill="outline" shape="round" [color]="category.selected ? 'success' : 'dark'" size="small" slot="end" *ngFor="let category of lstCategory"
+            (click)="selectedCategory(category)">
+            {{category.Categoria}} 
+            <ion-icon name="close-outline" *ngIf="category.selected" style="font-size: 12px; color: green;"></ion-icon>
+        </ion-button>
+    </div>
+    <div class="containerBtn">
+
+        <ion-button shape="round" expand="block" color="success" size="large" (click)="returnFilters()">
+            Aplicar
+        </ion-button>
+    </div>
+
+</ion-content>
