@@ -70,6 +70,35 @@ namespace Data
                 throw new ArgumentException(ex.Message);
             }
         }
+
+        public async Task<Result> getInfoProduct(UserJwt DatosToken, int IdProducto)
+        {
+            Result objResult = new Result();
+            try
+            {
+
+                using (var con = new SqlConnection(DatosToken.Conection))
+                {
+                    var result = await con.QueryMultipleAsync(
+                        SP_CONSULTAS_PRODUCTOS,
+                        new
+                        {
+                            Opcion = 2,
+                        },
+                    commandType: CommandType.StoredProcedure);
+                    objResult.data = await result.ReadAsync<ComboEntity>();
+                    objResult.data2 = await result.ReadAsync<ComboEntity>();
+                    objResult.data3 = await result.ReadAsync<PrecioEntity>();
+                }
+                return objResult;
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+        }
+
+
         public async Task<Result> getIngredientes(UserJwt DatosToken, int IdTipoAlimentacion)
         {
             Result objResult = new Result();

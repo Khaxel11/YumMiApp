@@ -75,6 +75,26 @@ namespace Entity
 
     }
 
+    public class ComboEntity
+    {
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+        public string Foto { get; set; }
+    }
+
+ 
+
+    public class PrecioEntity
+    {
+        public int IdPrecios { get; set; }
+        public int IdProducto { get; set; }
+        public decimal PrecioUnidad { get; set; }
+        public int CantidadMinima { get; set; }
+        public int CantidadMaxima { get; set; }
+    }
+
+
+
     public class CreateListType
     {
         public List<TypeIngrediente> createTypeIngredientes(List<IngredientEntity> Ingredientes, int IdProducto)

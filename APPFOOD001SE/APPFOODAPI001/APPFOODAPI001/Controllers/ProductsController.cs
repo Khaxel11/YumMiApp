@@ -8,6 +8,7 @@ using Microsoft.Extensions.Options;
 using System;
 using System.Threading.Tasks;
 using Entity.DTO;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace APPFOODAPI001.Controllers
 {
@@ -63,6 +64,18 @@ namespace APPFOODAPI001.Controllers
             try
             {
                 return Ok(await new ProductsBusiness().getFiltros(conection));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Error, {ex.Message}");
+            }
+        }
+        [HttpGet("getInfoProduct")]
+        public async Task<IActionResult> getInfoProduct(int IdProducto)
+        {
+            try
+            {
+                return Ok(await new ProductsBusiness().getInfoProduct(conection, IdProducto));
             }
             catch (Exception ex)
             {

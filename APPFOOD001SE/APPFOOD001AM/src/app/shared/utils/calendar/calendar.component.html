@@ -1,0 +1,41 @@
+<!-- calendar.component.html -->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title><strong>Mi Calendario</strong></ion-title>
+  </ion-toolbar>
+</ion-header>
+<div class="calendar-container">
+
+  <div class="calendar-header">
+    <button (click)="prevMonth()">Anterior</button>
+    {{ getMonthName() }} {{ year }}
+    <button (click)="nextMonth()">Siguiente</button>
+  </div>
+
+  <div class="day-of-week-container">
+    <div class="calendar-day" *ngFor="let day of [0,1,2,3,4,5,6]">
+      <div class="day-number">{{ getAbbreviatedDayOfWeek(day) }}</div> 
+    </div>
+  </div>
+
+  <div *ngFor="let week of weeks" class="calendar-row">
+    <div
+      *ngFor="let day of week"
+      (click)="addNoteToDay(day)"
+      class="calendar-day cont"
+      [ngClass]="{
+        'other-month': day.isOtherMonth,
+        'today': day.number === today
+      }"
+      
+    >
+      <div class="day-number">{{ day.number === 0 ? '' : day.number }}</div>
+      <div class="day-content">
+        <div class="notes">{{ day.notes }}</div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,73 @@
+/* calendar.component.scss */
+
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.calendar-header,
+.day-of-week-container,
+.calendar-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendar-day {
+  flex: 1;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: calc(100% / 7); /* Ajuste del ancho para cada día de la semana */
+}
+.cont{
+  height: 120px;
+}
+
+.calendar-day:hover {
+  background-color: #f0f0f0;
+}
+
+.day-number {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.day-of-week {
+  font-size: 16px;
+  color: #777;
+}
+
+.notes {
+  position: fixed;
+  margin-top: 8px;
+  font-size: 16px;
+  color: #777;
+}
+
+.other-month {
+  background-color: rgb(243, 243, 243);
+}
+
+.today {
+  background-color: rgb(171, 245, 162);
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}

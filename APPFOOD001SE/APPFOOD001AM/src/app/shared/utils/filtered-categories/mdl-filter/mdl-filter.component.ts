@@ -16,7 +16,6 @@ export class MdlFilterComponent implements OnInit {
     private service : ProductsService) { }
 
   ngOnInit(): void {
-    this.getCategory();
     
   }
   selectedCategory(e : any){
@@ -39,23 +38,8 @@ export class MdlFilterComponent implements OnInit {
       element.selected = false;
     });
   }
-  formatList(){
-    this.lstCategory.forEach(element => {
-      element.selected = false;
-    });
-    this.lstFiltros.forEach(element => {
-      element.selected = false;
-    });
-  }
-  async getCategory(){
-    try {
-      let data = await this.service.getTiposComida();
-      this.lstCategory = data.data3;
-      this.formatList();
-    } catch (error) {
-      
-    }
-  }
+ 
+ 
 
   closeModal(e? : any) {
     this.modalController.dismiss(e);
@@ -65,8 +49,8 @@ export class MdlFilterComponent implements OnInit {
       lstCategory : this.lstCategory,
       lstFiltros : this.lstFiltros
     }
-    this.ItemData.emit(Object);
-    this.closeModal();
+    //this.ItemData.emit(Object);
+    this.closeModal(Object);
 
   }
 }

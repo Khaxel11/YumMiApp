@@ -154,7 +154,9 @@ export class MainComponent implements OnInit {
   goToProducts(){
     this.navcontrol.navigateForward("products/catalog");
   }
-
+  goToProgramacion(){
+    this.navcontrol.navigateForward("programation");
+  }
    closeMenu() {
     // document.querySelector('ion-menu-controller').then(menuCtrl => menuCtrl.close());
   }

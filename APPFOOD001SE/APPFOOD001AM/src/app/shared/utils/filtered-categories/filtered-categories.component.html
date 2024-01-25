@@ -5,9 +5,22 @@
             <ion-icon name="filter-outline"></ion-icon>
           </ion-button>
         <ion-button fill="outline" shape="round" [color]="filter.selected ? 'success' : 'dark'" *ngFor="let filter of lstFiltros" size="small"
-            (click)="selectedCategory(filter)">
+            (click)="selectedFilter(filter)">
           {{filter.Nombre}}
         </ion-button>
+      </div>
+      <div class="category-container">
+        <div class="category">
+          <div class="itemCategory" [ngClass]="option.selected? 'selected' : ''" *ngFor="let option of lstCategory" (click)="selectedCategory(option)">
+            <div>             
+              <img [src]="imagenBase64(option.Foto)" slot="start">
+              <div class="category-tittle">
+                {{option.Categoria}}
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
     
