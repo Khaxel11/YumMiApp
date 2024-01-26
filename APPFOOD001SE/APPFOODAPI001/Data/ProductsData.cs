@@ -84,6 +84,7 @@ namespace Data
                         new
                         {
                             Opcion = 2,
+                            IdProducto = IdProducto
                         },
                     commandType: CommandType.StoredProcedure);
                     objResult.data = await result.ReadAsync<ComboEntity>();

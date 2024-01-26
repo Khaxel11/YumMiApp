@@ -1,0 +1,17 @@
+<div class="list-container">
+  <div class="category">
+    <div class="item" [ngClass]="option.selected ? '' : ''" *ngFor="let option of options" (click)="selectedItem(option)">
+      <div class="item-content">
+        <ion-icon class="icon-right" name="close-circle-outline" (click)="deleteItem(option)" *ngIf="enabledOptions"></ion-icon>
+        <img [src]="imagenBase64(option.foto)" class="image" />
+        <div class="title">{{ option.nombre }}</div>
+      </div>
+    </div>
+    <div class="item" (click)="selectedAdd()" *ngIf="enabledOptions">
+      <div>
+        <ion-icon class="icon" name="add-outline"></ion-icon>
+        <div class="title">Agregar</div>
+      </div>
+    </div>
+  </div>
+</div>

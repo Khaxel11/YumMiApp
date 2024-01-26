@@ -5,6 +5,33 @@
     width: 3rem;
     height: 3rem;
 }
+.fabOk {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+}
+
+.fabdanger {
+  position: relative;
+  top: 42%;
+  right: 0;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.textError {
+  margin-right: 10px;
+  background-color: #d9534f;
+  font-weight: bold;
+  color: white;
+  border-radius: 30px;
+  padding: 10px;
+  width: 80%; /* Ajusta según sea necesario */
+}
+
 
 
 .buttonsOnTop{
@@ -93,7 +120,7 @@
     text-align: center;
    
     div {
-      margin-top: 5px; /* Ajusta el espacio entre el ícono y el texto según sea necesario */
+      margin-top: 5px; 
     }
   }
   ion-button.round-button{
@@ -106,4 +133,55 @@
     color: #5a5b5f
   }
 
+
+
+  .filter-buttons-container {
+    align-items: center;
+  }
+  
+  .small-button {
+    margin-left: auto; /* Empuja el botón pequeño a la derecha */
+  }
+  
+  .custom-input {
+    border: none;
+    background: none;
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    
+  }
+  .editing-name {
+    border: 2px solid #8a8a8a; 
+    border-radius: 10px;
+  }
+  
+  .editing-description {
+    border: 2px solid #8a8a8a; 
+    border-radius: 10px;
+  }
+  .line {
+    margin-top: 20px;
+    width: 100%;
+    height: 1px; /* Altura de la línea */
+    background-color: #6d6d6d; /* Color de la línea */
+    border-radius: 10px;
+  }
+  
+  
+  ion-list {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  ion-item {
+    --ion-background-color: #f8f8f8;
+    --ion-color: #333;
+    --ion-placeholder-color: #999;
+  }
   

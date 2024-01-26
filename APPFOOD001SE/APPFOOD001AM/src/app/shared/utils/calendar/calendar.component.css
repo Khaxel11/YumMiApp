@@ -39,6 +39,9 @@
   align-items: center;
   height: 100%;
 }
+.other-month .day-number{
+  color: #666666;
+}
 
 .day-of-week {
   font-size: 16px;
@@ -54,6 +57,7 @@
 
 .other-month {
   background-color: rgb(243, 243, 243);
+  color: #777;
 }
 
 .today {

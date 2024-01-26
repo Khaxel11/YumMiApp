@@ -13,6 +13,8 @@ import { StarsAverageComponent } from './utils/stars-average/stars-average.compo
 import { FilteredCategoriesComponent } from './utils/filtered-categories/filtered-categories.component';
 import { MdlFilterComponent } from './utils/filtered-categories/mdl-filter/mdl-filter.component';
 import { CalendarComponent } from './utils/calendar/calendar.component';
+import { AccordionComponent } from './components/accordion/accordion.component';
+import { HorizontalListComponent } from './components/horizontal-list/horizontal-list.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { CalendarComponent } from './utils/calendar/calendar.component';
     StarsAverageComponent,
     FilteredCategoriesComponent,
     MdlFilterComponent,
-    CalendarComponent
+    CalendarComponent,
+    AccordionComponent,
+    HorizontalListComponent
   ],
   imports: [ 
     CommonModule,
@@ -43,7 +47,9 @@ import { CalendarComponent } from './utils/calendar/calendar.component';
     StarsComponent,
     StarsAverageComponent,
     FilteredCategoriesComponent,
-    CalendarComponent
+    CalendarComponent,
+    AccordionComponent,
+    HorizontalListComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

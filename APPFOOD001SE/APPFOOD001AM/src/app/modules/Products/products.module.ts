@@ -11,9 +11,10 @@ import { FormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { IonicModule } from '@ionic/angular';
 import { ChooseProductComponent } from './dish-capture/choose-product/choose-product.component';
+import { MdlCapturePricesComponent } from './mdl-capture-prices/mdl-capture-prices.component';
 
 @NgModule({
-  declarations: [DishCaptureComponent, DishCatalogComponent, DishDetailComponent, ChooseProductComponent],
+  declarations: [DishCaptureComponent, DishCatalogComponent, DishDetailComponent, ChooseProductComponent, MdlCapturePricesComponent],
   imports: [
     CommonModule,
     ProductsRoutingModule,

@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title class="ion-text-start">
+        Captura de Precios
+      </ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="closeModal(false)">
+          <ion-icon name="close"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content fullscreen="true">
+    <div class="no-prices" *ngIf="noPrice">
+        <div>
+            <img src="../../../../assets/Images/price-list.svg">
+            <h1>Opps</h1>
+            <h3>Parece que aún no hay precios capturados</h3>
+        </div>
+        <div>
+            <ion-button fill="outline" shape="round" color="success" (click)="startPrices()">
+                Empezar
+            </ion-button>
+        </div>
+    </div>
+</ion-content>
+
+
+
+  

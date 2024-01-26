@@ -1,0 +1,11 @@
+.no-prices {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 20px; /* Ajusta según sea necesario */
+  padding: 20px; /* Ajusta según sea necesario */
+  max-width: 400px; /* Ajusta según sea necesario */
+  opacity: 80%;
+}

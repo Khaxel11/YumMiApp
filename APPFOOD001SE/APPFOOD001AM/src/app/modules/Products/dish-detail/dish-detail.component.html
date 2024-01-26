@@ -1,43 +1,146 @@
+<ion-content [scrollEvents]="true" (touchstart)="onTouchStart($event)" (touchmove)="onTouchMove($event)"
+  (touchend)="onTouchEnd()">
 
-<ion-content [scrollEvents]="true" (touchstart)="onTouchStart($event)" (touchmove)="onTouchMove($event)" (touchend)="onTouchEnd()">
-    
-  
-    <!-- <div #backgroundImage class="background-image" [style.backgroundImage]="'url(../../../../assets/Images/gato.jpg)'"></div> -->
-    <div #backgroundImage class="background-image" [style.backgroundImage]="'url(' + imagenBase64(Producto.foto)+ ')'"></div>
-    <div #faded class="background-image" ></div>
-    <div class="buttonsOnTop">
-      <ion-buttons slot="start">
-        <ion-button class="btnReturn" (click)="goBack()">
-          <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-      <ion-title *ngIf="reachedTop" class="animated-text">{{ Producto.nombreProducto }}</ion-title>
-    </div>
-    <ion-fab slot="fixed" vertical="top" horizontal="end" >
-      <ion-fab-button color="light">
-        <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+
+  <!-- <div #backgroundImage class="background-image" [style.backgroundImage]="'url(../../../../assets/Images/gato.jpg)'"></div> -->
+  <div #backgroundImage class="background-image" [style.backgroundImage]="'url(' + imagenBase64(Producto.foto)+ ')'">
+  </div>
+  <div #faded class="background-image"></div>
+  <div class="buttonsOnTop">
+    <ion-buttons slot="start">
+      <ion-button class="btnReturn" (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title *ngIf="reachedTop" class="animated-text">{{ Producto.nombreProducto }}</ion-title>
+  </div>
+  <ion-fab slot="fixed" vertical="top" horizontal="end">
+    <ion-fab-button color="light">
+      <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="start">
+      <ion-fab-button fill (click)="enabledEdition()">
+        <ion-icon name="create-outline"></ion-icon>
       </ion-fab-button>
-      <ion-fab-list side="start">
-        <ion-fab-button fill>
-          <ion-icon name="create-outline"></ion-icon>
-        </ion-fab-button>
-        <ion-fab-button>
-          <ion-icon name="trash-outline"></ion-icon>
-        </ion-fab-button>
-        <ion-fab-button>
-          <ion-icon name="share-social-outline"></ion-icon>
-        </ion-fab-button>
-      </ion-fab-list>
-    </ion-fab>
-    <ion-card #container class="container" [style.overflow-y]="allowScroll ? 'scroll' : 'hidden'">
-        <ion-card-header #tittle >
-          <ion-card-title ><strong>{{ Producto.nombreProducto }}</strong></ion-card-title>
-          <ion-card-subtitle>{{Producto.descripcion}}</ion-card-subtitle>
-        </ion-card-header>
+      <ion-fab-button>
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="share-social-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+  <div *ngIf="!Producto.preciosConfigurados" class="fabdanger">
+    <div class="textError">El producto no esta disponible hasta que se le configuren los precios</div>
+    <ion-fab-button color="danger">
+      <ion-icon name="alert-outline"></ion-icon>
+    </ion-fab-button>
+  </div>
+
+
+
+  <ion-card #container class="container" [style.overflow-y]="allowScroll ? 'scroll' : 'hidden'">
+
+    <ion-card-header #tittle>
+      <ion-card-title>
+        <div (click)="enableEditName = true;">
+        <strong
+          *ngIf="!enableEditName"
+          class="editable-field"
+        >
+          {{ Producto.nombreProducto }}
+        </strong>
+        </div>
+        <ion-input
+          #nombreProductoInput
+          *ngIf="enableEditName"
+          [(ngModel)]="Producto.nombreProducto"
+          class="custom-input editing-name"
+          (ionBlur)="enableEditName = false; "
+        ></ion-input>
+      </ion-card-title>
     
-        <ion-card-content>
+      <ion-card-subtitle class="ion-margin-top" >
+        <strong
           
-        </ion-card-content>
-      </ion-card>
-  </ion-content>
-  
+          class="editable-field"
+          (click)="enableEditDescription = true;"
+        >
+          Acerca de
+        </strong>
+      </ion-card-subtitle>
+      <ion-textarea
+        *ngIf="enableEditDescription"
+        [(ngModel)]="Producto.descripcion"
+        class="custom-input editing-description"
+        (ionBlur)="enableEditDescription = false; "
+      ></ion-textarea>
+    
+      <p *ngIf="!enableEditDescription">{{ Producto.descripcion }}</p>
+    
+      <ion-fab-button  class="fabOk" color="success">
+        <ion-icon name="checkmark-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-card-header>
+    
+    
+    <ion-card-content>
+     
+      <p><strong>Categorias</strong></p>
+      <div class="filter-buttons-container">
+        <!-- Botones de filtro -->
+        <ng-container *ngFor="let filter of lstCategorias">
+          <ion-button fill="outline" shape="round" color="dark" size="small" (click)="selectedCategory(filter)">
+            {{filter.nombre}}
+            <ion-icon class="icon" name="close-outline" class="small-button" *ngIf="enableEdit"></ion-icon>
+          </ion-button>
+        </ng-container>
+        <ion-button fill="outline" shape="round" size="small" *ngIf="enableEdit">
+          <ion-icon class="icon" name="add-outline"></ion-icon>
+        </ion-button>
+
+      </div>
+      
+      <p><strong>Ingredientes</strong></p>
+      <div *ngIf="datosCargados">
+        <horizontal-list #list [options]="lstIngredientes" [enabledOptions]="this.enableEdit"
+          (itemSelected)="selectedIngrediente($event)">
+          <div *ngFor="let option of lstIngredientes">
+            <img [src]="imagenBase64(option.foto)" image>
+            <div title>{{ option.nombre }}</div>
+          </div>
+        </horizontal-list>
+      </div>
+
+      <div class="line" *ngIf="datosCargados">
+        <p (click)="openMdlFoodHubDetail()"><strong>Precios</strong></p>
+        <ion-list>
+          <ion-item>
+            <ion-label position="stacked">ID Producto</ion-label>
+            <ion-input type="text" [(ngModel)]="precio.idProducto" required></ion-input>
+          </ion-item>
+    
+          <ion-item>
+            <ion-label position="stacked">Precio por Unidad</ion-label>
+            <ion-input type="number" [(ngModel)]="precio.precioUnidad" required></ion-input>
+          </ion-item>
+    
+          <ion-item>
+            <ion-label position="stacked">Cantidad Mínima</ion-label>
+            <ion-input type="number" [(ngModel)]="precio.cantidadMinima" required></ion-input>
+          </ion-item>
+    
+          <ion-item>
+            <ion-label position="stacked">Cantidad Máxima</ion-label>
+            <ion-input type="number" [(ngModel)]="precio.cantidadMaxima" required></ion-input>
+          </ion-item>
+        </ion-list>
+      </div>
+
+
+
+
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>
