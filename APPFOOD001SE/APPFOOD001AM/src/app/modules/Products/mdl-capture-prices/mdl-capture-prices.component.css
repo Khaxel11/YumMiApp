@@ -4,8 +4,130 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin: 20px; /* Ajusta según sea necesario */
-  padding: 20px; /* Ajusta según sea necesario */
-  max-width: 400px; /* Ajusta según sea necesario */
+  margin: 20px; 
+  padding: 20px; 
   opacity: 80%;
+}
+.container{
+  width: 100%;
+}
+
+.cards-container{
+  left: -10px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.price-card{
+  
+  width: 40%;
+}
+.price-container{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+
+
+.min,
+.max {
+  position: relative;
+}
+
+.min{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  font-size: 30px;
+}
+.to{
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  font-size: 30px;
+}
+.max{
+  margin-left: 20px;
+  display: flexs;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  font-size: 30px;
+  
+}
+.min ion-input, .max ion-input, .price ion-input{
+  border-bottom: 1px solid #747474;
+  text-align: center;
+}
+
+.title-price{
+  position: absolute;
+  top: -20px; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  font-size: 14px; 
+  font-weight: bold;
+  
+}
+.price-tl{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+.price{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+.icon-price{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  color: #747474;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  right: 0;
+  top: 0;
+  font-size: 30px;
+}
+.number-price{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  color: #747474;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  left: 0;
+  top: 0;
+  font-size: 18px;
+}
+
+.containerBtn {
+  position: fixed;
+  width: 70%;
+  left: 50%;
+  top: 90%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  box-sizing: border-box;
+}
+.symboladd span{
+  font-size: 50px;
 }

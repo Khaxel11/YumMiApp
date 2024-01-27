@@ -13,7 +13,7 @@
   <ion-content fullscreen="true">
     <div class="no-prices" *ngIf="noPrice">
         <div>
-            <img src="../../../../assets/Images/price-list.svg">
+            <img [src]="noimage">
             <h1>Opps</h1>
             <h3>Parece que aún no hay precios capturados</h3>
         </div>
@@ -23,6 +23,130 @@
             </ion-button>
         </div>
     </div>
+    <div class="container" *ngIf="!noPrice">
+        <div class="available-price">
+            <div class="item-price"></div>
+        </div>
+        <div class="capture-container">
+            <div class="cards-container">
+                <ion-card class="animated-top price-card" *ngFor="let  item of lstPrices; let i = index;">
+                  <ion-card-header>
+                    <div class="number-price">
+                      <span>{{i}}</span>
+                    </div>
+                    <div class="price-tl" >
+                      {{item.idPrecio === 0 ? 'Nuevo Precio': 'Precio'}}
+                    </div>
+                    <div class="icon-price">
+                      <ion-icon name="close-outline"></ion-icon>
+                    </div>
+                  </ion-card-header>
+                  <div class="cardt">          
+                    <ion-card-content>
+                      <span class="title-price">Cantidad</span>
+                      <div class="price-container ">
+                        <div class="min">
+                          <span class="title-price">Mín</span> {{item.cantidadMinima}}
+                        </div>
+                        <div class="to">
+                          <ion-icon name="caret-forward-outline"></ion-icon>
+                        </div>
+                        <div class="max">
+                          <span class="title-price">Máx</span> {{item.cantidadMaxima}}
+                        </div>
+                      </div>
+                      <div class="price">
+                        {{item.precioUnitario}}
+                      </div>
+                    </ion-card-content>
+                  </div>
+                </ion-card>
+            
+                <!-- <ion-card class="animated-top price-card" *ngIf="addNewPrice || firstCapt">
+                  <ion-card-header>
+                    <div class="number-price">
+                      <span>{{lstPrices.length + 1}}</span>
+                    </div>
+                    <div class="price-tl" >
+                      Agregar Precio
+                    </div>
+                    <div class="icon-price">
+                    </div>
+                  </ion-card-header>
+                  <div class="cardt" >
+                    <ion-card-content *ngIf="!addNewPrice">
+                      <div class="price-container">
+                        <div class="symboladd">
+                          <span class="price-tl">
+                            <ion-button (click)="createNewPrice()" expand="block" fill="clear" shape="round">
+                              <ion-icon name="add-outline"></ion-icon>
+                            </ion-button>
+                          </span>
+                        </div>
+                      </div>
+                    </ion-card-content>
+                    <ion-card-content >
+                      <span class="title-price">Cantidad</span>
+                      <div class="price-container">
+                        <div class="min">
+                          <span class="title-price">Mín</span>
+                          <ion-input type="number" min="1" max="1000" placeholder="0"></ion-input>
+                        </div>
+                        <div class="to">
+                          <ion-icon name="caret-forward-outline"></ion-icon>
+                        </div>
+                        <div class="max">
+                          <span class="title-price">Máx</span>
+                          <ion-input type="number" min="1" max="1000" placeholder="0"></ion-input>
+                        </div>
+                      </div>
+                      <div class="price">
+                        <ion-input type="number" placeholder="Precio"></ion-input>
+                      </div>
+                    </ion-card-content>
+                  </div>
+                  
+                </ion-card> -->
+                <ion-card class="animated-top price-card" *ngIf="addNewPrice || firstCapt">
+                  <ion-card-header>
+                    <div class="number-price">
+                      <span>{{lstPrices.length + 1}}</span>
+                    </div>
+                    <div class="price-tl" >
+                      Agregar Precio
+                    </div>
+                    <div class="icon-price">
+                    </div>
+                  </ion-card-header>
+                  <div class="cardt" >
+                    <ion-card-content >
+                      <div class="price-container">
+                        <div class="symboladd">
+                          <span class="price-tl">
+                            <ion-button (click)="createNewPrice()" expand="block" fill="clear" shape="round">
+                              <ion-icon name="add-outline"></ion-icon>
+                            </ion-button>
+                          </span>
+                        </div>
+                      </div>
+                    </ion-card-content>
+                   
+                  </div>
+                  
+                </ion-card>
+              </div>
+        </div>
+        <div class="containerBtn">
+      
+          <ion-button fill="outline" color="dark" shape="round" expand="block">
+            Guardar
+          </ion-button>
+          
+        </div>
+    
+    </div>
+
+
 </ion-content>
 
 

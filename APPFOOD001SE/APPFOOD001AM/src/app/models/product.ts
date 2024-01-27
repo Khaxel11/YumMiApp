@@ -32,6 +32,7 @@ export class Ingredient{
     public ingrediente : string;
 }
 export class Price{
+    public idPrecio : number;
     public precioUnidad : number; 
     public cantidadMinima : number;
     public cantidadMaxima : number;

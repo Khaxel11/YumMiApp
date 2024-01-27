@@ -77,6 +77,6 @@ setMensaje(value : string){
     
 
 
-  }, 3000);
+  }, 100); //3000
 }
 }
