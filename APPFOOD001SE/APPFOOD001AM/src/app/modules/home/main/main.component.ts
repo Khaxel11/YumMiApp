@@ -28,6 +28,7 @@ export class MainComponent implements OnInit {
   loading : any;
   countNotification : number = 0;
   lstNotification = [];
+  lstSlider = [];
   isHeaderHidden: boolean = false;
 
 
@@ -142,6 +143,7 @@ export class MainComponent implements OnInit {
         localStorage.setItem("idCuenta", data.data.idCuenta);
         localStorage.setItem("picture", this.UserJwt.picture);    
         this.menu.username = this.UserJwt.username;
+        await this.getSliderImages();
       }
     }catch(error){
 
@@ -149,6 +151,12 @@ export class MainComponent implements OnInit {
     finally{
       await this.loading.dismiss();
     }
+  }
+
+  async getSliderImages(){
+    let data = await this.KitchenService.getSliderMenu();
+    this.lstSlider = data.data;
+    console.log(data);
   }
 
   goToProducts(){

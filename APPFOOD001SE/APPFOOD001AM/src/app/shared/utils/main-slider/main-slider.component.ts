@@ -1,19 +1,22 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonSlides } from '@ionic/angular';
+import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { IonSlides, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'main-slider',
   templateUrl: './main-slider.component.html',
   styleUrls: ['./main-slider.component.css']
 })
-export class MainSliderComponent implements OnInit {
+export class MainSliderComponent implements AfterViewInit {
   @ViewChild(IonSlides) slides: IonSlides;
-
+  @Input () items : any[];
   
-  constructor() { }
+  constructor(private sanitizer: DomSanitizer,
+    private navCtrll : NavController) { }
   currentSlideIndex: number = 0;
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
+    console.log(this.items);
   }
  
 
@@ -30,5 +33,14 @@ export class MainSliderComponent implements OnInit {
       this.currentSlideIndex = index;
     });
   }
- 
+  imagenBase64(base64String: string): SafeUrl {
+    const imageUrl = 'data:image/jpeg;base64,' + base64String;
+    return this.sanitizer.bypassSecurityTrustUrl(imageUrl);
+  }
+  onClickItemSlider(e : any){
+    if(e.RutaRedirecciona){
+      this.navCtrll.navigateForward(e.RutaRedirecciona);
+    }
+
+  }
 }

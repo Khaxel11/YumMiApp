@@ -110,5 +110,18 @@ namespace APPFOODAPI001.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Error, {ex.Message}");
             }
         }
+
+        [HttpGet("getSliderMenu")]
+        public async Task<IActionResult> getSliderMenu()
+        {
+            try
+            {
+                return Ok(await new KitchenBusiness().getSliderMenu(conection));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Error, {ex.Message}");
+            }
+        }
     }
 }

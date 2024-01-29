@@ -1,12 +1,22 @@
 <ion-slides pager="true" [options]="slideOpts" (ionSlideDidChange)="slideChanged()" paginationType="progressbar">
-    <ion-slide>
-      <h1>Slide 1</h1>
-    </ion-slide>
-    <ion-slide>
-      <h1>Slide 2</h1>
-    </ion-slide>
-    <ion-slide>
-      <h1>Slide 3</h1>
-    </ion-slide>
-  </ion-slides>
-  
+  <ion-slide *ngFor="let item of items" (click)="onClickItemSlider(item)">
+    <div class="image-container">
+     
+      <img [src]="imagenBase64(item.Imagen)" alt="no visible">
+      <div class="label-Container" (click)="onClickItemSlider(item)">
+        <ion-button size="small" (click)="tuFuncion()">Conoce más</ion-button>
+      </div>
+      <div class="gradient-container"></div>
+      
+      <div class="text-container">
+        
+        <p>{{item.Subtitulo}}</p>
+        <h1>{{item.Titulo}}</h1>
+        
+        <div class="button-container">
+          <ion-button size="small" color="success" (click)="onClickItemSlider(item)">Conoce más</ion-button>
+        </div>
+      </div>
+    </div>
+  </ion-slide>
+</ion-slides>

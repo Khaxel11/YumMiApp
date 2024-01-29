@@ -18,6 +18,13 @@ export class KitchenService {
     return this.http.get(url, { params }).toPromise();
   }
 
+  getSliderMenu() : Promise<any>{
+    const url = URL + 'getSliderMenu';
+    const params = new HttpParams()
+    return this.http.get(url,).toPromise();
+  }
+
+
   getUserData(Opcion : number, Username : string, Password : string, IdCuenta : number) : Promise<any>{
     const url = URL + 'getUserData';
     const params = new HttpParams()

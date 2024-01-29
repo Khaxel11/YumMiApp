@@ -39,8 +39,8 @@
   
   <!-- </ion-header> -->
 
-  <div class="content-val">
-    <main-slider></main-slider>
+  <div class="content-val" *ngIf="lstSlider">
+    <main-slider [items]="lstSlider"></main-slider>
     
   </div>
  

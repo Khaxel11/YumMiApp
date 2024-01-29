@@ -77,5 +77,16 @@ namespace Business
                 throw new ArgumentException(ex.Message);
             }
         }
+        public async Task<Result> getSliderMenu(UserJwt DatosToken)
+        {
+            try
+            {
+                return await new KitchenData().getSliderMenu(DatosToken);
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+        }
     }
 }
