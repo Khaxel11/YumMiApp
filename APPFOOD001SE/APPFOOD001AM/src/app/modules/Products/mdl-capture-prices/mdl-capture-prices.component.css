@@ -64,6 +64,9 @@
   border-bottom: 1px solid #747474;
   text-align: center;
 }
+.error ion-input {
+  border-bottom: 1px solid #ff1919;
+}
 
 .title-price{
   position: absolute;

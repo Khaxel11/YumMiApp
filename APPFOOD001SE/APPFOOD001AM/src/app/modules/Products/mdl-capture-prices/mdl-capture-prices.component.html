@@ -29,7 +29,7 @@
         </div>
         <div class="capture-container center-container">
             <div class="cards-container">
-                <ion-card class="animated-top price-card" *ngFor="let  item of lstPrices; let i = index;">
+                <ion-card class="animated-top price-card" *ngFor="let  item of lstPrices; let i = index;" (dblclick)="item.isCaptured = false">
                   <ion-card-header>
                     <div class="number-price">
                       <span>{{i+1}}</span>
@@ -46,12 +46,12 @@
                       <span class="title-price">Cantidad</span>
                       <div class="price-container ">
 
-                        <div class="min" *ngIf="item.isCaptured">
+                        <div class="min" *ngIf="item.isCaptured" >
                           <span class="title-price">Mín</span> {{item.cantidadMinima}}
                         </div>
-                        <div class="min" *ngIf="!item.isCaptured">
-                          <span class="title-price">Mín</span>
-                          <ion-input type="number" min="1" max="1000" placeholder="0"></ion-input>
+                        <div class="min" [ngClass]="item.errorMin ? 'error' : ''" *ngIf="!item.isCaptured">
+                          <span class="title-price" [ngClass]="item.errorMin ? 'invalid' : ''">Mín</span>
+                          <ion-input type="number" min="1" max="1000" placeholder="0" [(ngModel)]="item.cantidadMinima"></ion-input>
                         </div>
                         
                         <div class="to">
@@ -60,16 +60,16 @@
                         <div class="max" *ngIf="item.isCaptured">
                           <span class="title-price">Máx</span> {{item.cantidadMaxima}}
                         </div>
-                        <div class="max" *ngIf="!item.isCaptured">
-                          <span class="title-price">Máx</span>
-                          <ion-input type="number" min="1" max="1000" placeholder="0"></ion-input>
+                        <div class="max" *ngIf="!item.isCaptured" [ngClass]="item.errorMax ? 'error' : ''">
+                          <span class="title-price" [ngClass]="item.errorMax ? 'invalid' : ''">Máx</span>
+                          <ion-input type="number" min="1" max="1000" placeholder="0" [(ngModel)]="item.cantidadMaxima"></ion-input>
                         </div>
                       </div>
                       <div class="price" *ngIf="item.isCaptured">
                         {{item.precioUnitario}}
                       </div>
-                      <div class="price" *ngIf="!item.isCaptured">
-                        <ion-input type="number" placeholder="Precio"></ion-input>
+                      <div class="price" *ngIf="!item.isCaptured" [ngClass]="{'error': item.errorPrice, 'invalid': item.errorPrice}"                      >
+                        <ion-input type="number" placeholder="Precio" [(ngModel)]="item.precioUnitario" (ionBlur)="onBlurPrice(item)" (keyup)="onFocusPrice(item)" (ngModelChange)="onFocusPrice(item)"></ion-input>
                       </div>
                     </ion-card-content>
                   </div>
