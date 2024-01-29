@@ -39,7 +39,7 @@ export class MdlCapturePricesComponent implements AfterViewInit{
   }
   createNewPrice(){
     this.addNewPrice = true;
-    this.lstPrices.push({idPrecio : 0})
+    this.lstPrices.push({idPrecio : 0 , isCaptured : false})
   }
 
 }

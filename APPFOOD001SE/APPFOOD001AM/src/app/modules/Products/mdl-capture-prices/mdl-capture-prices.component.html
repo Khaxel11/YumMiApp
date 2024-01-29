@@ -27,12 +27,12 @@
         <div class="available-price">
             <div class="item-price"></div>
         </div>
-        <div class="capture-container">
+        <div class="capture-container center-container">
             <div class="cards-container">
                 <ion-card class="animated-top price-card" *ngFor="let  item of lstPrices; let i = index;">
                   <ion-card-header>
                     <div class="number-price">
-                      <span>{{i}}</span>
+                      <span>{{i+1}}</span>
                     </div>
                     <div class="price-tl" >
                       {{item.idPrecio === 0 ? 'Nuevo Precio': 'Precio'}}
@@ -45,18 +45,31 @@
                     <ion-card-content>
                       <span class="title-price">Cantidad</span>
                       <div class="price-container ">
-                        <div class="min">
+
+                        <div class="min" *ngIf="item.isCaptured">
                           <span class="title-price">Mín</span> {{item.cantidadMinima}}
                         </div>
+                        <div class="min" *ngIf="!item.isCaptured">
+                          <span class="title-price">Mín</span>
+                          <ion-input type="number" min="1" max="1000" placeholder="0"></ion-input>
+                        </div>
+                        
                         <div class="to">
                           <ion-icon name="caret-forward-outline"></ion-icon>
                         </div>
-                        <div class="max">
+                        <div class="max" *ngIf="item.isCaptured">
                           <span class="title-price">Máx</span> {{item.cantidadMaxima}}
                         </div>
+                        <div class="max" *ngIf="!item.isCaptured">
+                          <span class="title-price">Máx</span>
+                          <ion-input type="number" min="1" max="1000" placeholder="0"></ion-input>
+                        </div>
                       </div>
-                      <div class="price">
+                      <div class="price" *ngIf="item.isCaptured">
                         {{item.precioUnitario}}
+                      </div>
+                      <div class="price" *ngIf="!item.isCaptured">
+                        <ion-input type="number" placeholder="Precio"></ion-input>
                       </div>
                     </ion-card-content>
                   </div>
