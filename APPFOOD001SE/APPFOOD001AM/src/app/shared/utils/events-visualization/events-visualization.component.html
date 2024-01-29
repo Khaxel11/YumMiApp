@@ -1,0 +1,16 @@
+<ion-card>
+    <ion-card-content>
+      <p class="ion-text-start">
+        <ion-icon name="calendar"></ion-icon>
+        Próximo Evento de {{ proximoEvento.titulo }}
+      </p>
+      <p class="ion-text-end">{{ proximoEvento.fecha | date: 'dd/MM/yyyy' }}</p>
+      <h1><strong>{{ proximoEvento.platilloProgramado }}</strong></h1>
+      <h2 class="cantidad"><strong>Cantidad:</strong> {{ proximoEvento.cantidad }}</h2>
+      <h3>{{ proximoEvento.foodHub }}</h3>
+      <ion-button fill="outline" shape="round">
+        Ver Detalles
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+  

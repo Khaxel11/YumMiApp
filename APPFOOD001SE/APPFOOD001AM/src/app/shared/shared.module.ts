@@ -15,6 +15,8 @@ import { MdlFilterComponent } from './utils/filtered-categories/mdl-filter/mdl-f
 import { CalendarComponent } from './utils/calendar/calendar.component';
 import { AccordionComponent } from './components/accordion/accordion.component';
 import { HorizontalListComponent } from './components/horizontal-list/horizontal-list.component';
+import { EventsVisualizationComponent } from './utils/events-visualization/events-visualization.component';
+import { ActiveOrderComponent } from './utils/active-order/active-order.component';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { HorizontalListComponent } from './components/horizontal-list/horizontal
     MdlFilterComponent,
     CalendarComponent,
     AccordionComponent,
-    HorizontalListComponent
+    HorizontalListComponent,
+    EventsVisualizationComponent,
+    ActiveOrderComponent
   ],
   imports: [ 
     CommonModule,
@@ -49,7 +53,9 @@ import { HorizontalListComponent } from './components/horizontal-list/horizontal
     FilteredCategoriesComponent,
     CalendarComponent,
     AccordionComponent,
-    HorizontalListComponent
+    HorizontalListComponent,
+    EventsVisualizationComponent,
+    ActiveOrderComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

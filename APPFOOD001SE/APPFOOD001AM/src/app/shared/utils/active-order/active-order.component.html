@@ -1,0 +1,13 @@
+<ion-list>
+    <ion-item *ngFor="let platillo of platillosActivos">
+      <ion-thumbnail slot="start">
+        <ion-img [src]="platillo.imagen"></ion-img>
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ platillo.nombre }}</h2>
+        <p>{{ platillo.descripcion }}</p>
+        <ion-note>Cantidad Solicitada {{platillo.cantidad}}</ion-note>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  
