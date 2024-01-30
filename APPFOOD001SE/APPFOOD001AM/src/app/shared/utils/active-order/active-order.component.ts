@@ -6,20 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./active-order.component.css']
 })
 export class ActiveOrderComponent implements OnInit {
-  platillosActivos = [
-    {
-      nombre: 'Pozole Vegetariano',
-      descripcion: 'Pedido de Producto',
-      cantidad: 50,
-      imagen: 'src/assets/Images/gato.jpg',
-    },
-    {
-      nombre: 'Agua horchata',
-      descripcion: 'Descripción del platillo 2',
-      cantidad: 50,
-      imagen: 'URL de la imagen del platillo 2',
-    },
-  ];
+  
   constructor() { }
 
   ngOnInit(): void {

@@ -9,12 +9,12 @@ ion-toolbar{
 .round-button {
   display: flex;
   border-radius: 50%;
-  width: 40px; /* Ajusta el tamaño según sea necesario */
-  height: 40px; /* Ajusta el tamaño según sea necesario */
+  width: 40px; 
+  height: 40px; 
   align-items: center;
   justify-content: center;
-  background-color: #ffffff; /* Color de fondo del botón */
-  color: #ffffff; /* Color del texto del botón */
+  background-color: #ffffff; 
+  color: #ffffff; 
   border: none;
   cursor: pointer;
   outline: none;
@@ -39,16 +39,16 @@ ion-toolbar{
   position: fixed;
   bottom: 0;
   right: 0;
-  background-color: red; /* Color de fondo de la burbuja */
-  color: white; /* Color del texto de la burbuja */
-  width: 18px; /* Ajusta el tamaño según sea necesario */
-  height: 18px; /* Ajusta el tamaño según sea necesario */
+  background-color: red; 
+  color: white;
+  width: 18px;
+  height: 18px; 
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-right: 20px;
-  font-size: 12px; /* Ajusta el tamaño del texto según sea necesario */
+  font-size: 12px; 
 }
   .buttonImgProfile{
     background-color: white;
@@ -60,7 +60,7 @@ ion-toolbar{
     
   }
   ion-button.buttonImgNotif{
-    position: absolute; /* Haz que el elemento sea fijo con respecto al contenedor principal */
+    position: absolute; 
     right: 0;
     background-color: white;
     border-radius: 50%;
@@ -71,7 +71,7 @@ ion-toolbar{
   }
   ion-menu-button.buttonImgNotif {
     
-    position: absolute; /* Haz que el elemento sea fijo con respecto al contenedor principal */
+    position: absolute; 
     right: 0;
     background-color: white;
     border-radius: 50%;

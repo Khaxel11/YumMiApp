@@ -17,7 +17,7 @@ ion-card {
     margin: 8px 0;
   }
   
-  ion-icon {
+  p ion-icon {
     font-size: 20px;
     margin-right: 8px;
   }
@@ -28,8 +28,11 @@ ion-card {
   }
   
   .cantidad {
-    font-size: 24px; /* Ajusta el tamaño de la fuente de la cantidad */
-    color: #4CAF50; /* Cambia el color de la cantidad */
+    font-size: 24px; 
+    color: #4CAF50;
     font-weight: bold;
   }
-  
+  ion-thumbnail ion-icon{
+    font-size: 50px;
+    color: rgb(59, 59, 59);
+  }

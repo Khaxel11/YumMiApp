@@ -1,14 +1,3 @@
-<!-- Tienes que agregar forma en el routing para hacerle referecia -->
-
-<!-- <ion-header>
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>Inicio</ion-title>
-  </ion-toolbar>
-</ion-header> -->
-
 
 <ion-content id="main-menu" >
   
@@ -17,7 +6,6 @@
       <ion-buttons slot="start" style="position: fixed;">
         <ion-menu-button class="buttonImgProfile">
           <img class="userImg" [src]="UserJwt.picture" alt="User Image">
-          <!-- <div class="mini-bubble">{{countNotification}}</div> -->
         </ion-menu-button>
       </ion-buttons>
       <ion-title class="ion-text-center tittleMaster">
@@ -30,7 +18,6 @@
       </ion-title>
       <ion-buttons slot="end" style="position: relative;">
         <ion-button class="buttonImgNotif" (click)="openMdlNotificacion()">
-          <!-- <img class="userNotif" [src]="UserJwt.picture" alt="User Image"> -->
           <ion-icon name="notifications-outline"></ion-icon>
           <div class="mini-bubble" *ngIf="countNotification !== 0">{{countNotification}}</div>
         </ion-button>
@@ -41,39 +28,41 @@
 
   <div class="content-val" *ngIf="lstSlider">
     <main-slider [items]="lstSlider"></main-slider>
+    <tabs-menu></tabs-menu>
     <events-visualization></events-visualization>  
+    <!-- <events-visualization></events-visualization>   -->
     <active-order></active-order>
   </div>
   
 
-  <ion-tabs>
-    <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="receipt-outline">
-        <ion-icon name="receipt-outline"></ion-icon>
   
-      </ion-tab-button>
-  
-      <ion-tab-button (click)="goToProgramacion()">
-        <ion-icon name="calendar-outline"></ion-icon>
-  
-      </ion-tab-button>
-      <ion-tab-button >
-        <ion-icon name="home-outline"></ion-icon>
-      </ion-tab-button>
-  
-      <ion-tab-button (click)="goToProducts()">
-        <ion-icon name="fast-food-outline"></ion-icon>
-  
-      </ion-tab-button>
-      <ion-tab-button >
-        <ion-icon name="trophy-outline"></ion-icon>
-  
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
   
 </ion-content>
+<!-- <ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="receipt-outline">
+      <ion-icon name="receipt-outline"></ion-icon>
 
+    </ion-tab-button>
+
+    <ion-tab-button (click)="goToProgramacion()">
+      <ion-icon name="calendar-outline"></ion-icon>
+
+    </ion-tab-button>
+    <ion-tab-button >
+      <ion-icon name="home-outline"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button (click)="goToProducts()">
+      <ion-icon name="fast-food-outline"></ion-icon>
+
+    </ion-tab-button>
+    <ion-tab-button >
+      <ion-icon name="trophy-outline"></ion-icon>
+
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs> -->
 
 <!-- Foot -->
 

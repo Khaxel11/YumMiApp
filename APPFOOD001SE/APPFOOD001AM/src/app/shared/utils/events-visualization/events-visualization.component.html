@@ -1,7 +1,7 @@
 <ion-card>
     <ion-card-content>
       <p class="ion-text-start">
-        <ion-icon name="calendar"></ion-icon>
+        <ion-icon name="calendar-outline"></ion-icon>
         Próximo Evento de {{ proximoEvento.titulo }}
       </p>
       <p class="ion-text-end">{{ proximoEvento.fecha | date: 'dd/MM/yyyy' }}</p>
@@ -12,5 +12,19 @@
         Ver Detalles
       </ion-button>
     </ion-card-content>
+    <ion-list>
+        <ion-item *ngFor="let order of activedOrders">
+          <ion-thumbnail slot="start">
+            <ion-icon name="receipt-outline"></ion-icon>
+            <!-- <ion-img [src]="platillo.imagen"></ion-img> -->
+          </ion-thumbnail>
+          <ion-label>
+            <h3>{{order.fecha |  date: 'dd/MM/yyyy'}}</h3>
+            <h2>{{ order.nombre }}</h2>
+            <p>{{ order.descripcion }}</p>
+            <ion-note>Cantidad Solicitada {{order.cantidad}}</ion-note>
+          </ion-label>
+        </ion-item>
+      </ion-list>
   </ion-card>
   

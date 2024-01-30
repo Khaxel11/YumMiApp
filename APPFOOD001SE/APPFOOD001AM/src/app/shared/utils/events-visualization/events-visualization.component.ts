@@ -6,21 +6,18 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./events-visualization.component.css']
 })
 export class EventsVisualizationComponent implements OnInit {
-  @Input() events: any[] = [
+  activedOrders = [
     {
+      nombre: 'Pozole Vegetariano',
+      descripcion: 'Pedido de Producto',
+      cantidad: 50,
       fecha: new Date(),
-      titulo: 'Evento 1',
-      descripcion: 'Descripción del Evento 1',
     },
     {
-      fecha: new Date(new Date().getTime() + 24 * 60 * 60 * 1000),
-      titulo: 'Evento 2',
-      descripcion: 'Descripción del Evento 2',
-    },
-    {
-      fecha: new Date(new Date().getTime() + 2 * 24 * 60 * 60 * 1000),
-      titulo: 'Evento 3',
-      descripcion: 'Descripción del Evento 3',
+      nombre: 'Agua horchata',
+      descripcion: 'Descripción del platillo 2',
+      cantidad: 50,
+      imagen: new Date(),
     },
   ];
 

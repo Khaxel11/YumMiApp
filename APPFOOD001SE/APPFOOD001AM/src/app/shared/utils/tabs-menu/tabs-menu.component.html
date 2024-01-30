@@ -1,0 +1,15 @@
+<div class="category-container">
+    <div class="category">
+      <div class="itemCategory"  *ngFor="let option of tabs" (click)="goToRoute(option)">
+        <div>             
+            <ion-icon name="{{option.icon}}"></ion-icon>
+            <!--  -->
+          <!-- <img [src]="imagenBase64(option.icon)" slot="start"> -->
+          <div class="category-tittle">
+            {{option.tab}}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>

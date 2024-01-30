@@ -17,6 +17,7 @@ import { AccordionComponent } from './components/accordion/accordion.component';
 import { HorizontalListComponent } from './components/horizontal-list/horizontal-list.component';
 import { EventsVisualizationComponent } from './utils/events-visualization/events-visualization.component';
 import { ActiveOrderComponent } from './utils/active-order/active-order.component';
+import { TabsMenuComponent } from './utils/tabs-menu/tabs-menu.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ActiveOrderComponent } from './utils/active-order/active-order.componen
     AccordionComponent,
     HorizontalListComponent,
     EventsVisualizationComponent,
-    ActiveOrderComponent
+    ActiveOrderComponent,
+    TabsMenuComponent
   ],
   imports: [ 
     CommonModule,
@@ -55,7 +57,8 @@ import { ActiveOrderComponent } from './utils/active-order/active-order.componen
     AccordionComponent,
     HorizontalListComponent,
     EventsVisualizationComponent,
-    ActiveOrderComponent
+    ActiveOrderComponent,
+    TabsMenuComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
