@@ -28,7 +28,7 @@
       class="calendar-day cont"
       [ngClass]="{
         'other-month': day.isOtherMonth,
-        'today': day.number === today
+        'today': day.number === today && !day.isOtherMonth && this.month === this.actualMonth
       }"
       
     >

@@ -13,6 +13,7 @@ export class CalendarComponent implements OnInit {
   daysInMonth: number;
   daysName = [];
   today : number = 0;
+  actualMonth : number;
   weeks: { dayOfWeek: string; number: number; notes: string; isOtherMonth: boolean }[][] = [];
 
   ngOnInit() {
@@ -24,6 +25,7 @@ export class CalendarComponent implements OnInit {
     const date = new Date();
     date.setDate(date.getDate());
     this.today = (Number)(date.getDate().toString());
+    this.actualMonth = date.getMonth();
   }
 
   updateCalendar() {

@@ -5,7 +5,7 @@
         
       <!-- </ion-toolbar> -->
     <!-- </ion-header> -->
-    <ion-content>
+    <ion-content class="transparent-item">
       <div>
         <h3>Hola</h3>
         <h1><strong>{{username}}</strong></h1>
@@ -70,7 +70,7 @@
         <ion-row class="list">
           <ion-col size="12">
             <ion-list  [inset]="true">
-              <ion-item class="itembtn" (click)="goToFoodhubs()" routerLink="/home/foodhubs" routerLinkActive="active">
+              <ion-item class="" (click)="goToFoodhubs()" routerLink="/home/foodhubs" routerLinkActive="active">
                 <ion-icon type="full" name="storefront-outline" slot="start" size="small" color="medium" class="ion-margin-end"></ion-icon>
                 <ion-label color="medium">Ver Food Hubs</ion-label>
               </ion-item>
@@ -146,7 +146,7 @@
         <ion-row class="list">
           <ion-col size="12">
             <ion-list  [inset]="true">
-              <ion-item class="itembtn" (click)="closeSession()">
+              <ion-item class="itembtn transparent-item" (click)="closeSession()">
                 <ion-icon name="log-out-outline" slot="start" size="small" color="medium" class="ion-margin-end"></ion-icon>
                 
                 <ion-label color="medium">Cerrar Sesion</ion-label>
