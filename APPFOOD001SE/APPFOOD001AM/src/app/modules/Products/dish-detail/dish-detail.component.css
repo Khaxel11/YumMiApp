@@ -51,9 +51,6 @@
   
   .background-image {
     position: absolute;
-    /* top: 30%; */
-    /* left: 50%; */
-    /* transform: translate(-50%, -50%); */
     width: 100%;
     height: 70%;
     background-size: cover;
@@ -140,7 +137,7 @@
   }
   
   .small-button {
-    margin-left: auto; /* Empuja el botón pequeño a la derecha */
+    margin-left: auto; 
   }
   
   .custom-input {
@@ -166,8 +163,8 @@
   .line {
     margin-top: 20px;
     width: 100%;
-    height: 1px; /* Altura de la línea */
-    background-color: #6d6d6d; /* Color de la línea */
+    height: 1px; 
+    background-color: #6d6d6d; 
     border-radius: 10px;
   }
   
@@ -185,3 +182,59 @@
     --ion-placeholder-color: #999;
   }
   
+
+  .list-prices {
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    margin: 5px;
+}
+
+.list-prices::-webkit-scrollbar {
+    width: 0;
+}
+
+.prices {
+    display: flex;
+}
+
+.item-price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 120px;
+    height: 150px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    margin-right: 10px;
+    border-radius: 20px;
+    flex-shrink: 0; 
+    position: relative;
+}
+
+
+.item-price img {
+    max-width: 100%;
+}
+
+.icon {
+    font-size: 50px;
+}
+
+.tittle {
+    text-align: center;
+}
+
+.icon-right {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 5px;
+    font-size: 15px;
+    color: rgb(0, 0, 0);
+    z-index: 999;
+    border-radius: 50% 50%;
+}

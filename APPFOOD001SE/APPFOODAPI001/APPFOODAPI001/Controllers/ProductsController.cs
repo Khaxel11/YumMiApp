@@ -9,6 +9,7 @@ using System;
 using System.Threading.Tasks;
 using Entity.DTO;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System.Collections.Generic;
 
 namespace APPFOODAPI001.Controllers
 {
@@ -89,6 +90,18 @@ namespace APPFOODAPI001.Controllers
             try
             {
                 return Ok(await new ProductsBusiness().saveProducto(conection, IdCuenta, Producto));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Error, {ex.Message}");
+            }
+        }
+        [HttpPost("savePrecios")]
+        public async Task<IActionResult> savePrecios(int IdCuenta, int IdProducto, List<PrecioEntity> Precios)
+        {
+            try
+            {
+                return Ok(await new ProductsBusiness().savePrecios(conection, IdCuenta, IdProducto, Precios));
             }
             catch (Exception ex)
             {

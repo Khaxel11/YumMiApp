@@ -25,8 +25,8 @@
     overflow: hidden;
     margin-right: 10px;
     border-radius: 20px;
-    flex-shrink: 0; /* Evita que el elemento se contraiga automáticamente */
-    position: relative; /* Añadido para posicionar el icono relativo a este elemento */
+    flex-shrink: 0; 
+    position: relative;
 }
 
 .selected {
@@ -54,6 +54,5 @@
     font-size: 30px;
     color: rgb(0, 0, 0);
     z-index: 999;
-    /* background-color: rgb(255, 56, 56); */
     border-radius: 50% 50%;
 }

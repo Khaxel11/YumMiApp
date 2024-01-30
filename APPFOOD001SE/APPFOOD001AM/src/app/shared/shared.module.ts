@@ -18,6 +18,7 @@ import { HorizontalListComponent } from './components/horizontal-list/horizontal
 import { EventsVisualizationComponent } from './utils/events-visualization/events-visualization.component';
 import { ActiveOrderComponent } from './utils/active-order/active-order.component';
 import { TabsMenuComponent } from './utils/tabs-menu/tabs-menu.component';
+import { DoubleTapDirective } from './directives/double-tap.directive';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { TabsMenuComponent } from './utils/tabs-menu/tabs-menu.component';
     HorizontalListComponent,
     EventsVisualizationComponent,
     ActiveOrderComponent,
-    TabsMenuComponent
+    TabsMenuComponent,
+    DoubleTapDirective
   ],
   imports: [ 
     CommonModule,
@@ -58,7 +60,8 @@ import { TabsMenuComponent } from './utils/tabs-menu/tabs-menu.component';
     HorizontalListComponent,
     EventsVisualizationComponent,
     ActiveOrderComponent,
-    TabsMenuComponent
+    TabsMenuComponent,
+    DoubleTapDirective
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

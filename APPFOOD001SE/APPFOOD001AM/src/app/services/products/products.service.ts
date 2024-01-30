@@ -50,4 +50,11 @@ export class ProductsService {
     .append('IdCuenta', String(IdCuenta))
     return this.http.post(url, Producto, { params }).toPromise();
   }
+  savePrecios(IdCuenta: number, IdProducto : number, Precios : any) : Promise<any>{
+    const url = URL + 'savePrecios';
+    const params = new HttpParams()
+    .append('IdCuenta', String(IdCuenta))
+    .append('IdProducto', String(IdProducto))
+    return this.http.post(url, Precios, { params }).toPromise();
+  }
 }

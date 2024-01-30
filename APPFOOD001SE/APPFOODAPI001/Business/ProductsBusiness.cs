@@ -81,5 +81,16 @@ namespace Business
                 throw new ArgumentException(ex.Message);
             }
         }
+        public async Task<Result> savePrecios(UserJwt DatosToken, int IdCuenta, int IdProducto, List<PrecioEntity> Precios)
+        {
+            try
+            {
+                return await new ProductsData().savePrecios(DatosToken, IdCuenta, IdProducto, Precios);
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+        }
     }
 }

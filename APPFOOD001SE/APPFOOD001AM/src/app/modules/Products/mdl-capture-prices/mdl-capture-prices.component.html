@@ -1,7 +1,7 @@
 <ion-header>
     <ion-toolbar>
       <ion-title class="ion-text-start">
-        Captura de Precios
+        Precios de {{nombre}}
       </ion-title>
       <ion-buttons slot="end">
         <ion-button (click)="closeModal(false)">
@@ -23,22 +23,27 @@
             </ion-button>
         </div>
     </div>
-    <div class="container" *ngIf="!noPrice">
+    <div class="container" *ngIf="!noPrice || already">
         <div class="available-price">
             <div class="item-price"></div>
         </div>
         <div class="capture-container center-container">
             <div class="cards-container">
-                <ion-card class="animated-top price-card" *ngFor="let  item of lstPrices; let i = index;" (dblclick)="item.isCaptured = false">
+                <ion-card class="animated-top price-card" *ngFor="let  item of lstPrices; let i = index;">
                   <ion-card-header>
                     <div class="number-price">
                       <span>{{i+1}}</span>
                     </div>
                     <div class="price-tl" >
-                      {{item.idPrecio === 0 ? 'Nuevo Precio': 'Precio'}}
+                      {{!item.isCaptured ? 'Nuevo Precio': 'Precio'}}
                     </div>
+                    <div class="icon-price-edit">
+                      <ion-icon name="create-outline" *ngIf="item.isCaptured === true" (click)="item.isCaptured = false;"></ion-icon>
+
+                    </div>
+
                     <div class="icon-price">
-                      <ion-icon name="close-outline"></ion-icon>
+                      <ion-icon name="close-outline" (click)="deleteItem(item)"></ion-icon>
                     </div>
                   </ion-card-header>
                   <div class="cardt">          
@@ -66,10 +71,10 @@
                         </div>
                       </div>
                       <div class="price" *ngIf="item.isCaptured">
-                        {{item.precioUnitario}}
+                        {{item.precioUnidad | currency}}
                       </div>
                       <div class="price" *ngIf="!item.isCaptured" [ngClass]="{'error': item.errorPrice, 'invalid': item.errorPrice}"                      >
-                        <ion-input type="number" placeholder="Precio" [(ngModel)]="item.precioUnitario" (ionBlur)="onBlurPrice(item)" (keyup)="onFocusPrice(item)" (ngModelChange)="onFocusPrice(item)"></ion-input>
+                        <ion-input type="number" placeholder="Precio" [(ngModel)]="item.precioUnidad" (ionBlur)="onBlurPrice(item)" (keyup)="onFocusPrice(item)" (ngModelChange)="onFocusPrice(item)"></ion-input>
                       </div>
                     </ion-card-content>
                   </div>
@@ -120,7 +125,7 @@
                   </div>
                   
                 </ion-card> -->
-                <ion-card class="animated-top price-card" *ngIf="addNewPrice || firstCapt">
+                <ion-card class="animated-top price-card" *ngIf="addNewPrice || firstCapt || already">
                   <ion-card-header>
                     <div class="number-price">
                       <span>{{lstPrices.length + 1}}</span>
@@ -151,7 +156,7 @@
         </div>
         <div class="containerBtn">
       
-          <ion-button fill="outline" color="dark" shape="round" expand="block">
+          <ion-button fill="outline" color="dark" shape="round" expand="block" (click)="savePrices()">
             Guardar
           </ion-button>
           

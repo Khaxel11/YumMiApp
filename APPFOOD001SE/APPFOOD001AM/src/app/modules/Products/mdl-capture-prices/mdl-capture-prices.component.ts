@@ -1,29 +1,46 @@
-import { Component, AfterViewInit } from '@angular/core';
-import { AlertController, ModalController } from '@ionic/angular';
+import { Component, AfterViewInit, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
+import { AlertController, Gesture, ModalController } from '@ionic/angular';
 import { Price } from '../../../models/product'
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';import { General, MESSAGE } from 'src/app/functions/general';
+import { ProductsService } from 'src/app/services/products/products.service';
 @Component({
   selector: 'app-mdl-capture-prices',
   templateUrl: './mdl-capture-prices.component.html',
   styleUrls: ['./mdl-capture-prices.component.css']
 })
 export class MdlCapturePricesComponent implements AfterViewInit{
+  @ViewChild('price-card') priceCard: ElementRef;
+  idProducto : number;
+  nombre : string = "";
+
+  private pressGesture: Gesture;
   noimage:string="../../../../assets/Images/price-list.svg";
   addNewPrice : boolean = false;
   lstPrices = [];
+  lstCopyOfPrices = [];
+  lstPric
   general = new General();
   MESSAGES = new MESSAGE();
-  constructor(private modalController: ModalController){
+  already : boolean = false;
+  constructor(private modalController: ModalController,
+    private alert : AlertController,
+    private service : ProductsService,
+    private cdr: ChangeDetectorRef,){
 
   }
 
   ngAfterViewInit(): void {
+    this.lstCopyOfPrices = [...this.lstPrices]
       if(this.lstPrices.length>0){
+        
         this.noPrice = false;
+        this.already = true;
+        this.formatList();
       }
       if(this.lstPrices.length === 0){
         this.firstCapt = true;
       }
+      this.cdr.detectChanges();
   }
   noPrice : boolean = true;
   firstCapt : boolean = false;
@@ -34,12 +51,37 @@ export class MdlCapturePricesComponent implements AfterViewInit{
   priceInputs: any[] = [];
 
   closeModal(e? : any) {
+    // var data;
+    // if(e){
+    //    data = true;
+    // }else{
+    //   data = this.lstCopyOfPrices;
+    // }
+    
     this.modalController.dismiss(e);
   }
   //iniciar la captura de precios
   startPrices(){
     this.noPrice = false;
   }
+
+  async savePrices(){
+    if(!this.lstPrices){
+      return;
+    }
+    try {
+      const idCuenta = localStorage.getItem('idCuenta');
+      let data = await this.service.savePrecios(Number(idCuenta), this.idProducto, this.lstPrices);
+      if(!data.data){
+        this.general.showMessage(this.MESSAGES.ERROR, "");
+        return;
+      }
+      console.log(data);
+    } catch (error) {
+      
+    }
+  }
+
   //evento cuando pierde el blur el precio
   onBlurPrice(e : any){
     if(!e.precioUnitario || e.precioUnitario === 0){
@@ -96,6 +138,7 @@ export class MdlCapturePricesComponent implements AfterViewInit{
     this.setCompletedLastPrice();
     this.addNewPrice = true;
     this.lstPrices.push({idPrecio : 0 , isCaptured : false})
+    this.sortPrices();
   }
   //aplica guardado y completado al ultimo precio
   setCompletedLastPrice(){
@@ -114,10 +157,75 @@ export class MdlCapturePricesComponent implements AfterViewInit{
       return null;
     }
   }
+
+  async sortPrices(){
+    this.lstPrices.sort((a, b) => {
+      // Primero, ordena por si está capturado en orden descendente
+      if (b.isCaptured - a.isCaptured !== 0) {
+        return b.isCaptured - a.isCaptured;
+      }
+  
+      // Si están capturados, ordena por precio unitario en orden ascendente
+      return b.precioUnitario - a.precioUnitario;
+    });
+  }
   //evento al generar el focus al campo precio
   onFocusPrice(e : any){
     if(!this.validateLastCaptured(e)){
       return;
     }
   }
+  formatList(){
+    this.lstPrices.forEach(element => {
+      element.isCaptured = true;
+
+    });
+  }
+
+  async deleteItem(e : any){
+    let index = this.lstPrices.indexOf(e);
+    if(!e.isCaptured){
+      this.lstPrices.splice(index,1);
+      this.general.showMessage('Se ha eliminado el precio', 'success');
+    }else{
+      
+      if(await this.askToDelete()){
+        this.lstPrices.splice(index,1);
+      }
+    }
+  }
+  async askToDelete() : Promise<boolean>{
+    let value : boolean = false;
+    const alert = await this.alert.create({
+      header: '¿Eliminar?',
+      message: 'Deseas eliminar el precio. Esta acción es irreversible',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          
+        },
+        {
+          text: 'Si, eliminar',
+          handler: () => {
+            value = true;
+          },
+        },
+      ],
+    });
+
+    await alert.present();
+    const result = await alert.onDidDismiss();
+      
+      if (result.role === 'cancel') {
+        value = false;
+      } else {
+        value = true;
+      }
+      return value;
+    }
+  
+    
+
 }

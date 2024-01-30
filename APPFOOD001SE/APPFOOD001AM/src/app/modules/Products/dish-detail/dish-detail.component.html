@@ -112,30 +112,33 @@
         </horizontal-list>
       </div>
 
-      <div class="line" *ngIf="datosCargados">
-        <p (click)="openMdlFoodHubDetail()"><strong>Precios</strong></p>
-        <ion-list>
-          <ion-item>
-            <ion-label position="stacked">ID Producto</ion-label>
-            <ion-input type="text" [(ngModel)]="precio.idProducto" required></ion-input>
-          </ion-item>
-    
-          <ion-item>
-            <ion-label position="stacked">Precio por Unidad</ion-label>
-            <ion-input type="number" [(ngModel)]="precio.precioUnidad" required></ion-input>
-          </ion-item>
-    
-          <ion-item>
-            <ion-label position="stacked">Cantidad Mínima</ion-label>
-            <ion-input type="number" [(ngModel)]="precio.cantidadMinima" required></ion-input>
-          </ion-item>
-    
-          <ion-item>
-            <ion-label position="stacked">Cantidad Máxima</ion-label>
-            <ion-input type="number" [(ngModel)]="precio.cantidadMaxima" required></ion-input>
-          </ion-item>
-        </ion-list>
+      <div class="ion-margin-top" *ngIf="datosCargados">
+        <p><strong>Precios</strong></p>
+        
+        <div class="list-prices">
+          <div class="prices">
+            <div class="item-price" *ngFor="let prices of lstPrecios; let i = index" (click)="selectedItem(option)">
+              <div class="item-content-prices">
+                <p class="icon-right">{{prices.idPrecio}}</p>
+                <!-- <ion-icon class="icon-right" name="close-circle-outline"></ion-icon> -->
+                <p>Precio</p>
+                <h1><strong>{{prices.precioUnidad | currency}}</strong></h1>
+                <h2 class="ion-margin-top">{{prices.cantidadMinima}} 
+                  <ion-icon name="caret-forward-outline"></ion-icon>
+                  {{prices.cantidadMaxima}}
+                </h2>                
+                <div class="mini-title" *ngIf="prices.cantidadMinima !== undefined && prices.cantidadMaxima !== undefined">
+                  <p>Mín - Máx</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ion-button size="small" color="dark" (click)="openMdlPriceDetail()" expand="block" fill="outline" shape="round">
+          {{lstPrecios.length > 0  ? 'Ver más detalles' : 'Capturar precios'}}
+        </ion-button>
       </div>
+      
 
 
 

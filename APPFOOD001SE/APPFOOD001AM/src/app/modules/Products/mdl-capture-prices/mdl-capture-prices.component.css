@@ -107,6 +107,21 @@
   top: 0;
   font-size: 30px;
 }
+.icon-price-edit{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  color: #747474;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  right: 0;
+  bottom: 0;
+  font-size: 30px;
+}
+
 .number-price{
   position: absolute;
   display: flex;

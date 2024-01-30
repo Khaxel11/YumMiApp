@@ -7,6 +7,7 @@ import { SharedDataService } from 'src/app/services/common/SharedService';
 import { ProductsService } from 'src/app/services/products/products.service';
 import { HorizontalListComponent } from 'src/app/shared/components/horizontal-list/horizontal-list.component';
 import { MdlCapturePricesComponent } from '../mdl-capture-prices/mdl-capture-prices.component';
+import { element } from 'protractor';
 @Component({
   selector: 'app-dish-detail',
   templateUrl: './dish-detail.component.html',
@@ -37,6 +38,7 @@ export class DishDetailComponent implements OnInit {
   lstIngredientes = [];
   lstPrecios = [];
   lstCategorias = [];
+  copyOfPrices = [];
   datosCargados : boolean = false;
 
   precio = {
@@ -90,7 +92,7 @@ export class DishDetailComponent implements OnInit {
     
     this.lstIngredientes = data.data;
     this.lstCategorias = data.data2;
-
+    this.copyOfPrices = data.data3;
     this.lstPrecios = data.data3;
     //this.lista.options = this.lstIngredientes;
     
@@ -115,18 +117,26 @@ export class DishDetailComponent implements OnInit {
     return imageUrl;
   }
 
-async openMdlFoodHubDetail(e : any){
+async openMdlPriceDetail(e : any){
     
     const modal = await this.modalController.create({
       component: MdlCapturePricesComponent,
       componentProps: {
-        //foodHub : e
+        idProducto : this.Producto.idProducto,
+        nombre : this.Producto.nombreProducto,
+        lstPrices : this.lstPrecios
       },
     });
-     modal.onWillDismiss().then( async(data)=> {
-      
-      if(data.data){
-      }
+     modal.onWillDismiss().then( async(data : any)=> {
+      await this.getInfoProducto();
+      // if(data === true){
+        
+        
+      //   return;
+      // }else{
+      //   this.lstPrecios = data;
+      //   return;
+      // }
     })
 
     await modal.present();

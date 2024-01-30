@@ -86,8 +86,8 @@ namespace Entity
 
     public class PrecioEntity
     {
-        public int IdPrecios { get; set; }
-        public int IdProducto { get; set; }
+        public int IdPrecio { get; set; }
+        //public int IdProducto { get; set; }
         public decimal PrecioUnidad { get; set; }
         public int CantidadMinima { get; set; }
         public int CantidadMaxima { get; set; }
@@ -124,6 +124,21 @@ namespace Entity
                 lstCategorias.Add(categoria);
             }
             return lstCategorias;
+        }
+        public List<PrecioEntity> createTypePrecio(List<PrecioEntity> Precios)
+        {
+            PrecioEntity precio;
+            List<PrecioEntity> lstPrecio = new List<PrecioEntity>();
+            for (int i = 0; i < Precios.Count; i++)
+            {
+                precio = new PrecioEntity();
+                precio.IdPrecio = Precios[i].IdPrecio;
+                precio.PrecioUnidad = Precios[i].PrecioUnidad;
+                precio.CantidadMinima = Precios[i].CantidadMinima;
+                precio.CantidadMaxima = Precios[i].CantidadMaxima;
+                lstPrecio.Add(precio);
+            }
+            return lstPrecio;
         }
     }
 }

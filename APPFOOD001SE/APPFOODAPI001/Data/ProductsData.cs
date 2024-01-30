@@ -241,5 +241,39 @@ namespace Data
                 throw new ArgumentException(ex.Message);
             }
         }
+        public async Task<Result> savePrecios(UserJwt DatosToken, int IdCuenta, int IdProducto, List<PrecioEntity> Precios)
+        {
+            Result objResult = new Result();
+            try
+            {
+                CreateListType tablas = new CreateListType();
+
+                CreateDataTable Ds = new CreateDataTable();
+
+                //Guardamos datos del producto
+                using (var con = new SqlConnection(DatosToken.Conection))
+                {
+                    var result = await con.QuerySingleAsync<MessageEntity>(
+                        SP_ACCIONES_CAPTURA,
+                        new
+                        {
+                            Opcion = 4,
+                            IdCuenta = IdCuenta,
+                            IdProducto = IdProducto,
+                            Precios = Ds.CreateTable(Precios).AsTableValuedParameter("APPFPRODCAT006TD001"),
+                            Usuario = "",
+
+                        },
+                    commandType: CommandType.StoredProcedure);
+                    objResult.data = result;
+                    //Si el resultado es correcto
+                }
+                return objResult;
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+        }
     }
 }
