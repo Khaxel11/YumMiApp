@@ -1,22 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentInit, AfterViewInit, Component, OnInit } from '@angular/core';
 import { DishDetailComponent } from '../dish-detail/dish-detail.component';
-import { NavController } from '@ionic/angular';
-import { General } from 'src/app/functions/general';
+import { ModalController, NavController } from '@ionic/angular';
+import { General, MESSAGE } from 'src/app/functions/general';
 import { Product } from 'src/app/models/product';
 import { ProductsService } from 'src/app/services/products/products.service';
 import { SafeUrl } from '@angular/platform-browser';
 import { SharedDataService } from 'src/app/services/common/SharedService';
-
+import { DishCaptureComponent } from '../dish-capture/dish-capture.component';
+import { ChooseProductComponent } from '../dish-capture/choose-product/choose-product.component';
 @Component({
   selector: 'app-dish-catalog',
   templateUrl: './dish-catalog.component.html',
   styleUrls: ['./dish-catalog.component.css']
 })
-export class DishCatalogComponent implements OnInit {
+export class DishCatalogComponent implements AfterContentInit {
   selectedProduct: any;
   general = new General();
+  MESSAGE = new MESSAGE();
   lstProductos = new Array<Product>();
-  modalController: any;
   idCuenta : string;
   idTipo : number = 0;
   idTipoAlimentacion : number = 0;
@@ -28,12 +29,14 @@ export class DishCatalogComponent implements OnInit {
 
   constructor(private navCtrl: NavController, 
     public service : ProductsService,
-    private sharedService : SharedDataService) { }
+    private sharedService : SharedDataService,
+    private modalController : ModalController) { }
 
-  ngOnInit(): void {
+  ngAfterContentInit(): void {
       this.idCuenta = localStorage.getItem('idCuenta');
       this.getProductos();
   }
+
   async getProductos(){
     try {
       let data = await this.service.getProductos(this.idCuenta, this.idTipoAlimentacion, this.idTipoAlimentacion, this.idCategoria);
@@ -41,9 +44,10 @@ export class DishCatalogComponent implements OnInit {
       this.lstProductosAgrupados = this.agruparPorIDTipo(this.lstProductos);
 
     } catch (error) {
-      
+      this.general.showMessage(this.MESSAGE.NET_ERROR + " " + error.error, 'error' ) 
     }
   }
+  
   imagenBase64(base64String: string): SafeUrl {
     const imageUrl = 'data:image/png;base64,' + base64String;
     return imageUrl;
@@ -54,9 +58,23 @@ export class DishCatalogComponent implements OnInit {
     });
   }
   async goToCapture(){
-    this.navCtrl.navigateForward('/products/capture', {});
+    const modal = await this.modalController.create({
+      component: ChooseProductComponent,
+      componentProps: {
+        //foodHub : e
+      },
+    });
+     modal.onWillDismiss().then( async(data)=> {
+      
+      if(data.data){
+        this.getProductos();
+      }
+    })
+    //this.navCtrl.navigateForward('/products/capture', {});
+    await modal.present();
   }
   goBack(){
+
     this.navCtrl.back();
   }
   agruparPorIDTipo(lstProductos: any[]): any[] {

@@ -1,4 +1,12 @@
 <ion-content>
+  <div class="buttonsOnTop">
+    <ion-buttons slot="start">
+      <ion-button class="btnReturn" (click)="closeModal()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+      <h3>Capturar un nuevo producto</h3>
+    </ion-buttons>
+  </div>
   <slider-cs (valuePosition)="slider($event)">
     <ion-card class="fullCard">
       <div class="containerSloter">
@@ -66,7 +74,7 @@
             <ion-card>
               <div>
                 <ion-card-header>
-                  <ion-icon class="" name="close-circle-outline" (click)="cancelGroup()"></ion-icon>
+                  <ion-icon class="icon-right" name="close-circle-outline" (click)="cancelGroup()"></ion-icon>
 
                   <ion-card-title><strong>{{lstAlimentacion[selectedIndexForGroup].TipoAlimentacion}}</strong></ion-card-title>
                   <div class="description">{{lstAlimentacion[selectedIndexForGroup].Descripcion}}</div>

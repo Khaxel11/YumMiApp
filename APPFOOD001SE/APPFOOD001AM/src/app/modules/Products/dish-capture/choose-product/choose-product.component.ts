@@ -1,12 +1,13 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, Output, ViewChildren } from '@angular/core';
 import { SafeUrl } from '@angular/platform-browser';
-import { AlertController, LoadingController, NavController } from '@ionic/angular';
+import { AlertController, LoadingController, ModalController, NavController } from '@ionic/angular';
 import { General, MESSAGE } from 'src/app/functions/general';
 import { ProductsService } from 'src/app/services/products/products.service';
 import { trigger, style, animate, transition } from '@angular/animations';
 import { Product } from 'src/app/models/product';
 import { ProductBuilder } from 'src/app/models/buildProduct';
 import { CameraService } from 'src/app/services/common/camera.service';
+import { DishCaptureComponent } from '../dish-capture.component';
 @Component({
   selector: 'app-choose-product',
   templateUrl: './choose-product.component.html',
@@ -51,7 +52,8 @@ export class ChooseProductComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     private Camera : CameraService,
     private Load : LoadingController,
-    private alert : AlertController) { }
+    private alert : AlertController,
+    private modalController : ModalController) { }
 
   ngOnInit() {
     this.getTiposComida();
@@ -180,11 +182,11 @@ export class ChooseProductComponent implements OnInit {
       }
       if(data.data.correct && data.data2.correct && data.data3.correct){
         this.General.showMessage("¡Guardado Correctamente!", 'success');  
-        this.goBack();
+        this.closeModal(true);
         return;
       }else{
         this.General.showMessage("¡Guardado! puede revisar sus datos en la vista de sus productos", 'success');  
-        this.goBack();
+        this.closeModal(true);
         return;
       }
       
@@ -228,6 +230,11 @@ export class ChooseProductComponent implements OnInit {
   }
   goBack() {
     this.navCtrl.back();
+    
+  }
+  closeModal(e? : any) {
+    //console.log(this.foodHub);
+    this.modalController.dismiss(e);
   }
   imagenBase64(base64String: string): SafeUrl {
     const imageUrl = 'data:image/png;base64,' + base64String;

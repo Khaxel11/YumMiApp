@@ -1,3 +1,7 @@
+ion-content .buttonsOnTop{
+  background: orange;
+}
+
 .lecard ion-card {
   position: relative;
   background-image: url('../../../../../assets/Images/wave.svg');
