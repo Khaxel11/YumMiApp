@@ -36,11 +36,14 @@ export class StartComponent implements OnInit  {
      }
      this.checkConnection();
 
-     setTimeout(() => {
+     const timeoutId = setTimeout(() => {
       this.intervalId = setInterval(() => {
         this.checkConnection();
       }, 20000);
-    }, 1000); 
+    }, 1000);
+    
+    // Para cancelar el timeout antes de que se complete
+    clearTimeout(timeoutId);
     ;
   }
  ngOnInit(): void {
