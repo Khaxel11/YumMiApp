@@ -29,6 +29,11 @@ export class TabsMenuComponent implements AfterViewInit {
         route: 'products/catalog'
        },
        {
+        icon : 'storefront-outline',
+        tab : 'FoodHubs',
+        route: '/home/foodhubs'
+       },
+       {
         icon : 'trophy-outline',
         tab : 'Recompensas',
         route: ''
