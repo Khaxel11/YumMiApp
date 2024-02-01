@@ -32,6 +32,11 @@ export class TabsMenuComponent implements AfterViewInit {
         icon : 'trophy-outline',
         tab : 'Recompensas',
         route: ''
+       },
+       {
+        icon : 'person-circle-outline',
+        tab : 'Perfil',
+        route: 'profile'
        }
     ]
   }

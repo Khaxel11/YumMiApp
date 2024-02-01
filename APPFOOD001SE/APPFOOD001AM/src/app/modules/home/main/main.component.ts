@@ -142,6 +142,7 @@ export class MainComponent implements OnInit {
         this.UserJwt.picture = 'data:image/jpeg;base64,' + data.data.picture;
         localStorage.setItem("idCuenta", data.data.idCuenta);
         localStorage.setItem("picture", this.UserJwt.picture);    
+        localStorage.setItem("username", this.UserJwt.username);    
         this.menu.username = this.UserJwt.username;
         await this.getSliderImages();
       }

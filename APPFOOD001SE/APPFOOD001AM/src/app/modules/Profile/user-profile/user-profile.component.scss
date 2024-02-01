@@ -1,0 +1,179 @@
+// _variables.scss
+
+$light-bg-color: rgb(253, 253, 254);
+$dark-bg-color: rgb(20, 20, 20);
+
+$light-gradient: linear-gradient(170deg, rgba(253, 253, 254, 1) 0%, rgb(219, 219, 219) 95%);
+$dark-gradient: linear-gradient(170deg, rgba(20, 20, 20, 1) 0%, rgb(40, 40, 40) 95%);
+
+.container {
+  position: fixed;
+  height: calc(95% - 20px);
+  top: calc(100%/4);
+  width: 100%;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $light-bg-color;
+  background: $light-gradient;
+  transition: background 0.3s ease; /* Agregar una transición suave */
+  // overflow-y :scroll;
+  padding-bottom: 50px;
+}
+
+// @media (prefers-color-scheme: dark) {
+//   .container {
+//     background-color: $dark-bg-color;
+//     background: $dark-gradient;
+//   }
+// }
+// @media (prefers-color-scheme: light) {
+//   .container {
+//     background-color: $light-bg-color;
+//     background: $light-gradient;
+//   }
+// }
+
+.header{
+    width: 100%;
+    height: 30%;
+    background-color: rgb(255, 186, 57);
+    position: fixed;
+}
+.headerImage{
+    position: relative;
+    background-image: url('../../../../assets/Images/wavep.svg');
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.icon-image{
+  /* background-color: #45a049; */
+  
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  border-radius: 50%;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    /* background-image: url('../../../../assets/Images/gato.jpg'); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.close-icon{
+  position: absolute;
+  right: 0;
+  top:0;
+  
+  margin: 10px;
+  font-size: 40px;
+}
+
+
+  .message {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+  }
+  @keyframes fadeOutUp {
+    from {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  
+    to {
+      opacity: 0;
+      transform: translateY(-40%) scale(0.4) translateX(-30%);
+    }
+  }
+  
+  .fadeOut {
+    animation: fadeOutUp 0.3s ease;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+
+  }
+  .fadeIn.active {
+    opacity: 1;
+  }
+  .buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #45a049;
+  }
+  
+  .edit-contact {
+    background-color: #2196F3;
+  }
+  
+  .edit-contact:hover {
+    background-color: #1e88e5;
+  }
+  
+  .video-message {
+    background-color: #F44336;
+  }
+  
+  .video-message:hover {
+    background-color: #da190b;
+  }
+  
+  .image-container {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    //margin-top: 20px;
+    z-index: 1;
+    transform: translate(50%, 50%);
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .image {
+    width: 200px;
+    height: 200px;    
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    /* background-image: url('../../../../assets/Images/gato.jpg'); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    //margin-top: -50%;
+  }
+  .card-container{
+    width: 90%;
+  }
+  .item-icon{
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background: rgb(253,253,254); */
+    /* background: linear-gradient(170deg, rgba(253,253,254,1) 0%, rgb(219, 219, 219) 95%); */
+    border-radius: 50%;
+  }

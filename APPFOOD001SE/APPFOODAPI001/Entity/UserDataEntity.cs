@@ -98,5 +98,10 @@ namespace Entity
         public string Numero { get; set; }
         public string TipoVehiculo { get; set; }
         public string Calificacion { get; set; }
+        public string Correo { get; set; }
+        public string NombrePais { get; set; }
+        public string NombreEstado { get; set; }
+        public string NombreMunicipio { get; set; }
+        public string UbicacionCompleta { get; set; }
     }
 }

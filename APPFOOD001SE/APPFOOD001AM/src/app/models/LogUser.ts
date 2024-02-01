@@ -24,5 +24,9 @@ export class LogUser{
   numero: string;
   tipoVehiculo: string;
   calificacion: string;
-  
+  correo : string;
+  nombrePais : string;
+  nombreEstado : string;
+  nombreMunicipio : string;
+  ubicacionCompleta : string;
 }
