@@ -3,7 +3,7 @@
 .calendar-container {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .calendar-header,
@@ -22,9 +22,9 @@
   transition: background-color 0.3s ease;
   width: calc(100% / 7); /* Ajuste del ancho para cada día de la semana */
 }
-.cont{
-  height: 120px;
-}
+/* .cont{
+  : 50px;
+} */
 
 .calendar-day:hover {
   background-color: #f0f0f0;
@@ -65,7 +65,7 @@
 }
 
 button {
-  background-color: #007bff;
+  background-color: #535353;
   color: #fff;
   border: none;
   padding: 10px;
@@ -73,5 +73,14 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #363636;
+}
+
+.select{
+  color: white;
+  border: 2px green solid;
+}
+
+.other-month .select{
+  border: 1px greenyellow solid;
 }

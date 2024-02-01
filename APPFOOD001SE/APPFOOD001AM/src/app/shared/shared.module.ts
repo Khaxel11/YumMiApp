@@ -19,8 +19,7 @@ import { EventsVisualizationComponent } from './utils/events-visualization/event
 import { ActiveOrderComponent } from './utils/active-order/active-order.component';
 import { TabsMenuComponent } from './utils/tabs-menu/tabs-menu.component';
 import { DoubleTapDirective } from './directives/double-tap.directive';
-
-
+import { ProgramationProductsComponent } from './utils/programation-products/programation-products.component';
 @NgModule({
   declarations: [
     FancyInputComponent,
@@ -33,13 +32,14 @@ import { DoubleTapDirective } from './directives/double-tap.directive';
     StarsAverageComponent,
     FilteredCategoriesComponent,
     MdlFilterComponent,
-    CalendarComponent,
     AccordionComponent,
     HorizontalListComponent,
     EventsVisualizationComponent,
     ActiveOrderComponent,
     TabsMenuComponent,
-    DoubleTapDirective
+    DoubleTapDirective,
+    ProgramationProductsComponent,
+    CalendarComponent
   ],
   imports: [ 
     CommonModule,
@@ -55,14 +55,16 @@ import { DoubleTapDirective } from './directives/double-tap.directive';
     StarsComponent,
     StarsAverageComponent,
     FilteredCategoriesComponent,
-    CalendarComponent,
     AccordionComponent,
     HorizontalListComponent,
     EventsVisualizationComponent,
     ActiveOrderComponent,
     TabsMenuComponent,
-    DoubleTapDirective
+    DoubleTapDirective,
+    ProgramationProductsComponent,
+    CalendarComponent
   ],
+  
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class SharedModule { }

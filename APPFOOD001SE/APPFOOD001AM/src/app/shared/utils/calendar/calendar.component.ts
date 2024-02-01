@@ -1,5 +1,5 @@
 // calendar.component.ts
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-calendar',
@@ -7,34 +7,56 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./calendar.component.css'],
 })
 export class CalendarComponent implements OnInit {
-  @Input() year: number;
-  @Input() month: number;
-
+  @Input() year: number = 0;
+  @Input() month: number = 0;
+  @Input() Width : string = "100%";
+  @Input() Height : string = "100%";
+  @Input() spaceBetweeen : string = "50px";
+  @Input() items = []
+  @Input() allowEditSelected : boolean = false;
   daysInMonth: number;
   daysName = [];
   today : number = 0;
   actualMonth : number;
+  
   weeks: { dayOfWeek: string; number: number; notes: string; isOtherMonth: boolean }[][] = [];
+  constructor(private cdr : ChangeDetectorRef){
 
+  }
   ngOnInit() {
     this.updateCalendar();
     this.getToday();
   }
-
-  getToday(){
+ 
+  private getToday(){
     const date = new Date();
     date.setDate(date.getDate());
     this.today = (Number)(date.getDate().toString());
+    this.month = date.getMonth();
+    this.year = date.getFullYear();
     this.actualMonth = date.getMonth();
+    this.cdr.detectChanges();
   }
 
-  updateCalendar() {
+  setCalendar(items : any[]){
+    this.items = items;
+    this.generateCalendarDays();
+  }
+  enableEditable(value : boolean){
+    this.allowEditSelected = value;
+    if(!value){
+      this.generateCalendarDays();
+    }
+
+  }
+
+  private updateCalendar() {
     this.daysInMonth = new Date(this.year, this.month + 1, 0).getDate();
     this.generateCalendarDays();
   }
 
-  generateCalendarDays() {
-    const days: { dayOfWeek: string; number: number; notes: string; isOtherMonth: boolean }[] = [];
+  private generateCalendarDays() {
+    const days: { dayOfWeek: string; number: number; notes: string; isOtherMonth: boolean; selected:boolean , dateObj : Date}[] = [];
     const firstDayOfMonth = new Date(this.year, this.month, 1).getDay();
   
     // Agrega días del mes anterior si es necesario
@@ -45,22 +67,33 @@ export class CalendarComponent implements OnInit {
         number: prevMonthDay.getDate(),
         notes: '',
         isOtherMonth: true,
+        selected : false,
+        dateObj : prevMonthDay
       });
     }
   
     // Agrega días del mes actual
     for (let i = 1; i <= this.daysInMonth; i++) {
+      var selected = false;
       const dayOfWeekIndex = new Date(this.year, this.month, i).getDay();
+      //para obtener el día real
+      //const day = new Date(this.year, this.month+1, i);
+      
+
       days.push({
         dayOfWeek: this.getAbbreviatedDayOfWeek(dayOfWeekIndex),
         number: i,
         notes: '',
         isOtherMonth: false,
+        selected:selected,
+        dateObj : new Date(this.year, this.month, i)
       });
+
     }
   
     // Agrega días del mes siguiente si es necesario
-    const lastDayOfMonth = new Date(this.year, this.month + 1, 0).getDay();
+    const lastMonth = new Date(this.year, this.month + 1, 0)
+    const lastDayOfMonth = lastMonth.getDay();
     let nextMonthDay = 1;
   
     for (let i = 1; i < 7 - lastDayOfMonth && days.length < 42; i++) {
@@ -69,6 +102,8 @@ export class CalendarComponent implements OnInit {
         number: nextMonthDay,
         notes: '',
         isOtherMonth: true,
+        selected : false,
+        dateObj : new Date(this.year, this.month +1 ,i)
       });
       nextMonthDay++;
   
@@ -85,10 +120,12 @@ export class CalendarComponent implements OnInit {
         last = 0;
       }
       days.push({
-        dayOfWeek: '', // Puedes dejarlo en blanco si no necesitas el día de la semana
+        dayOfWeek: '', 
         number: last + 1,
         notes: '',
         isOtherMonth: true,
+        selected : false,
+        dateObj : new Date(this.year, this.month +1 , last+1)
       });
     }
   
@@ -103,23 +140,41 @@ export class CalendarComponent implements OnInit {
         this.weeks.push(week);
         week = [];
       }
+      
     });
+    
+    if(this.items){
+     days.forEach((day, index) => {
+      for (let i = 0; i < this.items.length; i++){
+        const element = this.items[i];
+        if (element.dateObj.getTime() === day.dateObj.getTime()) {
+          day.selected = true;
+          return;
+        }
+      }
+     });
+    }
   }
   
 
-  getAbbreviatedDayOfWeek(dayIndex: number): string {
+  private getAbbreviatedDayOfWeek(dayIndex: number): string {
     const daysOfWeek = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
     return daysOfWeek[dayIndex];
   }
-
-  addNoteToDay(day : any) {
-    if(day.isOtherMonth === false){
-      const note = prompt('Enter note for day ' + day.number);
-      if (note !== null) {
-        day.notes = note;
-      }
+  private  selectDay(e : any){
+    if(this.allowEditSelected){
+      e.selected = !e.selected;
     }
   }
+
+  // addNoteToDay(day : any) {
+  //   if(day.isOtherMonth === false){
+  //     const note = prompt('Enter note for day ' + day.number);
+  //     if (note !== null) {
+  //       day.notes = note;
+  //     }
+  //   }
+  // }
 
   prevMonth() {
     if (this.month === 0) {

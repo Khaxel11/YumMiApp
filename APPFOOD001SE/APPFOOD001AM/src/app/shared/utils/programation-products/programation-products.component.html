@@ -1,0 +1,31 @@
+<ion-content>
+    <div class="header">
+        <h1>Tacos</h1>
+    </div>
+    <div class="date">
+        <ion-item (click)="openCalendar()">
+            
+            <ion-label>Fechas</ion-label>
+            
+        </ion-item>
+
+        <ion-card >
+            
+        </ion-card>
+        <ion-card>
+            
+            <app-calendar #calendar [spaceBetweeen]="'50px'" [Height]="'50%'" 
+                [year]="year" [month]="month"
+            ></app-calendar>
+            <div class="center-container ">
+                <ion-label>
+                  <h3>Permitir Editar</h3>
+                </ion-label>
+                <ion-toggle (ionChange)="toggleChange($event)" justify="space-between" ></ion-toggle>
+              </div>
+        </ion-card>
+    </div>
+    <div class="description">
+
+    </div>
+</ion-content>

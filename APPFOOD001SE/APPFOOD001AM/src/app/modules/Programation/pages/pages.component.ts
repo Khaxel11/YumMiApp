@@ -6,8 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pages.component.css']
 })
 export class PagesComponent implements OnInit {
-
-  constructor() { }
+  month : number;
+  year : number;
+  constructor() {
+    const date = new Date();
+    this.month = date.getMonth();
+    this.year = date.getFullYear();
+   }
 
   ngOnInit(): void {
   }
