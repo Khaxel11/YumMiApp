@@ -53,4 +53,8 @@ ion-calendar {
   justify-content: flex-start;
   
  }
- 
+ .note2{
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 2px;
+ }

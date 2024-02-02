@@ -21,8 +21,10 @@ import { TabsMenuComponent } from './utils/tabs-menu/tabs-menu.component';
 import { DoubleTapDirective } from './directives/double-tap.directive';
 import { ProgramationProductsComponent } from './utils/programation-products/programation-products.component';
 import { ModalPersonalizedDateSelectorComponent } from './utils/modal-personalized-date-selector/modal-personalized-date-selector.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
-  declarations: [
+  declarations: [    
+    
     FancyInputComponent,
     SliderComponent,
     ModalComponent,
@@ -46,6 +48,7 @@ import { ModalPersonalizedDateSelectorComponent } from './utils/modal-personaliz
   imports: [ 
     CommonModule,
     IonicModule.forRoot(),
+    FormsModule
   ],
   exports : [
     FancyInputComponent,

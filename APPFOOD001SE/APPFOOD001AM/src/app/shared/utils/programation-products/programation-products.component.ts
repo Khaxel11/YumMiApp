@@ -38,8 +38,24 @@ export class ProgramationProductsComponent implements OnInit {
       }
     )
     modal.present();
-    return modal.onDidDismiss().then((response)=>{
-      
+    return modal.onDidDismiss().then((result)=>{
+      if(result){
+        this.selectedDates = [];
+        result.data.forEach(element => {
+          element.setHours(0, 0, 0, 0);
+
+          const objDate = {
+            diaSemana :this.obtenerDiaSemana(element),
+            mes : this.obtenerNombreMes(element),
+            dia : element.getUTCDate(),
+            dateObj : element
+          }
+          this.selectedDates.push(objDate);
+        });
+        console.log(this.selectedDates);
+        this.selected = true;
+        this.calendar.setCalendar(this.selectedDates);
+      }
     });
   } 
   async openCalendar() {

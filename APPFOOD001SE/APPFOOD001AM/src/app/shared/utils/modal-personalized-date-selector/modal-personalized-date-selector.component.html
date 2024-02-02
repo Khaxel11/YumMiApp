@@ -26,13 +26,27 @@
         </ion-item>
         <ion-item class="ion-margin-top">
             <ion-label position="floating">Repetición por </ion-label>
-            <ion-input type="number" [value]="totalRepetition" [(ngModel)]="totalRepetition"></ion-input>
+            <ion-input type="number" [(ngModel)]="totalRepetition" [clearOnEdit]="true" ></ion-input>
             <div class="label-repeat">
                 {{label}}
             </div>
         </ion-item>
-        
+        <!-- [clearInput]="true" -->
     </ion-card>
+
+    <ion-card class="card-days" *ngIf="selectedRepet === 4">
+        <ion-card-header>
+            <ion-label>Repetir el</ion-label>
+            
+        </ion-card-header>
+        <ion-row>
+            <ion-col *ngFor="let day of daysAvailable" (click)="toggleSelection(day)" >
+              <div class="initial" [class.selected]="selectedDays.includes(day)">{{day}}</div>
+            </ion-col>
+          </ion-row>
+    </ion-card>
+
+
     <ion-card class="ion-margin-top">
         <ion-card-content>
           <ion-list>
@@ -52,8 +66,13 @@
           </ion-list>
         </ion-card-content>
       </ion-card>
+
+    
+
+
+
      <div class="center-container ion-margin-top">
-        <ion-button size="large" expand="block" fill="outline" shape="round" color="dark">
+        <ion-button size="large" expand="block" fill="outline" shape="round" color="dark" (click)="accept()">
             Aceptar
         </ion-button>
      </div> 
