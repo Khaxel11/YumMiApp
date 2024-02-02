@@ -1,0 +1,51 @@
+
+.custom-input {
+    border: none;
+    background: none;
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    
+  }
+
+  .card-days {
+    width: 95%;
+    height: 90px;
+    /* position: fixed; */
+    /* display: grid; */
+  }
+  
+  ion-col {
+    position: relative; 
+    cursor: pointer;
+  }
+  
+  .selected {
+    background-color: #007bff !important;
+    color: #fff !important;
+  }
+  
+  .initial {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(209, 209, 209);
+    padding: 10px;
+    border-radius: 50%;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px; 
+    height: 30px;
+  }
+  .label-repeat{
+    position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+  }
+.radio-text{
+    padding-left: 10px;
+}

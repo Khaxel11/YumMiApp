@@ -3,6 +3,7 @@ import { CalendarModal, CalendarModalOptions, DayConfig, CalendarResult,  } from
 import { General } from 'src/app/functions/general';
 import { ModalController } from '@ionic/angular';
 import { CalendarComponent } from '../calendar/calendar.component';
+import { ModalPersonalizedDateSelectorComponent } from '../modal-personalized-date-selector/modal-personalized-date-selector.component';
 
 @Component({
   selector: 'programation-products',
@@ -27,7 +28,20 @@ export class ProgramationProductsComponent implements OnInit {
 
   ngOnInit(): void {
       
-  }  
+  } 
+  async openPersonalizedSelector(){
+    const modal = await this.modalController.create(
+      {
+        component: ModalPersonalizedDateSelectorComponent,
+        componentProps: {}, 
+        
+      }
+    )
+    modal.present();
+    return modal.onDidDismiss().then((response)=>{
+      
+    });
+  } 
   async openCalendar() {
     const options: CalendarModalOptions = {
       title: 'Selecciona fecha(s) a Programar',

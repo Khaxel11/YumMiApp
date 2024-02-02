@@ -1,28 +1,59 @@
-<ion-content>
+<ion-header collapse="fade">
+    <ion-toolbar>
+        <ion-title>Programar Producto</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content >
     <div class="header">
         <h1>Tacos</h1>
     </div>
     <div class="date">
-        <ion-item (click)="openCalendar()">
-            
-            <ion-label>Fechas</ion-label>
-            
-        </ion-item>
 
-        <ion-card >
-            
-        </ion-card>
+
+        <div class="center-container">
+            <ion-item button detail lines="full" (click)="openCalendar()">
+                <ion-icon name="time-outline"></ion-icon>
+                <div class="nodate">
+                    <strong>Ver y seleccionar fechas</strong>
+                </div>
+            </ion-item>           
+        </div>
+        <div class="center-container">
+            <strong>O</strong>
+        </div>
+        <div class="center-container">
+            <ion-item button detail lines="full" (click)="openPersonalizedSelector()">
+                <ion-icon name="calendar-number-outline"></ion-icon>
+                <div class="nodate">
+                    <strong>Personalizado</strong>
+                </div>
+            </ion-item>
+        </div>
+
         <ion-card>
-            
-            <app-calendar #calendar [spaceBetweeen]="'50px'" [Height]="'50%'" 
-                [year]="year" [month]="month"
-            ></app-calendar>
+            <app-calendar #calendar [spaceBetweeen]="'50px'" [Height]="'50%'" [year]="year"
+                [month]="month"></app-calendar>
             <div class="center-container ">
                 <ion-label>
-                  <h3>Permitir Editar</h3>
+                    <h3>Permitir Editar</h3>
                 </ion-label>
-                <ion-toggle (ionChange)="toggleChange($event)" justify="space-between" ></ion-toggle>
-              </div>
+                <ion-toggle (ionChange)="toggleChange($event)" justify="space-between"></ion-toggle>
+            </div>
+        </ion-card>
+
+        <ion-card>
+            <ion-card-header>
+                <div class="des-header">
+                    <ion-icon name="reorder-three-outline"></ion-icon> 
+                    <ion-title>Añadir descripcion</ion-title>
+                </div>
+            </ion-card-header>
+            <ion-card-content>
+                <ion-textarea [cols]="4" [rows]="4" maxlength="200" 
+                    placeholder="Describe comentarios como la hora de entrega o las condiciones de entrega"
+                    [counter]="true"
+                    ></ion-textarea>
+            </ion-card-content>
         </ion-card>
     </div>
     <div class="description">

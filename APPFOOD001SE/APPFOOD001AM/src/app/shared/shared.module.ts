@@ -20,6 +20,7 @@ import { ActiveOrderComponent } from './utils/active-order/active-order.componen
 import { TabsMenuComponent } from './utils/tabs-menu/tabs-menu.component';
 import { DoubleTapDirective } from './directives/double-tap.directive';
 import { ProgramationProductsComponent } from './utils/programation-products/programation-products.component';
+import { ModalPersonalizedDateSelectorComponent } from './utils/modal-personalized-date-selector/modal-personalized-date-selector.component';
 @NgModule({
   declarations: [
     FancyInputComponent,
@@ -39,7 +40,8 @@ import { ProgramationProductsComponent } from './utils/programation-products/pro
     TabsMenuComponent,
     DoubleTapDirective,
     ProgramationProductsComponent,
-    CalendarComponent
+    CalendarComponent,
+    ModalPersonalizedDateSelectorComponent
   ],
   imports: [ 
     CommonModule,
@@ -62,7 +64,8 @@ import { ProgramationProductsComponent } from './utils/programation-products/pro
     TabsMenuComponent,
     DoubleTapDirective,
     ProgramationProductsComponent,
-    CalendarComponent
+    CalendarComponent,
+    ModalPersonalizedDateSelectorComponent
   ],
   
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
