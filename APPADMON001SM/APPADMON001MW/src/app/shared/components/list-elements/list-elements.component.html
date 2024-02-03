@@ -1,0 +1,20 @@
+<div  class="itemSelector">
+   <div class="row">
+    <div class="col-12">
+        <div class="container-fluid">   
+            <button class="item btn btn-outline-dark btn-sm ml-2" 
+                *ngFor="let item of Data, let index = index " 
+                (click)="deleteItem(index)"
+                [disabled]="Disabled"
+            >
+            <i class="fas fa-times ml-1" aria-hidden="true"></i>
+            {{ item.nombre }}
+            </button>
+        </div>
+        
+       </div> 
+       <div class="col-0 cleanData" *ngIf="Disabled === false">
+            <label for=""><i class="fas fa-times" aria-hidden="true" (click)="cleanData()" ></i></label>
+        </div>
+   </div>
+  </div>

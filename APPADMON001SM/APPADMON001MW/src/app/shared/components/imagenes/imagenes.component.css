@@ -1,0 +1,51 @@
+input[type='file'] {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputWrapper {
+    height: 32px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    background-color: #DDF;
+}
+
+.borderImg {
+    border-style: dashed;
+    border-width: 3px;
+    border-color: gray;
+    border-radius: 5px;
+    height: 208px;
+    width: auto;
+}
+
+.backImagen {
+    background-image: url('../../../../assets/images/sin-imagen.jpg');
+    background-position: center center;
+    background-size: cover !important;
+    -webkit-background-size: cover !important;
+    -moz-background-size: cover !important;
+    -o-background-size: cover !important;
+}
+
+.alinearCentro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tamañoLetraPequeño {
+    font-size: 10px;
+    color: white;
+}
+
+.tamañoLetraNormal {
+    font-size: 14px;
+    color: white;
+}

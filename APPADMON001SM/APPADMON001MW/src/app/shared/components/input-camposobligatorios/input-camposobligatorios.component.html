@@ -1,0 +1,4 @@
+<div class="form-group">
+    <label *ngIf="mosLabel">{{Titulo}}</label>
+    <input [(ngModel)]="Data" [type]="type" [ngClass]="{'form-control':true, 'required':required , 'Mayus': mayus}" [maxlength]="maxlength" (blur)="blur($event)" (keypress)="Event($event)" (keyup)="Event($event)" (change)="TextChange.emit(Data);" [disabled]="Disabled">
+</div>

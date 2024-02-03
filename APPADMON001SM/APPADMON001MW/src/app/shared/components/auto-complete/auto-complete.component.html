@@ -1,0 +1,25 @@
+<div class="autocomplete-container">
+    <label *ngIf="labelText" class="{{labelClass}}" for="{{textboxId}}">{{labelText}}</label>
+    <input
+        id="{{textboxId}}"
+        class="{{textboxClass}}"
+        [class.is-invalid]="searchFailed && showInvalid"
+        [class.is-valid]="model && showValid"
+        [(ngModel)]="model"
+        (ngModelChange)="modelChangeEmitter($event)"
+        (focus)="focus$.next($any($event).target.value)"
+        (click)="click$.next($any($event).target.value)"
+        (focusout)="focusOut()"
+        [ngbTypeahead]="search"
+        placeholder="{{placeholder}}"
+        [inputFormatter]="formatter"
+        [resultFormatter]="formatter"
+        [editable]='editableModel'
+        #instance="ngbTypeahead"
+        type="text"
+        [title]="title"
+        name="{{textboxId}}"
+    />
+    <small *ngIf="searching && showSearching" class="form-text text-muted">{{searchingText}}</small>
+    <div class="invalid-feedback" *ngIf="searchFailed && showFailed">{{failedText}}</div>
+</div>

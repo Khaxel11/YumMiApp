@@ -1,0 +1,7 @@
+<div class="form-group">
+    <label for="selZona">Zona:</label>
+    <select [(ngModel)]="ZonaValue" class="form-control" id="selZona" (change)="ItemData.emit(ZonaValue)">
+                    <option value="sel">SELECCIONAR...</option>
+                    <option *ngFor="let item of this.ListaZona" [value]="item.zona">{{item.nombreZona}}</option>
+                </select>
+</div>

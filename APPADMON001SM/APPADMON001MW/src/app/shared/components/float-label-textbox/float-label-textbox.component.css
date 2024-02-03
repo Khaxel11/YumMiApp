@@ -1,0 +1,210 @@
+.has-float-label {
+    display: block;
+    position: relative
+}
+
+    .has-float-label label, .has-float-label > span.float-span {
+        position: absolute;
+        cursor: text;
+        font-size: 75%;
+        opacity: 1;
+        -webkit-transition: all .2s;
+        transition: all .2s;
+        top: -.6em;
+        left: 12px;
+        z-index: 3;
+        line-height: 1;
+        padding: 0 3px
+    }
+        .has-float-label.to-right label, .has-float-label.to-right > span.float-span {
+            right: 12px;
+            left:auto;
+        }
+
+    .has-float-label .form-control::-webkit-input-placeholder {
+        opacity: 1;
+        -webkit-transition: all .2s;
+        transition: all .2s
+    }
+
+    .has-float-label .form-control::-moz-placeholder {
+        opacity: 1;
+        transition: all .2s
+    }
+
+    .has-float-label .form-control:-ms-input-placeholder {
+        opacity: 1;
+        transition: all .2s
+    }
+
+    .has-float-label .form-control::placeholder {
+        opacity: 1;
+        -webkit-transition: all .2s;
+        transition: all .2s
+    }
+
+    .has-float-label .form-control:placeholder-shown:not(:focus)::-webkit-input-placeholder {
+        opacity: 0
+    }
+
+    .has-float-label .form-control:placeholder-shown:not(:focus)::-moz-placeholder {
+        opacity: 0
+    }
+
+    .has-float-label .form-control:placeholder-shown:not(:focus):-ms-input-placeholder {
+        opacity: 0
+    }
+
+    .has-float-label .form-control:placeholder-shown:not(:focus)::placeholder {
+        opacity: 0
+    }
+
+    .has-float-label .form-control:placeholder-shown:not(:focus) + * {
+        font-size: 150%;
+        opacity: .5;
+        top: .3em;
+        font-weight: 400
+    }
+
+.input-group .has-float-label {
+    display: table-cell
+}
+
+    .input-group .has-float-label .form-control {
+        border-radius: 4px
+    }
+
+    .input-group .has-float-label:not(:last-child) .form-control {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0
+    }
+
+    .input-group .has-float-label:not(:first-child) .form-control {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+        margin-left: -1px
+    }
+
+/*Segundo Remaster por Victor Torres*/
+
+.has-float-label .form-control:placeholder-shown:not(:focus) + * {
+    font-size: 125%;
+    top: .5em;
+}
+
+.has-float-label label {
+    font-size: 85%;
+    font-weight: 600;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+.has-float-label input[type=text][disabled], input[type=text][disabled]:placeholder-shown + label {
+    background-color: rgba(250, 235, 204, 1);
+    cursor: not-allowed;
+}
+
+.form-group.has-float-label:focus-within {
+    z-index: 7;
+}
+
+.input-group-append .btn.float-label-button {
+    height: 38px;
+    z-index: 6;
+}
+
+
+.has-float-label .form-control:placeholder-shown:not(:focus) + * {
+    background-color: rgba(0, 0, 0, 0);
+    top: .4em;
+}
+.close-icon {
+    margin-top: 2px;
+}
+
+.form-group.has-float-label{
+    z-index: 4;
+    margin-bottom: 0px;
+}
+
+.input-group>.form-group.has-float-label:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.input-group>.form-group.has-float-label{
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+    min-width: 0;
+    margin-bottom: 0;
+}
+
+.has-float-label label {
+    background-color: #ffffff;
+}
+
+
+/*
+    Caracteristicas de nueva version de bootstrap
+*/
+
+.form-control-feedback {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    display: block;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    pointer-events: none;
+}
+
+.has-feedback {
+    position: relative;
+}
+
+    .has-feedback .form-control {
+        padding-right: 42px;
+    }
+
+.form-control-feedback.to-left {
+    left: 0;
+}
+
+.has-feedback.to-left .form-control {
+    padding-left: 42px;
+    padding-right: 12px;
+}
+
+/*
+    Nuevos estilos para poner boton de clear en textbox
+*/
+::-ms-clear {
+    display: none; /*Desabilita el boton de clear del internet explorer, para poder usar el costume .close-icon*/
+}
+
+.form-control-clear {
+    z-index: 10; /*Trae al frente el boton de clear de textbox*/
+    pointer-events: auto; /*Hace clicable el boton de clear de textbox*/
+    cursor: pointer; /*Muestra el mouse el cursor con una mano para recalcar que es clicable*/
+}
+
+.close-icon {
+    display: none; /*Cambiar a block si se desea que el boton de clear aparezca incluso si su estado no estรก focus o no estรก mouse over*/
+}
+
+    .search-box:hover ~ .close-icon, .close-icon:hover, .search-box:focus ~ .close-icon {
+        display: block; /*Muestra el boton en el mouse over y focus, innecesario si has cambiado la clase principal de .close-icon display: none a block*/
+    }
+
+.search-box:placeholder-shown ~ .close-icon {
+    display: none; /*Oculta el boton de clear si no hay texto en el textbox, es decir si se estรก mostrando el placeholder*/
+}

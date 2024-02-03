@@ -1,0 +1,67 @@
+@import "../node_modules/@fortawesome/fontawesome-free/css/all.min.css";
+@import "../node_modules/ag-grid-community/dist/styles/ag-grid.min.css";
+@import "../node_modules/ag-grid-community/dist/styles/ag-theme-bootstrap.min.css";
+@import "./assets/css/base.css";
+@import "./assets/css/datepicker.css";
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) {
+    overflow: hidden;
+    height: 100% !important;
+}
+
+.required {
+    box-shadow: 0 0 0 .2rem #f71717b5;
+}
+.btn-morado {
+  color: #fff;
+  background-color: #563d7c;
+  border-color: #563d7c
+}
+.btn-naranja {
+  color: #fff;
+  background-color: #f85c14;
+  border-color: #f85c14
+}
+.Mayus {
+  text-transform:uppercase
+}
+
+@media (min-width: 992px) {
+    .modal-xxl {
+        width: 100%;
+    }
+}
+
+input[id='imagen'] {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+input[id='Expediente'] {
+    width: 100%;
+    display: block;
+}
+input[id='selArchivo'] {
+  width: 100%;
+  display: block;
+}
+.mat-checkbox-layout {
+    display: block !important;
+    white-space: normal !important;
+}
+.articulo-principal {
+  background-color: sandybrown !important;
+}
+

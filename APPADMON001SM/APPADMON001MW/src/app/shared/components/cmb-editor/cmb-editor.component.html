@@ -1,0 +1,5 @@
+<select class="{{class}}" #select [(ngModel)]="value" (change)="valueChange(select.options[select.options.selectedIndex].text)">
+    <option *ngFor="let option of options" [ngValue]="option[valueField]">
+     {{ option[textField] }}
+    </option>
+</select>

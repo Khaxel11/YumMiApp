@@ -1,0 +1,46 @@
+<div *ngIf="type === 'chk'" [class]="containerClass">
+    <input
+        type="checkbox"
+        [class]="class"
+        (click)="checkedHandler($event)"
+        [checked]="params.value"
+        [disabled]="disabled"
+    />
+</div>
+
+<div *ngIf="type === 'txt'" [class]="containerClass">
+    <input
+        type="text"
+        [class]="class"
+        [(ngModel)]="params.value"
+        (change)="textChangeHandler()"
+        [disabled]="disabled"
+    />
+</div>
+
+<div *ngIf="type === 'num'" [class]="containerClass">
+    <input
+        type="number"
+        [class]="class"
+        [(ngModel)]="params.value"
+        (change)="textChangeHandler()"
+        [disabled]="disabled"
+    />
+</div>
+<div *ngIf="type === 'date'" [class]="containerClass">
+  <input
+      type="date"
+      [class]="class"
+      [(ngModel)]="params.value"
+      (change)="textChangeHandler()"
+      [disabled]="disabled"
+  />
+</div>
+
+<div *ngIf="type === 'cbx'" [class]="containerClass">
+    <select #select [class]="class" [disabled]="disabled" [(ngModel)]="params.value" (ngModelChange)="optionChangeHandler($event)">
+        <option *ngFor="let option of options" [ngValue]="option[valueField]">
+         {{ option[textField] }}
+        </option>
+    </select>
+</div>

@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-12">
+        <ag-grid-angular class="ag-theme-bootstrap{{''}}" style="height: auto; width: auto;" [columnDefs]="columnDefs"
+            [gridOptions]="gridOptions" [pagination]="enablePagination" [suppressPaginationPanel]="true"
+            [frameworkComponents]="frameworkComponents" [enableCellTextSelection]="true" [suppressCellSelection]="true"
+            (gridReady)="onGridReady($event)" (paginationChanged)="onPaginationChanged($event)"
+            [suppressMovableColumns]="true" [rowSelection]="rowSelection"
+            [overlayLoadingTemplate]="overlayLoadingTemplate" [overlayNoRowsTemplate]="overlayNoRowsTemplate"
+            [domLayout]="autoHeight ? 'autoHeight' : 'normal'" (selectionChanged)="selectionChanged.emit($event)" [rowData]="data"
+            [rowMultiSelectWithClick]="rowSelection === 'multiple' ? true : false"
+            [suppressRowClickSelection]="suppressRowClickSelection" (rowDataChanged)="_rowsChanged()"
+            [style.height]="autoHeight ? 'auto' : height">
+        </ag-grid-angular>
+    </div>
+</div>
+<div class="row mt-1">
+    <div *ngIf="enablePagination" class="col-12 unselectable">
+        <pagination [paginador]="paginador" (pageChange)="onPageChange($event)"></pagination>
+    </div>
+</div>

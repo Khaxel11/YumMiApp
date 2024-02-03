@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+        <div class="form-group">
+            <label for="txtUsuario">Usuario ERP:</label>
+            <input [(ngModel)]="UsuarioERP.Id" name="Id" type="text" class="form-control" id="txtUsuario" disabled>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
+        <label for="txtNombre">Nombre:</label>
+        <div class="input-group">
+            <input [(ngModel)]="UsuarioERP.Nombre" name="Nombre" id="txtNombre" type="text" class="form-control" disabled>
+            <div class="input-group-append">
+                <button class="btn btn-outline-primary" type="button" id="btnBuscar" (click)="OpenModalBuscaUsuario()"><span class="fa fa-search"></span></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-mldusuario #mldUsuario (ItemData)="SeleccionItemData($event)">
+
+</app-mldusuario>

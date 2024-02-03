@@ -1,0 +1,125 @@
+.custom-textbox {
+    display: block;
+    position: relative
+}
+
+.input-group .custom-textbox {
+    display: table-cell
+}
+
+    .input-group .custom-textbox .form-control {
+        border-radius: 4px
+    }
+
+    .input-group .custom-textbox:not(:last-child) .form-control {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0
+    }
+
+    .input-group .custom-textbox:not(:first-child) .form-control {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+        margin-left: -1px
+    }
+
+/*Segundo Remaster por Victor Torres*/
+
+.custom-textbox input[type=text][disabled], input[type=text][disabled]:placeholder-shown + label {
+    background-color: rgba(250, 235, 204, 1);
+    cursor: not-allowed;
+}
+
+.form-group.custom-textbox:focus-within {
+    z-index: 7;
+}
+
+.input-group-append .btn.custom-textbox-button {
+    height: 38px;
+    z-index: 6;
+}
+
+.close-icon {
+    margin-top: 2px;
+}
+
+.form-group.custom-textbox{
+    z-index: 4;
+    margin-bottom: 0px;
+}
+
+.input-group>.form-group.custom-textbox:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.input-group>.form-group.custom-textbox{
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+    min-width: 0;
+    margin-bottom: 0;
+}
+
+.custom-textbox label {
+    background-color: #ffffff;
+}
+
+
+/*
+    Caracteristicas de nueva version de bootstrap
+*/
+
+.form-control-feedback {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    display: block;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    pointer-events: none;
+}
+
+.has-feedback {
+    position: relative;
+}
+
+    .has-feedback .form-control {
+        padding-right: 42px;
+    }
+
+.form-control-feedback.to-left {
+    left: 0;
+}
+
+.has-feedback.to-left .form-control {
+    padding-left: 42px;
+    padding-right: 12px;
+}
+
+/*
+    Nuevos estilos para poner boton de clear en textbox
+*/
+::-ms-clear {
+    display: none; /*Desabilita el boton de clear del internet explorer, para poder usar el costume .close-icon*/
+}
+
+.form-control-clear {
+    z-index: 10; /*Trae al frente el boton de clear de textbox*/
+    pointer-events: auto; /*Hace clicable el boton de clear de textbox*/
+    cursor: pointer; /*Muestra el mouse el cursor con una mano para recalcar que es clicable*/
+}
+
+.close-icon {
+    display: none; /*Cambiar a block si se desea que el boton de clear aparezca incluso si su estado no estรก focus o no estรก mouse over*/
+}
+
+    .search-box:hover ~ .close-icon, .close-icon:hover, .search-box:focus ~ .close-icon {
+        display: block; /*Muestra el boton en el mouse over y focus, innecesario si has cambiado la clase principal de .close-icon display: none a block*/
+    }
+
+.search-box:placeholder-shown ~ .close-icon {
+    display: none; /*Oculta el boton de clear si no hay texto en el textbox, es decir si se estรก mostrando el placeholder*/
+}

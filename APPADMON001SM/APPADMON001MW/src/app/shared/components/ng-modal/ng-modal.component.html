@@ -1,0 +1,9 @@
+<ng-template #mdl let-modal>
+    <div class="modal-header">
+        <h5 class="modal-title"><i [class]="IconoTitulo"></i> {{Titulo}}</h5>
+        <button type="button" class="close" aria-label="Close" (click)=" closeModal()">
+            <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+    </div>
+    <ng-content></ng-content>
+</ng-template>

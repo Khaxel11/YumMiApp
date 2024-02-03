@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-12">
+        <ag-grid-angular
+            [hidden]="this.totalRecords <= 0 && !this.paginador.showLoading"
+            class="ag-theme-bootstrap"
+            style="height: auto; width: auto;"
+            [columnDefs]="columnDefs"
+            [rowClassRules]="rowClassRules"
+            [gridOptions]="gridOptions"
+            [pagination]="enablePagination"
+            [cacheOverflowSize]="cacheOverflowSize"
+            [maxConcurrentDatasourceRequests]="maxConcurrentDatasourceRequests"
+            [infiniteInitialRowCount]="infiniteInitialRowCount"
+            [suppressPaginationPanel]=true
+            [frameworkComponents]="frameworkComponents"
+            [enableCellTextSelection]=true
+            [suppressCellSelection]=true
+            (gridReady)="onGridReady($event)"
+            (paginationChanged)="onPaginationChanged($event)"
+            [suppressMovableColumns]=true
+            [rowSelection]=rowSelection
+            [overlayLoadingTemplate]="overlayLoadingTemplate"
+            domLayout="autoHeight"
+        >
+        </ag-grid-angular>
+    </div>
+    <div *ngIf="enablePagination" class="col-12 mt-1 unselectable">
+        <pagination [paginador]="paginador" (pageChange)="onPageChange($event)" ></pagination>
+    </div>
+</div>

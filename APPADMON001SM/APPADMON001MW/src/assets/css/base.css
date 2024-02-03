@@ -1,0 +1,237 @@
+.header-center .ag-header-cell-text {
+    text-align: center;
+    width: 100%;
+}
+
+.ag-theme-bootstrap .ag-cell {
+    line-height: 35px;
+}
+
+.header-grid {
+    background-color: #da7e1ccc;
+    color: white;
+    font-size: medium;
+}
+
+.header-grid-left {
+    background-color: #da7e1ccc;
+    color: white;
+    -webkit-border-top-left-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    border-top-left-radius: 5px;
+    font-size: medium;
+}
+
+.header-grid-right {
+    background-color: #da7e1ccc;
+    color: white;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-right-radius: 5px;
+    font-size: medium;
+}
+
+.header-grid-both {
+    background-color: #da7e1ccc;
+    color: white;
+    -webkit-border-top-left-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-right-radius: 5px;
+    font-size: medium;
+}
+
+.ag-center-cols-clipper {
+    font-size: small;
+}
+
+.add-button>i.fa.fa-plus:before {
+    margin-right: 3px;
+}
+
+.title {
+    color: rgba(0, 0, 0, .6);
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.footer-title {
+    color: rgba(0, 0, 0, .6);
+    text-align: center;
+    margin: 0px;
+}
+
+.version {
+    color: rgba(0, 0, 0, .6);
+    text-align: center;
+    margin: 0px;
+    font-size: 0.8rem;
+}
+
+fieldset.fieldset {
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: 4px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+fieldset.fieldset>legend {
+    border-radius: 4px;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 16px;
+    font-weight: bold;
+    padding: 0px 8px 0px 8px;
+    width: auto;
+}
+
+.grid-cell-center>.ag-cell-wrapper {
+    align-items: center;
+    justify-content: center;
+}
+
+.grid-cell-btn-center>.ag-cell-wrapper, .grid-cell-input-center>.ag-cell-wrapper {
+    display: block;
+    text-align: center;
+}
+
+.color-info {
+    color: #17a2b8;
+}
+
+.color-primary {
+    color: #007bff;
+}
+
+.color-secondary {
+    color: #6c757d;
+}
+
+.color-float-label {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.color-white {
+    color: #ffffff;
+}
+
+.form-group.rangedate>label {
+    width: 100%;
+    display: block;
+}
+
+.form-group.rangedate>.input-group {
+    width: 100%;
+}
+
+.custom-top+ngb-datepicker.dropdown-menu.show {
+    top: 20px !important;
+    transform: translate(0px, 0px) !important;
+}
+
+.custom-top.with-titles+ngb-datepicker.dropdown-menu.show {
+    top: 30px !important;
+    transform: translate(0px, 0px) !important;
+}
+
+.field-label {
+    margin-bottom: 0px;
+}
+
+.group-mb {
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 576px) {
+    .group-mb {
+        margin-bottom: 0px;
+    }
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.main.container-fluid {
+    padding: 0;
+    margin: 0;
+}
+
+.main.container-fluid>.row {
+    padding: 0;
+    margin: 0;
+}
+
+.main.container-fluid>.row>.col-12 {
+    padding: 0;
+    margin: 0;
+}
+
+.main.container-fluid>.row>.col-12>.card {
+    border: 0;
+}
+
+.main.container-fluid>.row>.col-12>.card>.card-header {
+    border-radius: 0;
+}
+
+.main.container-fluid>.row>.col-12>.card>.card-footer {
+    border-radius: 0;
+}
+
+ngb-typeahead-window.dropdown-menu {
+    max-height: 200px;
+    max-width: 100%;
+    width: auto;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+.overlay-mt {
+    margin-top: 38px;
+}
+
+.ag-header-select-all {
+    background-color: white;
+}
+
+.unselectable {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.ag-header-cell-resize::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    display: block;
+    left: calc(50% - 1px);
+    width: 2px;
+    height: 30%;
+    top: calc(50% - 15%);
+    background-color: #DA7F1C;
+}
+
+.ag-theme-bootstrap .ag-row-selected {
+    background-color: lightgray;
+}
+
+.OcultarBotones {
+    display: none;
+}
+
+/*EXCLUSIVOS DE MÓDULOS*/
+.fcavent012mw.datepicker-fixed-width {
+    width: 155px;
+}
+.fcavent012mw.solo-datepicker-fixed-width {
+    width: 158px;
+}

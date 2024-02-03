@@ -1,0 +1,30 @@
+<div class="input-group">
+    <div class="form-group has-feedback has-clear custom-textbox">
+        <input
+            [focus]="focus"
+            class="form-control search-box {{textBoxClass}}"
+            autocomplete="{{autocomplete ? 'on' : 'off'}}"
+            id="{{textBoxId}}"
+            type="{{inputType}}"
+            placeholder="{{placeholder}}"
+            [(ngModel)]="text"
+            (keydown.enter)="search($event)"
+            [disabled]="disabled"
+            readonly="{{readonly ? 'readonly' : ''}}"
+            (click)="click($event)"
+            [maxlength]="maxlength"
+        />
+        <span *ngIf="!disabledButton" (click)="clear($event)" class="form-control-clear fas fa-times form-control-feedback close-icon {{closeClass}}"></span>
+    </div>
+    <div *ngIf="enableSearch" class="input-group-append" >
+        <button
+            id="{{buttonId}}"
+            class="{{buttonClass}} custom-textbox-button"
+            type="{{buttonType}}"
+            (click)="search($event)"
+            [disabled]="disabledButton"
+        >
+            <i class="{{iconClass}}"></i>
+        </button>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="form-inline">
+    <div class="form-group {{containerClass}}">
+        <div class="input-group">
+            <input class="form-control"
+                placeholder="{{placeholder}}"
+                readonly="{{readonly ? 'readonly' : ''}}"
+                [(ngModel)]="model"
+                ngbDatepicker #d="ngbDatepicker"
+                (focusout)="foValidation()"
+                [footerTemplate]="footerTemplate">
+            <div class="input-group-append">
+                <button id="{{buttonId}}" class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+                    <i class="fa fa-calendar"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #footerTemplate>
+    <hr class="my-0">
+    <button class="btn btn-primary btn-sm m-2 float-left" (click)="todayClick(); d.close()">Hoy</button>
+    <button class="btn btn-secondary btn-sm m-2 float-right" (click)="d.close()">Cerrar</button>
+</ng-template>

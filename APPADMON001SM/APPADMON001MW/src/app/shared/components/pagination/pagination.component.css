@@ -1,0 +1,11 @@
+.page-link.page {
+    padding-top: 9px;
+    font-weight: 500;
+    height: 42px;
+    width: 50px;
+}
+
+.page-link.icon-container {
+    height: 42px;
+    width: 50px;
+}

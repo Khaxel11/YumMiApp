@@ -1,0 +1,26 @@
+<div class="input-group mb-3">
+    <div class="form-group has-feedback has-clear has-float-label">
+        <input
+            [focus]="focus"
+            class="form-control search-box {{textBoxClass}}"
+            autocomplete="{{autocomplete ? 'on' : 'off'}}"
+            id="{{textBoxId}}"
+            type="text"
+            placeholder="{{placeholder || labelText}}"
+            [(ngModel)]="text"
+            (keydown.enter)="search($event)"
+        />
+        <label class="{{labelClass}}" for="{{textBoxId}}" title="">{{labelText || placeholder}}</label>
+        <span (click)="clear($event)" class="form-control-clear fas fa-times form-control-feedback close-icon {{closeClass}}"></span>
+    </div>
+    <div *ngIf="enableSearch" class="input-group-append" >
+        <button         
+            id="{{buttonId}}"
+            class="{{buttonClass}} float-label-button"
+            type="{{buttonType}}"
+            (click)="search($event)"
+        >
+            <i class="{{iconClass}}"></i>
+        </button>
+    </div>
+</div>

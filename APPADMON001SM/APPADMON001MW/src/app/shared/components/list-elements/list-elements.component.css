@@ -1,0 +1,31 @@
+
+.itemSelector{
+    min-height: 50px; /* Altura mínima */
+    max-height: 100px; /* Altura máxima */
+    overflow-y: auto; /* Habilitar el scrollbar vertical si es necesario */
+    overflow-x: hidden;
+}
+.clasificaciones-container {
+    /* display: flex; */
+     flex-direction: row; /* Las clasificaciones crecerán hacia la derecha * */
+    flex-wrap: wrap;/* Permite que las clasificaciones se envuelvan a la siguiente fila si es necesario*/
+  }
+  
+  .clasificacion-item {
+    margin-right: 5px; 
+    margin-bottom: 5px; 
+  }
+
+  .item{
+    font-size: 11px;
+    border-radius: 15px;
+    min-width: 90px;
+    max-width: 90px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; 
+  }
+  .cleanData{
+    position: absolute;
+    cursor: pointer;
+  }

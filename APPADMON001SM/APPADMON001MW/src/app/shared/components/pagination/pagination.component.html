@@ -1,0 +1,23 @@
+<div class="d-flex justify-content-center unselectable undragable" style="text-align:center!important">
+    <ul *ngIf="paginador!= undefined && paginador.paginas != undefined && paginador.paginas.length>0 && paginador.MostrarPaginacion==true" class="pagination">
+        <li *ngIf="paginador.firstPageInPager > 1" class="page-item">
+            <a class="page-link icon-container" (click)="paginaSeleccionada(paginador.firstPage)"><i class="material-icons">first_page</i></a>
+        </li>
+        <li *ngIf="paginador.firstPageInPager > 1" class="page-item">
+            <a class="page-link icon-container" (click)="paginaSeleccionada(paginador.firstPageInPager - 1)"><i class="material-icons">more_horiz</i></a>
+        </li>
+        <li *ngFor="let pagina of paginador.paginas" class="page-item" [ngClass]="{'active':pagina==paginador.currentPage}" (click)="paginaSeleccionada(pagina)">
+            <a class="page-link page"><span>{{pagina}}</span></a>
+        </li>
+        <li *ngIf="paginador.lastPageInPager < paginador.lastPage" class="page-item">
+            <a class="page-link icon-container" (click)="paginaSeleccionada(paginador.lastPageInPager + 1)"><i class="material-icons">more_horiz</i></a>
+        </li>
+        <li *ngIf="paginador.lastPageInPager < paginador.lastPage" class="page-item" title="{{'Última página: ' + paginador.lastPage}}">
+            <a class="page-link icon-container" (click)="paginaSeleccionada(paginador.lastPage)"><i class="material-icons">last_page</i></a>
+        </li>
+    </ul>
+
+    <span *ngIf="!paginador.MostrarPaginacion && paginador.lastPage!=1 && !paginador.showLoading && paginador.showNoRowMessage">
+        No se encontraron resultados
+    </span>
+</div>
