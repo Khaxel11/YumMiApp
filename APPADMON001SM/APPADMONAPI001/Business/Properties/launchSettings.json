@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "Business": {
+      "commandName": "Project",
+      "workingDirectory": "ASPNETCORE_ENVIRONMENT=Development"
+    },
+    "Perfil 1": {
+      "commandName": "Executable"
+    },
+    "Perfil 2": {
+      "commandName": "Project"
+    }
+  }
+}
