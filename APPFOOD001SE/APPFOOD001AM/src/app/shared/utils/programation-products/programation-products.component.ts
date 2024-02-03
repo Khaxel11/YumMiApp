@@ -38,7 +38,7 @@ export class ProgramationProductsComponent implements OnInit {
       }
     )
     modal.present();
-    return modal.onDidDismiss().then((result)=>{
+    return modal.onDidDismiss().then(async(result)=>{
       if(result){
         this.selectedDates = [];
         result.data.forEach(element => {
@@ -54,7 +54,7 @@ export class ProgramationProductsComponent implements OnInit {
         });
         console.log(this.selectedDates);
         this.selected = true;
-        this.calendar.setCalendar(this.selectedDates);
+        await this.calendar.setCalendar(this.selectedDates);
       }
     });
   } 

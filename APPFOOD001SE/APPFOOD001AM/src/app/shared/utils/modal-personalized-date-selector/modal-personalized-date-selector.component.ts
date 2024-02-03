@@ -56,75 +56,176 @@ export class ModalPersonalizedDateSelectorComponent implements OnInit {
   }
   async generateDates(): Promise<Date[]> {
     const generatedDates: Date[] = [];
-  
-    // Lógica para generar fechas según la configuración seleccionada
+    const limit = new Date(this.dateEnd);
     switch (this.selectedRepet) {
       case 1:
         // Repetir cada día al día de hoy
         const currentDate4 = new Date();
         const selectedDayOfWeek = currentDate4.getDay(); // Obtener el día de la semana actual (0: Domingo, 1: Lunes, ..., 6: Sábado)
-
-        for (let i = 0; i < this.totalRepetition; i++) {
-          const nextDate = new Date(currentDate4);
-
-          // Calcular la diferencia de días para llegar al próximo día de la semana seleccionado
-          let daysToAdd = selectedDayOfWeek - nextDate.getDay() + 7 * i;
-          nextDate.setDate(nextDate.getDate() + daysToAdd);
-
-          generatedDates.push(nextDate);
+        if(this.selectedOption === 2){
+          const currentDate4 = new Date();
+          const selectedDayOfWeek = currentDate4.getDay();
+          let i = 0;
+          
+          while (true) {
+            const nextDate = new Date(currentDate4);
+            let daysToAdd = selectedDayOfWeek - nextDate.getDay() + 7 * i;
+            nextDate.setDate(nextDate.getDate() + daysToAdd);
+          
+            // Verificar si la fecha generada está dentro del rango permitido
+            generatedDates.push(nextDate);
+            if (nextDate >= limit) {
+              break;
+            }
+          
+            
+            i++;
+          }
+        }else{
+          for (let i = 0; i < this.totalRepetition; i++) {
+            const nextDate = new Date(currentDate4);
+  
+            // Calcular la diferencia de días para llegar al próximo día de la semana seleccionado
+            let daysToAdd = selectedDayOfWeek - nextDate.getDay() + 7 * i;
+            nextDate.setDate(nextDate.getDate() + daysToAdd);
+  
+            generatedDates.push(nextDate);
+          }
         }
+        
         break;
       case 2:
         // Lunes a viernes
         const daysOfWeek = ['L', 'M', 'X', 'J', 'V'];
-        for (let i = 0; i < this.totalRepetition; i++) {
-          for (const day of daysOfWeek) {
-            const nextDate = this.calculateNextDate(day, i);
-            generatedDates.push(nextDate);
+        if(this.selectedOption === 2){
+          
+          let j = 0;
+          var flag : boolean = true;
+          while (flag) {
+            for (const day of daysOfWeek) {
+              const nextDate = this.calculateNextDate(day, j);
+              generatedDates.push(nextDate);
+              // Verificar si la fecha generada está dentro del rango permitido
+              if (nextDate >= limit) {
+                flag = false;
+                break;
+              }
+        
+              
+            }
+        
+            j++;
+          }
+        }else{
+          for (let i = 0; i < this.totalRepetition; i++) {
+            for (const day of daysOfWeek) {
+              const nextDate = this.calculateNextDate(day, i);
+              generatedDates.push(nextDate);
+            }
           }
         }
+        
         break;
       case 3:
         // Repetición por día(s)
+       if(this.selectedOption === 2){
+        let k = 0;
+          var flagDay : boolean = true;
+          while (flagDay) {
+              const nextDate = new Date();
+              nextDate.setDate(nextDate.getDate() + k);
+              generatedDates.push(nextDate);
+              // Verificar si la fecha generada está dentro del rango permitido
+              if (nextDate >= limit) {
+                flagDay = false;
+                break;
+              }
+        
+              
+                    
+            k++;
+          }
+       }else{
         for (let i = 0; i < this.totalRepetition; i++) {
           const nextDate = new Date();
           nextDate.setDate(nextDate.getDate() + i);
           generatedDates.push(nextDate);
-        }
+        }        
+       }
         break;
        case 4:
       // Repetición por semana(s)
       let currentDate = new Date();
-
-      for (let i = 0; i < this.totalRepetition; i++) {
-        const weekDates = this.calculateWeekDates(currentDate);
-        generatedDates.push(...weekDates);
-
-        // Avanza a la siguiente semana
-        currentDate.setDate(currentDate.getDate() + 7);
-      }
-        // Agregar siempre un día más al último día generado
-        // const lastDate = generatedDates[generatedDates.length - 1];
-        // const nextDay = new Date(lastDate);
-        // nextDay.setDate(lastDate.getDate() + 1);
-        // generatedDates.push(nextDay);
+        let actualLength = 0;
+        let nextLength = 0;
+        if(this.selectedOption === 2){
+          let l = 0;
+          var flagWeek : boolean = true;
+          while (flagWeek) {
+            const weekDates = this.calculateWeekDates(currentDate, limit);
+              actualLength = generatedDates.length;
+              // Verificar si la fecha generada está dentro del rango permitido
+              generatedDates.push(...weekDates);
+              // Avanza a la siguiente semana
+              currentDate.setDate(currentDate.getDate() + 7);
+              nextLength = generatedDates.length;
+              //Ya no genero más fechas, termina
+              if(actualLength === nextLength){
+                flagWeek = false;
+                break;
+              }
+              l++;
+          }
+        }else{
+          for (let i = 0; i < this.totalRepetition; i++) {
+            const weekDates = this.calculateWeekDates(currentDate);
+            generatedDates.push(...weekDates);
+    
+            // Avanza a la siguiente semana
+            currentDate.setDate(currentDate.getDate() + 7);
+          }
+           
+        }
+        
       break;
 
-    // ... (otros casos)
     
     case 5:
       // Repetición por mes(es)
       let currentDate2 = new Date();
       
-      for (let i = 0; i < this.totalRepetition; i++) {
-        const startDay = currentDate2.getDate();
-        const lastDayOfMonth = new Date(currentDate2.getFullYear(), currentDate2.getMonth() + 1, 0).getDate();
-          for (let day = startDay; day <= lastDayOfMonth+startDay; day++) {
+      if(this.selectedOption === 2){
+        let flagMonth = true;
+        while (flagMonth) {
+          const startDay = currentDate2.getDate();
+          const lastDayOfMonth = new Date(currentDate2.getFullYear(), currentDate2.getMonth() + 1, 0).getDate();
+        
+          for (let day = startDay; day <= lastDayOfMonth + startDay; day++) {
             const nextDate = new Date(currentDate2.getFullYear(), currentDate2.getMonth(), day);
+        
+            // Verificar si la fecha generada es mayor a la fecha límite
+            if (nextDate > limit) {
+              flagMonth = false;
+              break;
+            }
+        
             generatedDates.push(nextDate);
           }
+        
           currentDate2.setMonth(currentDate2.getMonth() + 1);
+        }
+      }else{
+        for (let i = 0; i < this.totalRepetition; i++) {
+          const startDay = currentDate2.getDate();
+          const lastDayOfMonth = new Date(currentDate2.getFullYear(), currentDate2.getMonth() + 1, 0).getDate();
+            for (let day = startDay; day <= lastDayOfMonth+startDay; day++) {
+              const nextDate = new Date(currentDate2.getFullYear(), currentDate2.getMonth(), day);
+              generatedDates.push(nextDate);
+            }
+            currentDate2.setMonth(currentDate2.getMonth() + 1);
+        }
       }
+     
       // Avanza al siguiente mes
       
       break;
@@ -133,7 +234,7 @@ export class ModalPersonalizedDateSelectorComponent implements OnInit {
       const currentDate3 = new Date();
       const startDay = currentDate3.getDate();
 
-      const totalDaysInYear = 365; // Asumiendo que todos los años tienen 365 días
+      const totalDaysInYear = 365; 
       const totalDays = totalDaysInYear * this.totalRepetition;
 
       for (let i = 0; i < totalDays+ startDay; i++) {
@@ -141,7 +242,6 @@ export class ModalPersonalizedDateSelectorComponent implements OnInit {
         generatedDates.push(nextDate);
       }
       break;
-      // Agrega más casos según sea necesario para otras configuraciones
     }
   
     return generatedDates;
@@ -150,7 +250,7 @@ export class ModalPersonalizedDateSelectorComponent implements OnInit {
     let currentDay = currentDate.getDay();
     let daysToAdd = 0;
   
-    while (daysToAdd < 7) {
+    while (daysToAdd <= 7) {
       const nextDay = this.daysAvailable.find(day => this.selectedDays.includes(day) && this.daysAvailable.indexOf(day) >= currentDay);
   
       if (nextDay !== undefined) {
@@ -166,7 +266,7 @@ export class ModalPersonalizedDateSelectorComponent implements OnInit {
     nextDate.setDate(currentDate.getDate() + daysToAdd);
     return nextDate;
   }
-  calculateWeekDates(currentDate: Date): Date[] {
+  calculateWeekDates(currentDate: Date, dateEnd?: Date): Date[] {
     const weekDates: Date[] = [];
   
     if (this.selectedDays.length === 0) {
@@ -174,6 +274,12 @@ export class ModalPersonalizedDateSelectorComponent implements OnInit {
       for (let i = 0; i <= 7; i++) {
         const nextDate = new Date(currentDate);
         nextDate.setDate(currentDate.getDate() + i);
+  
+        // Verificar si la fecha generada es mayor a la fecha actual
+        if (nextDate > dateEnd && dateEnd) {
+          return weekDates;
+        }
+  
         weekDates.push(nextDate);
       }
     } else {
@@ -186,15 +292,21 @@ export class ModalPersonalizedDateSelectorComponent implements OnInit {
   
         // Verifica si el día actual está seleccionado
         if (selectedDaysIndices.includes(nextDate.getDay())) {
+  
+          // Verificar si la fecha generada es mayor a la fecha actual
+          if (nextDate > dateEnd && dateEnd) {
+            return weekDates;
+          }
+  
           weekDates.push(nextDate);
         }
         index++;
       }
-      
     }
   
     return weekDates;
   }
+  
   calculateNextDate(dayOfWeek: string, repetitionIndex: number): Date {
     const currentDate = new Date();
     const currentDay = currentDate.getDay();
@@ -217,7 +329,7 @@ export class ModalPersonalizedDateSelectorComponent implements OnInit {
   async accept() {
     // Lógica para aceptar y generar fechas
     const generatedDates = await this.generateDates();
-    console.log('Fechas generadas:', generatedDates);
+    //console.log('Fechas generadas:', generatedDates);
     this.closeModal(generatedDates);
     // Puedes hacer lo que necesites con las fechas generadas
   }
@@ -227,7 +339,6 @@ export class ModalPersonalizedDateSelectorComponent implements OnInit {
   }
 
   closeModal(e? : any) {
-    //console.log(this.foodHub);
     this.modalController.dismiss(e);
   }
   obtenerDiaSemana(fecha: Date): string {

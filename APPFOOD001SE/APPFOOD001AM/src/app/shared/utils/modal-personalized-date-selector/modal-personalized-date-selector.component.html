@@ -26,7 +26,7 @@
         </ion-item>
         <ion-item class="ion-margin-top">
             <ion-label position="floating">Repetición por </ion-label>
-            <ion-input type="number" [(ngModel)]="totalRepetition" [clearOnEdit]="true" ></ion-input>
+            <ion-input type="number" [(ngModel)]="totalRepetition" [clearOnEdit]="true"  [disabled]="selectedOption === 2"></ion-input>
             <div class="label-repeat">
                 {{label}}
             </div>

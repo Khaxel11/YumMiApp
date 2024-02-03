@@ -38,9 +38,9 @@ export class CalendarComponent implements OnInit {
     this.cdr.detectChanges();
   }
 
-  setCalendar(items : any[]){
+  async setCalendar(items : any[]){
     this.items = items;
-    this.generateCalendarDays();
+    await this.generateCalendarDays();
   }
   enableEditable(value : boolean){
     this.allowEditSelected = value;
@@ -55,7 +55,7 @@ export class CalendarComponent implements OnInit {
     this.generateCalendarDays();
   }
 
-  private generateCalendarDays() {
+  private async generateCalendarDays() {
     const days: { dayOfWeek: string; number: number; notes: string; isOtherMonth: boolean; selected:boolean , dateObj : Date}[] = [];
     const firstDayOfMonth = new Date(this.year, this.month, 1).getDay();
   
