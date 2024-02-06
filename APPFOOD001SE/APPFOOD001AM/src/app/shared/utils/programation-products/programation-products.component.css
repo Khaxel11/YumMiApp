@@ -14,6 +14,11 @@ ion-calendar {
     margin: 20px;
     font-size: 30px;
     font-weight: bold;
+    display: flex;
+    /* justify-content: center; */
+    justify-items: center;
+    align-items: center;
+    align-content: center;
   }
   ion-item::part(native) {
     background: rgb(36, 36, 36);
@@ -58,3 +63,34 @@ ion-calendar {
   margin-left: 10px;
   margin-bottom: 2px;
  }
+ .tittleProduct{
+  position: relative;
+  margin: 5px;
+ }
+ .btnContinue{
+  position: relative;
+ }
+ .imgContainer{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  right: 0;
+  top: 0;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  background-color: #ccc;
+  margin: 10px;
+ }
+ .imgContainer img {
+  width: 100%; 
+  min-width: 200px;
+  height: 100%; 
+  object-fit: cover; 
+}
+.oppadading{
+  padding: 20px;
+  height: 60px;
+}

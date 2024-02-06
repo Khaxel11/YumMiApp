@@ -336,6 +336,9 @@ export class ModalPersonalizedDateSelectorComponent implements OnInit {
   handleChange(e) {
     this.label = this.repetFor.filter(element  => element.value == e.detail.value)[0].label;
     this.selectedRepet = e.detail.value;
+    if(e.detail.value === 6 && this.selectedOption === 2){
+      this.selectedOption = 1;
+    }
   }
 
   closeModal(e? : any) {

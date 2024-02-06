@@ -1,14 +1,33 @@
 <ion-header collapse="fade">
+    
     <ion-toolbar>
-        <ion-title>Programar Producto</ion-title>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/product/catalog/detail"></ion-back-button>
+          </ion-buttons>
+        <ion-title>Programar</ion-title>
+        <ion-buttons slot="end" (click)="continue()">
+            <ion-button >
+                Continuar
+            </ion-button>            
+            
+          </ion-buttons>
+
     </ion-toolbar>
-</ion-header>
+  </ion-header>
 <ion-content >
+    
     <div class="header">
-        <h1>Tacos</h1>
+        <div class="tittleProduct animated-top">
+            <ion-note>Programando</ion-note>
+            <h3>Tacos de Carne Asada</h3>
+            
+        </div>
+        <div class="imgContainer animated-right">
+            <img src="../../../../assets/Images/food-delivery-start.jpeg" alt="">
+        </div>
+        <!-- -->
     </div>
     <div class="date">
-
 
         <div class="center-container">
             <ion-item button detail lines="full" (click)="openCalendar()">
@@ -54,12 +73,19 @@
             <ion-card-content>
                 <ion-textarea [cols]="4" [rows]="4" maxlength="200" 
                     placeholder="Describe comentarios como la hora de entrega o las condiciones de entrega"
-                    [counter]="true"
+                    [counter]="true" [required]="true"
                     ></ion-textarea>
             </ion-card-content>
         </ion-card>
     </div>
-    <div class="description">
+    <div class="oppadading">
 
     </div>
+    <!-- <div class="description">
+        <div class="btnContinue ion-text-end">
+            <ion-button fill="outline" shape="round" color="dark">
+                Continuar
+            </ion-button>
+        </div>
+    </div> -->
 </ion-content>

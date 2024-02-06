@@ -58,6 +58,9 @@ export class DishDetailComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     this.sharedDataService.producto.subscribe(producto => {
       this.Producto = producto
+      if(!this.Producto){
+        this.navCtrl.navigateBack("/products/catalog")
+      }
     });
     await this.getInfoProducto().then(
       ()=>{this.datosCargados = true}
@@ -107,7 +110,7 @@ export class DishDetailComponent implements OnInit {
 
   }
   goBack() {
-    this.navCtrl.back();
+    this.navCtrl.navigateBack("/products/catalog");
   }
   closeModal() {
     this.modalController.dismiss();
@@ -117,6 +120,10 @@ export class DishDetailComponent implements OnInit {
     return imageUrl;
   }
 
+  goToProgramation(){
+    this.navCtrl.navigateForward('/programation');
+  }
+  
 async openMdlPriceDetail(e : any){
     
     const modal = await this.modalController.create({
@@ -205,4 +212,5 @@ async openMdlPriceDetail(e : any){
   }
 
   //#endregion
+  
 }

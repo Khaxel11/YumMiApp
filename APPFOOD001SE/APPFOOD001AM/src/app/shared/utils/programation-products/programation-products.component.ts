@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { CalendarModal, CalendarModalOptions, DayConfig, CalendarResult,  } from 'ion2-calendar';
+import { CalendarModal, CalendarModalOptions, DayConfig, CalendarResult, } from 'ion2-calendar';
 import { General } from 'src/app/functions/general';
 import { ModalController } from '@ionic/angular';
 import { CalendarComponent } from '../calendar/calendar.component';
@@ -11,44 +11,44 @@ import { ModalPersonalizedDateSelectorComponent } from '../modal-personalized-da
   styleUrls: ['./programation-products.component.css']
 })
 export class ProgramationProductsComponent implements OnInit {
-  @ViewChild('calendar') calendar : CalendarComponent;
+  @ViewChild('calendar') calendar: CalendarComponent;
   General = new General();
-  date : string;
+  date: string;
   selectedDates: Array<any> = [];
-  selected : boolean = false;
-  month : number;
-  year : number;
+  description : string;
+  selected: boolean = false;
+  month: number;
+  year: number;
   constructor(private modalController: ModalController) {
-    // Puedes inicializar las fechas seleccionadas si es necesario
     const today = new Date();
-    this.selectedDates = [today.toISOString()];
+    this.selectedDates = [];
     this.month = today.getUTCMonth();
     this.year = today.getUTCFullYear();
   }
 
   ngOnInit(): void {
-      
-  } 
-  async openPersonalizedSelector(){
+
+  }
+  async openPersonalizedSelector() {
     const modal = await this.modalController.create(
       {
         component: ModalPersonalizedDateSelectorComponent,
-        componentProps: {}, 
-        
+        componentProps: {},
+
       }
     )
     modal.present();
-    return modal.onDidDismiss().then(async(result)=>{
-      if(result){
+    return modal.onDidDismiss().then(async (result) => {
+      if (result.data) {
         this.selectedDates = [];
         result.data.forEach(element => {
           element.setHours(0, 0, 0, 0);
 
           const objDate = {
-            diaSemana :this.obtenerDiaSemana(element),
-            mes : this.obtenerNombreMes(element),
-            dia : element.getUTCDate(),
-            dateObj : element
+            diaSemana: this.obtenerDiaSemana(element),
+            mes: this.obtenerNombreMes(element),
+            dia: element.getUTCDate(),
+            dateObj: element
           }
           this.selectedDates.push(objDate);
         });
@@ -57,13 +57,13 @@ export class ProgramationProductsComponent implements OnInit {
         await this.calendar.setCalendar(this.selectedDates);
       }
     });
-  } 
+  }
   async openCalendar() {
     const options: CalendarModalOptions = {
       title: 'Selecciona fecha(s) a Programar',
-      color: 'primary',
-      pickMode: 'multi', 
-      defaultDateRange: { from: new Date(), to: new Date(2024,3.1) }, // Rango de fechas inicial
+      color: 'secondary',
+      pickMode: 'multi',
+      defaultDateRange: { from: new Date(), to: new Date() }, // Rango de fechas inicial
       canBackwardsSelected: false, // No permite seleccionar fechas en meses anteriores
       monthFormat: 'MMMM YYYY', // Formato del encabezado del mes
       weekdays: ['D', 'L', 'M', 'X', 'J', 'V', 'S'],
@@ -92,13 +92,13 @@ export class ProgramationProductsComponent implements OnInit {
         console.log(this.selectedDates);
         this.selected = true;
         this.calendar.setCalendar(this.selectedDates);
-        
-      }else{
+
+      } else {
         this.selected = false;
       }
     });
   }
-  toggleChange(e : any){
+  toggleChange(e: any) {
     this.calendar.enableEditable(e.detail.checked);
   }
   obtenerDiaSemana(fecha: Date): string {
@@ -111,14 +111,25 @@ export class ProgramationProductsComponent implements OnInit {
     const indiceMes = fecha.getUTCMonth();
     return meses[indiceMes];
   }
+  continue(){
+    if(!this.selectedDates || this.selectedDates.length === 0){
+      this.General.showMessage("No hay fechas seleccionadas", 'warning');
+      return;
+    }
+    if(!this.description){
+      this.General.showMessage("Capture una descripción", 'warning'); 
+      return;
+    }
+  }
 
   private getDaysConfig(): DayConfig[] {
-    // Puedes personalizar la configuración de los días según tus necesidades
     return [
       {
         date: new Date(),
         subTitle: 'Hoy',
       },
-    ];  }
+    ];
+  }
+  
 
 }
