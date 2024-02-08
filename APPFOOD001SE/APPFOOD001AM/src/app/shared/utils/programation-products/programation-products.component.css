@@ -94,3 +94,7 @@ ion-calendar {
   padding: 20px;
   height: 60px;
 }
+.ion-text-end {
+  color: #007bff;
+  font-weight: bold;
+}

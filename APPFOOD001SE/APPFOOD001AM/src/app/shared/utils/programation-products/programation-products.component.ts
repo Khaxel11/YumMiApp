@@ -52,11 +52,41 @@ export class ProgramationProductsComponent implements OnInit {
           }
           this.selectedDates.push(objDate);
         });
+        this.selectedDates = this.sortDates(this.selectedDates);
         console.log(this.selectedDates);
         this.selected = true;
         await this.calendar.setCalendar(this.selectedDates);
       }
     });
+  }
+
+  sortDates(arreglo) : any[]{
+    return arreglo.sort((a, b) => {
+      const dateA = a.dateObj.getTime();
+      const dateB = b.dateObj.getTime();
+      return dateA - dateB;
+    });
+  }
+  onSelectedDate(e:any){
+    if(e.selected){
+      // Agregamos la fecha al array de fechas seleccionadas
+      this.selectedDates.push({
+        diaSemana: this.obtenerDiaSemana(e.dateObj),
+        mes: this.obtenerNombreMes(e.dateObj),
+        dia: e.dateObj.getUTCDate(),
+        dateObj: e.dateObj
+      });
+      this.selectedDates = this.sortDates(this.selectedDates);
+    }else{
+      /* Eliminamos la fecha del array de las fechas seleccionadas
+       * y volvemos a renderizar el calendario para que se actualicen los cambios */
+      this.selectedDates = this.selectedDates.filter((fecha)=>{
+        return !(fecha.dateObj.getTime() === e.dateObj.getTime());
+      })
+    
+    
+    }
+    this.calendar.setCalendar(this.selectedDates);
   }
   async openCalendar() {
     const options: CalendarModalOptions = {
@@ -91,6 +121,7 @@ export class ProgramationProductsComponent implements OnInit {
         });
         console.log(this.selectedDates);
         this.selected = true;
+        this.selectedDates = this.sortDates(this.selectedDates);
         this.calendar.setCalendar(this.selectedDates);
 
       } else {
@@ -101,6 +132,17 @@ export class ProgramationProductsComponent implements OnInit {
   toggleChange(e: any) {
     this.calendar.enableEditable(e.detail.checked);
   }
+
+  getFirstDate() : string{
+    let value;
+    if(this.selectedDates.length>0){
+      let fecha = this.selectedDates[0].dateObj;
+      value = this.obtenerDiaSemana(fecha) + ' '+ fecha.getDate() + " de " + this.obtenerNombreMes(fecha);
+    }
+    
+    return value ? value : "";
+  }
+
   obtenerDiaSemana(fecha: Date): string {
     const diasSemana = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
     const indiceDia = fecha.getUTCDay();

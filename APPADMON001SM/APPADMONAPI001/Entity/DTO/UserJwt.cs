@@ -9,5 +9,7 @@ namespace Entity.DTO
         public string IdUsuario { get; set; }
         public string Zona { get; set; }
         public string Token { get; set; }
+        public string Username { get; set; }
+        public string Conection { get; set; }
     }
 }

@@ -1,5 +1,5 @@
 // calendar.component.ts
-import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-calendar',
@@ -14,6 +14,7 @@ export class CalendarComponent implements OnInit {
   @Input() spaceBetweeen : string = "50px";
   @Input() items = []
   @Input() allowEditSelected : boolean = false;
+  @Output() onChange = new EventEmitter<any>();
   daysInMonth: number;
   daysName = [];
   today : number = 0;
@@ -164,6 +165,7 @@ export class CalendarComponent implements OnInit {
   private  selectDay(e : any){
     if(this.allowEditSelected){
       e.selected = !e.selected;
+      this.onChange.emit(e);
     }
   }
 

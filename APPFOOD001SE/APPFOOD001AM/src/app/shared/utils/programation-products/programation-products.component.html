@@ -14,13 +14,40 @@
 
     </ion-toolbar>
   </ion-header>
-<ion-content >
+ <ion-content>
+    <div class="header">Vista Previa</div>
+    <div class="date">
+        <ion-card>
+            <ion-card-content>
+                <div class="ion-text-end">
+                    <strong>08 de Febrero de 2024</strong>
+                </div>
+                <h1><strong>Tacos de Carne Asada</strong></h1>
+                <div class="tittleProduct animated-top">
+                    <app-accordion>
+                            <h2>Mirador Alamos</h2>
+                            Hola
+                            esto es 
+                            un ejemplo
+
+                        
+                    </app-accordion>
+
+                </div>
+                <div class="imgContainer animated-right">
+                    <img src="../../../../assets/Images/food-delivery-start.jpeg" alt="">
+                </div>
+            </ion-card-content>
+        </ion-card>
+    </div>
+ </ion-content> 
+<ion-content *ngIf="false">
     
     <div class="header">
         <div class="tittleProduct animated-top">
             <ion-note>Programando</ion-note>
             <h3>Tacos de Carne Asada</h3>
-            
+            <ion-note><small>Proximo día programado: </small> <strong>{{this.getFirstDate()}}</strong></ion-note>
         </div>
         <div class="imgContainer animated-right">
             <img src="../../../../assets/Images/food-delivery-start.jpeg" alt="">
@@ -51,7 +78,7 @@
 
         <ion-card>
             <app-calendar #calendar [spaceBetweeen]="'50px'" [Height]="'50%'" [year]="year"
-                [month]="month"></app-calendar>
+                [month]="month" (onChange)="onSelectedDate($event)"></app-calendar>
             <div class="center-container ">
                 <ion-label>
                     <h3>Permitir Editar</h3>

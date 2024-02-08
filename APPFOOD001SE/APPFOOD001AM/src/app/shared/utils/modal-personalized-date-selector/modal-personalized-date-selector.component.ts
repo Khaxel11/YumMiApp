@@ -21,6 +21,7 @@ export class ModalPersonalizedDateSelectorComponent implements OnInit {
   neverChecked: boolean = false;
   fechaHora: string | null = null;
   selectedOption: number = 1; 
+  
   constructor(private modalController : ModalController) {
     this.repetFor = [
       {
