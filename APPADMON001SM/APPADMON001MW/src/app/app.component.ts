@@ -14,7 +14,8 @@ export class AppComponent implements OnInit {
 
   sidebarOpen;
   menuOpen: boolean = false;
-
+  subMenuOpen: boolean = false;
+  selectedMenu : string;
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
   }
@@ -29,5 +30,9 @@ export class AppComponent implements OnInit {
   }
   closeSidebar(){
     this.sidebarOpen = !this.sidebarOpen;
+  }
+  toggleSubMenu(menu : string) {
+    this.subMenuOpen = !this.subMenuOpen;
+    this.selectedMenu = menu;
   }
 }

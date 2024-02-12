@@ -24,7 +24,14 @@
         
         <nav>
           <ul>
-            <li><a href="#/overall">Catalogos</a></li>
+            <li (click)="toggleSubMenu('catalogos')" [class.selected]="selectedMenu === 'catalogos'">
+              <a href="#">Catalogos</a>
+              <ul class="sub-menu" [ngClass]="{ 'active': subMenuOpen && selectedMenu === 'catalogos' }">
+                <li><a href="#">Cargos</a></li>
+                <li><a href="#">Ingredientes</a></li>
+                <li><a href="#">Empleados</a></li>
+              </ul>
+            </li>
             <li><a href="#/report">Reportes</a></li>
             <li><a href="#/contract">Estadisticas</a></li>
             <li><a href="#/company">Vistas</a></li>

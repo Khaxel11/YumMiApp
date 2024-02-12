@@ -40,29 +40,37 @@ body {
 #sidebar nav ul {
     padding: 0;
     list-style: none;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 #sidebar nav ul li {
     padding: 0.5rem 1rem;
-    border-bottom: 1px solid #3f3f3f;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    /* border-bottom: 1px solid #3f3f3f; */
 }
 
 #sidebar nav ul li:hover {
-    background-color: #353535;
+    background-color: #212226;
 }
 
 #sidebar nav ul li a {
     text-decoration: none;
     color: #ffffff;
 }
-
+#sidebar nav ul li.selected {
+    border-radius: 10px;
+    background-color: #292929;
+  }
+  
 #main-content {
     flex: 1;
     padding: 1rem;
     background-color: #fff;
     border-radius: 10px;
     margin-right: 10px;
-    margin-left: 10px;
+    margin-left: 5px;
     margin-bottom: 10px;
 }
 
@@ -169,6 +177,7 @@ body {
   .dropdown-menu.active {
     display: block; 
     left: auto; 
+    
   }
   
   .dropdown-menu ul {
@@ -184,4 +193,41 @@ body {
   
   .dropdown-menu ul li:hover {
     background-color: #292929;
+  }
+  .sub-menu {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sub-menu.active {
+    display: block;
+    animation: fadeIn 0.3s ease forwards;
+  }
+  
+  .sub-menu li {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .sub-menu.active li {
+    opacity: 1;
+    transform: translateY(0);
+    transform-origin: top;
+    animation: fadeIn 0.3s ease forwards;
+
+  }
+
+ 
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
