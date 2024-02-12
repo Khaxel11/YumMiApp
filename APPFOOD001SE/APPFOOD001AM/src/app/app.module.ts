@@ -12,7 +12,7 @@ import { GoogleMaps } from '@ionic-native/google-maps';
 import { IonicModule } from '@ionic/angular';
 //animaciones
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CalendarModule, CalendarComponent } from 'ion2-calendar';
+import { CalendarModule } from 'ion2-calendar';
 
 
 

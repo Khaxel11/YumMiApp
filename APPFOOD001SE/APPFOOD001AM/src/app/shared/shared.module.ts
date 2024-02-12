@@ -22,6 +22,7 @@ import { DoubleTapDirective } from './directives/double-tap.directive';
 import { ProgramationProductsComponent } from './utils/programation-products/programation-products.component';
 import { ModalPersonalizedDateSelectorComponent } from './utils/modal-personalized-date-selector/modal-personalized-date-selector.component';
 import { FormsModule } from '@angular/forms';
+import { DishViewComponent } from './utils/dish-view/dish-view.component';
 @NgModule({
   declarations: [    
     
@@ -43,7 +44,8 @@ import { FormsModule } from '@angular/forms';
     DoubleTapDirective,
     ProgramationProductsComponent,
     CalendarComponent,
-    ModalPersonalizedDateSelectorComponent
+    ModalPersonalizedDateSelectorComponent,
+    DishViewComponent
   ],
   imports: [ 
     CommonModule,
@@ -68,7 +70,8 @@ import { FormsModule } from '@angular/forms';
     DoubleTapDirective,
     ProgramationProductsComponent,
     CalendarComponent,
-    ModalPersonalizedDateSelectorComponent
+    ModalPersonalizedDateSelectorComponent,
+    DishViewComponent
   ],
   
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
