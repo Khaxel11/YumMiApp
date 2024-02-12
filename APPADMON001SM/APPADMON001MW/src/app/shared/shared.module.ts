@@ -82,7 +82,9 @@ import { ListElementsComponent } from './components/list-elements/list-elements.
 
     DatePickerComponent,
 
-    ListElementsComponent
+    ListElementsComponent,
+
+
   ],
   imports: [
     CommonModule,
@@ -137,7 +139,9 @@ import { ListElementsComponent } from './components/list-elements/list-elements.
     
     DatePickerComponent,
    
-    ListElementsComponent
+    ListElementsComponent,
+    
+
   ],
   //bootstrap: [RangedateselectionComponent]
 })

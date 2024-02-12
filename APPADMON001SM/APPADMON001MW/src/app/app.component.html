@@ -1,1 +1,46 @@
-<router-outlet></router-outlet>
+<body>
+  <div id="dashboard">
+    <div id="header">
+      <div class="textMain" (click)="toggleSidebar()">YumMi</div>
+      <div class="container-info">
+        <div class="user-info">
+          <img src="../assets/images/user-default.png" alt="Foto de usuario" class="user-photo" (click)="toggleMenu()">
+          <div class="dropdown-menu" [class.active]="menuOpen">
+            <ul>
+              <li>Configurar</li>
+              <li>Cerrar Sesión</li>
+            </ul>
+          </div>
+          <span class="user-name">Axel</span>
+        </div>
+      </div>
+      
+    </div>
+    <div id="content">
+      <aside id="sidebar" [class.active]="sidebarOpen">
+        <div class="close-button"(click)="closeSidebar()">
+          <i class="fas fa-times"></i>
+        </div>
+        
+        <nav>
+          <ul>
+            <li><a href="#/overall">Catalogos</a></li>
+            <li><a href="#/report">Reportes</a></li>
+            <li><a href="#/contract">Estadisticas</a></li>
+            <li><a href="#/company">Vistas</a></li>
+            <li><a href="#/deals">Establecimientos</a></li>
+            <li><a href="#/task">Clientes</a></li>
+            <li><a href="#/products">Productos</a></li>
+            <li><a href="#/documents">Solicitudes</a></li>
+            <li><a href="#/settings">Pagos</a></li>
+          </ul>
+        </nav>
+      </aside>
+      <main id="main-content">
+        <router-outlet>
+          <h1>hola</h1>
+        </router-outlet>
+      </main>
+    </div>
+  </div>
+</body>

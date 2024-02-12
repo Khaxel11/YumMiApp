@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
-
+import { Component, HostListener, Renderer2, OnInit } from '@angular/core';
+import { Title }     from '@angular/platform-browser';
+import { Router, NavigationEnd, NavigationStart, ActivatedRoute } from '@angular/router';
+import pageSettings from './config/page-settings';
+import * as global from './config/globals';
 
 @Component({
   selector: 'app-root',
@@ -7,12 +10,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 
+export class AppComponent implements OnInit {
 
-export class AppComponent {
-  title = 'APPADMO01MW';
-  constructor
-  () {}
+  sidebarOpen;
+  menuOpen: boolean = false;
 
-  ngOnInit(): void {
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
+  ngOnInit() {
+    
+  }
+  constructor(){
+
+  }
+  toggleSidebar() {
+    this.sidebarOpen = !this.sidebarOpen;
+  }
+  closeSidebar(){
+    this.sidebarOpen = !this.sidebarOpen;
   }
 }

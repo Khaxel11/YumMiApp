@@ -4,6 +4,19 @@
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
+    {
+      "name": "Menu",
+      "request": "launch",
+      "type": "msedge",
+      "url": "http://localhost:4200",
+      "webRoot": "${workspaceFolder}"
+    },
+    
+    {
+      "type": "firefox",
+      "request": "attach",
+      "name": "Attach"
+    },
   
     {
       "name": "Electron Main",

@@ -1,0 +1,45 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+.sidebar {
+    background-color: #333;
+    color: #fff;
+    width: 250px;
+    height: 100%;
+    margin-top: 20%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 50px;
+    transition: transform 0.3s ease;
+  }
+  
+  .closed {
+    transform: translateX(-100%);
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    margin-bottom: 10px;
+  }
+  
+  .sidebar a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+  }
+  
+  .sidebar a:hover {
+    background-color: #555;
+  }
+  
+  .toggle-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 999;
+  }
+  
