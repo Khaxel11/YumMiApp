@@ -7,6 +7,6 @@ export const environment = {
   
  
   APPADMON01MW : 'http://localhost:51197/',
-  
+  VERSION: '12.02.2024' 
  
 };

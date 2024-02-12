@@ -1,4 +1,5 @@
-<body>
+<router-outlet *ngIf="!isLoged" ></router-outlet>
+<body *ngIf="isLoged">
   <div id="dashboard">
     <div id="header">
       

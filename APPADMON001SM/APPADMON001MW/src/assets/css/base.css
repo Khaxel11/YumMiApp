@@ -8,13 +8,13 @@
 }
 
 .header-grid {
-    background-color: #da7e1ccc;
+    background-color: #333;
     color: white;
     font-size: medium;
 }
 
 .header-grid-left {
-    background-color: #da7e1ccc;
+    background-color: #333;
     color: white;
     -webkit-border-top-left-radius: 5px;
     -moz-border-radius-topleft: 5px;
@@ -23,7 +23,7 @@
 }
 
 .header-grid-right {
-    background-color: #da7e1ccc;
+    background-color: #333;
     color: white;
     -webkit-border-top-right-radius: 5px;
     -moz-border-radius-topright: 5px;
@@ -32,7 +32,7 @@
 }
 
 .header-grid-both {
-    background-color: #da7e1ccc;
+    background-color: #333;
     color: white;
     -webkit-border-top-left-radius: 5px;
     -moz-border-radius-topleft: 5px;

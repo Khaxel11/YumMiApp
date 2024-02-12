@@ -1,0 +1,26 @@
+<div class="login-container">
+    <div class="text-center">
+        <small>Admon</small>
+        <h1>
+            YumMi
+        </h1>
+    </div>
+    <div class="login-box">
+      <h2>Iniciar sesión</h2>
+      <div class="form-group">
+        <input type="text" id="username" name="username" placeholder="Usuario" [(ngModel)]="username" required>
+      </div>
+      <div class="form-group">
+        <input type="password" id="password" name="password" placeholder="Contraseña" [(ngModel)]="password" required>
+      </div>
+      <button (click)="login()">Ingresar</button>
+    </div>
+    <footer class="container-fluid py-3">
+        <div class="text-center">
+          <p>© 2024 Todos los derechos reservados</p>
+          <small>{{version}}</small>
+        </div>
+      </footer>
+</div>
+
+  

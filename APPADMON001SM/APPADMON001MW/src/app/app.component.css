@@ -78,10 +78,16 @@ body {
     flex: 1;
     /* padding: 1rem; */
     background-color: #fff;
-    border-radius: 10px;
+    border-radius: 10px !important;
     margin-right: 10px;
     margin-left: 10px;
     margin-bottom: 10px;
+}
+main{
+  border-radius: 10px !important;
+}
+router-outlet{
+  border-radius: 10px !important;
 }
 
 .textMain {

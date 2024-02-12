@@ -14,14 +14,22 @@ export class AppComponent implements OnInit {
   menuOpen: boolean = false;
   subMenuOpen: boolean = false;
   selectedMenu : string;
+  isLoged : boolean = false;
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
   }
   ngOnInit() {
     
   }
+  handleLogin(event: boolean) {
+    this.isLoged = event;
+  }
   constructor(){
-
+    if(sessionStorage.getItem("loged")){
+      this.isLoged = true;
+    }else{
+      this.isLoged = false;
+    }
   }
   toggleSidebar() {
     this.sidebarOpen = !this.sidebarOpen;

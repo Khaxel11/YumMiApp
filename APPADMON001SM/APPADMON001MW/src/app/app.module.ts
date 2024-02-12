@@ -19,15 +19,14 @@ import { NgbModal, NgbModalRef, NgbActiveModal } from '@ng-bootstrap/ng-bootstra
 import { BlockUIModule } from 'ng-block-ui';
 import { HeaderComponent } from './shared/Menu/header/header.component'
 import { MenuComponent } from './shared/Menu/menu/menu.component'
-import { FooterComponent } from './shared/Menu/footer/footer.component'
+import { FooterComponent } from './shared/Menu/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
     HeaderComponent,
     MenuComponent,
-    FooterComponent
-    
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
