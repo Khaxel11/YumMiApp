@@ -1,8 +1,6 @@
 import { Component, HostListener, Renderer2, OnInit } from '@angular/core';
 import { Title }     from '@angular/platform-browser';
 import { Router, NavigationEnd, NavigationStart, ActivatedRoute } from '@angular/router';
-import pageSettings from './config/page-settings';
-import * as global from './config/globals';
 
 @Component({
   selector: 'app-root',

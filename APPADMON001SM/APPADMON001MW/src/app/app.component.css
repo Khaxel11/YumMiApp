@@ -58,7 +58,17 @@ body {
 #sidebar nav ul li a {
     text-decoration: none;
     color: #ffffff;
+    font-family: "Arial", Gadget, sans-serif;
+    font-size: 18px;
+    margin-left: 8px;
 }
+
+#sidebar nav ul li i{
+    position: relative;
+    
+    color: rgb(68, 248, 248);
+}
+
 #sidebar nav ul li.selected {
     border-radius: 10px;
     background-color: #292929;
@@ -70,16 +80,16 @@ body {
     background-color: #fff;
     border-radius: 10px;
     margin-right: 10px;
-    margin-left: 5px;
+    margin-left: 10px;
     margin-bottom: 10px;
 }
 
 .textMain {
     font-family: "Arial Black", Gadget, sans-serif;
     font-weight: bold;
-    text-transform: capitalize;
-    text-align: center;
-    font-size: 48px;
+    /* text-transform: capitalize; */
+    /* text-align: center; */
+    /* font-size: 48px; */
     color: rgb(255, 255, 255);
     text-shadow: rgb(0, 0, 0) 4px -1px 10px;
 }

@@ -1,7 +1,11 @@
 <body>
   <div id="dashboard">
     <div id="header">
-      <div class="textMain" (click)="toggleSidebar()">YumMi</div>
+      
+      <div class="textMain" (click)="toggleSidebar()">
+      <small>Admon</small>
+      <h1>YumMi</h1>
+      </div>
       <div class="container-info">
         <div class="user-info">
           <img src="../assets/images/user-default.png" alt="Foto de usuario" class="user-photo" (click)="toggleMenu()">
@@ -25,6 +29,7 @@
         <nav>
           <ul>
             <li (click)="toggleSubMenu('catalogos')" [class.selected]="selectedMenu === 'catalogos'">
+              <i class="fas fa-book"></i>
               <a href="#">Catalogos</a>
               <ul class="sub-menu" [ngClass]="{ 'active': subMenuOpen && selectedMenu === 'catalogos' }">
                 <li><a href="#">Cargos</a></li>
@@ -32,14 +37,14 @@
                 <li><a href="#">Empleados</a></li>
               </ul>
             </li>
-            <li><a href="#/report">Reportes</a></li>
-            <li><a href="#/contract">Estadisticas</a></li>
-            <li><a href="#/company">Vistas</a></li>
-            <li><a href="#/deals">Establecimientos</a></li>
-            <li><a href="#/task">Clientes</a></li>
-            <li><a href="#/products">Productos</a></li>
-            <li><a href="#/documents">Solicitudes</a></li>
-            <li><a href="#/settings">Pagos</a></li>
+            <li><i class="fas fa-file-contract"></i> <a href="#/report">Reportes</a></li>
+            <li><i class="fas fa-chart-line"></i> <a href="#/contract">Estadisticas</a></li>
+            <li><i class="fas fa-eye"></i> <a href="#/company">Vistas</a></li>
+            <li><i class="fas fa-warehouse"></i> <a href="#/deals">Establecimientos</a></li>
+            <li><i class="fas fa-users"></i> <a href="#/task">Clientes</a></li>
+            <li><i class="fas fa-utensils"></i> <a href="#/products">Productos</a></li>
+            <li><i class="far fa-id-badge"></i> <a href="#/documents">Solicitudes</a></li>
+            <li><i class="fas fa-wallet"></i> <a href="#/settings">Pagos</a></li>
           </ul>
         </nav>
       </aside>
