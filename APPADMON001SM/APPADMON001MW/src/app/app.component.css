@@ -76,7 +76,7 @@ body {
   
 #main-content {
     flex: 1;
-    padding: 1rem;
+    /* padding: 1rem; */
     background-color: #fff;
     border-radius: 10px;
     margin-right: 10px;

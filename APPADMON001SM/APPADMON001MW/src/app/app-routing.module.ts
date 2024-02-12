@@ -14,13 +14,11 @@ const routes: Routes = [
     path: 'auth/:module',
     component: AuthComponent
   }
-  //,
-
-
-  // {
-  //   path : 'APPADMON01MW',
-  //   loadChildren: () => import('./modules/rubros/rubros.module').then(m => m.RubrosModule),
-  // },
+  ,
+  {
+    path : 'catalog',
+    loadChildren: () => import('./modules/catalogs/catalogs.module').then(m => m.CatalogsModule),
+  },
   
 ];
 

@@ -32,7 +32,7 @@
               <i class="fas fa-book"></i>
               <a href="#">Catalogos</a>
               <ul class="sub-menu" [ngClass]="{ 'active': subMenuOpen && selectedMenu === 'catalogos' }">
-                <li><a href="#">Cargos</a></li>
+                <li><a href="/catalog/cargos">Cargos</a></li>
                 <li><a href="#">Ingredientes</a></li>
                 <li><a href="#">Empleados</a></li>
               </ul>
@@ -50,7 +50,6 @@
       </aside>
       <main id="main-content">
         <router-outlet>
-          <h1>hola</h1>
         </router-outlet>
       </main>
     </div>
