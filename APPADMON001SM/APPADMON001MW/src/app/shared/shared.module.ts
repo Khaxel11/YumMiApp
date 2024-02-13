@@ -56,35 +56,21 @@ import { ListElementsComponent } from './components/list-elements/list-elements.
     ChkCellRenderComponent,
     HybridCellRenderComponent,
     FloatLabelTextboxComponent,
-    //RangedateselectionComponent,
     GridCsComponent,
     GridSsComponent,
     FocusDirective,
     OnlynumberDirective,
-    // BuscarUsuarioERPComponent,
-    
-    // ZonaComponent,
-
     NgModalComponent,
-   
     AutoCompleteComponent,
-    
     CustomTextboxComponent,
-    
     OcultarDatosFTPDirective,
     AgregarIdFTPDirective,
     InputCamposobligatoriosComponent,
-   
     CmbEditorComponent,
     CmbEditorComponent,
-
     HybridCellRenderComponent,
-
     DatePickerComponent,
-
     ListElementsComponent,
-
-
   ],
   imports: [
     CommonModule,
@@ -96,7 +82,7 @@ import { ListElementsComponent } from './components/list-elements/list-elements.
       HybridCellRenderComponent,
       CmbEditorComponent
     ]),
-    NgccsArchivosModule,
+    // NgccsArchivosModule,
     MatInputModule,
     MatRadioModule,
     MatCheckboxModule,
@@ -113,7 +99,6 @@ import { ListElementsComponent } from './components/list-elements/list-elements.
     HybridCellRenderComponent,
     CmbEditorComponent,
     FloatLabelTextboxComponent,
-    //RangedateselectionComponent,
     FocusDirective,
     GridCsComponent,
     GridSsComponent,
@@ -122,27 +107,17 @@ import { ListElementsComponent } from './components/list-elements/list-elements.
     MatCheckboxModule,
     MatTabsModule,
     MatButtonToggleModule,
-    NgccsArchivosModule,
+    // NgccsArchivosModule,
     OnlynumberDirective,
-    // BuscarUsuarioERPComponent,
-    // ZonaComponent,
-   
     NgModalComponent,
-    
     OcultarDatosFTPDirective,
     CustomTextboxComponent,
-    
     CustomTextboxComponent,
-   
     AgregarIdFTPDirective,
     InputCamposobligatoriosComponent,
-    
     DatePickerComponent,
-   
     ListElementsComponent,
-    
-
   ],
-  //bootstrap: [RangedateselectionComponent]
+  bootstrap: []
 })
 export class SharedModule { }

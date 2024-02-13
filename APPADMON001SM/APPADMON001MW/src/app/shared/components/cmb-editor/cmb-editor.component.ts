@@ -1,6 +1,6 @@
 import { Component, ViewChild, ViewContainerRef } from '@angular/core';
 import { ICellEditorAngularComp } from 'ag-grid-angular';
-import { CmbOption } from 'src/app/models/common/cmbEditorModel';
+// import { CmbOption } from 'src/app/models/common/cmbEditorModel';
 
 @Component({
   selector: 'app-cmb-editor',
@@ -12,7 +12,7 @@ export class CmbEditorComponent implements ICellEditorAngularComp {
   public select: ViewContainerRef;
 
   class = '';
-  options: CmbOption[] = [];
+  options: any[] = [];
   value = null;
   params: any;
   valueField = 'value';

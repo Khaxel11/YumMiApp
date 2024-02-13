@@ -15,13 +15,17 @@ const routes: Routes = [
     component: AuthComponent
   },{
     path: 'login',
-    loadChildren: ()=> import('./modules/login/login.module').then(m => m.LoginModule)
-  }
-  ,
+    loadChildren: ()=> import('./modules/login/login.module').then(m => m.LoginModule),
+  },
+  {
+    path: '',
+    loadChildren: ()=> import('./modules/menu/menu.module').then(m => m.MenuModule),
+  },
   {
     path : 'catalog',
     loadChildren: () => import('./modules/catalogs/catalogs.module').then(m => m.CatalogsModule),
   },
+  
   
 ];
 

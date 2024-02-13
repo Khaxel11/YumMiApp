@@ -1,5 +1,5 @@
-<router-outlet *ngIf="!isLoged" ></router-outlet>
-<body *ngIf="isLoged">
+<!-- <router-outlet *ngIf="!isLoged" ></router-outlet> -->
+<body>
   <div id="dashboard">
     <div id="header">
       
@@ -7,13 +7,13 @@
       <small>Admon</small>
       <h1>YumMi</h1>
       </div>
-      <div class="container-info">
+      <div class="container-info" *ngIf="isLoged">
         <div class="user-info">
           <img src="../assets/images/user-default.png" alt="Foto de usuario" class="user-photo" (click)="toggleMenu()">
           <div class="dropdown-menu" [class.active]="menuOpen">
             <ul>
               <li>Configurar</li>
-              <li>Cerrar Sesión</li>
+              <li (click)="closeSession()">Cerrar Sesión</li>
             </ul>
           </div>
           <span class="user-name">Axel</span>
@@ -22,7 +22,7 @@
       
     </div>
     <div id="content">
-      <aside id="sidebar" [class.active]="sidebarOpen">
+      <aside id="sidebar" [class.active]="sidebarOpen" *ngIf="isLoged">
         <div class="close-button"(click)="closeSidebar()">
           <i class="fas fa-times"></i>
         </div>
@@ -50,9 +50,11 @@
         </nav>
       </aside>
       <main id="main-content">
-        <router-outlet>
+        <router-outlet >
         </router-outlet>
       </main>
     </div>
   </div>
 </body>
+
+<block-ui></block-ui>

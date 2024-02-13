@@ -14,7 +14,7 @@ export class BtnCellRenderComponent implements ICellRendererAngularComp {
 
   agInit(params): void {
     this.params = params;
-    this.label = null;
+    this.label = "";
     this.type = 'button';
     this.class = 'OcultarBotones';
     this.dato = '';
