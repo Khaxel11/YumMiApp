@@ -20,16 +20,15 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     
   }
-  login(){
+  async login(){
     this.blockUI.start('Cargando...');
     if(this.username && this.password){
       if (this.username && this.password) {
         // Llamar al método login del servicio de autenticación
-        this.authService.login(this.username, this.password);
+        await this.authService.login(this.username, this.password);
       }
       //
       
-      this.route.navigateByUrl("/");
       
     }
     this.blockUI.stop();

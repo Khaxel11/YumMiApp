@@ -1,4 +1,5 @@
 using System.Security.Claims;
+using System.Security.Policy;
 using System.Security.Principal;
 using System.Text;
 using Entity.DTO.Common;
@@ -82,7 +83,14 @@ namespace ADMBANCAPI002
                         context.Items["UsuarioERP"] = claims.FindFirst("IdUsuario").Value;
                         context.Items["Zona"] = zona;
                     }
+                    else
+                    {
+                        //Si no ha sido generada la conexion genera un token temporal para su conexion
+                        context.Items["Conexion"] = appSettings.Value.Conexion;
+                    }
                 }
+                
+
                 await next();
             });
 

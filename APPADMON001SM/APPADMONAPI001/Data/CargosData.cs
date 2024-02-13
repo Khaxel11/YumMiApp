@@ -13,7 +13,7 @@ namespace Data
 {
     public class CargosData
     {
-        private const string SP_CONSULTAS_CARGOS = "APPADMON001APSPC1";
+        private const string SP_CONSULTAS_CARGOS = "APPADMONCAT001APSPC1";
 
         public async Task<Result> getCargos(UserJwt DatosToken, string Filtro)
         {

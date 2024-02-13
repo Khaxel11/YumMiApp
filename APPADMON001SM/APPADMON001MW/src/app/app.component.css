@@ -82,6 +82,7 @@ body {
     margin-right: 10px;
     margin-left: 10px;
     margin-bottom: 10px;
+    overflow: auto;
 }
 main{
   border-radius: 10px !important;
