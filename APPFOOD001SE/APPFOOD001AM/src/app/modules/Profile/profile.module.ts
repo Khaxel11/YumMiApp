@@ -6,9 +6,11 @@ import { FormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { IonicModule } from '@ionic/angular';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { CardsCatalogComponent } from './cards-catalog/cards-catalog.component';
+import { CardsCaptureComponent } from './cards-capture/cards-capture.component';
 
 @NgModule({
-  declarations: [UserProfileComponent],
+  declarations: [UserProfileComponent, CardsCatalogComponent, CardsCaptureComponent],
   imports: [
     CommonModule,
     ProfileRoutingModule,

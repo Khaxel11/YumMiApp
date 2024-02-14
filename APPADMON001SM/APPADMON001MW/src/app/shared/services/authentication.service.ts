@@ -19,25 +19,29 @@ export class AuthenticationService {
   constructor(public http: HttpClient, private route : Router) { }
  
   async login(username :string , password : string) {
-    try {
-      const hashedPassword = sha256(password);
-      const url = URL + 'login';
-      const params = new HttpParams()
-      .append('NombreUsuario', String(username))
-      .append('Password', String(hashedPassword))
-      let data : any = await this.http.get(url, { params }).toPromise();
-      if(data.data){
-        localStorage.setItem(this.SESSION_KEY, JSON.stringify({ username }));
+    localStorage.setItem(this.SESSION_KEY, JSON.stringify({ username }));
         this.isLoggedInSubject.next(true);
         this.route.navigateByUrl("/");
         this.general.showMessage("Inicio de sesión correcto", 0);
-      }else{
-        this.general.showMessage("Usuario o contaseña incorrectos", 3);
-        this.isLoggedInSubject.next(false);
-      }
-    } catch (error) {
-      this.general.showMessage("Error de conexión", 3);
-    }
+    // try {
+    //   const hashedPassword = sha256(password);
+    //   const url = URL + 'login';
+    //   const params = new HttpParams()
+    //   .append('NombreUsuario', String(username))
+    //   .append('Password', String(hashedPassword))
+    //   let data : any = await this.http.get(url, { params }).toPromise();
+    //   if(data.data){
+    //     localStorage.setItem(this.SESSION_KEY, JSON.stringify({ username }));
+    //     this.isLoggedInSubject.next(true);
+    //     this.route.navigateByUrl("/");
+    //     this.general.showMessage("Inicio de sesión correcto", 0);
+    //   }else{
+    //     this.general.showMessage("Usuario o contaseña incorrectos", 3);
+    //     this.isLoggedInSubject.next(false);
+    //   }
+    // } catch (error) {
+    //   this.general.showMessage("Error de conexión", 3);
+    // }
     
     
   }

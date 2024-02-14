@@ -52,6 +52,14 @@ export class KitchenService {
     return this.http.get(url, {params}).toPromise();
   }
 
+  getInfo(Opcion : number, Filtro  : string = "") : Promise<any>{
+    const url = URL + 'getInfo';
+    const params = new HttpParams()
+    .append('Opcion', String(Opcion))
+    .append('Filtro', String(Filtro))
+    return this.http.get(url, {params}).toPromise();
+  }
+
   registerNewUser(UserData : any) : Promise<any>{
     const url = URL + 'registerNewUser';
     const params = new HttpParams()

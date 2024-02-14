@@ -44,6 +44,17 @@ namespace Business
                 throw new ArgumentException(ex.Message);
             }
         }
+        public async Task<Result> getInfo(UserJwt DatosToken, int Opcion, string Filtro)
+        {
+            try
+            {
+                return await new KitchenData().getInfo(DatosToken, Opcion, Filtro);
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+        }
         public async Task<Result> insertKitchenUser(UserJwt DatosToken, UserDataEntity UserData)
         {
             try

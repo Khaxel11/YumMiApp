@@ -48,6 +48,20 @@ namespace APPFOODAPI001.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Error, {ex.Message}");
             }
         }
+
+        [HttpGet("getInfo")]
+        public async Task<IActionResult> getInfo(int Opcion, string Filtro)
+        {
+            try
+            {
+                return Ok(await new KitchenBusiness().getInfo(conection, Opcion, Filtro));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Error, {ex.Message}");
+            }
+        }
+
         [HttpGet("validateUsername")]
         public async Task<IActionResult> validateUsername(string Username)
         {

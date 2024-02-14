@@ -23,6 +23,7 @@ import { ProgramationProductsComponent } from './utils/programation-products/pro
 import { ModalPersonalizedDateSelectorComponent } from './utils/modal-personalized-date-selector/modal-personalized-date-selector.component';
 import { FormsModule } from '@angular/forms';
 import { DishViewComponent } from './utils/dish-view/dish-view.component';
+import { CreditCardComponent } from './utils/credit-card/credit-card.component';
 @NgModule({
   declarations: [    
     
@@ -45,7 +46,8 @@ import { DishViewComponent } from './utils/dish-view/dish-view.component';
     ProgramationProductsComponent,
     CalendarComponent,
     ModalPersonalizedDateSelectorComponent,
-    DishViewComponent
+    DishViewComponent,
+    CreditCardComponent
   ],
   imports: [ 
     CommonModule,
@@ -71,7 +73,8 @@ import { DishViewComponent } from './utils/dish-view/dish-view.component';
     ProgramationProductsComponent,
     CalendarComponent,
     ModalPersonalizedDateSelectorComponent,
-    DishViewComponent
+    DishViewComponent,
+    CreditCardComponent
   ],
   
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
