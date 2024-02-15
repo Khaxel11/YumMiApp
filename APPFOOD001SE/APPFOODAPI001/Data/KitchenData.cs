@@ -314,5 +314,64 @@ namespace Data
                 throw new ArgumentException(ex.Message);
             }
         }
+
+
+        public async Task<Result> saveCard(UserJwt DatosToken, int Opcion, int IdCuenta, TarjetaBancariaEntity card)
+        {
+            Result objResult = new Result();
+            try
+            {
+                
+                using (var con = new SqlConnection(DatosToken.Conection))
+                {
+                    var result = await con.QuerySingleAsync<MessageEntity>(
+                        SP_ACCIONES_COCINERO,
+                        new
+                        {
+                            Opcion = Opcion == 1? 5 : Opcion,
+                            IdUsuario = IdCuenta,
+                            NombreTitular = card.NombreTitular,
+                            NumeroCta = card.NumeroCta,
+                            IdBanco = card.IdBanco,
+                            ProveedorTarjeta = card.ProveedorTarjeta,
+                            IdImagen = card.IdImagen,
+                            CLABE = card.CLABE
+
+                        },
+                    commandType: CommandType.StoredProcedure);
+                    objResult.data = result;
+                }
+                return objResult;
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+        }
+        public async Task<Result> getCards(UserJwt DatosToken)
+        {
+            Result objResult = new Result();
+            try
+            {
+
+                using (var con = new SqlConnection(DatosToken.Conection))
+                {
+                    var result = await con.QueryMultipleAsync(
+                        SP_CONSULTAS_INICIO,
+                        new
+                        {
+                            Opcion = 9,
+                            IdCuenta = DatosToken.IdCuenta
+                        },
+                    commandType: CommandType.StoredProcedure);
+                    objResult.data = await result.ReadAsync<TarjetaBancariaEntity>();
+                }
+                return objResult;
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+        }
     }
 }

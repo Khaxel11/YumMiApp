@@ -59,7 +59,12 @@ export class KitchenService {
     .append('Filtro', String(Filtro))
     return this.http.get(url, {params}).toPromise();
   }
-
+  getCards() : Promise<any>{
+    const url = URL + 'getCards';
+    const params = new HttpParams()
+    .append('IdCuenta', String(localStorage.getItem('idCuenta')))
+    return this.http.get(url, {params}).toPromise();
+  }
   registerNewUser(UserData : any) : Promise<any>{
     const url = URL + 'registerNewUser';
     const params = new HttpParams()
@@ -76,5 +81,12 @@ export class KitchenService {
   checkApiConnection(): Promise<any> {
     const url = URL + 'checkConnection'; 
     return this.http.get(url).toPromise();
+  }
+  saveCard(Opcion : number, card : any) : Promise<any>{
+    const url = URL + 'saveCard';
+    const params = new HttpParams()
+      .append('Opcion', String(Opcion))
+      .append('IdCuenta', String(localStorage.getItem('idCuenta')))
+    return this.http.post(url,card, { params }).toPromise();
   }
 }

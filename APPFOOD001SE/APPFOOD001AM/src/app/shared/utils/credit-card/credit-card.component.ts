@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
+import { General } from 'src/app/functions/general';
 import { KitchenService } from 'src/app/services/Kitchen/kitchen.service';
 
 @Component({
@@ -7,9 +9,9 @@ import { KitchenService } from 'src/app/services/Kitchen/kitchen.service';
   styleUrls: ['./credit-card.component.scss']
 })
 export class CreditCardComponent implements OnInit {
-
+  general = new General();
   ngOnInit(): void {
-      this.getBancos();
+    this.getBancos();
   }
   currentCardBackground: number = Math.floor(Math.random() * 25 + 1);
   cardName: string = "";
@@ -17,8 +19,8 @@ export class CreditCardComponent implements OnInit {
   cardMonth: string = "";
   cardYear: string = "";
   cardCvv: string = "";
-  cardCLABE : string = "";
-  cardBankId : number = 0;
+  cardCLABE: string = "";
+  cardBankId: number = 0;
   minCardYear: number = new Date().getFullYear();
   amexCardMask: string = "#### ###### #####";
   otherCardMask: string = "#### #### #### ####";
@@ -27,9 +29,9 @@ export class CreditCardComponent implements OnInit {
   focusElementStyle: { [key: string]: string } | null = null;
   isInputFocused: boolean = false;
   lstBanks = [];
-  constructor(private service : KitchenService) {
+  constructor(private service: KitchenService, private router : Router) {
     this.cardNumberTemp = this.otherCardMask;
-    
+
     setTimeout(() => {
       const cardNumberInput = document.getElementById("cardNumber") as HTMLInputElement;
       if (cardNumberInput) {
@@ -37,34 +39,70 @@ export class CreditCardComponent implements OnInit {
       }
     });
   }
-  async getBancos() : Promise<any>{
-    let data = await this.service.getInfo(10);
+
+
+  validateCardForm() : boolean{
+    if(!this.cardName)return false;
+    if(!this.cardNumber)return false;
+    if(!this.cardBankId)return false;
+    return true;
+  }
+  buildCard() : any{
+    const card = {
+      nombreTitular : this.cardName,
+      numeroCta : this.cardNumber,
+      idBanco : this.cardBankId,
+      proveedorTarjeta : this.getCardType(),
+      idImagen : this.currentCardBackground,
+      clabe : this.cardCLABE ? this.cardCLABE : ''
+    }
+    return card;
+  }
+  
+  async saveCard(){
+    if(!this.validateCardForm()){
+      this.general.showMessage("¡Faltan campos por capturar!", 'warning');
+      return;
+    }
+
+    let data = await this.service.saveCard(1, this.buildCard());
     if(data.data){
+      
+      this.general.showMessage('Se ha guardado la tarjeta correctamente', data.data.correct ? 'success' : 'danger')
+      if(data.data.correct){
+        this.router.navigateByUrl('profile/cards');
+      }
+
+    }
+  }
+  async getBancos(): Promise<any> {
+    let data = await this.service.getInfo(10);
+    if (data.data) {
       this.lstBanks = data.data;
     }
   }
 
   formatCardNumberMask(cardNumber: string): string {
     const cleanedNumber = cardNumber.replace(/[^\d]/g, '');
-  
+
     let formattedNumber = '';
     const cardType = this.getCardType();
-  
+
     if (cardType === 'amex') {
       formattedNumber = cleanedNumber.replace(/(\d{4})(\d{6})(\d{5})/, '$1 $2 $3');
     } else {
       formattedNumber = cleanedNumber.replace(/(\d{4})/g, '$1 ').trim();
     }
-  
+
     return formattedNumber ? formattedNumber : this.generateCardNumberMask();
   }
-  
-  
-formatCardName(cardName: string): string {
-  return cardName.replace(/\s\s+/g, ' ');
-}
 
-  
+
+  formatCardName(cardName: string): string {
+    return cardName.replace(/\s\s+/g, ' ');
+  }
+
+
   getCardType(): string {
     let number = this.cardNumber;
     let re = new RegExp("^4");
@@ -79,13 +117,13 @@ formatCardName(cardName: string): string {
 
     return "visa"; // default type
   }
-  getBankName(){
+  getBankName() {
     const banco = this.lstBanks.find(banco => banco.IdBanco === this.cardBankId);
-    if(banco){
-      if(banco.IdBanco === 6){
+    if (banco) {
+      if (banco.IdBanco === 6) {
         banco.NombreBanco = "Nu"
       }
-      if(banco.IdBanco === 7){
+      if (banco.IdBanco === 7) {
         banco.NombreBanco = "amex"
       }
     }
@@ -93,19 +131,19 @@ formatCardName(cardName: string): string {
   }
   formatCardNumber(): void {
     const cleanedNumber = this.cardNumber.replace(/[^\d]/g, '');
-  
-    
+
+
     let formattedNumber = '';
     const cardType = this.getCardType();
-  
+
     if (cardType === 'amex') {
-       formattedNumber = cleanedNumber.replace(/(\d{4})(\d{6})(\d{5})/g, '$1 $2 $3').trim();
-      
+      formattedNumber = cleanedNumber.replace(/(\d{4})(\d{6})(\d{5})/g, '$1 $2 $3').trim();
+
 
     } else {
       formattedNumber = cleanedNumber.replace(/(\d{4})/g, '$1 ').trim();
     }
-  
+
     this.cardNumber = formattedNumber;
   }
   generateCardNumberMask(): string {

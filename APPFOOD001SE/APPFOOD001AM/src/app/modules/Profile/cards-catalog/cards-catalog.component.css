@@ -1,8 +1,8 @@
 /* card-catalog.component.css */
 .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    /* gap: 20px; */
     padding: 20px;
     justify-content: center;
   }
@@ -55,4 +55,16 @@
     font-size: 14px;
     color: #666;
   }
-  
+  .btn-bottom{
+    position: absolute;
+    display: flex;
+    justify-items: center;
+    bottom: 20px;
+    transform: translateX(-50%);
+    left: 50%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .no-cards {
+    opacity:  0.5;
+  }

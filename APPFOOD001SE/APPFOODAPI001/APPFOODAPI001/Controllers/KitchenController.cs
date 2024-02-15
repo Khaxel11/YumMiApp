@@ -137,5 +137,31 @@ namespace APPFOODAPI001.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Error, {ex.Message}");
             }
         }
+
+        [HttpPost("saveCard")]
+        public async Task<IActionResult> saveCard(int Opcion, int IdCuenta, TarjetaBancariaEntity Card)
+        {
+            try
+            {
+                return Ok(await new KitchenBusiness().saveCard(conection, Opcion, IdCuenta, Card));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Error, {ex.Message}");
+            }
+        }
+        [HttpGet("getCards")]
+        public async Task<IActionResult> getCards(int IdCuenta)
+        {
+            try
+            {
+                conection.IdCuenta = IdCuenta;
+                return Ok(await new KitchenBusiness().getCards(conection));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Error, {ex.Message}");
+            }
+        }
     }
 }

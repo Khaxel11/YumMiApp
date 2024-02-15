@@ -11,5 +11,6 @@ namespace Entity.DTO
         public string Token { get; set; }
         public string Username { get; set; }
         public string Conection { get; set; }
+        public int IdCuenta { get; set; }
     }
 }

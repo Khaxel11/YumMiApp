@@ -1,0 +1,50 @@
+
+<div class="card-item" [class.-active]="isCardFlipped">
+    <div class="card-item__side -front">
+      <div class="card-item__focus" [class.-active]="focusElementStyle" [style]="focusElementStyle" #focusElement></div>
+      <div class="card-item__cover">
+        <img [src]="'../../../../assets/Images/cards/' + currentCardBackground + '.jpeg'" class="card-item__bg">
+      </div>
+
+      <div class="card-item__wrapper">
+        <div class="card-item__top">
+          <img src="../../../../assets/Images/cards/chip.png" class="card-item__chip">
+          <div class="card-item__type">
+            <img [src]="'../../../../assets/Images/cards/' + getCardType() + '.png'" *ngIf="getCardType()" [key]="getCardType()" alt="" class="card-item__typeImg">
+          </div>
+        </div>
+        <label id="cardNumberRef" for="cardNumberRef" class="card-item__number" #cardNumberRef> 
+          {{formatCardNumberMask(cardNumber)}} 
+        </label>
+        <div class="card-item__content">
+          <label id="cardNameRef" for="cardNameRef" class="card-item__info" #cardNameRef>
+            <div class="card-item__holder">Beneficiario</div>
+            <div class="card-item__name" *ngIf="cardName.length; else noName" key="1">
+              <div class="card-item__nameItem" *ngFor="let n of formatCardName(cardName).split('')">{{n}}</div>
+          </div>
+            <ng-template #noName>
+              <div class="card-item__name" key="2">Nombre Completo</div>
+            </ng-template>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="card-item__side -back">
+      <div class="card-item__cover">
+        <img
+        [src]="'../../../../assets/Images/cards/' + currentCardBackground + '.jpeg'" class="card-item__bg">
+      </div>
+      <div class="card-item__band"></div>
+      <div class="card-item__cvv">
+          <div class="card-item__cvvTitle">CLABE</div>
+          <div class="card-item__cvvBand">
+            <span id="ClabeRef" for="ClabeRef" #ClabeRef>
+              {{cardCLABE}}
+            </span>
+        </div>
+          <div class="card-item__type">
+              <img [src]="'../../../../assets/Images/cards/' + getBankName() + '.png'" *ngIf="getBankName()" class="card-item__typeImg">
+          </div>
+      </div>
+    </div>
+  </div>

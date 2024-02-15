@@ -24,6 +24,7 @@ import { ModalPersonalizedDateSelectorComponent } from './utils/modal-personaliz
 import { FormsModule } from '@angular/forms';
 import { DishViewComponent } from './utils/dish-view/dish-view.component';
 import { CreditCardComponent } from './utils/credit-card/credit-card.component';
+import { CardCsComponent } from './components/card-cs/card-cs.component';
 @NgModule({
   declarations: [    
     
@@ -47,7 +48,8 @@ import { CreditCardComponent } from './utils/credit-card/credit-card.component';
     CalendarComponent,
     ModalPersonalizedDateSelectorComponent,
     DishViewComponent,
-    CreditCardComponent
+    CreditCardComponent,
+    CardCsComponent
   ],
   imports: [ 
     CommonModule,
@@ -62,6 +64,7 @@ import { CreditCardComponent } from './utils/credit-card/credit-card.component';
     MainSliderComponent,
     MapComponent,
     StarsComponent,
+    CardCsComponent,
     StarsAverageComponent,
     FilteredCategoriesComponent,
     AccordionComponent,

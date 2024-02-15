@@ -67,7 +67,7 @@
                     <div class="card-item__nameItem" *ngFor="let n of formatCardName(cardName).split('')">{{n}}</div>
                 </div>
                   <ng-template #noName>
-                    <div class="card-item__name" key="2">Nombre Completo</div>
+                    <div class="card-item__name" key="2">Nombre y apellido</div>
                   </ng-template>
                 </label>
                 <!-- <div class="card-item__date" #cardDateRef>
@@ -153,7 +153,7 @@
               </div>
           </div>
         </div>
-        <ion-button expand="block" fill="outline" shape="round" color="dark">
+        <ion-button expand="block" fill="outline" shape="round" color="dark" (click)="saveCard()">
             Guardar
         </ion-button>
         <!-- <button class="card-form__button">

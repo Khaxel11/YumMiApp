@@ -99,5 +99,28 @@ namespace Business
                 throw new ArgumentException(ex.Message);
             }
         }
+
+        public async Task<Result> saveCard(UserJwt DatosToken, int Opcion, int IdCuenta, TarjetaBancariaEntity Card)
+        {
+            try
+            {
+                return await new KitchenData().saveCard(DatosToken, Opcion, IdCuenta, Card);
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+        }
+        public async Task<Result> getCards(UserJwt DatosToken)
+        {
+            try
+            {
+                return await new KitchenData().getCards(DatosToken);
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+        }
     }
 }

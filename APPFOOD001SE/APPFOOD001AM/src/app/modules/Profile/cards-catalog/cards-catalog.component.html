@@ -1,16 +1,37 @@
 <!-- card-catalog.component.html -->
-<div class="card-container">
-    <div class="card" *ngFor="let card of cards">
-      <div class="card-header">
-        <div class="chip"></div>
-      </div>
-      <div class="card-body">
-        <div class="card-number">**** **** **** {{ card.number }}</div>
-        <div class="card-holder">{{ card.holder }}</div>
-        <div class="card-expiry">{{ card.expiry }}</div>
-      </div>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/profile"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Mis cuentas</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  
+  <div class="card-container no-cards" *ngIf="lstCards.length === 0">  
+    <img src="../../../../assets/Images/generic.svg">
+    <div class="center-container ion-text-center">
+      <h5>No hay metodos de pago capturados</h5>
     </div>
   </div>
 
-  <ion-button expand="block" fill="outline" color="dark" shape="round" (click)="addNewCard()">Agregar Nueva Tarjeta</ion-button>
+  <div class="card-container" *ngIf="lstCards.length > 0">
+  <div class="ion-text-end">
+    <div class="center-container">
+      <ion-label>
+          <h3>Girar</h3>
+      </ion-label>
+      <ion-toggle [(ngModel)]="flipped" (ionChange)="toggleChange($event)" justify="space-between">Girar</ion-toggle>
+  </div>
+    
+  </div>
+    <card-cs [cardName]="card.nombreTitular" [cardNumber]="card.numeroCta" [isCardFlipped]="flipped"
+      [cardCLABE]="card.clabe" [cardBankId]="card.idBanco" [currentCardBackground]="card.idImagen" *ngFor="let card of lstCards"></card-cs>
+  </div>
   
+  <div class="btn-bottom">
+    <ion-button size="large" fill="outline" color="dark" shape="round" (click)="addNewCard()">Agregar Nueva
+      Tarjeta</ion-button> 
+  </div> 
+</ion-content>
