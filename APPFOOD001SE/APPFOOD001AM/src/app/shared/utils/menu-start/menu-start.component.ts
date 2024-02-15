@@ -25,4 +25,10 @@ export class MenuStartComponent implements OnInit {
   goToProducts(){
     this.navCtrl.navigateForward('/products/catalog');
   }
+  goToCards(){
+    this.navCtrl.navigateForward('/profile/cards');
+  }
+  goToProfile(){
+    this.navCtrl.navigateForward('/profile');
+  }
 }
