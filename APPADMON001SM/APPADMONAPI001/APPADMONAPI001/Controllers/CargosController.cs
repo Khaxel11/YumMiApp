@@ -15,12 +15,16 @@ namespace APPADMONAPI001.Controllers
     [ApiController]
     public class CargosController : ControllerBase
     {
+      
+
         UserJwt conection = new UserJwt();
         Connection Connection = new Connection();
+        private readonly TokenData datosToken = new TokenData();
 
         public CargosController(IOptions<AppSettings> AppSettings, IHttpContextAccessor httpContext)
         {
-            conection.Conection = Connection.conect();
+            //conection.Conection = Connection.conect();
+            datosToken.Conexion = httpContext.HttpContext.Items["Conexion"].ToString();
         }
         //localhost:1400/Cargos/getCargos?Filtro=EHF
         //200 es correcto
