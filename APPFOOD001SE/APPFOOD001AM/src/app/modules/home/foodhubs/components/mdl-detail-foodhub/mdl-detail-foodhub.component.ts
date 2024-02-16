@@ -57,7 +57,7 @@ export class MdlDetailFoodhubComponent implements OnInit {
         }, {
           text: opcion === 1 ? 'Si, asignar': 'Si, quitar',
           handler: async () => {
-            console.log('Acción confirmada');
+            // console.log('Acción confirmada');
             await this.asignHub(opcion, idCuenta);
           }
         }

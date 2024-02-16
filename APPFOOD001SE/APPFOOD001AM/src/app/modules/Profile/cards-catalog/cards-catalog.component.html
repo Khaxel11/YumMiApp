@@ -26,7 +26,12 @@
   </div>
     
   </div>
-    <card-cs [cardName]="card.nombreTitular" [cardNumber]="card.numeroCta" [isCardFlipped]="flipped"
+    <div class="ion-text-end icon-delete">
+      
+        <ion-icon slot="icon-only" (click)="dropCard()" name="close-outline"></ion-icon>
+      
+    </div>
+    <card-cs [cardName]="card.nombreTitular" [cardNumber]="card.numeroCta" [isCardFlipped]="flipped" [encriptNumber]="true"
       [cardCLABE]="card.clabe" [cardBankId]="card.idBanco" [currentCardBackground]="card.idImagen" *ngFor="let card of lstCards"></card-cs>
   </div>
   

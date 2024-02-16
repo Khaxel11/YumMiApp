@@ -15,7 +15,8 @@ export class CardCsComponent implements OnInit {
   @Input() cardCLABE: string = "";
   @Input() cardBankId: number = 0;
   @Input() isCardFlipped: boolean = false;
-  
+  @Input() encriptNumber : boolean = false;
+  encriptedNumber : string = "Hola"
   minCardYear: number = new Date().getFullYear();
   amexCardMask: string = "#### ###### #####";
   otherCardMask: string = "#### #### #### ####";
@@ -37,9 +38,27 @@ export class CardCsComponent implements OnInit {
     const cardType = this.getCardType();
 
     if (cardType === 'amex') {
-      formattedNumber = cleanedNumber.replace(/(\d{4})(\d{6})(\d{5})/, '$1 $2 $3');
+      formattedNumber = 
+         cleanedNumber.replace(/(\d{4})(\d{6})(\d{5})/, '$1 $2 $3');
     } else {
       formattedNumber = cleanedNumber.replace(/(\d{4})/g, '$1 ').trim();
+    }
+
+    if(this.encriptNumber){
+      const splitedNumber = formattedNumber.split(' ');
+      var newFormattedNumber = "";
+      // console.log(splitedNumber);
+      for (let index = 0; index < splitedNumber.length-1; index++) {
+        let element = splitedNumber[index]
+        for (let j = 0; j < element.length; j++) {
+          newFormattedNumber += "*"
+        }
+        newFormattedNumber += " ";
+        
+      }
+      if(newFormattedNumber){newFormattedNumber += splitedNumber[splitedNumber.length-1]}
+
+      formattedNumber = newFormattedNumber;
     }
 
     return formattedNumber ? formattedNumber : this.generateCardNumberMask();

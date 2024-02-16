@@ -328,14 +328,15 @@ namespace Data
                         SP_ACCIONES_COCINERO,
                         new
                         {
-                            Opcion = Opcion == 1? 5 : Opcion,
+                            Opcion = Opcion == 1? 5 : Opcion == 2 ?  6 : Opcion,
                             IdUsuario = IdCuenta,
                             NombreTitular = card.NombreTitular,
                             NumeroCta = card.NumeroCta,
                             IdBanco = card.IdBanco,
                             ProveedorTarjeta = card.ProveedorTarjeta,
                             IdImagen = card.IdImagen,
-                            CLABE = card.CLABE
+                            CLABE = card.CLABE,
+                            IdTarjeta = card.IdCuentaBancaria
 
                         },
                     commandType: CommandType.StoredProcedure);

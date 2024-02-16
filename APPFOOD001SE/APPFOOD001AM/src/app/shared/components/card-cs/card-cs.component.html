@@ -18,7 +18,7 @@
         </label>
         <div class="card-item__content">
           <label id="cardNameRef" for="cardNameRef" class="card-item__info" #cardNameRef>
-            <div class="card-item__holder">Beneficiario</div>
+            <!-- <div class="card-item__holder">Beneficiario</div> -->
             <div class="card-item__name" *ngIf="cardName.length; else noName" key="1">
               <div class="card-item__nameItem" *ngFor="let n of formatCardName(cardName).split('')">{{n}}</div>
           </div>
