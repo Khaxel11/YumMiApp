@@ -14,6 +14,16 @@
                         <input class="form-control" type="text" name="txtFiltro" id="txtFiltro">
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        
+                        <grid-cs #gridCargos [rowsPerPage]="10"
+                             [columnDefs]="columnsCargos"
+                            [(data)]="lstCargos"
+                            [enablePagination]="true"
+                        ></grid-cs>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
