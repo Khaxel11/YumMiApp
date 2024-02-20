@@ -23,7 +23,7 @@ namespace APPADMONAPI001.Controllers
 
         public CargosController(IOptions<AppSettings> AppSettings, IHttpContextAccessor httpContext)
         {
-            //conection.Conection = Connection.conect();
+            conection.Conection = Connection.conect();
             datosToken.Conexion = httpContext.HttpContext.Items["Conexion"].ToString();
         }
         //localhost:1400/Cargos/getCargos?Filtro=EHF

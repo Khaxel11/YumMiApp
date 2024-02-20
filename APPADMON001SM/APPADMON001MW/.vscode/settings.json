@@ -1,9 +1,4 @@
 {
     "typescript.tsdk": "node_modules\\typescript\\lib",
-    "angular.view-engine": true,
-    "workbench.colorCustomizations": {
-        "activityBar.background": "#262E34",
-        "titleBar.activeBackground": "#364148",
-        "titleBar.activeForeground": "#FBFCFC"
-    }
+    "angular.view-engine": true
 }

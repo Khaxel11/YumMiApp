@@ -28,7 +28,7 @@ namespace Data
                         new
                         {
                             Opcion = 1,
-                            Filtro = Filtro
+                            Filtro = Filtro == null ? null : Filtro == "null" ? null : Filtro.Trim()
                         },
                         commandType: CommandType.StoredProcedure);
                     objResult.data = await result.ReadAsync<CargosEntity>();  
@@ -58,8 +58,9 @@ namespace Data
                             Usuario = DatosToken.IdUsuario
                         },
                         commandType: CommandType.StoredProcedure);
-                    
+                    objResult.data = result;
                 }
+                
                 return objResult;
             }
             catch (Exception ex)

@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, EventEmitter, Output } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { CargosService } from 'src/app/services/cargos.service';
 import Swal from 'sweetalert2';
 @Component({
   selector: 'mdl-captura-cargos',
@@ -17,7 +18,7 @@ export class MdlCapturaComponent implements OnInit {
   nombreCargo : string;
 
 
-  constructor(private modalService : NgbModal) { }
+  constructor(private modalService : NgbModal, private service : CargosService) { }
 
   ngOnInit(): void {
   }
@@ -32,5 +33,29 @@ export class MdlCapturaComponent implements OnInit {
   }
   closeModal(){
     this.modalRef.close();
+  }
+
+  async saveCargo(){
+    if(!this.claveCargo || !this.nombreCargo){
+      Swal.fire("Campos incompletos", "Los campos deben de estar completos", 'warning');
+      return;
+    }
+    const cargo = {
+      idCargo : 0,
+      claveCargo : this.claveCargo,
+      nombreCargo : this.nombreCargo
+    }
+    
+    try {
+      let data = await this.service.controlCargos(this.opcion, cargo);
+      if(!data.data){
+        Swal.fire("Error", "Ocurrio un error", 'error');
+        return;
+      }
+      Swal.fire(data.data.mensaje, "", data.data.icon === 1 ? 'success' : data.data.icon === 2 ? 'error' : 'warning' )
+    } catch (error) {
+      Swal.fire("Error", "Ocurrio un error " + error.error , 'error');
+        return;
+    }
   }
 }

@@ -11,7 +11,7 @@ export class CargosComponent implements OnInit {
   @ViewChild('mdlCaptura') public mdlCaptura : MdlCapturaComponent;
   columnsCargos : any;
   lstCargos : any[] = [];
-  filtro : string = "";
+  filtro : string = null;
   constructor(private service : CargosService) { }
 
   ngOnInit(): void {
