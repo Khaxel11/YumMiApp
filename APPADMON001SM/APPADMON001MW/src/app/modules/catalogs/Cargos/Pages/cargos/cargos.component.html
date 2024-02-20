@@ -13,8 +13,12 @@
                     <div class="col-md-3">
                         <input class="form-control" type="text" name="txtFiltro" id="txtFiltro">
                     </div>
+                    <div class="col-md-8 text-right">
+                        <button class="btn btn-success" type="button" (click)="openModal()" ><i
+                            class="fas fa-save"></i> Agregar</button>
+                    </div>
                 </div>
-                <div class="row">
+                <div class="row mt-4">
                     <div class="col-md-12">
                         
                         <grid-cs #gridCargos [rowsPerPage]="10"
@@ -37,5 +41,5 @@
     </div>
 </div>
 
-
+<mdl-captura-cargos #mdlCaptura></mdl-captura-cargos>
 

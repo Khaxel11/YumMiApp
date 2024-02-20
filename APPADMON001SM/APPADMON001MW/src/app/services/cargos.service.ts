@@ -16,7 +16,13 @@ export class CargosService {
       .append('Filtro', Filtro);
     return this.http.get(url ,{params}).toPromise();
   }
-
+  controlCargos(Opcion : number, Cargos : any) : Promise<any>{
+    const url = URL + 'controlCargos';
+    const params = new HttpParams()
+      .append('Opcion', String(Opcion))
+      .append('IdUsuario', '000100');
+      return this.http.post(url , Cargos, {params}).toPromise();
+  }
 }
 
 

@@ -82,7 +82,8 @@ body {
     margin-right: 10px;
     margin-left: 10px;
     margin-bottom: 10px;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 main{
   border-radius: 10px !important;

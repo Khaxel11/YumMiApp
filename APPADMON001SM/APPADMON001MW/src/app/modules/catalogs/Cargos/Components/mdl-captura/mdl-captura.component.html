@@ -1,0 +1,28 @@
+<ng-template #mdlCaptura let-modal>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">
+                {{ modalname }}
+            </h5>
+            <button type="button" class="close" aria-label="Close" (click)="closeModal()"><i class="fas fa-times"
+                aria-hidden="true"></i></button>
+        </div>
+        <div class="modal-body">
+            <div class="container">
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <label for="txtClave">Clave Cargo</label>
+                        <input class="form-control" type="text" name="txtClave" id="txtClave" [(ngModel)]="claveCargo">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="txtNombre">Nombre Cargo</label>
+                        <input class="form-control" type="text" name="txtNombre" id="txtNombre" [(ngModel)]="nombreCargo">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+
+        </div>
+    </div>
+</ng-template>

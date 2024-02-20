@@ -41,5 +41,20 @@ namespace APPADMONAPI001.Controllers
             }
 
         }
+
+        [HttpPost("controlCargos")]
+        public async Task<IActionResult> controlCargos(int Opcion, string IdUsuario, CargosEntity Cargos )
+        {
+            try
+            {
+                conection.IdUsuario = IdUsuario;
+                return Ok(await new CargosBusiness().controlCargos(conection, Opcion, Cargos));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Error, {ex.Message}");
+            }
+
+        }
     }
 }

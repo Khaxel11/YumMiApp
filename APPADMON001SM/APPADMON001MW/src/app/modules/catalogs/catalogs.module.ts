@@ -5,9 +5,10 @@ import { CatalogsRoutingModule } from './catalogs-routing.module';
 import { CargosComponent } from './Cargos/Pages/cargos/cargos.component';
 import { SharedModule } from '../../shared/shared.module'
 import { FormsModule } from '@angular/forms';
+import { MdlCapturaComponent } from './Cargos/Components/mdl-captura/mdl-captura.component';
 
 @NgModule({
-  declarations: [CargosComponent],
+  declarations: [CargosComponent, MdlCapturaComponent],
   imports: [
     CommonModule,
     CatalogsRoutingModule,

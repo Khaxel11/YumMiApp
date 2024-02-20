@@ -14,6 +14,7 @@ namespace Data
     public class CargosData
     {
         private const string SP_CONSULTAS_CARGOS = "APPADMONCAT001APSPC1";
+        private const string SP_ACCIONES_CARGOS = "APPADMONCAT001APSPA2";
 
         public async Task<Result> getCargos(UserJwt DatosToken, string Filtro)
         {
@@ -38,6 +39,34 @@ namespace Data
                 throw new ArgumentException(ex.Message);
             }
         }
-        
+
+        public async Task<Result> controlCargos(UserJwt DatosToken, int Opcion, CargosEntity Cargos )
+        {
+            Result objResult = new Result();
+            try
+            {
+                using (var conexion = new SqlConnection(DatosToken.Conection))
+                {
+                    var result = await conexion.QuerySingleAsync<MensajesEntity>(
+                        SP_ACCIONES_CARGOS,
+                        new
+                        {
+                            Opcion = Opcion,
+                            ClaveCargo = Cargos.ClaveCargo,
+                            NombreCargo = Cargos.NombreCargo,
+                            IdCargo = Cargos.IdCargo,
+                            Usuario = DatosToken.IdUsuario
+                        },
+                        commandType: CommandType.StoredProcedure);
+                    
+                }
+                return objResult;
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+        }
+
     }
 }

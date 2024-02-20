@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CargosService } from '../../../../../services/cargos.service';
 import swal from 'sweetalert2';
+import { MdlCapturaComponent } from '../../Components/mdl-captura/mdl-captura.component';
 @Component({
   selector: 'app-cargos',
   templateUrl: './cargos.component.html',
   styleUrls: ['./cargos.component.css']
 })
 export class CargosComponent implements OnInit {
+  @ViewChild('mdlCaptura') public mdlCaptura : MdlCapturaComponent;
   columnsCargos : any;
   lstCargos : any[] = [];
   filtro : string = "";
@@ -25,6 +27,9 @@ export class CargosComponent implements OnInit {
     if(data.data){
       this.lstCargos = data.data;
     }
+  }
+  openModal(){
+    this.mdlCaptura.openModal();
   }
   loadColums(){
     this.columnsCargos = [
