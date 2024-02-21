@@ -32,6 +32,7 @@ export class MdlCapturaComponent implements OnInit {
     this.modalRef.result.then(() =>{})
   }
   closeModal(){
+    this.onClose.emit(true);
     this.modalRef.close();
   }
 
@@ -43,7 +44,7 @@ export class MdlCapturaComponent implements OnInit {
     const cargo = {
       idCargo : 0,
       claveCargo : this.claveCargo,
-      nombreCargo : this.nombreCargo
+      nombreCargo : this.nombreCargo.toString()
     }
     
     try {
@@ -53,6 +54,7 @@ export class MdlCapturaComponent implements OnInit {
         return;
       }
       Swal.fire(data.data.mensaje, "", data.data.icon === 1 ? 'success' : data.data.icon === 2 ? 'error' : 'warning' )
+      this.closeModal();
     } catch (error) {
       Swal.fire("Error", "Ocurrio un error " + error.error , 'error');
         return;

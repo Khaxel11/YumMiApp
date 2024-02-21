@@ -31,6 +31,9 @@ export class CargosComponent implements OnInit {
   openModal(){
     this.mdlCaptura.openModal();
   }
+  onCloseModal(e : any){
+    this.getCargos();
+  }
   loadColums(){
     this.columnsCargos = [
       {
