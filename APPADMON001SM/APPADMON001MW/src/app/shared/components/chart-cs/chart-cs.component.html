@@ -1,0 +1,9 @@
+<div class="chart" (mouseleave)="hideTooltip()">
+    <div *ngFor="let value of data; let i = index"
+      class="bar" [style.height.%]="value" (mouseover)="showTooltip($event, value)">
+    </div>
+    <div *ngIf="tooltip.show" class="tooltip" [style.top.px]="tooltip.top" [style.left.px]="tooltip.left">
+      {{ tooltip.value }}
+    </div>
+  </div>
+  
