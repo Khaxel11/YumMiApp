@@ -16,12 +16,12 @@ namespace Data
         private const string SP_CONSULTAS_CARGOS = "APPADMONCAT001APSPC1";
         private const string SP_ACCIONES_CARGOS = "APPADMONCAT001APSPA2";
 
-        public async Task<Result> getCargos(UserJwt DatosToken, string Filtro)
+        public async Task<Result> getCargos(TokenData DatosToken, string Filtro)
         {
             Result objResult = new Result();
             try
             {
-                using (var conexion = new SqlConnection(DatosToken.Conection))
+                using (var conexion = new SqlConnection(DatosToken.Conexion))
                 {
                     var result = await conexion.QueryMultipleAsync(
                         SP_CONSULTAS_CARGOS,
@@ -40,12 +40,12 @@ namespace Data
             }
         }
 
-        public async Task<Result> controlCargos(UserJwt DatosToken, int Opcion, CargosEntity Cargos )
+        public async Task<Result> controlCargos(TokenData DatosToken, int Opcion, CargosEntity Cargos )
         {
             Result objResult = new Result();
             try
             {
-                using (var conexion = new SqlConnection(DatosToken.Conection))
+                using (var conexion = new SqlConnection(DatosToken.Conexion))
                 {
                     var result = await conexion.QuerySingleAsync<MensajesEntity>(
                         SP_ACCIONES_CARGOS,
@@ -55,7 +55,7 @@ namespace Data
                             ClaveCargo = Cargos.ClaveCargo,
                             NombreCargo = Cargos.NombreCargo,
                             IdCargo = Cargos.IdCargo,
-                            Usuario = DatosToken.IdUsuario
+                            Usuario = DatosToken.Usuario
                         },
                         commandType: CommandType.StoredProcedure);
                     objResult.data = result;
