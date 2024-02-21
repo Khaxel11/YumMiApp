@@ -11,7 +11,7 @@ namespace Business
 {
     public class CargosBusiness
     {
-        public async Task<Result> getCargos(UserJwt DatosToken, string Filtro)
+        public async Task<Result> getCargos(TokenData DatosToken, string Filtro)
         {
             try
             {
@@ -21,7 +21,7 @@ namespace Business
                 throw new ArgumentException(ex.Message);
             }
         }
-        public async Task<Result> controlCargos(UserJwt DatosToken, int Opcion, CargosEntity Cargos)
+        public async Task<Result> controlCargos(TokenData DatosToken, int Opcion, CargosEntity Cargos)
         {
             try
             {

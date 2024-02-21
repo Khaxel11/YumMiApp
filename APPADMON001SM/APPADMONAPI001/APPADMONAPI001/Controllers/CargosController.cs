@@ -17,14 +17,15 @@ namespace APPADMONAPI001.Controllers
     {
       
 
-        UserJwt conection = new UserJwt();
-        Connection Connection = new Connection();
+        //UserJwt conection = new UserJwt();
+        //Connection Connection = new Connection();
         private readonly TokenData datosToken = new TokenData();
 
         public CargosController(IOptions<AppSettings> AppSettings, IHttpContextAccessor httpContext)
         {
-            conection.Conection = Connection.conect();
+            //conection.Conection = Connection.conect();
             datosToken.Conexion = httpContext.HttpContext.Items["Conexion"].ToString();
+            datosToken.Usuario = httpContext.HttpContext.Items["Usuario"].ToString();
         }
         //localhost:1400/Cargos/getCargos?Filtro=EHF
         //200 es correcto
@@ -34,7 +35,7 @@ namespace APPADMONAPI001.Controllers
         {
             try
             {
-                return Ok(await new CargosBusiness().getCargos(conection, Filtro));
+                return Ok(await new CargosBusiness().getCargos(datosToken, Filtro));
             }catch (Exception ex)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Error, {ex.Message}");
@@ -47,8 +48,8 @@ namespace APPADMONAPI001.Controllers
         {
             try
             {
-                conection.IdUsuario = IdUsuario;
-                return Ok(await new CargosBusiness().controlCargos(conection, Opcion, Cargos));
+                //conection.IdUsuario = IdUsuario;
+                return Ok(await new CargosBusiness().controlCargos(datosToken, Opcion, Cargos));
             }
             catch (Exception ex)
             {

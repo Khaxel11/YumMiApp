@@ -77,11 +77,11 @@ namespace ADMBANCAPI002
                     ClaimsIdentity claims = identity.Identity as ClaimsIdentity;
                     if (claims.IsAuthenticated)
                     {
-                        string zona = claims.FindFirst("Zona").Value;
-                        context.Items["Conexion"] = appSettings.Value.Conexion.Replace("{Zona}", zona);
+                        //string zona = claims.FindFirst("Zona").Value;
+                        context.Items["Conexion"] = appSettings.Value.Conexion;//.Replace("{Zona}", zona);
                         //context.Items["Conexion2"] = appSettings.Value.Conexion2.Replace("{Zona}", zona);
-                        context.Items["UsuarioERP"] = claims.FindFirst("IdUsuario").Value;
-                        context.Items["Zona"] = zona;
+                        context.Items["Usuario"] = claims.FindFirst("IdUsuario").Value;
+                        //context.Items["Zona"] = zona;
                     }
                     else
                     {

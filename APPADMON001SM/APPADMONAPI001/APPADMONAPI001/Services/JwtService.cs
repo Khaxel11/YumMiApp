@@ -17,8 +17,8 @@ namespace ADMBANCAPI002.Services
 
             ClaimsIdentity claims = new ClaimsIdentity(new Claim[]
             {
-                new Claim("IdUsuario",objUserJwt.IdUsuario.ToString()),
-                new Claim("Zona", objUserJwt.Zona),
+                new Claim("IdUsuario",objUserJwt.IdUsuario.ToString())
+                //new Claim("Zona", objUserJwt.Zona),
             });
             var tokenDescriptor = new SecurityTokenDescriptor
             {

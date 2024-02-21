@@ -6,11 +6,13 @@ import { sha256 } from 'js-sha256';
 import { Router } from '@angular/router';
 import { General } from '../../helpers/general'
 const URL = environment.APPADMON01MW + 'Admon/';
+
+import { Observable } from 'rxjs'
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private readonly SESSION_KEY = 'user_session';
+  private readonly SESSION_KEY = 'IdUsuario';
 
   private isLoggedInSubject = new BehaviorSubject<boolean>(false);
   general = new General();
@@ -18,9 +20,8 @@ export class AuthenticationService {
 
   constructor(public http: HttpClient, private route : Router) { }
  
-  async login(username :string , password : string) {
-    localStorage.setItem(this.SESSION_KEY, JSON.stringify({ username }));
-        this.isLoggedInSubject.next(true);
+  async login() {
+    this.isLoggedInSubject.next(true);
         this.route.navigateByUrl("/");
         this.general.showMessage("Inicio de sesión correcto", 0);
     // try {
@@ -62,4 +63,13 @@ export class AuthenticationService {
     const sessionData = localStorage.getItem(this.SESSION_KEY);
     return sessionData ? JSON.parse(sessionData) : null;
   }
+
+  private getToken(){
+    const token = localStorage.getItem('token');
+    return 'Bearer ' + token  
+  }
+  public genToken(entity : any):Observable<any>{
+    return this.http.post(environment.APPADMON01MW + 'Auth/Token', entity);
+  }
+
 }
