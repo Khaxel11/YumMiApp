@@ -28,7 +28,12 @@ export class LoginComponent implements OnInit {
   async login(){
     this.blockUI.start('Cargando...');
     if(this.username && this.password){
+      const log = this.authService.login(this.username, this.password);
+      if(!log){
+        return;
+      }
       if (this.username && this.password) {
+        
         
         //await this.authService.login(this.username, this.password);
         const jwtHelper = new JwtHelperService();
@@ -40,7 +45,7 @@ export class LoginComponent implements OnInit {
           
         }
         localStorage.setItem('IdUsuario', this.UserJWT.IdUsuario );
-        this.authService.login();
+        this.authService.isSuccesfullyLoged();
         // this.route.navigateByUrl("/");
         // this.general.showMessage("Inicio de sesión correcto", 0);
         // window.location.reload();
