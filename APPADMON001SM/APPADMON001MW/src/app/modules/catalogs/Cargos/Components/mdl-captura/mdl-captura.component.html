@@ -12,11 +12,11 @@
                 <div class="row mt-3">
                     <div class="col-md-6">
                         <label for="txtClave">Clave Cargo</label>
-                        <input class="form-control" type="text" name="txtClave" id="txtClave" [(ngModel)]="claveCargo">
+                        <input class="form-control" type="text" name="txtClave" id="txtClave" [(ngModel)]="claveCargo" [maxlength]="3" [disabled]="opcion === 2">
                     </div>
                     <div class="col-md-6">
                         <label for="txtNombre">Nombre Cargo</label>
-                        <input class="form-control" type="text" name="txtNombre" id="txtNombre" [(ngModel)]="nombreCargo">
+                        <input class="form-control" type="text" name="txtNombre" id="txtNombre" [(ngModel)]="nombreCargo" [maxlength]="60">
                     </div>
                 </div>
             </div>

@@ -16,7 +16,7 @@ export class MdlCapturaComponent implements OnInit {
   opcion : number = 1;
   claveCargo : string;
   nombreCargo : string;
-
+  idCargo : number;
 
   constructor(private modalService : NgbModal, private service : CargosService) { }
 
@@ -32,8 +32,12 @@ export class MdlCapturaComponent implements OnInit {
     this.modalRef.result.then(() =>{})
   }
   closeModal(){
+    this.claveCargo = "";
+    this.idCargo = null;
+    this.nombreCargo = "";
     this.onClose.emit(true);
     this.modalRef.close();
+    
   }
 
   async saveCargo(){
@@ -42,7 +46,7 @@ export class MdlCapturaComponent implements OnInit {
       return;
     }
     const cargo = {
-      idCargo : 0,
+      idCargo : this.idCargo ? this.idCargo : 0,
       claveCargo : this.claveCargo,
       nombreCargo : this.nombreCargo.toString()
     }
