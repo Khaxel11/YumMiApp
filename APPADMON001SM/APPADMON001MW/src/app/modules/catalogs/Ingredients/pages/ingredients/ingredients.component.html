@@ -1,0 +1,12 @@
+<p>ingredients works!</p>
+
+<card-swipper [items]="miArregloDeDatos" [itemTemplate]="templateIngredients"></card-swipper>
+
+<ng-template #templateIngredients let-item>
+  <div class="card">
+    <div class="card-name">{{ item.nombre }}</div>
+    <div class="card-value">{{ item.valor }} </div>
+    
+        <img [src]="item.ruta" alt="Carta" class="card-image">
+  </div>
+</ng-template>

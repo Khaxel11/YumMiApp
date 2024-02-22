@@ -1,0 +1,95 @@
+.container-wrapper {
+    position: relative;
+    
+  }
+  
+.w-100 {
+    width: 100%!important;
+  }
+  
+  .container {
+    display: flex;
+    position: relative;
+    justify-content: center;
+  }
+  
+  .cards {
+    width: calc(100% - 80px);
+    overflow: hidden;
+  }
+  
+  .overflow {
+    position: relative;
+    transition: left 0.5s ease-in-out;
+  }
+  
+  .card {
+    height: 300px;
+    /* background-color: #e0e1e2; */
+    /* border-radius: 5px; */
+    display: inline-block;
+    margin-right: 10px;
+    position: relative;
+    padding: 10px
+  }
+  
+  .no-right-margin {
+    margin-right: 0px;
+  }
+  
+  .card span {
+    font-size:48px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .left,
+  .right {
+    height: 30px;
+    width: 30px;
+    /* background-color: #0072bc; */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .left i, .right i{
+    display: block;
+    margin: auto;
+  }
+
+  .left.disabled, .right.disabled {
+     /* background-color:#CCC; */
+    color: rgb(109, 109, 109)
+  }
+  
+  .left {
+    left: 0;
+  }
+  
+  .right {
+    right: 0;
+  }
+  .page-indicator {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(50px);
+    margin-bottom: 10px;
+    font-size: 0;
+    color: #333; 
+  }
+  
+  .page-indicator span {
+    cursor: pointer;
+    font-size: 16px; 
+    margin: 0 5px; 
+  }
+  
+  .page-indicator span.active {
+    color: #006eff; 
+  }

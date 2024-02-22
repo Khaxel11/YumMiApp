@@ -50,6 +50,7 @@ import { HybridCellRenderComponent } from './components/hybrid-cell-render/hybri
 import { DatePickerComponent } from './components/date-picker/date-picker.component';
 import { ListElementsComponent } from './components/list-elements/list-elements.component';
 import { ChartCsComponent } from './components/chart-cs/chart-cs.component';
+import { CardSwipperComponent } from './components/card-swipper/card-swipper.component';
 @NgModule({
   declarations: [
     PaginationComponent,
@@ -73,6 +74,7 @@ import { ChartCsComponent } from './components/chart-cs/chart-cs.component';
     DatePickerComponent,
     ListElementsComponent,
     ChartCsComponent,
+    CardSwipperComponent,
   ],
   imports: [
     CommonModule,
@@ -119,7 +121,8 @@ import { ChartCsComponent } from './components/chart-cs/chart-cs.component';
     InputCamposobligatoriosComponent,
     DatePickerComponent,
     ListElementsComponent,
-    ChartCsComponent
+    ChartCsComponent,
+    CardSwipperComponent
   ],
   bootstrap: []
 })
