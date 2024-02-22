@@ -281,3 +281,5 @@ __pycache__/
 [Ee]ntity/[Bb]in/
 [Ee]ntity/[Oo]bj/
 [Ee]ntity/[Ll]og/
+
+appsettings.json
