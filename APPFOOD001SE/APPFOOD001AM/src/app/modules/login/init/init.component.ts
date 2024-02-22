@@ -3,6 +3,10 @@ import { KitchenService } from 'src/app/services/Kitchen/kitchen.service';
 import { General } from 'src/app/functions/general';
 import { LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { UserJwt } from 'src/app/models/UserJwt';
+import { AuthenticationService } from 'src/app/shared/services/authentication.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
+
 @Component({
   selector: 'app-init',
   templateUrl: './init.component.html',
@@ -14,12 +18,13 @@ export class InitComponent implements OnInit {
   password : string;
   General = new General();
   uppActivaded : boolean;
-  
+  UserJwt = new UserJwt
   stayConected : boolean;
   constructor(
     private KitchenService : KitchenService
     ,private Load : LoadingController
     ,private Router : Router
+    ,private AuthenticationService  : AuthenticationService
     ) { 
 
       
@@ -59,7 +64,16 @@ export class InitComponent implements OnInit {
       let data = await this.KitchenService.getUserData(0,this.userName, this.password, 0);
       this.img_User = 'data:image/jpeg;base64,' + data.data.picture;
       if(data.data.isLoged){
-        
+        const jwtHelper = new JwtHelperService();
+          const token = localStorage.getItem('token');
+          if(token === null || jwtHelper.isTokenExpired(token)){
+            await this.genToken(data.data.idCuenta, data.data.userName).then(()=>{
+              if(!localStorage.getItem('token')){
+                this.General.showMessage('Unvalid Accesible Token', 'danger');
+                return;
+              }
+            });
+          }
         if(data.data.value >= 1){
           if(this.stayConected){
             
@@ -70,6 +84,7 @@ export class InitComponent implements OnInit {
             localStorage.clear();
             localStorage.setItem("idCuenta", data.data.idCuenta);
           }
+          
           this.Router.navigateByUrl('/home');
           
         }else{
@@ -89,4 +104,20 @@ export class InitComponent implements OnInit {
     
   }
 
+  async genToken(IdUsuario : string,  user : string){
+    this.UserJwt.IdUsuario = IdUsuario.toString();
+    this.UserJwt.Zona = '53';
+    await this.AuthenticationService.genToken(this.UserJwt).subscribe((result: any) => {
+      if (result.error != null) {
+        console.log(result.error);
+      }
+      else {
+        // almacenar jwt
+        localStorage.setItem('token', result.token);
+        
+      }
+    }, error => {
+      //this.router.navigate(['/error-page']);
+    });
+  }
 }

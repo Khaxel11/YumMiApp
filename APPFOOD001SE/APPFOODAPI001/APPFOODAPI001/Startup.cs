@@ -77,9 +77,9 @@ namespace SERTRAFAPI001
                     if (claims.IsAuthenticated)
                     {
                         string zona = claims.FindFirst("Zona").Value;
-                        context.Items["Conexion"] = appSettings.Value.Conexion.Replace("{Zona}", zona);
+                        context.Items["Conexion"] = appSettings.Value.Conexion;
                         //context.Items["Conexion2"] = appSettings.Value.Conexion2.Replace("{Zona}", zona);
-                        context.Items["UsuarioERP"] = claims.FindFirst("IdUsuario").Value;
+                        context.Items["Usuario"] = claims.FindFirst("IdUsuario").Value;
                         context.Items["Zona"] = zona;
                     }
                 }
