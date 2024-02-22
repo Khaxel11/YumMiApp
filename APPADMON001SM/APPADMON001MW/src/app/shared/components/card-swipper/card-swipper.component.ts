@@ -7,6 +7,8 @@ import { Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@
 })
 export class CardSwipperComponent implements OnInit {
   @Input() items: any[] = [];
+  @Input() loading: boolean = true;
+
   @Input() itemTemplate: any;
   totalPagesArray: number[];
 

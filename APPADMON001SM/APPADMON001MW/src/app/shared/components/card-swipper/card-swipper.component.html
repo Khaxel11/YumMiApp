@@ -1,24 +1,30 @@
 <div class="container-wrapper">
     <div class="container" #container>
-        <div class="left" *ngIf="totalPages > 1" (click)="changePage(-1)" [ngClass]="{'disabled':currentPage === 1}">
-            <i class="fas fa-arrow-left"></i>
+        <div class="spinner-border text-warning" role="status" *ngIf="loading">
+            <span class="sr-only">Loading...</span>
+          </div>
+      <div class="col-md-12" *ngIf="items.length === 0" >
+        <div class="loading-message text-center">No existen datos</div>
+      </div>
+      <div class="left" *ngIf="totalPages > 1" (click)="changePage(-1)" [ngClass]="{'disabled':currentPage === 1}">
+        <i class="fas fa-arrow-left"></i>
+      </div>
+      <div class="cards" [ngClass]="{'w-100': totalPages === 1}" *ngIf="!loading">
+        <div class="overflow" [ngStyle]="{'width': overflowWidth, 'left': pagePosition}">
+          <div class="card" *ngFor="let item of items; let i = index" [ngStyle]="{'width': cardWidth}">
+            <ng-container *ngTemplateOutlet="itemTemplate; context: { $implicit: item, index: i }"></ng-container>
+          </div>
         </div>
-        <div class="cards" [ngClass]="{'w-100': totalPages === 1}">
-            <div class="overflow" [ngStyle]="{'width': overflowWidth, 'left': pagePosition}">
-                <div class="card" *ngFor="let item of items; let i = index" [ngStyle]="{'width': cardWidth}">
-                    <ng-container *ngTemplateOutlet="itemTemplate; context: { $implicit: item, index: i }"></ng-container>
-                </div>
-            </div>
-        </div>
-        <div class="right" *ngIf="totalPages > 1" (click)="changePage(+1)" [ngClass]="{'disabled':currentPage === totalPages}">
-            <i class="fas fa-arrow-right"></i>
-        </div>
-        
-        <div class="page-indicator">
-          <span *ngFor="let page of totalPagesArray; let i = index" [ngClass]="{'active': i === currentPage - 1}" (click)="goToPage(i+1)">
-            &bull;
-          </span>
-        </div> 
+      </div>
+      <div class="right" *ngIf="totalPages > 1" (click)="changePage(+1)" [ngClass]="{'disabled':currentPage === totalPages}">
+        <i class="fas fa-arrow-right"></i>
+      </div>
+      
+      <div class="page-indicator">
+        <span *ngFor="let page of totalPagesArray; let i = index" [ngClass]="{'active': i === currentPage - 1}" (click)="goToPage(i+1)">
+          &bull;
+        </span>
+      </div> 
     </div>
   </div>
   
