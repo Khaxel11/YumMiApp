@@ -114,8 +114,23 @@ export class CargosComponent implements OnInit {
      cancelButtonText : 'Cancelar'
     }).then((result) =>{
       if(result.isConfirmed){
-
+        this.dropCargo(e);
       }
     } );
   }
+
+  async dropCargo(e : any){
+    try {
+      let data = await this.service.controlCargos(3, e.data);
+      if(!data.data){
+        swal.fire("Error", "Ha ocurrido un error", 'error');
+        return;
+      }
+      swal.fire(data.data.mensaje, "", data.data.icon === 1 ? 'success' : data.data.icon === 2 ? 'error' : 'warning' );
+      this.getCargos();
+    } catch (error) {
+      swal.fire("Error", "Ha ocurrido un error", 'error');
+    }
+  }
+
 }
