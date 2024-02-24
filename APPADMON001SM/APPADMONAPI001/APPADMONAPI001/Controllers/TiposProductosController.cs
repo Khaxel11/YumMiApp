@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using System.Threading.Tasks;
 using System;
+using Entity;
 
 namespace APPADMONAPI001.Controllers
 {
@@ -27,6 +28,20 @@ namespace APPADMONAPI001.Controllers
             try
             {
                 return Ok(await new TiposProductosBusiness().getTiposProductos(datosToken, Filtro));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Error, {ex.Message}");
+            }
+
+        }
+
+        [HttpPost("controlTiposProductos")]
+        public async Task<IActionResult> controlTiposProductos(int Opcion, TiposProductosEntity Tipos)
+        {
+            try
+            {
+                return Ok(await new TiposProductosBusiness().controlTiposProductos(datosToken, Opcion , Tipos));
             }
             catch (Exception ex)
             {

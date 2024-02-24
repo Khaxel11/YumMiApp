@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild, EventEmitter, Output } from '@angular/core';
 import { SafeUrl } from '@angular/platform-browser';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { General } from 'src/app/helpers/general';
 import { CargosService } from 'src/app/services/cargos.service';
+import { TiposProductosService } from 'src/app/services/tipos-productos.service';
 import Swal from 'sweetalert2';
 @Component({
   selector: 'app-mdl-tipos-productos',
@@ -17,25 +19,45 @@ export class MdlTiposProductosComponent implements OnInit {
     idTipo : 0,
     nombreTipo : '',
     descripcion : '',
-    foto : ''
+    foto : '',
+    stringFoto : ''
   }
   nombreTipo : string;
   descripcion : string;
   imageURL: string;
   selectedFile: File;
-  constructor(private modalService : NgbModal) { }
+  general = new General();
+  Opcion : number = 1;
+  fileSelected;
+  constructor(private modalService : NgbModal, private service : TiposProductosService) {
+    
+   }
 
   ngOnInit(): void {
   }
-  openModal(){
-    this.tipo = {
-      idTipo : 0,
-      nombreTipo : '',
-      descripcion : '',
-      foto : ''
+
+  async controlTiposProductos(){
+    try {
+      if(this.imageURL){
+        this.tipo.stringFoto = this.imageURL;
+      }
+      let data = await this.service.controlTiposProductos(this.Opcion, this.tipo);
+      if(!data.data){
+        Swal.fire("Ocurrio un error", "No se ha podido recuperar la información", 'error');
+        return;
+      }
+      Swal.fire(data.data.correcto ? "Realizado correctamente" : "Ha ocurrido algun problema",  data.data.mensaje , data.data.icon === 1 ? 'success' : data.data.icon === 2 ? 'error' : 'warning' );
+      if(data.data.correcto){
+        this.onClose.emit();
+        this.closeModal();
+      }
+    } catch (error) {
+      Swal.fire("Ocurrio un error", "Ha ocurrido un error: " + error.message, 'error');
     }
-    this.selectedFile = null;
-    this.imageURL = "";
+  } 
+
+ 
+  openModal(){
     
     this.modalRef = this.modalService.open(this.mdlCaptura, {
       size: 'lg',
@@ -45,7 +67,20 @@ export class MdlTiposProductosComponent implements OnInit {
 
     this.modalRef.result.then(() =>{})
   }
+  clean(){
+    this.tipo = {
+      idTipo : 0,
+      nombreTipo : '',
+      descripcion : '',
+      foto : '',
+      stringFoto : ''
+    }
+    this.selectedFile = null;
+    this.imageURL = "";
+  }
+
   closeModal(){
+    this.clean();
     this.modalRef.close(); 
   }
 
@@ -59,7 +94,7 @@ export class MdlTiposProductosComponent implements OnInit {
       let reader = new FileReader();
       reader.onload =  (e: any) => {
         let base64String = e.target.result.split(',')[1]; 
-        this.tipo.foto = base64String;
+        this.fileSelected = base64String;
       };
       //reader.readAsDataURL(file);
     } catch (error) {

@@ -10,5 +10,6 @@ namespace Entity
         public string NombreTipo {  get; set; } 
         public string Descripcion { get; set; }
         public byte[] Foto { get; set; }    
+        public string stringFoto { get; set; }
     }
 }

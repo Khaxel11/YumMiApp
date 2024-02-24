@@ -9,21 +9,35 @@
                     <div class="col-md-1 mt-1">
                         Filtro:
                     </div>
-                    <div class="col-md-3">
-                        <input class="form-control" type="text" name="txtFiltro" id="txtFiltro">
+                    <div class="col-sm-12 col-md-5">
+                        
+                        <div class="input-group mb-3">
+                            
+                            <input class="form-control" type="text" name="txtFiltro" id="txtFiltro" [(ngModel)]="filtro">
+                            <div class="input-group-prepend" (click)="getTiposProductos()">
+                                <button class="btn btn-outline-info" id="basic-addon1"><i class="fa fa-search"></i></button>
+                              </div>
+                          </div>
                     </div>
-                    <div class="col-md-8 text-right">
+                    <div class=" col-md-6 text-right">
                         <button class="btn btn-info" type="button" (click)="openMdlTiposProductos()"><i
                             class="fas fa-plus"></i> Agregar</button>
                     </div>
                 </div>
                 <div class="row mt-4">
-                    <div class="col-md-12">
+                    <div class="col-md-12 mb-5">
 
                         <card-swipper [items]="lstTiposProductos" [itemTemplate]="templateIngredients" [loading]="loaded"
                             *ngIf="lstTiposProductos"></card-swipper>
 
                         <ng-template #templateIngredients let-item >
+                            <div class="row mb-2">
+                                <div class="col-md-12 text-right">
+                                    <button class="btn btn-sm btn-warning mr-2" id="btnEdit" (click)="editType(item);"><i class="fa fa-edit"></i></button>
+                                    <button class="btn btn-sm btn-danger" id="btnDelete" (click)="dropType(item)"><i class="fa fa-times"></i></button>
+
+                                </div>
+                            </div>
                             <div class="card" *ngIf="lstTiposProductos">
                                 <div class="card-name">{{item.nombreTipo}}</div>
                                 <div class="card-value">{{ item.descripcion}} </div>
@@ -45,4 +59,4 @@
         </div>
     </div>
 </div>
-<app-mdl-tipos-productos #mdlCaptura></app-mdl-tipos-productos>
+<app-mdl-tipos-productos #mdlCaptura (onClose)="onCloseModal($event)"></app-mdl-tipos-productos>

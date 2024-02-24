@@ -19,13 +19,18 @@ export class CargosComponent implements OnInit {
     this.getCargos();
   }
   async getCargos(){
-    let data = await this.service.getCargos(this.filtro);
-    if(!data){
-      swal.fire("Error", "Ocurrio un error", 'error');
-      return;
-    }
-    if(data.data){
-      this.lstCargos = data.data;
+    
+    try {
+      let data = await this.service.getCargos(this.filtro);
+      if(!data){
+        swal.fire("Error", "Ocurrio un error", 'error');
+        return;
+      }
+      if(data.data){
+        this.lstCargos = data.data;
+      }
+    } catch (error) {
+      swal.fire("Error", "Ocurrio un error: " + error.message , 'error');
     }
   }
   openModal(opcion? : boolean){

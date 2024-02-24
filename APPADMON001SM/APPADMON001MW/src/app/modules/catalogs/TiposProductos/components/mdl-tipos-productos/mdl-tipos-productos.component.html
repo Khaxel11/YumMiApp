@@ -35,7 +35,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12 mt-1">
-                                <input type="file" name="file" id="file" class="form-control-file" [(ngModel)]="tipo.foto" (change)="onFileSelected($event)">
+                                <input type="file" name="file" id="file" class="form-control-file" [(ngModel)]="fileSelected" (change)="onFileSelected($event)">
                             </div>
                         </div>
                     </div>
@@ -44,7 +44,7 @@
             </div>
         </div>
         <div class="modal-footer">
-            <button class="btn btn-info" type="button"><i
+            <button class="btn btn-info" type="button" (click)="controlTiposProductos()"><i
                 class="fas fa-save"></i> Guardar</button>
         </div>
     </div>
