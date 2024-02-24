@@ -28,8 +28,9 @@ export class LoginComponent implements OnInit {
   async login(){
     this.blockUI.start('Cargando...');
     if(this.username && this.password){
-      const log = this.authService.login(this.username, this.password);
+      const log = await this.authService.login(this.username, this.password);
       if(!log){
+        this.blockUI.stop();
         return;
       }
       if (this.username && this.password) {

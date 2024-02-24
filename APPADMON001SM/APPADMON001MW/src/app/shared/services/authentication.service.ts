@@ -62,7 +62,7 @@ export class AuthenticationService {
 
   isAuthenticated(): boolean {
     // Verificar si hay una sesión válida en el almacenamiento local
-    return !!localStorage.getItem(this.SESSION_KEY);
+    return !!localStorage.getItem(this.SESSION_KEY) && !!localStorage.getItem('token');
   }
 
   getUser(): any {

@@ -20,6 +20,7 @@ import { BlockUIModule } from 'ng-block-ui';
 import { HeaderComponent } from './shared/Menu/header/header.component'
 import { MenuComponent } from './shared/Menu/menu/menu.component'
 import { FooterComponent } from './shared/Menu/footer/footer.component';
+import { Page404Component } from './modules/page404/page404.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +28,7 @@ import { FooterComponent } from './shared/Menu/footer/footer.component';
     HeaderComponent,
     MenuComponent,
     FooterComponent,
+    Page404Component,
   ],
   imports: [
     BrowserModule,

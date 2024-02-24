@@ -37,7 +37,7 @@ body {
 
 #sidebar {
     width: 20rem;
-    /* background-color: #15161b; */
+    background-color: #15161b;
     overflow-y: auto; 
     transition: width 0.3s ease; 
 }

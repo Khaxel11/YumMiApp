@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthComponent } from './shared/components/auth/auth.component';
 import { AuthGuard } from './helpers/auth.guard';
+import { Page404Component } from './modules/page404/page404.component';
 
 const routes: Routes = [
   // {  path: 'auth/:module/:component/:user/:zone', component: AuthComponent },
@@ -25,6 +26,10 @@ const routes: Routes = [
     path : 'catalog',
     loadChildren: () => import('./modules/catalogs/catalogs.module').then(m => m.CatalogsModule),
   },
+  {
+    path : 'nofound',
+    component : Page404Component
+  }
   
   
 ];
