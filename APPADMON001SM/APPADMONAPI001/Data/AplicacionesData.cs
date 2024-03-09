@@ -54,7 +54,7 @@ namespace Data
                         {
                             Opcion = Opcion,
                             IdSistema = Aplicacion.IdSistema,
-                            NomenclaturaSistema = Aplicacion.NomenclaturaSistema,
+                            NomenclaturaSistema = Aplicacion.Nomenclatura,
                             Sistema = Aplicacion.Sistema,
                             Usuario = DatosToken.Usuario
                         },

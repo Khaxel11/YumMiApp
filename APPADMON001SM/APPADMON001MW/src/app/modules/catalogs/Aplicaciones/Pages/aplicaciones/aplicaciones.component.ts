@@ -1,14 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AplicacionesService } from '../../../../../services/aplicaciones.service';
 import swal from 'sweetalert2';
-import { MdlCapturaComponent } from '../../Components/mdl-captura/mdl-captura.component';
+import { MdlCapturaAppsComponent } from '../../components/mdl-captura-apps/mdl-captura-apps.component';
 @Component({
   selector: 'app-aplicaciones',
   templateUrl: './aplicaciones.component.html',
   styleUrls: ['./aplicaciones.component.css']
 })
 export class AplicacionesComponent implements OnInit {
-  @ViewChild('mdlCaptura') public mdlCaptura : MdlCapturaComponent;
+  @ViewChild('mdlCapturaApps') public mdlCaptura : MdlCapturaAppsComponent;
   columnsAplicaciones : any;
   lstAplicaciones : any[] = [];
   filtro : string = null;
@@ -47,23 +47,31 @@ export class AplicacionesComponent implements OnInit {
     this.columnsAplicaciones = [
       {
         headerName: '#',
-        field: 'idCargo',
+        field: 'idSistema',
         flex: 2,
         minWidth: 20,
         headerClass: 'header-center header-grid-left',
         cellClass: 'grid-cell-center',
       },
       {
-        headerName: 'Clave',
-        field: 'claveCargo',
-        flex: 3,
-        minWidth: 30,
+        headerName: 'Nomenclatura',
+        field: 'nomenclatura',
+        flex: 8,
+        minWidth: 80,
         headerClass: 'header-center header-grid',
         cellClass: 'grid-cell-center',
       },
       {
-        headerName: 'Nombre',
-        field: 'nombreCargo',
+        headerName: 'Sistema',
+        field: 'sistema',
+        flex: 10,
+        minWidth: 100,
+        headerClass: 'header-center header-grid',
+        cellClass: 'grid-cell-left',
+      },
+      {
+        headerName: 'Descripcion',
+        field: 'descripcion',
         flex: 10,
         minWidth: 100,
         headerClass: 'header-center header-grid',

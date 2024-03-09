@@ -21,7 +21,6 @@ import { HeaderComponent } from './shared/Menu/header/header.component'
 import { MenuComponent } from './shared/Menu/menu/menu.component'
 import { FooterComponent } from './shared/Menu/footer/footer.component';
 import { Page404Component } from './modules/page404/page404.component';
-import { MdlCapturaComponent } from './modules/Aplicaciones/components/mdl-captura/mdl-captura.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +29,6 @@ import { MdlCapturaComponent } from './modules/Aplicaciones/components/mdl-captu
     MenuComponent,
     FooterComponent,
     Page404Component,
-    MdlCapturaComponent,
   ],
   imports: [
     BrowserModule,

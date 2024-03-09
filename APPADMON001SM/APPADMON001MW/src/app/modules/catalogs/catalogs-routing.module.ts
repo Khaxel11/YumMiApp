@@ -4,11 +4,13 @@ import { CargosComponent } from './Cargos/Pages/cargos/cargos.component'
 import { IngredientsComponent } from './Ingredients/pages/ingredients/ingredients.component';
 import { TiposProductosComponent } from './TiposProductos/pages/tipos-productos/tipos-productos.component';
 import { AuthGuard } from '../../../../src/app/helpers/auth.guard';
+import { AplicacionesComponent } from './Aplicaciones/Pages/aplicaciones/aplicaciones.component';
 
 const routes: Routes = [
   { path: "cargos", component: CargosComponent },
   { path: 'ingredientes', component : IngredientsComponent },
-  { path: 'tiposproductos', component : TiposProductosComponent,  canActivate: [AuthGuard]}
+  { path: 'tiposproductos', component : TiposProductosComponent,  canActivate: [AuthGuard]},
+  { path: 'aplicaciones', component : AplicacionesComponent,  canActivate: [AuthGuard]}
 ];
 
 @NgModule({

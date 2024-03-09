@@ -4,15 +4,15 @@ import { AplicacionesService } from 'src/app/services/aplicaciones.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'mdl-captura-cargos',
-  templateUrl: './mdl-captura.component.html',
-  styleUrls: ['./mdl-captura.component.css']
+  selector: 'mdl-captura-apps',
+  templateUrl: './mdl-captura-apps.component.html',
+  styleUrls: ['./mdl-captura-apps.component.css']
 })
 
-export class MdlCapturaComponent implements OnInit {
+export class MdlCapturaAppsComponent implements OnInit {
 
   @Output() onClose = new EventEmitter<any>();
-  @ViewChild('mdlCaptura') mdlCaptura : any;
+  @ViewChild('mdlCapturaApps') mdlCaptura : any;
   modalRef : NgbModalRef;
   modalname = 'Agregar';
 

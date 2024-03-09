@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MdlCapturaComponent } from './mdl-captura.component';
+import { MdlCapturaAppsComponent } from './mdl-captura-apps.component';
 
 describe('MdlCapturaComponent', () => {
-  let component: MdlCapturaComponent;
-  let fixture: ComponentFixture<MdlCapturaComponent>;
+  let component: MdlCapturaAppsComponent;
+  let fixture: ComponentFixture<MdlCapturaAppsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MdlCapturaComponent ]
+      declarations: [ MdlCapturaAppsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MdlCapturaComponent);
+    fixture = TestBed.createComponent(MdlCapturaAppsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

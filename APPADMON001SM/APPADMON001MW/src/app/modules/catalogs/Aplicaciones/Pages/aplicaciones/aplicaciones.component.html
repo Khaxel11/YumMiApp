@@ -1,6 +1,6 @@
 <div class="contenedor">
     <div class="header">
-        <label>Catalogo de Cargos</label>
+        <label>Catalogo de Aplicaciones</label>
     </div>
     <div class="body">
         <div class="container-fluid">
@@ -12,7 +12,10 @@
                     <div class="col-md-3">
                         <input class="form-control" type="text" name="txtFiltro" id="txtFiltro">
                     </div>
-                    <div class="col-md-8 text-right">
+                    <div class="col-md-2">
+                        <button class="btn btn-info" (click)="getAplicaciones()"><i class="fas fa-search"></i> Buscar</button>
+                    </div>
+                    <div class="col-md-6 text-right">
                         <button class="btn btn-info" type="button" (click)="openModal(true)" ><i
                             class="fas fa-plus"></i> Agregar</button>
                     </div>
@@ -40,4 +43,4 @@
     </div>
 </div>
 
-<mdl-captura-cargos #mdlCaptura (onClose)="onCloseModal($event)"></mdl-captura-cargos>
+<mdl-captura-apps #mdlCapturaApps (onClose)="onCloseModal($event)"></mdl-captura-apps>
