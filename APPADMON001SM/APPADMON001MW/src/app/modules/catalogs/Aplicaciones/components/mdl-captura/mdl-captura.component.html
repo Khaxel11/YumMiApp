@@ -1,0 +1,37 @@
+<ng-template #mdlCaptura let-modal>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">
+                {{ modalname }}
+            </h5>
+            <button type="button" class="close" aria-label="Close" (click)="closeModal()"><i class="fas fa-times"
+                aria-hidden="true"></i></button>
+        </div>
+        <div class="modal-body">
+            <div class="container">
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <label for="txtClave">Id Sistema</label>
+                        <input class="form-control" type="text" name="txtClave" id="txtClave" [(ngModel)]="idSistema" [maxlength]="3" [disabled]="opcion === 2">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="txtNombre">Nomenclatura</label>
+                        <input class="form-control" type="text" name="txtNombre" id="txtNombre" [(ngModel)]="nomenclatura" [maxlength]="60">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="txtNombre">Sistema</label>
+                        <input class="form-control" type="text" name="txtNombre" id="txtNombre" [(ngModel)]="sistema" [maxlength]="60">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="txtNombre">Descripcion</label>
+                        <input class="form-control" type="text" name="txtNombre" id="txtNombre" [(ngModel)]="descripcion" [maxlength]="120">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-info" type="button" (click)="saveAplicacion()" ><i
+                class="fas fa-save"></i> Guardar</button>
+        </div>
+    </div>
+</ng-template>

@@ -13,8 +13,8 @@ namespace Data
 {
     public class AplicacionesData
     {
-        private const string SP_CONSULTAS_APLICACIONES = "APPADMONCAT001APSPC1";
-        private const string SP_ACCIONES_APLICACIONES = "APPADMON001APSPA2";
+        private const string SP_CONSULTAS_APLICACIONES = "APPADMONCAT004APSPC1";
+        private const string SP_ACCIONES_APLICACIONES = "APPADMONCAT004APSPA2";
 
         public async Task<Result> getAplicaciones(TokenData DatosToken, string Filtro)
         {
@@ -63,7 +63,7 @@ namespace Data
                 }
 
                 return objResult;
-            }
+            }   
             catch (Exception ex)
             {
                 throw new ArgumentException(ex.Message);
