@@ -9,9 +9,10 @@ import { MdlCapturaComponent } from './Cargos/Components/mdl-captura/mdl-captura
 import { IngredientsComponent } from './Ingredients/pages/ingredients/ingredients.component';
 import { TiposProductosComponent } from './TiposProductos/pages/tipos-productos/tipos-productos.component';
 import { MdlTiposProductosComponent } from './TiposProductos/components/mdl-tipos-productos/mdl-tipos-productos.component';
-
-@NgModule({
-  declarations: [CargosComponent, MdlCapturaComponent, IngredientsComponent, TiposProductosComponent, MdlTiposProductosComponent],
+import { AplicacionesComponent } from './Aplicaciones/Pages/aplicaciones/aplicaciones.component';
+import { MdlCapturaAppsComponent } from './Aplicaciones/components/mdl-captura-apps/mdl-captura-apps.component';
+@NgModule({ 
+  declarations: [CargosComponent, MdlCapturaComponent, IngredientsComponent, TiposProductosComponent, MdlTiposProductosComponent, AplicacionesComponent, MdlCapturaAppsComponent],
   imports: [
     CommonModule,
     CatalogsRoutingModule,
