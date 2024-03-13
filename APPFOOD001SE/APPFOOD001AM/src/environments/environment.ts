@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  APPFOODAPI001 : 'http://localhost:51197/',
+//  APPFOODAPI001 : 'http://localhost:51197/',
+   APPFOODAPI001 : 'https://e671-187-137-172-73.ngrok-free.app/',
   GoogleKey : 'AIzaSyANTZYvqcl3odlKKVSXdBAYQNez98gesMY'
 };
 
