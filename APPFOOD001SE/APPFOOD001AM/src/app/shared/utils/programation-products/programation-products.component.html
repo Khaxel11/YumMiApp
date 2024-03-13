@@ -14,9 +14,26 @@
 
     </ion-toolbar>
   </ion-header>
- <ion-content *ngIf="false">
-    <dish-view [Picture]="'../../../../assets/Images/food-delivery-start.jpeg'" [Name]="'Tacos'" [Description]="'Taquitos'"></dish-view>
-    <div class="header">Vista Previa</div>
+ <ion-content *ngIf="true">
+    <app-accordion [expanded]="false" [expandHeight]="'200px'">
+        <ion-card>
+            <div class="flex-center">Hola</div>
+            <app-accordion [expanded]="false" [expandHeight]="'200px'">
+                <ion-card>
+                    <div class="flex-center">Hola</div>
+                    <app-accordion [expanded]="false" [expandHeight]="'200px'">
+                        <ion-card>
+                            <div class="flex-center">Hola</div>
+                        </ion-card>    
+                    </app-accordion>
+                </ion-card>    
+            </app-accordion>
+            
+        </ion-card>    
+    </app-accordion>
+    
+    <!-- <dish-view [Picture]="'../../../../assets/Images/food-delivery-start.jpeg'" [Name]="'Tacos'" [Description]="'Taquitos'"></dish-view> -->
+    <!-- <div class="header">Vista Previa</div>
     <div class="date">
         <ion-card>
             <ion-card-content>
@@ -24,15 +41,9 @@
                     <strong>08 de Febrero de 2024</strong>
                 </div>
                 <h1><strong>Tacos de Carne Asada</strong></h1>
+                
                 <div class="tittleProduct animated-top">
-                    <app-accordion>
-                            <h2>Mirador Alamos</h2>
-                            Hola
-                            esto es 
-                            un ejemplo
-
-                        
-                    </app-accordion>
+                    
 
                 </div>
                 <div class="imgContainer animated-right">
@@ -40,9 +51,10 @@
                 </div>
             </ion-card-content>
         </ion-card>
-    </div>
+        
+    </div> -->
  </ion-content> 
-<ion-content *ngIf="true">
+<ion-content *ngIf="false">
     
     <div class="header">
         <div class="tittleProduct animated-top">
