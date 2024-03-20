@@ -1,0 +1,72 @@
+
+<div class="contenedor">
+    <div class="header">
+        <label>{{MODULO}}</label>
+    </div>
+    <div class="body">
+        <div class="container-fluid">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-1 mt-1">
+                        Filtro:
+                    </div>
+                    <div class="col-md-3">
+                        <input class="form-control" type="text" name="txtFiltro" id="txtFiltro" [(ngModel)]="filtro" (keyup)="getTiposNotificaciones()">
+                    </div>
+                    <div class="col-md-2 mt-1">
+                        Tipo Usuario
+                    </div>
+                    <div class="col-md-3">
+                        <select name="cbxTipoUsuarios" id="cbxTipoUsuarios" class="form-control" [(ngModel)]="idTipoUsuario" (ngModelChange)="getTiposNotificaciones()">
+                            <option [value]="0">Todos</option>
+                            <option [value]="item.IdTipoUsuario" *ngFor="let item of lstTiposUsuarios"> {{item.TipoUsuario}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 text-right">
+                        <button class="btn btn-success mr-1" type="button" (click)="getTiposNotificaciones()" ><i
+                            class="fas fa-search"></i> Buscar</button>
+                        <button class="btn btn-info" type="button" (click)="openMdlCaptura()" ><i
+                            class="fas fa-plus"></i> Agregar</button>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        
+                        <grid-cs #gridTiposNot [rowsPerPage]="10"
+                             [columnDefs]="columnsTiposNot"
+                            [(data)]="lstTiposNot"
+                            [enablePagination]="true"
+                        ></grid-cs>
+                        <!-- <card-swipper [items]="lstTiposNot" [itemTemplate]="templateNotificaciones" [loading]="loaded"
+                            *ngIf="lstTiposNot"></card-swipper>
+
+                        <ng-template #templateNotificaciones let-item >
+                            <div class="row mb-2">
+                                <div class="col-md-12 text-right">
+                                    <button class="btn btn-sm btn-warning mr-2" id="btnEdit" ><i class="fa fa-edit"></i></button>
+                                    <button class="btn btn-sm btn-danger" id="btnDelete" ><i class="fa fa-times"></i></button>
+
+                                </div>
+                            </div>
+                            <div class="card" *ngIf="lstTiposNot">
+                                <div class="card-name">{{item.descripcion}}</div>
+
+                                <img [src]="convertToBase64(item.icono)" alt="Carta" class="card-image">
+                            </div>
+                        </ng-template> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <small>Versión {{VERSION}}</small>
+                <h5>{{MODULO}}</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-mdl-captura-tipo #mdlCapturaTipo (onClose)="onCloseModal($event)"></app-mdl-captura-tipo>

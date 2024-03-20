@@ -11,8 +11,10 @@ import { TiposProductosComponent } from './TiposProductos/pages/tipos-productos/
 import { MdlTiposProductosComponent } from './TiposProductos/components/mdl-tipos-productos/mdl-tipos-productos.component';
 import { AplicacionesComponent } from './Aplicaciones/Pages/aplicaciones/aplicaciones.component';
 import { MdlCapturaAppsComponent } from './Aplicaciones/components/mdl-captura-apps/mdl-captura-apps.component';
+import { TiposNotificacionesComponent } from './TiposNotificaciones/Pages/tipos-notificaciones/tipos-notificaciones.component';
+import { MdlCapturaTipoComponent } from './TiposNotificaciones/Components/mdl-captura-tipo/mdl-captura-tipo.component';
 @NgModule({ 
-  declarations: [CargosComponent, MdlCapturaComponent, IngredientsComponent, TiposProductosComponent, MdlTiposProductosComponent, AplicacionesComponent, MdlCapturaAppsComponent],
+  declarations: [CargosComponent, MdlCapturaComponent, IngredientsComponent, TiposProductosComponent, MdlTiposProductosComponent, AplicacionesComponent, MdlCapturaAppsComponent, TiposNotificacionesComponent, MdlCapturaTipoComponent],
   imports: [
     CommonModule,
     CatalogsRoutingModule,

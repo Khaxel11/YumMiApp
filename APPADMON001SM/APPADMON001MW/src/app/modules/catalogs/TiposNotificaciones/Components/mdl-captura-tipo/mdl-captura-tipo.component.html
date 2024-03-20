@@ -1,0 +1,40 @@
+<ng-template #mdlCapturaTipo let-modal>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">
+                {{ modalname }}
+            </h5>
+            <button type="button" class="close" aria-label="Close" (click)="closeModal()"><i class="fas fa-times"
+                aria-hidden="true"></i></button>
+        </div>
+        <div class="modal-body">
+            <div class="container">
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <label for="txtDescripcion">Descripcion</label>
+                        <input type="text" id="txtDescripcion" class="form-control" [(ngModel)]="tipo.descripcion">
+                        <label for="cbxTipoUsuario">Tipo Usuario</label>
+                        <select name="cbxTipoUsuario" id="cbxTipoUsuario" class="form-control" [(ngModel)]="tipo.idTipoUsuario">
+                            <option [value]="0">Seleccione...</option>
+                            <option [value]="item.IdTipoUsuario" *ngFor="let item of lstTiposUsuarios"> {{item.TipoUsuario}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card text-center d-flex align-items-center justify-content-center">
+                            <img class="card-img " [src]="imageURL" alt="Seleccione un archivo">
+                        </div>
+                        <div class="col-md-12 mt-1">
+                            <input type="file" name="file" id="file" class="form-control-file" [(ngModel)]="fileSelected" (change)="onFileSelected($event)">
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-info" type="button" (click)="guardar()"><i
+                class="fas fa-save"></i> Guardar</button>
+        </div>
+    </div>
+</ng-template>
