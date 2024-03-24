@@ -1,0 +1,44 @@
+
+<div class="contenedor">
+    <div class="header">
+        <label>{{MODULO}}</label>
+    </div>
+    <div class="body">
+        <div class="container-fluid">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-1 mt-1">
+                        Filtro:
+                    </div>
+                    <div class="col-md-3">
+                        <input class="form-control" type="text" name="txtFiltro" id="txtFiltro">
+                    </div>
+                    <div class="col-md-8 text-right">
+                       <!--  <button class="btn btn-info" type="button" (click)="openModal(true)" ><i
+                            class="fas fa-plus"></i> Agregar</button> -->
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        
+                        <grid-cs #gridTiposAli [rowsPerPage]="10"
+                             [columnDefs]="columnsTiposAli"
+                            [(data)]="lstTiposAli"
+                            [enablePagination]="true"
+                        ></grid-cs>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <small>Versión {{VERSION}}</small>
+                <h5>{{MODULO}}</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+
