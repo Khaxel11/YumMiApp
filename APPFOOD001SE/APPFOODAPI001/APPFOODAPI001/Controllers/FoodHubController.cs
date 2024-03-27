@@ -57,5 +57,17 @@ namespace APPFOODAPI001.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Error, {ex.Message}");
             }
         }
+        [HttpGet("getMyFoodHubs")]
+        public async Task<IActionResult> getMyFoodHubs(int Opcion, int IdEstado, int IdCuenta)
+        {
+            try
+            {
+                return Ok(await new FoodHubBusiness().getMyFoodHubs(conection, IdEstado, IdCuenta));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Error, {ex.Message}");
+            }
+        }
     }
 }

@@ -123,5 +123,43 @@ namespace Data
                 throw new ArgumentException(ex.Message);
             }
         }
+        public async Task<Result> getMyFoodHubs(UserJwt DatosToken, int IdEstado, int IdCuenta)
+        {
+            Result objResult = new Result();
+            try
+            {
+                using (var con = new SqlConnection(DatosToken.Conection))
+                {
+                    var result = await con.QueryMultipleAsync(
+                        SP_CONSULTAS_FOODHUB,
+                        new
+                        {
+                            Opcion = 3,
+                            IdEstado = IdEstado,
+                            IdCuenta = IdCuenta
+                        },
+                    commandType: CommandType.StoredProcedure);
+                    var resData = result;
+                    //objResult.data 
+                    var lista = (List<FoodHubEntity>)await result.ReadAsync<FoodHubEntity>();
+
+                    for (int i = 0; i < lista.Count; i++)
+                    {
+                        if (lista[i].Foto != null && lista[i].Foto.Length > 0)
+                        {
+                            lista[i].Picture = Convert.ToBase64String(lista[i].Foto);
+                        }
+                    }
+
+                    objResult.data = lista;
+                }
+
+                return objResult;
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+        }
     }
 }

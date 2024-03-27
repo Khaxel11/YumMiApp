@@ -42,5 +42,16 @@ namespace Business
                 throw new ArgumentException(ex.Message);
             }
         }
+        public async Task<Result> getMyFoodHubs(UserJwt DatosToken, int IdEstado, int IdCuenta)
+        {
+            try
+            {
+                return await new FoodHubData().getMyFoodHubs(DatosToken, IdEstado, IdCuenta );
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+        }
     }
 }
