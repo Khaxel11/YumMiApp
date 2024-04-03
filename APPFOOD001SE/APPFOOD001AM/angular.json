@@ -62,10 +62,8 @@
               },
               {
                 "input": "src/theme/variables.css"
-              },
-              {
-                "input": "src/theme/modal.scss"
               }
+              
             ],
             "scripts": []
           },

@@ -5,3 +5,8 @@ export class UserJwt{
     IdUsuario : string;
     Zona : string;
 }
+export class MyUbication{
+    IdEstado : number;
+    IdMunicipio : number;
+    Ubicacion : string;
+}

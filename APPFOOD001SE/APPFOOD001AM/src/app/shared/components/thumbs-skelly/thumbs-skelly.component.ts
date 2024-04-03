@@ -27,6 +27,7 @@ export class ThumbsSkellyComponent implements OnInit {
   @Input() contentTemplate: any; // Plantilla para la vista final
   @Output() showDetails  = new EventEmitter();
   @Output() slicedStart = new EventEmitter();
+  @Output() slicedEnd = new EventEmitter();
   general = new General();
   lstFechas = [];
   constructor() { }
@@ -47,10 +48,11 @@ export class ThumbsSkellyComponent implements OnInit {
     const direction = event.detail.side; // 'start' para deslizar a la izquierda, 'end' para deslizar a la derecha
 
     if (direction === 'start') {
-      await this.confirmFecha(item);
+      await this.slicedStart.emit(item);
     } else if (direction === 'end') {
       // Lógica para deslizar a la derecha
       // this.confirmItem(item);
+      await this.slicedEnd.emit(item);
     }
 
     
@@ -66,8 +68,9 @@ export class ThumbsSkellyComponent implements OnInit {
     ];
     return monthNames[fecha.getMonth()];
   }
-  confirmFecha(value){
+  // sliced(value){
     
-    this.slicedStart.emit(value);
-  }
+  //   this.slicedStart.emit(value);
+  // }
+  
 }

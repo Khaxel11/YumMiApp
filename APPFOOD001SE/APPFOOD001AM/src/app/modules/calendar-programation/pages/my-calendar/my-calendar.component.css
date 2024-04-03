@@ -31,23 +31,7 @@ button {
   font-size: 20px;
   
 }
-.img-Container{
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0.6;
-  flex-direction: column;
-  padding: 20px;
-  text-align: center;
-}
-.img-empty{
-  
-  display: flex;
-  width: 50%;
-  
-}
+
 /* 
 button:hover {
   background-color: #ffffff;
@@ -58,14 +42,55 @@ button:hover {
   overflow-x: scroll;
 }
 
-.filter-buttons-container {
+.filter-buttons-container, .chip-container {
   overflow-x: auto;
   white-space: nowrap;
   scrollbar-width: none;
   margin: 5px 5px 5px 5px;
+  
 }
 
+.buttons-container{
+  position: absolute;
+  bottom: 0;
+  width: 92%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  justify-content: space-between;
+  ion-button{
+    display: flex; 
+    width: 20vh;
+  }
+}
+.list-states{
+  display: block;
+  
+  width: 100%;
+}
+.state-template{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 75vh;
+  width: 100%;
+  flex-direction: column;
+  
+  
+}
+ion-select{
+  border: 1px solid #353535;
+  width: 100%;
+  height: 70px;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
 .filter-buttons-container::-webkit-scrollbar {
+  width: 0;
+}
+.chip-container::-webkit-scrollbar{
   width: 0;
 }
 

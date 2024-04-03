@@ -9,6 +9,7 @@ import { SheetModalComponent } from 'src/app/shared/components/sheet-modal/sheet
 import { FoodHub } from 'src/app/models/FoodHub';
 import { FoodHubService } from 'src/app/services/App/food-hub.service';
 import { SafeUrl } from '@angular/platform-browser';
+import { KitchenService } from 'src/app/services/Kitchen/kitchen.service';
 class FiltrosAplicables {
   FoodHub: boolean;
   valueFoodHub: number;
@@ -16,6 +17,7 @@ class FiltrosAplicables {
   Estado: boolean;
   valueEstado: number;
   itemEstado: any;
+  stringEstado: string;
   Producto: boolean;
   valueProducto: number;
   itemProducto: any;
@@ -45,8 +47,8 @@ class FiltrosAplicables {
 })
 export class MyCalendarComponent implements OnInit {
   @ViewChild('mdlDetail') public mdlDetail: CalendarDetailComponent;
-  @ViewChild('template') public template: any;
-
+  @ViewChild('templateFoodHub') public templateFoodHub: any;
+  @ViewChild('templateEstados') public templateEstados: any;
   general = new General();
   lstFechas = new Array<ProgramacionAgrupada>();
   MESSAGE = new MESSAGE();
@@ -62,6 +64,11 @@ export class MyCalendarComponent implements OnInit {
   lstFoodHub = new Array<FoodHub>();
   lstAllFoodHubs = new Array<FoodHub>();
   selectedIdFoodHub: Number = 0;
+
+  lstEstados = [];
+  lstMunicipio = [];
+
+
   filtro: string;
   filtrosAplicables = new FiltrosAplicables();
   public results = [...this.lstFoodHub];
@@ -73,23 +80,26 @@ export class MyCalendarComponent implements OnInit {
 
   //#endregion
   ngOnInit() {
+    this.filtrosAplicables.valueEstado = Number(sessionStorage.getItem("IdEstado"));
+
+    this.filtrosAplicables.itemEstado = Number(sessionStorage.getItem("IdMunicipio"));
     this.fecha = this.general.setDate();
     this.show = !this.show;
-    setTimeout(() => {
-      this.show = !this.show;
-    }, 0);
+    // setTimeout(() => {
+    //   this.show = !this.show;
+    // }, 0);
     this.getFechasProgramadas();
-
+    
   }
   constructor(private service: ProgramationService, private modalController: ModalController, private alertController: AlertController,
-    private serviceFH: FoodHubService) {
+    private serviceFH: FoodHubService, private serviceKS : KitchenService) {
     this.lstFiltros = [{
       id: 1,
       nombre: "FoodHub"
     },
     {
       id: 2,
-      nombre: "Estado"
+      nombre: "Lugar"
     },
     {
       id: 3,
@@ -115,13 +125,32 @@ export class MyCalendarComponent implements OnInit {
       backdropDismiss: false,
       mode: 'ios',
       componentProps: {
-        itemTemplate: this.template
+        itemTemplate: this.templateFoodHub
       }
     });
     modal.onWillDismiss().then(async (data) => {
 
       if (data.data) {
         this.filtrosAplicables.itemFoodHub = data.data;
+      }
+    })
+    await modal.present();
+  }
+  async openMdlEstados(){
+    const modal = await this.modalController.create({
+      component: SheetModalComponent,
+      cssClass: 'adaptable-modal bottom-drawer',
+      swipeToClose: false,
+      backdropDismiss: false,
+      mode: 'ios',
+      componentProps: {
+        itemTemplate: this.templateEstados
+      }
+    });
+    modal.onWillDismiss().then(async (data) => {
+
+      if (data.data) {
+        this.filtrosAplicables.itemEstado = data.data;
       }
     })
     await modal.present();
@@ -159,14 +188,22 @@ export class MyCalendarComponent implements OnInit {
   }
   async selectedFilter(e: any) {
 
+    /*PARA ABRIR EL MODAL SI YA ESTA ACTIVO EL FILTRO Y CAMBIARLO*/
     if (e.id === 1 && e.selected) {
       await this.openMdlFoodHubs();
       return;
     }
+    if(e.id === 2 && e.selected){
+      await this.openMdlEstados();
+      return;
+    }
     e.selected = !e.selected;
 
+    /*ACOMODAR SI SE SELECCIONA*/
     this.onSelected();
     this.sortFilter();
+
+    /*ABRIR SI APENAS SE SELECCIONO POR PRIMERA VEZ Y CARGAR LAS LISTAS SI ESTAN VACIAS PARA RENDIMIENTO MEJORADO*/
     if (e.id === 1 && e.selected) {
       if (this.lstFoodHub.length === 0) {
         await this.getFoodHubs();
@@ -177,6 +214,16 @@ export class MyCalendarComponent implements OnInit {
       this.filtrosAplicables.FoodHub = false;
       this.filtrosAplicables.valueFoodHub = undefined;
       this.filtrosAplicables.itemFoodHub = undefined;
+    }
+    if(e.id === 2 && e.selected){
+      
+      if(this.lstEstados.length === 0){
+        this.getEstados();
+        this.getMunicipios();
+      }
+      this.filtrosAplicables.Estado = true;
+      
+      await this.openMdlEstados();
     }
 
   }
@@ -245,7 +292,85 @@ export class MyCalendarComponent implements OnInit {
       }
     }, 1000);
   }
+  async deleteArchiveDate(value : any){
+    if(value.diasPorConfirmar <= 0){
+      const alert = await this.alertController.create({
+        header: '¿Estas seguro de archivar el pedido?',
+        message: "El pedido archivado se quitara de la lista, para verlo revisa el archivo de pedidos anteriores",
+        buttons: [
+          {
+            text: 'Cancelar',
+            role: 'cancel',
+            cssClass: 'secondary',
+            handler: (blah) => {
+  
+            }
+          }, {
+            text: 'Archivar',
+            handler: async () => {
+              
+            }
+          }
+        ]
+      });
+      await alert.present();
+      return;
+    }
+    if(value.diasPorConfirmar <= 3){
+      this.general.showMessage("El producto ha superado el límite de días permitidos para cancelar un pedido. De acuerdo con nuestras políticas, estás obligado a preparar y entregar el pedido según lo programado.", "danger", "Aceptar", "bottom", 100000);
+      return;
+    }else{
+      const mensaje = Number(value.interesados) === 0 ?
+        'El pedido no estara disponible para las proximas personas interesadas' 
+        :
+        `Actualmente, hay ${value.interesados} personas registradas para este pedido. Desea confirmar la eliminación del pedido a pesar de los interesados existentes. Por favor, considera que cancelar un pedido con interesados puede afectar los comentarios de tus clientes.`
+      const alert = await this.alertController.create({
+        header: '¿Estas seguro de eliminar el pedido?',
+        message: mensaje,
+        buttons: [
+          {
+            text: 'Cancelar',
+            role: 'cancel',
+            cssClass: 'secondary',
+            handler: (blah) => {
+  
+            }
+          }, {
+            text: 'Eliminar',
+            handler: async () => {
+              
+            }
+          }
+        ]
+      });
+      await alert.present();
+      return;
+    }
+  }
   async confirmDate(value: any) {
+    if(value.confirmado){
+      const alert = await this.alertController.create({
+        header: '¿Estas seguro de cerrar el pedido?',
+        message: "Actualmente, hay " + value.interesados + " personas registradas. Si cierras el pedido ahora, ten en cuenta que no se permitirá el registro de más personas y deberás asegurarte de entregar la comida a aquellos que ya están registrados.",
+        buttons: [
+          {
+            text: 'Cancelar',
+            role: 'cancel',
+            cssClass: 'secondary',
+            handler: (blah) => {
+  
+            }
+          }, {
+            text: 'Cerrar pedido',
+            handler: async () => {
+              
+            }
+          }
+        ]
+      });
+      await alert.present();
+      return;
+    }
     if (value.diasPorConfirmar <= 1 || !value.diasPorConfirmar) {
       this.general.showMessage("El producto ha pasado el limite de dias permitido por confirmar un producto. No sera publicado", "danger", "", "bottom", 5000);
       return;
@@ -301,20 +426,16 @@ export class MyCalendarComponent implements OnInit {
     await modal.present();
   }
   //#region FUNCIONES PARA FOODHUBS
-  selectedFilterFoodHubs() {
-    if (this.lstFoodHub.length === 0) {
-      this.getFoodHubs();
-    }
-  }
+  
   async getFoodHubs() {
 
     let data = await this.serviceFH.getMyFoodHubs();
-    data.data = [...data.data]
     this.lstFoodHub = data.data;
     this.lstAllFoodHubs = data.data;
     this.selectedIdFoodHub = 0;
 
   }
+  
   imagenBase64(base64String: string): SafeUrl {
     const imageUrl = 'data:image/jpeg;base64,' + base64String;
     return imageUrl;
@@ -333,4 +454,46 @@ export class MyCalendarComponent implements OnInit {
     this.modalController.dismiss(e);
   }
   //#endregion termina foodhubs
+  //#region empieza estados
+  async getEstados(){
+    let data = await this.serviceKS.getUbication(2, 1);
+    this.lstEstados = data.data;
+    // this.selectedEstado = 
+  }
+  async onChangeEstado(){
+    await this.getMunicipios();
+  }
+  async getMunicipios(){
+    let data = await this.serviceKS.getUbication(3,this.filtrosAplicables.valueEstado)
+    this.lstMunicipio = data.data;
+    
+  }
+  closeMdlEstado(){
+    if(!this.filtrosAplicables.stringEstado || this.filtrosAplicables.stringEstado === ""){
+      this.removeSelected(2);
+      this.onSelected();
+      this.sortFilter();
+      this.filtrosAplicables.Estado = false;
+    }
+    
+    this.modalController.dismiss();
+  }
+
+  aceptarEstado(){
+    const estado = this.lstEstados.find(item => item.IdEstado === this.filtrosAplicables.valueEstado);
+    const municipio = this.lstMunicipio.find(item => item.IdMunicipio === this.filtrosAplicables.itemEstado);
+    this.filtrosAplicables.stringEstado = municipio.Nombre + ', ' + estado.Nombre;
+    this.modalController.dismiss();
+
+  }
+  removeEstado() {
+    this.filtrosAplicables.Estado = false;
+    this.filtrosAplicables.valueEstado = Number(sessionStorage.getItem("IdEstado"));
+    this.filtrosAplicables.itemEstado = Number(sessionStorage.getItem("IdMunicipio"));
+    this.filtrosAplicables.stringEstado = undefined;
+    this.removeSelected(2);
+    this.onSelected();
+    this.sortFilter();
+  }
+  //#endregion termina estados
 }

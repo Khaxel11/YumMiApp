@@ -33,16 +33,23 @@
           {{filter.nombre}}
         </ion-button>
       </div>
-      <ion-chip color="dark" *ngIf="filterValueSelected(1) && filtrosAplicables.FoodHub && filtrosAplicables.itemFoodHub" >
-        <ion-avatar>
-          <img [src]="imagenBase64(filtrosAplicables.itemFoodHub.foto)" />
-        </ion-avatar>
-        <ion-label>{{filtrosAplicables.itemFoodHub.nombreHub}}</ion-label>
-        <ion-icon name="close-circle" (click)="removeFoodHub()"></ion-icon>
-      </ion-chip>
+      <div class="chip-container">
+        <ion-chip color="dark" *ngIf="filterValueSelected(1) && filtrosAplicables.FoodHub && filtrosAplicables.itemFoodHub" >
+          <ion-avatar>
+            <img [src]="imagenBase64(filtrosAplicables.itemFoodHub.foto)" />
+          </ion-avatar>
+          <ion-label>{{filtrosAplicables.itemFoodHub.nombreHub}}</ion-label>
+          <ion-icon name="close-circle" (click)="removeFoodHub()"></ion-icon>
+        </ion-chip>
+        <ion-chip color="dark" *ngIf="filterValueSelected(2) && filtrosAplicables.Estado && filtrosAplicables.stringEstado" >
+          <ion-icon name="location" color="danger"></ion-icon>
+          <ion-label>{{filtrosAplicables.stringEstado}}</ion-label>
+          <ion-icon name="close-circle" (click)="removeEstado()"></ion-icon>
+        </ion-chip>
+      </div>
       <div>
         <!-- <ion-button id="open-modal" expand="block" (click)="openMdlFoodHubs()">Open Sheet Modal</ion-button> -->
-        <ng-template #template let-item >
+        <ng-template #templateFoodHub let-item >
           <div>
             <ion-searchbar [debounce]="100" [(ngModel)]="filtro" (ionChange)="handleChange($event)" placeholder="Buscar"></ion-searchbar>
             <div class="list">
@@ -65,17 +72,53 @@
           </div>
       </ng-template>
       </div>
-      <div *ngIf="filterValueSelected(2)">Estado</div>
+      <div>
+        <!-- FILTROS Estados -->
+        <ng-template #templateEstados let-item >
+          <div class="state-template">
+            <div class="list-states">
+              <ion-list>
+                <ion-list-header>
+                  <ion-label>Estado</ion-label>
+                </ion-list-header>
+                <ion-item>
+                  <ion-select aria-label="State" interface="action-sheet" placeholder="Seleccionar Estado" [(ngModel)]="filtrosAplicables.valueEstado" (ngModelChange)="onChangeEstado()">
+                    <ion-select-option [value]="state.IdEstado" *ngFor="let state of lstEstados">{{state.Nombre}}</ion-select-option>
+                  </ion-select>
+                </ion-item>
+              </ion-list>
+              <ion-list>
+                <ion-list-header>
+                  <ion-label>Municipio</ion-label>
+                </ion-list-header>
+                <ion-item>
+                  <ion-select aria-label="State" interface="action-sheet" placeholder="Seleccionar Estado" [(ngModel)]="filtrosAplicables.itemEstado">
+                    <ion-select-option [value]="municipio.IdMunicipio" *ngFor="let municipio of lstMunicipio">{{municipio.Nombre}}</ion-select-option>
+                  </ion-select>
+                </ion-item>
+              </ion-list>
+            </div>
+            <div class="buttons-container">
+              <ion-button class="ion-margin-top" (click)="closeMdlEstado()" fill="outline" shape="round" color dark>
+                Cancelar
+              </ion-button>
+              <ion-button class="ion-margin-top" (click)="aceptarEstado()" fill="outline" shape="round" color dark>
+                Aceptar
+              </ion-button>
+            </div>
+          </div>
+      </ng-template>
+      </div>
       <div *ngIf="filterValueSelected(3)">Producto</div>
       <div *ngIf="filterValueSelected(4)">Categoria</div>
       <div *ngIf="filterValueSelected(5)">Tipo Alimentacion</div>
     </div>
-    <div class="img-Container" *ngIf="lstFechas.length <= 0 && loaded">
+    <div class="empty-container" *ngIf="lstFechas.length <= 0 && loaded">
       <ion-img class="img-empty" src="../../../../../assets/Images/sad-svgrepo-com.svg"></ion-img>
       <label>No tienen ninguna fecha programada para este mes. ¡Programa una desde tus productos! o haz <a href="/products/catalog">click aqui</a></label>
     </div>
     <thumbs-skelly *ngIf="lstFechas.length > 0 || !loaded" [data]="lstFechas" [loaded]="loaded" (showDetails)="selectedDate($event)"
-      (slicedStart)="confirmDate($event)"></thumbs-skelly>
+      (slicedStart)="confirmDate($event)" (slicedEnd)="deleteArchiveDate($event)"></thumbs-skelly>
 
   </ion-content>
 
