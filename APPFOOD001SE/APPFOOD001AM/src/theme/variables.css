@@ -220,75 +220,33 @@
     --color: #ca380c; 
   }
   
-  .vermilion50{
-    color: #fff4ed;
-  }
-  .vermilion100{
-    color : #ffe7d5
-  }
-  .vermilion200{
-    color : #fecaaa
-  }
-  .vermilion300{
-    color : #fea573
-  }
-  .vermilion400{
-    color : #fc753b
-  }
-  .vermilion500{
-    color : #fa4a0c
-  }
-  .vermilion600{
-    color: #eb370b
-  }
-  .vermilion700{
-    color: #c3260b
-  }
-  .vermilion800{
-    color : #9b1f11
-  }
-  .vermilion900{
-    color: #7d1d11
-  }
-  .vermilion950{
-    color: #430b07
+  .empty-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+    /* pointer-events: none; */
+    position: fixed;
+    z-index: 9999;
+    background-color: white;
+    label{
+      opacity: 0.6;
+      
+    }
   }
   
-  .back50{
-    background: #fff4ed;
+  .img-empty{
+    
+    display: flex;
+    width: 50%;
+    height: 50%;
+    opacity: 0.6;
   }
-  .back100{
-    background : #ffe7d5
-  }
-  .back200{
-    background : #fecaaa
-  }
-  .back300{
-    background : #fea573
-  }
-  .back400{
-    background : #fc753b
-  }
-  .back500{
-    background : #fa4a0c
-  }
-  .back600{
-    background: #eb370b
-  }
-  .back700{
-    background: #c3260b
-  }
-  .back800{
-    background : #9b1f11
-  }
-  .back900{
-    background: #7d1d11
-  }
-  .back950{
-    background: #430b07
-  }
-  
-  
   
   .wrapper {
     right: 0;
