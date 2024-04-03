@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule, UrlSerializer } from '@angular/router';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
-import { GoogleMaps } from '@ionic-native/google-maps';
+//import { GoogleMaps } from '@ionic-native/google-maps';
 
 import { IonicModule } from '@ionic/angular';
 //animaciones
@@ -31,7 +31,7 @@ import { CalendarModule } from 'ion2-calendar';
     CalendarModule,
     
   ],
-  providers: [Geolocation, GoogleMaps],
+  providers: [Geolocation, /*GoogleMaps*/],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

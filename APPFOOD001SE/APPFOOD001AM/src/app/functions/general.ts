@@ -125,7 +125,16 @@ export class General {
     const imageUrl = 'data:image/jpeg;base64,' + base64String;
     return this.sanitizer.bypassSecurityTrustUrl(imageUrl);
   }     
- 
+  obtenerDiaSemana(fecha: Date): string {
+    const diasSemana = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+    const indiceDia = fecha.getUTCDay();
+    return diasSemana[indiceDia];
+  }
+  obtenerNombreMes(fecha: Date): string {
+    const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+    const indiceMes = fecha.getUTCMonth();
+    return meses[indiceMes];
+  }
 }
 export class MESSAGE{
    ERROR : string = "Error, intentelo de nuevo o revise su conexión a internet, si el problema persiste comuniquese con el equipo de soporte";
