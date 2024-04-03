@@ -54,6 +54,10 @@ export class InitComponent implements OnInit {
   }
   async clickToLogin(){
   
+    if(!this.userName || !this.password){
+      this.General.showMessage('Usuario o contraseña no capturados', 'warning');
+      return;
+    }
   const loading = await this.Load.create({
     message: 'Cargando...', 
   });
@@ -80,9 +84,11 @@ export class InitComponent implements OnInit {
             localStorage.setItem("username", data.data.userName);
             localStorage.setItem("idCuenta", data.data.idCuenta);
             localStorage.setItem("picture", this.img_User);
+            localStorage.setItem("idEstado", '26');
           }else{
             localStorage.clear();
             localStorage.setItem("idCuenta", data.data.idCuenta);
+            localStorage.setItem("idEstado", '26');
           }
           
           this.Router.navigateByUrl('/home');

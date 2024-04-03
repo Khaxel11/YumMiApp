@@ -21,7 +21,7 @@ export class TabsMenuComponent implements AfterViewInit {
        {
         icon : 'calendar-outline',
         tab : 'Programacion',
-        route: 'programation'
+        route: 'calendar'
        },
        {
         icon : 'fast-food-outline',

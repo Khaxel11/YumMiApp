@@ -121,6 +121,7 @@ export class DishDetailComponent implements OnInit {
   }
 
   goToProgramation(){
+    this.sharedDataService.setProducto(this.Producto)
     this.navCtrl.navigateForward('/programation');
   }
   

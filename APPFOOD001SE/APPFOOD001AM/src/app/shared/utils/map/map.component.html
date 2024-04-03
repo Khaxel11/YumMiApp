@@ -1,4 +1,4 @@
-
+<!-- 
 <div class="showRoute" *ngIf="showRoute">
     <ion-button (click)="showRouteTo()"  fill="solid" color="light" shape="round">
         {{isOGMap ? 'Ver Ruta' : 'Ver Mapa'}}
@@ -7,7 +7,7 @@
     <capacitor-google-map #mapOG ngClass="{{!isOGMap ? 'noMostrar' : ''}}" id="mapOG"
     [ngStyle]="{'width':Width, 'height':Height}" 
     ></capacitor-google-map>
-   <!-- <div > -->
+   
     
     <div class="duration" *ngIf="showDuration && !isOGMap">
         <ion-icon name="timer-outline"></ion-icon>
@@ -15,4 +15,4 @@
     </div>
     
     <div class="map" ngClass="{{isOGMap ? 'encimar' : ''}}" *ngIf="!isOGMap" [ngStyle]="{'width':Width, 'height':Height}" #map id="map"></div>
-   <!-- </div> -->
+    -->

@@ -2,7 +2,7 @@
     
     <ion-toolbar>
         <ion-buttons slot="start">
-            <ion-back-button defaultHref="/product/catalog/detail"></ion-back-button>
+            <ion-back-button (click)="goBack()"></ion-back-button>
           </ion-buttons>
         <ion-title>Programar</ion-title>
         <ion-buttons slot="end" (click)="continue()">
@@ -14,7 +14,7 @@
 
     </ion-toolbar>
   </ion-header>
- <ion-content *ngIf="true">
+ <ion-content *ngIf="false">
     <app-accordion [expanded]="false" [expandHeight]="'200px'">
         <ion-card>
             <div class="flex-center">Hola</div>
@@ -54,16 +54,16 @@
         
     </div> -->
  </ion-content> 
-<ion-content *ngIf="false">
+<ion-content *ngIf="true">
     
     <div class="header">
         <div class="tittleProduct animated-top">
             <ion-note>Programando</ion-note>
-            <h3>Tacos de Carne Asada</h3>
-            <ion-note><small>Proximo día programado: </small> <strong>{{this.getFirstDate()}}</strong></ion-note>
+            <h3>{{Product.nombreProducto}}</h3>
+            <ion-note><small>Proximo día programado: </small> <strong>{{this.getFirstDate() ? this.getFirstDate() : 'No se han seleccionado fechas'}}</strong></ion-note>
         </div>
         <div class="imgContainer animated-right">
-            <img src="../../../../assets/Images/food-delivery-start.jpeg" alt="">
+            <img [src]="imagenBase64(Product.foto)" alt="">
         </div>
         <!-- -->
     </div>
@@ -113,7 +113,7 @@
             <ion-card-content>
                 <ion-textarea [cols]="4" [rows]="4" maxlength="200" 
                     placeholder="Describe comentarios como la hora de entrega o las condiciones de entrega"
-                    [counter]="true" [required]="true"
+                    [counter]="true" [required]="true" [(ngModel)]="description"
                     ></ion-textarea>
             </ion-card-content>
         </ion-card>

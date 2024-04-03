@@ -1,0 +1,85 @@
+<ion-header collapse="fade">
+  <ion-toolbar class="ion-text-center">
+    <ion-buttons slot="start">
+      <ion-button class="btnReturn">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  
+     <div class="calendar-header">
+      <button (click)="antMonth()">
+        <!-- Anterior -->
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </button>
+      <ion-datetime displayFormat="MMMM YYYY" [(ngModel)]="fecha" locale="es-ES" min="2023-01-01" max="2025-12-31" (ngModelChange)="onChangeMonth()"></ion-datetime>
+      <button (click)="nextMonth()">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+        <!-- Siguiente -->
+      </button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+  <ion-content>
+    
+    <div class="filter">
+      
+      <div class="filter-buttons-container">
+        <ion-button  shape="round" fill="outline" [color]="sort ? 'success' : 'dark'" size="small" slot="end" (click)="clearFilters()">
+            <ion-icon name="filter-outline"></ion-icon>
+          </ion-button>
+        <ion-button fill="outline" shape="round" [color]="filter.selected ? 'success' : 'dark'" *ngFor="let filter of lstFiltros" size="small"
+            (click)="selectedFilter(filter)">
+          {{filter.nombre}}
+        </ion-button>
+      </div>
+      <ion-chip color="dark" *ngIf="filterValueSelected(1) && filtrosAplicables.FoodHub && filtrosAplicables.itemFoodHub" >
+        <ion-avatar>
+          <img [src]="imagenBase64(filtrosAplicables.itemFoodHub.foto)" />
+        </ion-avatar>
+        <ion-label>{{filtrosAplicables.itemFoodHub.nombreHub}}</ion-label>
+        <ion-icon name="close-circle" (click)="removeFoodHub()"></ion-icon>
+      </ion-chip>
+      <div>
+        <!-- <ion-button id="open-modal" expand="block" (click)="openMdlFoodHubs()">Open Sheet Modal</ion-button> -->
+        <ng-template #template let-item >
+          <div>
+            <ion-searchbar [debounce]="100" [(ngModel)]="filtro" (ionChange)="handleChange($event)" placeholder="Buscar"></ion-searchbar>
+            <div class="list">
+              <ion-radio-group [(ngModel)]="filtrosAplicables.valueFoodHub"> 
+                <ion-list >
+                  <ion-item *ngFor="let value of lstFoodHub" >
+                    <ion-thumbnail slot="start">
+                      <ion-img [src]="imagenBase64(value.foto)"></ion-img>
+                    </ion-thumbnail>
+                    <ion-label>
+                      <h2>{{value.nombreHub}}</h2>
+                      <p>{{value.municipio}}, {{value.nombreEstado}}</p>
+                    </ion-label>
+                    <ion-radio slot="end" [value]="value.idFoodHub" (click)="selectFoodHub(value)" ></ion-radio>
+                  </ion-item>
+                </ion-list>
+              </ion-radio-group>
+              
+            </div>
+          </div>
+      </ng-template>
+      </div>
+      <div *ngIf="filterValueSelected(2)">Estado</div>
+      <div *ngIf="filterValueSelected(3)">Producto</div>
+      <div *ngIf="filterValueSelected(4)">Categoria</div>
+      <div *ngIf="filterValueSelected(5)">Tipo Alimentacion</div>
+    </div>
+    <div class="img-Container" *ngIf="lstFechas.length <= 0 && loaded">
+      <ion-img class="img-empty" src="../../../../../assets/Images/sad-svgrepo-com.svg"></ion-img>
+      <label>No tienen ninguna fecha programada para este mes. ¡Programa una desde tus productos! o haz <a href="/products/catalog">click aqui</a></label>
+    </div>
+    <thumbs-skelly *ngIf="lstFechas.length > 0 || !loaded" [data]="lstFechas" [loaded]="loaded" (showDetails)="selectedDate($event)"
+      (slicedStart)="confirmDate($event)"></thumbs-skelly>
+
+  </ion-content>
+
+
+<!-- <div [@stagger] *ngIf='show'>
+    <div *ngFor="let item of items">{{ item }}</div>
+  </div> -->

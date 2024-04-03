@@ -1,33 +1,54 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { CalendarModal, CalendarModalOptions, DayConfig, CalendarResult, } from 'ion2-calendar';
 import { General } from 'src/app/functions/general';
-import { ModalController } from '@ionic/angular';
+import { AlertController, ModalController, NavController } from '@ionic/angular';
 import { CalendarComponent } from '../calendar/calendar.component';
 import { ModalPersonalizedDateSelectorComponent } from '../modal-personalized-date-selector/modal-personalized-date-selector.component';
+import { Product } from 'src/app/models/product';
+import { SafeUrl } from '@angular/platform-browser';
+import { SharedDataService } from 'src/app/services/common/SharedService';
 
 @Component({
   selector: 'programation-products',
   templateUrl: './programation-products.component.html',
   styleUrls: ['./programation-products.component.css']
 })
-export class ProgramationProductsComponent implements OnInit {
+export class ProgramationProductsComponent implements AfterViewInit {
   @ViewChild('calendar') calendar: CalendarComponent;
+  @Input() Product : Product;
+  @Output() onContinue = new EventEmitter();
   General = new General();
   date: string;
-  selectedDates: Array<any> = [];
+  @Input() selectedDates: Array<any> = [];
   description : string;
   selected: boolean = false;
   month: number;
   year: number;
-  constructor(private modalController: ModalController) {
+  constructor(private modalController: ModalController, private navCtrll : NavController, private alertController : AlertController,
+    private sharedService : SharedDataService, private cdr : ChangeDetectorRef) {
     const today = new Date();
     this.selectedDates = [];
     this.month = today.getUTCMonth();
     this.year = today.getUTCFullYear();
   }
 
-  ngOnInit(): void {
-
+  async  ngAfterViewInit(): Promise<void> {
+    this.sharedService.fechas.subscribe(async(fechas) => {
+     try {
+      if(fechas){
+        this.selectedDates = fechas.FechasProgramadas ?? [];
+        this.description= fechas.Descripcion ?? '';
+        await this.calendar.setCalendar(this.selectedDates);
+      }
+     } catch (error) {
+      
+     }
+      
+    });
+  }
+  imagenBase64(base64String: string): SafeUrl {
+    const imageUrl = 'data:image/png;base64,' + base64String;
+    return imageUrl;
   }
   async openPersonalizedSelector() {
     const modal = await this.modalController.create(
@@ -162,6 +183,11 @@ export class ProgramationProductsComponent implements OnInit {
       this.General.showMessage("Capture una descripción", 'warning'); 
       return;
     }
+    const dates = {
+      FechasProgramadas : this.selectedDates,
+      Descripcion : this.description
+    }
+    this.onContinue.emit(dates);
   }
 
   private getDaysConfig(): DayConfig[] {
@@ -173,5 +199,30 @@ export class ProgramationProductsComponent implements OnInit {
     ];
   }
   
+  async goBack(){
+    if(this.selectedDates.length > 0){
+      const alert = await this.alertController.create({
+        header: '¿Regresar?',
+        message: 'Ya tiene fechas seleccionadas, si regresa se cancelara la programación del producto',
+        buttons: [
+          {
+            text: 'Cancelar',
+            role: 'cancel',
+            cssClass: 'secondary',
+            handler: (blah) => {
+              
+            }
+          }, {
+            text: 'Regresar',
+            handler: async () => {
+              this.navCtrll.navigateBack("/products/catalog/")
+            }
+          }
+        ]
+      });
+      await alert.present();
+    }
+    
+  }
 
 }

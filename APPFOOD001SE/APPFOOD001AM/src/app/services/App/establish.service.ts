@@ -16,6 +16,7 @@ export class EstablishService {
     const params = new HttpParams()
     .append('Opcion', String(Opcion))
     .append('IdCuenta', String(IdCuenta))
-    return this.http.get(url, { params }).toPromise();
+    const headers = new HttpHeaders().set('ngrok-skip-browser-warning', '51197');
+    return this.http.get(url, { params, headers }).toPromise();
   }
 }

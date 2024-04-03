@@ -25,6 +25,10 @@ import { FormsModule } from '@angular/forms';
 import { DishViewComponent } from './utils/dish-view/dish-view.component';
 import { CreditCardComponent } from './utils/credit-card/credit-card.component';
 import { CardCsComponent } from './components/card-cs/card-cs.component';
+import { SelectFoodHubComponent } from './utils/select-food-hub/select-food-hub.component';
+import { ThumbsSkellyComponent } from './components/thumbs-skelly/thumbs-skelly.component';
+import { DraggableComponent } from './components/draggable/draggable.component';
+import { SheetModalComponent } from './components/sheet-modal/sheet-modal.component';
 @NgModule({
   declarations: [    
     
@@ -49,7 +53,11 @@ import { CardCsComponent } from './components/card-cs/card-cs.component';
     ModalPersonalizedDateSelectorComponent,
     DishViewComponent,
     CreditCardComponent,
-    CardCsComponent
+    CardCsComponent,
+    SelectFoodHubComponent,
+    ThumbsSkellyComponent,
+    DraggableComponent,
+    SheetModalComponent
   ],
   imports: [ 
     CommonModule,
@@ -77,7 +85,10 @@ import { CardCsComponent } from './components/card-cs/card-cs.component';
     CalendarComponent,
     ModalPersonalizedDateSelectorComponent,
     DishViewComponent,
-    CreditCardComponent
+    CreditCardComponent,
+    SelectFoodHubComponent,
+    ThumbsSkellyComponent,
+    SheetModalComponent
   ],
   
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

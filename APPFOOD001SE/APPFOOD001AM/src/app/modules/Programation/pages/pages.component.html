@@ -1,5 +1,7 @@
 
 <ion-content>
-    <programation-products></programation-products>
+    <programation-products #fechas [Product]="Producto" [selectedDates]="fechasProgramadas.FechasProgramadas" (onContinue)="continue($event)" *ngIf="!selectedDates && !isComplete"></programation-products>
     <!-- <app-calendar [year]="year" [month]="month"></app-calendar> -->
+    <app-select-food-hub #foodHub (onContinue)="continueEnd($event)" *ngIf="selectedDates && !isComplete"></app-select-food-hub>
+    <app-confirmed *ngIf="isComplete" [Producto]="Producto" [Programation]="Programation" ></app-confirmed>
   </ion-content>

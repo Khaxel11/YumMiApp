@@ -75,7 +75,7 @@ export class DishCatalogComponent implements AfterContentInit {
   }
   goBack(){
 
-    this.navCtrl.back();
+    this.navCtrl.navigateBack('/home');
   }
   agruparPorIDTipo(lstProductos: any[]): any[] {
     return lstProductos.reduce((result, platillo) => {

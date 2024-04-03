@@ -1,0 +1,65 @@
+<ion-content [fullscreen]="true">
+
+    <div class="container-confirm animated-top ion-text-center">
+        <h3><strong>Tu producto esta a punto de ser programado</strong></h3>
+        <h4><strong>{{Producto.nombreProducto}}</strong></h4>
+        <img [src]="imagenBase64(Producto.foto)" alt="">
+        <!-- Info del pedido -->
+        <h5 class="days-scheduled">Días Programados: {{this.Programation.fechasProgramadas.length}}</h5>
+
+        
+        <div class="date-container">
+            <p>Fecha Proxima Programada</p>
+            <p class="date">{{getFirstDate()}}</p>
+        </div>
+        <!-- <ion-note>Recuerda que debes de cumplir las entregas el día establecido, de lo contrario la reputación de tu establecimiento se vera afectada. </ion-note>
+        <ion-note>Si recibimos queja podríamos tomar acciones por el incumplimiento de entregas</ion-note> -->
+        
+    </div>
+    
+    <div class="but">
+        <div class="buttons-container">
+            
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="2">
+                    </ion-col>
+                    <ion-col size="1">
+                        <ion-checkbox size="small" labelPlacement="end" [(ngModel)]="Programation.notificacionesActivadas"></ion-checkbox>
+                    </ion-col>
+                    <ion-col size="7">
+                        <small class="forgotPass"> Deseo recibir Notificaciones del estado de la programación</small>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size="2">
+                    </ion-col>
+                    <ion-col size="1">
+                        <ion-checkbox size="small" labelPlacement="end" [(ngModel)]="reglas.QualityRule"></ion-checkbox>
+                    </ion-col>
+                    <ion-col size="7">
+                        <small class="forgotPass"> Me comprometo a hacer entregas de calidad los días establecidos</small>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size="2">
+                    </ion-col>
+                    <ion-col size="1">
+                        <ion-checkbox size="small" labelPlacement="end" [(ngModel)]="reglas.TermsRule"></ion-checkbox>
+                    </ion-col>
+                    <ion-col size="7">
+                        <small class="forgotPass"> Acepto  los <a href="#">términos y condiciones</a></small>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size="6">
+                        <ion-button class="custom-button" shape="round" color="dark" expand="block">Volver</ion-button>
+                    </ion-col>
+                    <ion-col size="6">
+                        <ion-button class="custom-button" shape="round" color="success" expand="block" (click)="continue()">Confirmar</ion-button> 
+                    </ion-col>
+                </ion-row>
+            </ion-grid> 
+        </div>  
+    </div>
+</ion-content>

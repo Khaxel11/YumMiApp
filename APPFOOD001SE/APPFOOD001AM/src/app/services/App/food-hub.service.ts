@@ -17,14 +17,23 @@ export class FoodHubService {
     .append('IdEstado', String(IdEstado))
     .append('Filtro', String(Filtro))
     .append('IdCuenta', String(IdCuenta))
-    return this.http.get(url, { params }).toPromise();
+    const headers = new HttpHeaders().set('ngrok-skip-browser-warning', '51197');
+    return this.http.get(url, { params, headers }).toPromise();
+  }
+  getMyFoodHubs() : Promise<any>{
+    const url = URL + 'getFoodHubs';
+    const params = new HttpParams()
+    .append('IdEstado', String('26'))//localStorage.getItem("idEstado")
+    .append('IdCuenta', String(localStorage.getItem("idCuenta")))
+    const headers = new HttpHeaders().set('ngrok-skip-browser-warning', '51197');
+    return this.http.get(url, { params, headers }).toPromise();
   }
   getCalificaciones(IdFoodHub : number) : Promise<any>{
     const url = URL + 'getCalificaciones';
     const params = new HttpParams()
     .append('IdFoodHub', String(IdFoodHub))
-    
-    return this.http.get(url, { params }).toPromise();
+    const headers = new HttpHeaders().set('ngrok-skip-browser-warning', '51197');
+    return this.http.get(url, { params, headers }).toPromise();
   }
   asignFoodhub(Opcion : number, IdCuenta : number, IdFoodHub : number, Predeterminado : boolean, IdAsignado : number) : Promise<any>{
     const url = URL + 'asignFoodhub';
@@ -34,6 +43,7 @@ export class FoodHubService {
     .append('IdFoodHub', String(IdFoodHub))
     .append('Predeterminado', String(Predeterminado))
     .append('IdAsignado', String(IdAsignado))
-    return this.http.post(url, false, { params }).toPromise();
+    const headers = new HttpHeaders().set('ngrok-skip-browser-warning', '51197');
+    return this.http.post(url, false, { params, headers }).toPromise();
   }
 }

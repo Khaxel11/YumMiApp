@@ -78,7 +78,7 @@
     
       <p *ngIf="!enableEditDescription">{{ Producto.descripcion }}</p>
     
-      <ion-fab-button  class="fabOk" color="success">
+      <ion-fab-button  class="fabOk" color="success" *ngIf="Producto.preciosConfigurados">
         <ion-icon name="calendar-outline" (click)="goToProgramation()"></ion-icon>
       </ion-fab-button>
     </ion-card-header>

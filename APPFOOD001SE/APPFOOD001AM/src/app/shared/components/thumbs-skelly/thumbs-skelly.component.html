@@ -1,0 +1,130 @@
+<!-- <ion-item>
+  <ion-label>Awesome Label</ion-label>
+</ion-item> -->
+<div *ngIf="loaded">
+  <ion-list *ngFor="let value of data">
+    <ion-list-header>
+      <b>{{value.fechaProgramada}}</b>
+      <div class="no-program" *ngIf="value.porConfirmar">
+        <ion-icon id="cicle-alert" name="alert-circle-outline"></ion-icon>
+        {{ value.porConfirmar ? 'Hay pedidos sin confirmar' : '' }}
+      </div>
+
+    </ion-list-header>
+    <ion-item-sliding (ionSwipe)="onSwipe($event, item)" *ngFor="let item of value.items">
+    <ion-item lines="none">
+      <div class="unread-indicator-wrapper" slot="end">
+        <div class="unread-indicator">
+          <small class="smallMonth">{{getMonthName(item.fecha)}}</small>
+          <small class="smallDay">{{getDay(item.fecha)}}</small>
+        </div>
+      </div>
+      <ion-thumbnail slot="start">
+        <ion-img class="halfitem1" [src]="imagenBase64(item.fotoProducto)"></ion-img>
+        <div class="halfer"></div>
+        <ion-img class="halfitem2" [src]="imagenBase64(item.fotoFoodHub)"></ion-img>
+      </ion-thumbnail>
+      <div class="cont">
+        <ion-label>
+          <h2><b>{{item.nombreProducto}}</b></h2>
+          <ion-icon class="icon alert" id="cicle-alert" name="alert-circle-outline"  *ngIf="!item.confirmado"></ion-icon>
+          <ion-icon class="icon confirm" id="cicle-checkmark" name="checkmark-circle-outline"  *ngIf="item.confirmado"></ion-icon>
+          <p>{{item.nombreFoodHub}}</p>
+          <p *ngIf="item.interesados > 0">Interesados : <b>{{  item.interesados }}</b></p>
+          <p *ngIf="item.interesados <= 0">Aun no hay personas interesadas</p>
+          <p>Precio Actual : <b>{{item.precioActual | currency}}</b></p>
+          <ion-button (click)="showDetail(item)" fill="outline" shape="round" color="dark">
+            Ver Detalles
+          </ion-button>
+          <!-- <ion-button (click)="onClick()" fill="outline" shape="round" color="dark">
+            Confirmar
+          </ion-button> -->
+        </ion-label>
+      </div>
+  
+    </ion-item>
+    <ion-item-options side="end">
+      <ion-item-option color="danger" expandable>
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+        {{item.diasPorConfirmar <= 0 ? 'Archivar' : 'Eliminar'}}
+      </ion-item-option>
+    </ion-item-options>
+    <ion-item-options side="start" *ngIf="value.fechaProgramada !== 'Anteriores'">
+      <ion-item-option color="success" expandable >
+        <ion-icon slot="icon-only" name="checkmark-outline"></ion-icon>
+        {{item.confirmado ? 'Cerrar Pedidos' : 'Confirmar'}}
+      </ion-item-option>
+      
+    </ion-item-options>
+  </ion-item-sliding>
+  </ion-list>
+</div>
+
+
+<ion-list *ngIf="!loaded">
+  <ion-list-header>
+    <ion-skeleton-text [animated]="true" style="width: 80px"></ion-skeleton-text>
+  </ion-list-header>
+
+  <ion-item lines="none" *ngFor="let value of [1,2]">
+    <div class="unread-indicator-wrapper" slot="end">
+      <ion-skeleton-text [animated]="true" style="width: 100%; height: 100%;"></ion-skeleton-text>
+    </div>
+    <ion-thumbnail slot="start">
+      <ion-skeleton-text [animated]="true" style="width: 100%;"></ion-skeleton-text>
+    </ion-thumbnail>
+    <div class="cont">
+      <ion-label>
+        <h2><b><ion-skeleton-text [animated]="true" style="width: 65%;"></ion-skeleton-text></b></h2>
+        <p><ion-skeleton-text [animated]="true" style="width: 50%;"></ion-skeleton-text></p>
+        <p><ion-skeleton-text [animated]="true" style="width: 40%;"></ion-skeleton-text></p>
+        <p><ion-skeleton-text [animated]="true" style="width: 40%;"></ion-skeleton-text></p>
+
+        <ion-note>
+          <ion-skeleton-text [animated]="true"
+            style="width: 60%; height: 25px; border-radius: 10px;"></ion-skeleton-text>
+
+        </ion-note>
+      </ion-label>
+    </div>
+
+  </ion-item>
+  
+  <!--  -->
+  <!-- <ion-item>
+      <ion-thumbnail slot="start">
+        <ion-skeleton-text [animated]="true"></ion-skeleton-text>
+      </ion-thumbnail>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text [animated]="true" style="width: 80%;"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text [animated]="true" style="width: 60%;"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text [animated]="true" style="width: 30%;"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list> -->
+  <!-- <ng-container *ngIf="loaded; else skeletonTemplate">
+    <ng-container *ngTemplateOutlet="contentTemplate; context: { $implicit: data }"></ng-container>
+  </ng-container>
+
+  <ng-template #skeletonTemplate>
+    <ng-container *ngTemplateOutlet="skeletonTemplateRef; context: { $implicit: skeletonData }"></ng-container>
+  </ng-template>
+
+  <ng-template #skeletonTemplateRef let-skeletonData="data">
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <ion-skeleton-text [animated]="true" style="width: 40px; height: 40px;"></ion-skeleton-text>
+      </ion-thumbnail>
+      <ion-label>
+        <h3><ion-skeleton-text [animated]="true" style="width: 80%;"></ion-skeleton-text></h3>
+        <p><ion-skeleton-text [animated]="true" style="width: 60%;"></ion-skeleton-text></p>
+        <p><ion-skeleton-text [animated]="true" style="width: 30%;"></ion-skeleton-text></p>
+      </ion-label>
+    </ion-item>
+  </ng-template> -->

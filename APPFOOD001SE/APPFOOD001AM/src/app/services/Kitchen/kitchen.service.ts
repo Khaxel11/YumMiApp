@@ -15,13 +15,15 @@ export class KitchenService {
     const url = URL + 'getNotification';
     const params = new HttpParams()
     .append('IdCuenta', String(IdCuenta))
-    return this.http.get(url, { params }).toPromise();
+    const headers = new HttpHeaders().set('ngrok-skip-browser-warning', '51197');
+    return this.http.get(url, { params, headers }).toPromise();
   }
 
   getSliderMenu() : Promise<any>{
     const url = URL + 'getSliderMenu';
     const params = new HttpParams()
-    return this.http.get(url,).toPromise();
+    const headers = new HttpHeaders().set('ngrok-skip-browser-warning', '51197');
+    return this.http.get(url, { params, headers }).toPromise();
   }
 
 
@@ -32,15 +34,16 @@ export class KitchenService {
     .append('UserName', String(Username))
     .append('Password', String(Password))
     .append('IdCuenta', String(IdCuenta))
-    return this.http.get(url, { params }).toPromise();
+    const headers = new HttpHeaders().set('ngrok-skip-browser-warning', '51197');
+    return this.http.get(url, { params, headers }).toPromise();
   }
 
   validateUsername(username : string) : Promise<any>{
     const url = URL + 'validateUsername';
     const params = new HttpParams()
     .append('UserName', username)
-
-    return this.http.get(url, { params }).toPromise();
+    const headers = new HttpHeaders().set('ngrok-skip-browser-warning', '51197');
+    return this.http.get(url, { params, headers }).toPromise();
   }
   getUbication(Opcion : number, Id  : number = 0) : Promise<any>{
     Opcion = Opcion === 1 ? 6 : Opcion === 2 ? 7 : 8;
@@ -49,7 +52,8 @@ export class KitchenService {
     const params = new HttpParams()
     .append('Opcion', String(Opcion))
     .append('Id', String(Id))
-    return this.http.get(url, {params}).toPromise();
+    const headers = new HttpHeaders().set('ngrok-skip-browser-warning', '51197');
+    return this.http.get(url, {params, headers}).toPromise();
   }
 
   getInfo(Opcion : number, Filtro  : string = "") : Promise<any>{
@@ -57,13 +61,15 @@ export class KitchenService {
     const params = new HttpParams()
     .append('Opcion', String(Opcion))
     .append('Filtro', String(Filtro))
-    return this.http.get(url, {params}).toPromise();
+    const headers = new HttpHeaders().set('ngrok-skip-browser-warning', '51197');
+    return this.http.get(url, {params, headers}).toPromise();
   }
   getCards() : Promise<any>{
     const url = URL + 'getCards';
     const params = new HttpParams()
     .append('IdCuenta', String(localStorage.getItem('idCuenta')))
-    return this.http.get(url, {params}).toPromise();
+    const headers = new HttpHeaders().set('ngrok-skip-browser-warning', '51197');
+    return this.http.get(url, {params, headers}).toPromise();
   }
   registerNewUser(UserData : any) : Promise<any>{
     const url = URL + 'registerNewUser';
@@ -71,22 +77,25 @@ export class KitchenService {
       .append('UserName', UserData.userName)
       .append('Password', UserData.password)
       .append('Email', UserData.email)
-    return this.http.post(url,true,{params}).toPromise();
+    const headers = new HttpHeaders().set('ngrok-skip-browser-warning', '51197');
+    return this.http.post(url,true,{params, headers}).toPromise();
   }
   addNewUser(UserData : UserData) : Promise<any>{
     const url = URL + 'insertKitchenUser';
-   
-    return this.http.post(url,UserData).toPromise();
+    const headers = new HttpHeaders().set('ngrok-skip-browser-warning', '51197');
+    return this.http.post(url,UserData, { headers }).toPromise();
   }
   checkApiConnection(): Promise<any> {
     const url = URL + 'checkConnection'; 
-    return this.http.get(url).toPromise();
+    const headers = new HttpHeaders().set('ngrok-skip-browser-warning', '51197');
+    return this.http.get(url, { headers }).toPromise();
   }
   saveCard(Opcion : number, card : any) : Promise<any>{
     const url = URL + 'saveCard';
     const params = new HttpParams()
       .append('Opcion', String(Opcion))
       .append('IdCuenta', String(localStorage.getItem('idCuenta')))
-    return this.http.post(url,card, { params }).toPromise();
+    const headers = new HttpHeaders().set('ngrok-skip-browser-warning', '51197');
+    return this.http.post(url,card, { params, headers }).toPromise();
   }
 }

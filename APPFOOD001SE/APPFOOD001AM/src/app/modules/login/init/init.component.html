@@ -1,24 +1,38 @@
 
-<!-- <ion-toolbar> -->
-    <!-- <div class="curved-header" > -->
-        <!-- <ion-title style="color:black">
-            Food Delivery App
-        </ion-title> -->
-    <!-- </div> -->
-    
-<!-- </ion-toolbar> -->
-
-
-<!-- <ion-fab vertical="top" horizontal="top" slot="fixed"  style="width: 100px; height: 100px;  border-radius: 50%;">
-    <ion-fab-button color="#fffff" class="my-custom-fab-button" style="width: 100%; height: 100%;">
-      <img [src]="img_User" alt="User Image" s>
-    </ion-fab-button>
-  </ion-fab>
-   -->
 
 <ion-content [fullscreen]="true" class="ion-padding" scrollbar="true">
-    
-    <ion-grid style="margin-top: 10%;">
+    <div class="header-login">
+        <img [src]="img_User" alt="User Image" class="">
+    </div>
+    <div class="login-content">
+        <h1 class="ion-text-center ion-margin-bottom"><strong>Inicia Sesión</strong></h1>
+        <div class="login-item ion-margin-top">
+            <ion-item lines="none">
+                <ion-label position="floating">Usuario</ion-label>
+                <ion-input required #usernameInput class="custom-input" [(ngModel)]="userName"></ion-input>
+            </ion-item>
+        </div>
+        <div class="login-item">
+            <ion-item lines="none">
+                <ion-label position="floating">Contraseña</ion-label>
+                <ion-input type="password" [(ngModel)]="password" (input)="onInputChange($event)" (keyup.enter)="clickToLogin()"></ion-input>
+            </ion-item>
+            <ion-note class="ion-margin-start" *ngIf="uppActivaded">* Mayúsculas Activadas</ion-note>
+        </div>
+        <div class="login-item" style="display: flex; justify-content: space-between; align-items: center;">
+            <ion-checkbox size="small" [(ngModel)]="stayConected" labelPlacement="end"></ion-checkbox>
+            <small class="forgotPass">Permanecer Conectado</small>
+            <small class="forgotPass">Olvidé mi contraseña</small>
+        </div>
+        <div class="login-item" style="display: flex; justify-content: center;">
+            <!-- [disabled]="!userName || !password" -->
+            <ion-button class="btn" shape="round" (click)="clickToLogin()" >Iniciar Sesión</ion-button>
+        </div>
+        <div class="login-item" style="display: flex; justify-content: center;">
+            <small class="forgotPass" routerLink="/register" routerLinkActive="active">¿No tienes una cuenta? ¡Regístrate Ahora!</small>
+        </div>
+    </div>
+    <!-- <ion-grid style="margin-top: 10%;">
      <ion-row class="ion-align-items-center ion-justify-content-center ">
         <ion-col size="12" class="ion-text-center">
             <button class="my-custom-button" class="ion-margin-top my-custom-image" style="width: 100px; height: 100px;  border-radius: 50%;">
@@ -26,14 +40,6 @@
               </button>
         </ion-col>
      </ion-row>   
-     <!-- <ion-row class="ion-align-items-center ion-justify-content-center ion-margin-top">
-        <ion-col size="12">
-          <button class="my-custom-button" style="width: 100px; height: 100px;  border-radius: 50%;">
-            <img [src]="img_User" alt="User Image" class="my-custom-image" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
-          </button>
-        </ion-col>
-      </ion-row> -->
-      
     <ion-row class="ion-align-items-center ion-justify-content-center ion-margin-top" >
         <ion-col size="10">
             <ion-row>
@@ -112,5 +118,5 @@
                 </ion-card>
             </ion-col>
         </ion-row>
-    </ion-grid>
+    </ion-grid> -->
 </ion-content>

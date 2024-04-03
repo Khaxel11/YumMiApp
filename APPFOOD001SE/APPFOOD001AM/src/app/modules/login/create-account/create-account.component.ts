@@ -5,7 +5,7 @@ import { LoadingController } from '@ionic/angular';
 import { UserData, ValidateUser } from 'src/app/models/user';
 import { General } from 'src/app/functions/general';
 import { Router } from '@angular/router';
-import { isNumber } from '@ng-bootstrap/ng-bootstrap/util/util';
+//import { isNumber } from '@ng-bootstrap/ng-bootstrap/util/util';
 @Component({
   selector: 'app-create-account',
   templateUrl: './create-account.component.html',

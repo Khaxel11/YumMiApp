@@ -1,0 +1,47 @@
+<ion-header collapse="fade">
+    
+    <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button class="btnReturn" (click)="goBack()">
+            <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+          </ion-button>
+          </ion-buttons>
+        <ion-title>FoodHub</ion-title>
+        <ion-buttons slot="end" >
+            <ion-button (click)="onContinueFinish()">
+                Continuar
+            </ion-button>            
+            
+          </ion-buttons>
+
+    </ion-toolbar>
+
+
+  </ion-header>
+  <ion-content>
+ 
+    <div class="contenedor-search">
+      <ion-searchbar [debounce]="100" [(ngModel)]="filtro" (ionChange)="handleChange($event)" placeholder="Buscar"></ion-searchbar>
+    
+      <!-- <ion-list *ngIf="results.length > 0 && filtro !== ''">
+        <ion-item  *ngFor="let result of results" (click)="selectFilteredHub(result)">
+          <ion-label>{{ result.nombreHub }}</ion-label>
+        </ion-item>
+      </ion-list> -->
+    </div>     
+  <ion-radio-group [(ngModel)]="selectedIdFoodHub"> 
+    <ion-list >
+      <ion-item *ngFor="let value of lstFoodHub" >
+        <ion-thumbnail>
+          <img [src]="imagenBase64(value.foto)" />
+        </ion-thumbnail>
+        <div class="itemFood">
+          <small class="ion-margin-start">{{value.municipio}}, {{value.nombreEstado}}</small>
+          <ion-label class="ion-margin-start"><b>{{value.nombreHub}}</b></ion-label>
+        </div>
+        
+            <ion-radio slot="end" [value]="value.idFoodHub" ></ion-radio>  
+      </ion-item>
+    </ion-list>
+  </ion-radio-group>
+  </ion-content>
