@@ -49,5 +49,17 @@ namespace APPFOODAPI001.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Error, {ex.Message}");
             }
         }
+        [HttpPost("confirmFecha")]
+        public async Task<IActionResult> confirmFecha(int IdFechaProgramada, int IdProgramacion)
+        {
+            try
+            {
+                return Ok(await new ProgramationBusiness().confirmFecha(conection, IdFechaProgramada, IdProgramacion));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Error, {ex.Message}");
+            }
+        }
     }
 }

@@ -36,5 +36,16 @@ namespace Business
                 throw new ArgumentException(ex.Message);
             }
         }
+        public async Task<Result> confirmFecha(UserJwt DatosToken, int IdFechaProgramada, int IdProgramacion)
+        {
+            try
+            {
+                return await new ProgramationData().confirmFecha(DatosToken, IdFechaProgramada, IdProgramacion);
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+        }
     }
 }

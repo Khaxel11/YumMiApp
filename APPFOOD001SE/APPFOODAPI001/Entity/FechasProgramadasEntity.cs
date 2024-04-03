@@ -44,5 +44,6 @@ namespace Entity
         public string NumeroFoodHub { get; set; }
         public decimal Calificacion { get; set; }
         public int IdCuenta { get; set; }
+        public int DiasPorConfirmar { get; set; }
     }
 }
