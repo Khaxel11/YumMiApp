@@ -55,6 +55,14 @@ export class KitchenService {
     const headers = new HttpHeaders().set('ngrok-skip-browser-warning', '51197');
     return this.http.get(url, {params, headers}).toPromise();
   }
+  getMyUbication(Latitud : string, Longitud : string) : Promise<any>{
+    const url = URL + 'getMyUbication';
+    const params = new HttpParams()
+    .append('Latitud', String(Latitud))
+    .append('Longitud', String(Longitud))
+    const headers = new HttpHeaders().set('ngrok-skip-browser-warning', '51197');
+    return this.http.get(url, {params, headers}).toPromise();
+  }
 
   getInfo(Opcion : number, Filtro  : string = "") : Promise<any>{
     const url = URL + 'getInfo';

@@ -2,13 +2,14 @@ import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular
 import { LogUser } from 'src/app/models/LogUser';
 import { EstablishService } from 'src/app/services/App/establish.service';
 import { KitchenService } from 'src/app/services/Kitchen/kitchen.service';
-import { UserJwt } from 'src/app/models/UserJwt';
+import { UserJwt, MyUbication } from 'src/app/models/UserJwt';
 import { General, MESSAGE } from 'src/app/functions/general';
 import { LoadingController, ModalController, NavController, Platform } from '@ionic/angular';
 import { promise } from 'protractor';
 import { MenuStartComponent } from 'src/app/shared/utils/menu-start/menu-start.component';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NotificationComponent } from '../notification/notification.component';
+import { error } from 'console';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -23,6 +24,7 @@ export class MainComponent implements OnInit {
 
   MESSAGE = new MESSAGE;
   UserJwt = new UserJwt();
+  MyUbication = new MyUbication();
   General = new General();
   LogUser = new LogUser();
   loading : any;
@@ -68,15 +70,40 @@ export class MainComponent implements OnInit {
   }
   
   obtenerUbicacion() {
-    this.geolocation.getCurrentPosition().then((resp) => {
+    this.geolocation.getCurrentPosition().then(async (resp) => {
       // resp.coords.latitude
       // resp.coords.longitude
       console.log('Ubicación actual:', resp.coords.latitude, resp.coords.longitude);
+      const lat = String(resp.coords.latitude ?? 0)
+      const long = String(resp.coords.longitude ?? 0) 
+      sessionStorage.setItem('latitude', lat);
+      sessionStorage.setItem('longitude', long);
+      await this.getMyUbication(lat, long);
     }).catch((error) => {
       console.error('Error al obtener la ubicación', error);
     });
     
   }
+  async getMyUbication(lat, long){
+    let data = await this.KitchenService.getMyUbication(lat, long);
+    if(!data){
+      this.General.showMessage("No se ha podido obtener la ubicación actual, asegurese de estar conectado a internet y de tener activado los servicios de geolocalización", "danger");
+      
+      this.navcontrol.navigateForward("/");
+      this.isHeaderHidden = true;
+      return;
+    }
+    if(data.data){
+      this.isHeaderHidden = false;
+      this.MyUbication = data.data[0];
+      sessionStorage.setItem("IdEstado", String(this.MyUbication.IdEstado));
+      sessionStorage.setItem("Ubicacion", this.MyUbication.Ubicacion);
+      sessionStorage.setItem("IdMunicipio", String(this.MyUbication.IdMunicipio));
+      
+    }
+  }
+  
+
 
 
 

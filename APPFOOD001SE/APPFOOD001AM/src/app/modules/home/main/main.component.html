@@ -1,6 +1,17 @@
 
 <ion-content id="main-menu" >
-  
+  <div class="ubication-container">
+    <div class="ubication">
+      <ion-icon name="location" color="danger"></ion-icon>
+      {{MyUbication.Ubicacion}}
+    </div>
+  </div>
+    <div class="empty-container" *ngIf="isHeaderHidden">
+      <div class="empty-container" >
+        <ion-img class="img-empty" src="../../../../../assets/Images/sad-svgrepo-com.svg"></ion-img>
+        <label>Ocurrio un error</label>
+      </div>
+    </div>
   <!-- <ion-header [class.hide-header]="isHeaderHidden"  translucent="true"> -->
     <ion-toolbar class="toolHeader" id="main-content">
       <ion-buttons slot="start" style="position: fixed;">
@@ -11,11 +22,16 @@
       <ion-title class="ion-text-center tittleMaster">
         <ion-icon class="ion-align-items-center ion-justify-content-center iconHouse"
           name="storefront-outline"></ion-icon>
+          
         <strong class="nameEstablecimiento">
   
           {{LogUser.nombreEstablecimiento}}
         </strong>
+        
       </ion-title>
+      <!-- <ion-title> -->
+        
+      <!-- </ion-title> -->
       <ion-buttons slot="end" style="position: relative;">
         <ion-button class="buttonImgNotif" (click)="openMdlNotificacion()">
           <ion-icon name="notifications-outline"></ion-icon>

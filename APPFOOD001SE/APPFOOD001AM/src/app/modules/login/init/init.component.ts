@@ -84,11 +84,11 @@ export class InitComponent implements OnInit {
             localStorage.setItem("username", data.data.userName);
             localStorage.setItem("idCuenta", data.data.idCuenta);
             localStorage.setItem("picture", this.img_User);
-            localStorage.setItem("idEstado", '26');
+            
           }else{
             localStorage.clear();
             localStorage.setItem("idCuenta", data.data.idCuenta);
-            localStorage.setItem("idEstado", '26');
+            
           }
           
           this.Router.navigateByUrl('/home');

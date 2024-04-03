@@ -47,7 +47,8 @@ export class FoodhubsComponent implements OnInit {
     await this.loading.present();
     try {
       const idCuenta = localStorage.getItem("idCuenta")
-      let data = await this.service.getFoodHubs(26,'',Number(idCuenta) );
+      const idEstado = sessionStorage.getItem("IdEstado");
+      let data = await this.service.getFoodHubs(Number(idEstado),'',Number(idCuenta) );
       if(!data){
         this.General.showMessage("Revise su conexión a internet e intentelo de nuevo", "danger");
         return;

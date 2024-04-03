@@ -44,6 +44,17 @@ namespace Business
                 throw new ArgumentException(ex.Message);
             }
         }
+        public async Task<Result> getMyUbication(UserJwt DatosToken, decimal Latitud, decimal Longitud)
+        {
+            try
+            {
+                return await new KitchenData().getMyUbication(DatosToken, Latitud, Longitud);
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+        }
         public async Task<Result> getInfo(UserJwt DatosToken, int Opcion, string Filtro)
         {
             try

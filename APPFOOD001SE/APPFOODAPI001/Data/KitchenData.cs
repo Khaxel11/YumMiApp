@@ -71,6 +71,32 @@ namespace Data
                 throw new ArgumentException(ex.Message);
             }
         }
+        public async Task<Result> getMyUbication(UserJwt DatosToken, decimal Latitud, decimal Longitud)
+        {
+            Result objResult = new Result();
+            try
+            {
+
+                using (var con = new SqlConnection(DatosToken.Conection))
+                {
+                    var result = await con.QueryMultipleAsync(
+                        SP_CONSULTAS_REGISTRO,
+                        new
+                        {
+                            Opcion = 10,
+                            Latitud = Latitud,
+                            Longitud = Longitud
+                        },
+                    commandType: CommandType.StoredProcedure);
+                    objResult.data = await result.ReadAsync<Object>();
+                }
+                return objResult;
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+        }
         //OBTENER CUALQUIER TIPO DE DATO
         //10 = OBTENER BANCOS
         public async Task<Result> getInfo(UserJwt DatosToken, int Opcion, string Filtro)

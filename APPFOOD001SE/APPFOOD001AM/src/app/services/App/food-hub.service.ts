@@ -14,7 +14,7 @@ export class FoodHubService {
   getFoodHubs(IdEstado : number, Filtro : string, IdCuenta : number) : Promise<any>{
     const url = URL + 'getFoodHubs';
     const params = new HttpParams()
-    .append('IdEstado', String(IdEstado))
+    .append('IdEstado', sessionStorage.getItem("IdEstado"))
     .append('Filtro', String(Filtro))
     .append('IdCuenta', String(IdCuenta))
     const headers = new HttpHeaders().set('ngrok-skip-browser-warning', '51197');
@@ -23,7 +23,7 @@ export class FoodHubService {
   getMyFoodHubs() : Promise<any>{
     const url = URL + 'getFoodHubs';
     const params = new HttpParams()
-    .append('IdEstado', String('26'))//localStorage.getItem("idEstado")
+    .append('IdEstado', sessionStorage.getItem("IdEstado"))//localStorage.getItem("idEstado")
     .append('IdCuenta', String(localStorage.getItem("idCuenta")))
     const headers = new HttpHeaders().set('ngrok-skip-browser-warning', '51197');
     return this.http.get(url, { params, headers }).toPromise();

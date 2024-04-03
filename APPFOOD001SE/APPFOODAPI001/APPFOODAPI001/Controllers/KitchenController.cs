@@ -48,7 +48,18 @@ namespace APPFOODAPI001.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Error, {ex.Message}");
             }
         }
-
+        [HttpGet("getMyUbication")]
+        public async Task<IActionResult> getMyUbication(int Opcion, decimal Latitud, decimal Longitud)
+        {
+            try
+            {
+                return Ok(await new KitchenBusiness().getMyUbication(conection, Latitud, Longitud));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Error, {ex.Message}");
+            }
+        }
         [HttpGet("getInfo")]
         public async Task<IActionResult> getInfo(int Opcion, string Filtro)
         {
