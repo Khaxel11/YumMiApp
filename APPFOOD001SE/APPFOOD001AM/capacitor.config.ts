@@ -1,9 +1,9 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.ciipdetec.FoodDeliveryApp',
-  appName: 'food-delivery-app',
-  webDir: 'dist/food-delivery-app',
+  appId: 'com.yummipart.app',
+  appName: 'yummi-partner',
+  webDir: 'dist/Yummi-Partner',
   server: {
     androidScheme: 'https'
   }

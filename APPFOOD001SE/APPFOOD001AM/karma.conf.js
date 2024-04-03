@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/food-delivery-app'),
+      dir: require('path').join(__dirname, './coverage/Yummi-Partner'),
       subdir: '.',
       reporters: [
         { type: 'html' },
