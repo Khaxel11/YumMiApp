@@ -92,5 +92,17 @@ namespace Business
                 throw new ArgumentException(ex.Message);
             }
         }
+        public async Task<Result> getProducts(UserJwt DatosToken, int IdCuenta)
+        {
+            try
+            {
+                return await new ProductsData().getProducts(DatosToken, IdCuenta);
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+        }
+
     }
 }

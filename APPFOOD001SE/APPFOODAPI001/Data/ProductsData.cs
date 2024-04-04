@@ -275,5 +275,31 @@ namespace Data
                 throw new ArgumentException(ex.Message);
             }
         }
+        public async Task<Result> getProducts(UserJwt DatosToken, int IdCuenta)
+        {
+            Result objResult = new Result();
+            try
+            {
+
+                using (var con = new SqlConnection(DatosToken.Conection))
+                {
+                    var result = await con.QueryMultipleAsync(
+                        SP_CONSULTAS_PRODUCTOS,
+                        new
+                        {
+                            Opcion = 3,
+                            IdCuenta = IdCuenta
+
+                        },
+                    commandType: CommandType.StoredProcedure);
+                    objResult.data = await result.ReadAsync<ProductEntity>();
+                }
+                return objResult;
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+        }
     }
 }

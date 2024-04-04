@@ -19,7 +19,7 @@ namespace Data
         private const string SP_CONSULTAS_PROGRAMACION = "APPFPROG001APSPC2";
         private const string SP_ACCIONES_FECHASPROG = "APPFPROG001APSPC3";
         public async Task<Result> getFechasProgramadas(UserJwt DatosToken, int TipoFiltro,
-    string Fecha, int idFoodHub, int idEstado, int IdCuenta, int IdProducto,
+    string Fecha, int idFoodHub, int idLugar, int IdCuenta, int IdProducto,
     int IdCategoria, int IdTipoAlimentacion)
         {
             Result objResult = new Result();
@@ -37,7 +37,13 @@ namespace Data
                         {
                             Opcion = 1,
                             IdCuenta = IdCuenta,
-                            Fecha = fechaFormateada
+                            Fecha = fechaFormateada,
+                            Clasificacion = TipoFiltro == 0 ? null : TipoFiltro.ToString(),
+                            IdFoodHub = idFoodHub == 0 ? null : idFoodHub.ToString(),
+                            IdLugar = idLugar == 0 ? null : idLugar.ToString(),
+                            IdProducto = IdProducto == 0 ? null : IdProducto.ToString(),
+                            IdCategoria = IdCategoria == 0 ? null : IdCategoria.ToString(),  
+                            IdTipoAlimentacion = IdTipoAlimentacion == 0 ? null : IdTipoAlimentacion.ToString(),
                         },
                         commandType: CommandType.StoredProcedure);
 

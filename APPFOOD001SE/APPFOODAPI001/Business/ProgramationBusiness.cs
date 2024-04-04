@@ -23,12 +23,12 @@ namespace Business
             }
         }
         public async Task<Result> getFechasProgramadas(UserJwt DatosToken, int TipoFiltro,
-            string Fecha, int idFoodHub, int idEstado, int IdCuenta, int IdProducto,
+            string Fecha, int idFoodHub, int idLugar, int IdCuenta, int IdProducto,
             int IdCategoria, int IdTipoAlimentacion)
         {
             try
             {
-                return await new ProgramationData().getFechasProgramadas(DatosToken, TipoFiltro, Fecha, idFoodHub, idEstado,
+                return await new ProgramationData().getFechasProgramadas(DatosToken, TipoFiltro, Fecha, idFoodHub, idLugar,
                     IdCuenta, IdProducto, IdCategoria, IdTipoAlimentacion);
             }
             catch (Exception ex)

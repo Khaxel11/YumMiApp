@@ -36,12 +36,12 @@ namespace APPFOODAPI001.Controllers
         }
         [HttpGet("getFechasProgramadas")]
         public async Task<IActionResult> getFechasProgramadas(int TipoFiltro,
-            string Fecha, int idFoodHub, int idEstado, int IdCuenta, int IdProducto,
+            string Fecha, int idFoodHub, int idLugar, int IdCuenta, int IdProducto,
             int IdCategoria, int IdTipoAlimentacion)
         {
             try
             {
-                return Ok(await new ProgramationBusiness().getFechasProgramadas(conection, TipoFiltro, Fecha, idFoodHub, idEstado,
+                return Ok(await new ProgramationBusiness().getFechasProgramadas(conection, TipoFiltro, Fecha, idFoodHub, idLugar,
                     IdCuenta, IdProducto, IdCategoria, IdTipoAlimentacion));
             }
             catch (Exception ex)
