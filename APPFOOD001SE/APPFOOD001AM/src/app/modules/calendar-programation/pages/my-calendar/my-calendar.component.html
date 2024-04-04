@@ -34,6 +34,13 @@
         </ion-button>
       </div>
       <div class="chip-container">
+        <ion-chip color="dark" *ngIf="filterValueSelected(0) && filtrosAplicables.Clasificacion && filtrosAplicables.itemClasificacion" >
+          <ion-avatar>
+            <img [src]="imagenBase64(filtrosAplicables.itemClasificacion.Foto)" />
+          </ion-avatar>
+          <ion-label>{{filtrosAplicables.itemClasificacion.NombreTipo}}</ion-label>
+          <ion-icon name="close-circle" (click)="removeClasificacion()"></ion-icon>
+        </ion-chip>
         <ion-chip color="dark" *ngIf="filterValueSelected(1) && filtrosAplicables.FoodHub && filtrosAplicables.itemFoodHub" >
           <ion-avatar>
             <img [src]="imagenBase64(filtrosAplicables.itemFoodHub.foto)" />
@@ -45,6 +52,25 @@
           <ion-icon name="location" color="danger"></ion-icon>
           <ion-label>{{filtrosAplicables.stringEstado}}</ion-label>
           <ion-icon name="close-circle" (click)="removeEstado()"></ion-icon>
+        </ion-chip>
+        <ion-chip color="dark" *ngIf="filterValueSelected(3) && filtrosAplicables.Producto && filtrosAplicables.itemProducto" >
+          <ion-avatar>
+            <img [src]="imagenBase64(filtrosAplicables.itemProducto.picture)" />
+          </ion-avatar>
+          <ion-label>{{filtrosAplicables.itemProducto.nombreProducto}}</ion-label>
+          <ion-icon name="close-circle" (click)="removeProducto()"></ion-icon>
+        </ion-chip>
+        <ion-chip color="dark" *ngIf="filterValueSelected(4) && filtrosAplicables.Categoria && filtrosAplicables.itemCategoria" >
+          <ion-avatar>
+            <img [src]="imagenBase64(filtrosAplicables.itemCategoria.Foto)" />
+          </ion-avatar>
+          <ion-label>{{filtrosAplicables.itemCategoria.Categoria}}</ion-label>
+          <ion-icon name="close-circle" (click)="removeCategoria()"></ion-icon>
+        </ion-chip>
+        <ion-chip color="dark" *ngIf="filterValueSelected(5) && filtrosAplicables.TipoAlimentacion && filtrosAplicables.itemTipoAlimentacion" >
+            <ion-icon name="fast-food-outline"></ion-icon>
+          <ion-label>{{filtrosAplicables.itemTipoAlimentacion.TipoAlimentacion}}</ion-label>
+          <ion-icon name="close-circle" (click)="removeTipoAlimentacion()"></ion-icon>
         </ion-chip>
       </div>
       <div>
@@ -99,23 +125,116 @@
               </ion-list>
             </div>
             <div class="buttons-container">
-              <ion-button class="ion-margin-top" (click)="closeMdlEstado()" fill="outline" shape="round" color dark>
+              <ion-button class="ion-margin-top" (click)="closeMdlEstado()" fill="outline" shape="round" color="dark">
                 Cancelar
               </ion-button>
-              <ion-button class="ion-margin-top" (click)="aceptarEstado()" fill="outline" shape="round" color dark>
+              <ion-button class="ion-margin-top" (click)="aceptarEstado()" fill="outline" shape="round" color="dark">
                 Aceptar
               </ion-button>
             </div>
           </div>
       </ng-template>
       </div>
-      <div *ngIf="filterValueSelected(3)">Producto</div>
-      <div *ngIf="filterValueSelected(4)">Categoria</div>
-      <div *ngIf="filterValueSelected(5)">Tipo Alimentacion</div>
+      <div>
+        <!-- FILTROS DE PRODUCTOS -->
+        <ng-template #templateProductos let-item >
+          <div>
+            <ion-searchbar [debounce]="100" [(ngModel)]="filtro" (ionChange)="handleChangeProducto($event)" placeholder="Buscar"></ion-searchbar>
+            <div class="list">
+              <ion-radio-group [(ngModel)]="filtrosAplicables.valueProducto"> 
+                <ion-list >
+                  <ion-item *ngFor="let product of lstProductos" >
+                    <ion-thumbnail slot="start">
+                      <ion-img [src]="imagenBase64(product.picture)"></ion-img>
+                    </ion-thumbnail>
+                    <ion-label>
+                      <h2>{{product.nombreProducto}}</h2>
+                    </ion-label>
+                    <ion-radio slot="end" [value]="product.idProducto" (click)="selectProduct(product)" ></ion-radio>
+                  </ion-item>
+                </ion-list>
+              </ion-radio-group>
+              
+            </div>
+          </div>
+      </ng-template>
+      </div>
+      <div >
+        <!-- Filtros de CATEGORIAS -->
+        <ng-template #templateCategorias let-item >
+          <div>
+            <ion-searchbar [debounce]="100" [(ngModel)]="filtro" (ionChange)="handleChangeCategorias($event)" placeholder="Buscar"></ion-searchbar>
+            <div class="list">
+              <ion-radio-group [(ngModel)]="filtrosAplicables.valueCategoria"> 
+                <ion-list >
+                  <ion-item *ngFor="let value of lstCategorias" >
+                    <ion-thumbnail slot="start">
+                      <ion-img [src]="imagenBase64(value.Foto)"></ion-img>
+                    </ion-thumbnail>
+                    <ion-label>
+                      <h2>{{value.Categoria}}</h2>
+                    </ion-label>
+                    <ion-radio slot="end" [value]="value.IdCategoria" (click)="selectTipoComida(value)" ></ion-radio>
+                  </ion-item>
+                </ion-list>
+              </ion-radio-group>
+              
+            </div>
+          </div>
+      </ng-template>
+      </div>
+      <div >
+        <!-- Tipo Alimentacion -->
+        <ng-template #templateTipoAlimentacion let-item >
+          <div>
+            <ion-searchbar [debounce]="100" [(ngModel)]="filtro" (ionChange)="handleChangeTipoAlimentacion($event)" placeholder="Buscar"></ion-searchbar>
+            <div class="list">
+              <ion-radio-group [(ngModel)]="filtrosAplicables.valueTipoAlimentacion"> 
+                <ion-list >
+                  <ion-item *ngFor="let value of lstTipoAlimentacion" >
+                    <!-- <ion-thumbnail slot="start">
+                      <ion-img [src]="imagenBase64(value.Foto)"></ion-img>
+                    </ion-thumbnail> -->
+                    <ion-label>
+                      <h2>{{value.TipoAlimentacion}}</h2>
+                    </ion-label>
+                    <ion-radio slot="end" [value]="value.IdTipoAlimentacion" (click)="selectTipoComida(value)" ></ion-radio>
+                  </ion-item>
+                </ion-list>
+              </ion-radio-group>
+              
+            </div>
+          </div>
+      </ng-template>
+      </div>
+      <div>
+        <!-- Clasificacion -->
+        <ng-template #templateClasificacion let-item >
+          <div>
+            <ion-searchbar [debounce]="100" [(ngModel)]="filtro" (ionChange)="handleChangeClasificacion($event)" placeholder="Buscar"></ion-searchbar>
+            <div class="list">
+              <ion-radio-group [(ngModel)]="filtrosAplicables.valueClasificacion"> 
+                <ion-list >
+                  <ion-item *ngFor="let value of lstClasificacion" >
+                    <ion-thumbnail slot="start">
+                      <ion-img [src]="imagenBase64(value.Foto)"></ion-img>
+                    </ion-thumbnail>
+                    <ion-label>
+                      <h2>{{value.NombreTipo}}</h2>
+                    </ion-label>
+                    <ion-radio slot="end" [value]="value.IdTipo" (click)="selectTipoComida(value)" ></ion-radio>
+                  </ion-item>
+                </ion-list>
+              </ion-radio-group>
+              
+            </div>
+          </div>
+      </ng-template>
+      </div>
     </div>
     <div class="empty-container" *ngIf="lstFechas.length <= 0 && loaded">
       <ion-img class="img-empty" src="../../../../../assets/Images/sad-svgrepo-com.svg"></ion-img>
-      <label>No tienen ninguna fecha programada para este mes. ¡Programa una desde tus productos! o haz <a href="/products/catalog">click aqui</a></label>
+      <label>No se encontraron fechas programadas en este mes. ¡Programa una desde tus productos! o haz <a href="/products/catalog">click aqui</a></label>
     </div>
     <thumbs-skelly *ngIf="lstFechas.length > 0 || !loaded" [data]="lstFechas" [loaded]="loaded" (showDetails)="selectedDate($event)"
       (slicedStart)="confirmDate($event)" (slicedEnd)="deleteArchiveDate($event)"></thumbs-skelly>

@@ -21,17 +21,17 @@ export class ProgramationService {
     return this.http.post(url, programation ,{ params, headers }).toPromise();
   }
 
-  getFechasProgramadas(fecha : string) : Promise<any>{
+  getFechasProgramadas(fecha : string, filtros : any) : Promise<any>{
     const url = URL + 'getFechasProgramadas';
     const params = new HttpParams()
-    .append('TipoFiltro', "0" )
     .append('Fecha',fecha)
-    .append('idFoodHub', "0")
-    .append('idEstado', "0")
+    .append('TipoFiltro', String(filtros.valueClasificacion))
+    .append('idFoodHub', String(filtros.valueFoodHub))
+    .append('idLugar', String(filtros.itemEstado))
     .append('IdCuenta', localStorage.getItem("idCuenta"))
-    .append('IdProducto', "0")
-    .append('IdCategoria', "0")
-    .append('IdTipoAlimentacion',"0")
+    .append('IdProducto', String(filtros.valueProducto))
+    .append('IdCategoria', String(filtros.valueCategoria))
+    .append('IdTipoAlimentacion',String(filtros.valueTipoAlimentacion))
    
     const headers = new HttpHeaders().set('ngrok-skip-browser-warning', '51197');
     return this.http.get(url, { params, headers }).toPromise();

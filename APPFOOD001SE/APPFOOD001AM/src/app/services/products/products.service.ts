@@ -33,7 +33,13 @@ export class ProductsService {
     const headers = new HttpHeaders().set('ngrok-skip-browser-warning', '51197');
     return this.http.get(url, { headers }).toPromise();
   }
-
+  getProducts() : Promise<any>{
+    const url = URL + 'getProducts';
+    const params = new HttpParams()
+    .append('IdCuenta', String(localStorage.getItem("idCuenta")))
+    const headers = new HttpHeaders().set('ngrok-skip-browser-warning', '51197');
+    return this.http.get(url, { params, headers }).toPromise();
+  }
   getInfoProduct(IdProducto : number ) : Promise<any>{
     const url = URL + 'getInfoProduct';
     const params = new HttpParams()
