@@ -1,7 +1,7 @@
 <ion-header>
     <ion-toolbar>
       <ion-title class="ion-text-start">
-        <!-- Precios de {{nombre}} -->
+        Fecha Programada
       </ion-title>
       <ion-buttons slot="end">
         <ion-button (click)="closeModal(false)">
@@ -11,10 +11,72 @@
     </ion-toolbar>
   </ion-header>
   <ion-content fullscreen="true">
-   
+    <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
     <div class="container">
         
-    
+    <draggable [Title]="programacion.nombreProducto" [Image]="imagenBase64(programacion.fotoFoodHub)" [itemTemplate]="template" [headerTemplate]="templateHeader"></draggable>
+    <ng-template #templateHeader let-item>
+      <div class="unread-indicator-wrapper" slot="end">
+        <div class="unread-indicator">
+          <small class="smallMonth">{{getMonthName(programacion.fecha)}}</small>
+          <small class="smallDay">{{getDay(programacion.fecha)}}</small>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template #template let-item >
+      <div class="container">
+        <ion-segment [value]="1" color="dark"  (ionChange)="segmentChanged($event)">
+          <ion-segment-button [value]="1">
+            <ion-label>General</ion-label>
+          </ion-segment-button>
+          <ion-segment-button [value]="2">
+            <ion-label>Detalles</ion-label>
+          </ion-segment-button>
+          <ion-segment-button [value]="3">
+            <ion-label>Promocionar</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+
+        <div *ngIf="selectedSegment === 1" [ngClass]="selectedAltSegment > selectedSegment ? 'animated-from-left' : 'animated-from-right'">
+          <ion-card >
+            <!-- Contenido de la carta para el segmento 'General' -->
+            <ion-card-header>
+              <ion-card-title>Contenido General</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <!-- Contenido específico para el segmento 'General' -->
+            </ion-card-content>
+          </ion-card>
+        </div>
+        <div *ngIf="selectedSegment === 2" [ngClass]="selectedAltSegment > selectedSegment ? 'animated-from-left' : 'animated-from-right'">
+          <ion-card >
+            <!-- Contenido de la carta para el segmento 'General' -->
+            <ion-card-header>
+              <ion-card-title>Contenido General</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <!-- Contenido específico para el segmento 'General' -->
+            </ion-card-content>
+          </ion-card>
+          
+        </div>
+        <div *ngIf="selectedSegment === 3" [ngClass]="selectedAltSegment > selectedSegment ? 'animated-from-left' : 'animated-from-right'">
+          <ion-card >
+            <!-- Contenido de la carta para el segmento 'General' -->
+            <ion-card-header>
+              <ion-card-title>Contenido General</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <!-- Contenido específico para el segmento 'General' -->
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </div>
+    </ng-template>
+
+
     </div>
 
 

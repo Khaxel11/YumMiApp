@@ -17,7 +17,7 @@ namespace Data
         
         private const string SP_ACCIONES_PROGRAMACION = "APPFPROG001APSPA1";
         private const string SP_CONSULTAS_PROGRAMACION = "APPFPROG001APSPC2";
-        private const string SP_ACCIONES_FECHASPROG = "APPFPROG001APSPC3";
+        private const string SP_ACCIONES_FECHASPROG = "APPFPROG001APSPA3";
         public async Task<Result> getFechasProgramadas(UserJwt DatosToken, int TipoFiltro,
     string Fecha, int idFoodHub, int idLugar, int IdCuenta, int IdProducto,
     int IdCategoria, int IdTipoAlimentacion)

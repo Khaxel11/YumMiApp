@@ -29,6 +29,7 @@ import { SelectFoodHubComponent } from './utils/select-food-hub/select-food-hub.
 import { ThumbsSkellyComponent } from './components/thumbs-skelly/thumbs-skelly.component';
 import { DraggableComponent } from './components/draggable/draggable.component';
 import { SheetModalComponent } from './components/sheet-modal/sheet-modal.component';
+import { CoolCalendarComponent } from './components/cool-calendar/cool-calendar.component';
 @NgModule({
   declarations: [    
     
@@ -57,7 +58,8 @@ import { SheetModalComponent } from './components/sheet-modal/sheet-modal.compon
     SelectFoodHubComponent,
     ThumbsSkellyComponent,
     DraggableComponent,
-    SheetModalComponent
+    SheetModalComponent,
+    CoolCalendarComponent
   ],
   imports: [ 
     CommonModule,
@@ -88,7 +90,9 @@ import { SheetModalComponent } from './components/sheet-modal/sheet-modal.compon
     CreditCardComponent,
     SelectFoodHubComponent,
     ThumbsSkellyComponent,
-    SheetModalComponent
+    SheetModalComponent,
+    DraggableComponent,
+    CoolCalendarComponent
   ],
   
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

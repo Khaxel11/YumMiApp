@@ -145,6 +145,17 @@ export class MyCalendarComponent implements OnInit {
     }]
     this.formatList();
   }
+
+  async handleRefresh(event) {
+    await this.getFechasProgramadas().then(
+      ()=>{
+        event.target.complete();
+      }
+    )
+      
+  }
+
+
   async buildMessage(Message : string){
     this.loading = await this.Load.create({
       message: Message, 
@@ -514,7 +525,7 @@ export class MyCalendarComponent implements OnInit {
       try {
         const filtros = this.buildFiltros(this.filtrosAplicables);
         filtros.itemEstado = this.filtrosAplicables.Estado ? filtros.itemEstado : 0;
-        console.log(filtros);
+        // console.log(filtros);
         let data = await this.service.getFechasProgramadas(this.fecha, filtros );
         if (data) {
           this.lstFechas = data.data;
@@ -643,7 +654,7 @@ export class MyCalendarComponent implements OnInit {
 
   }
   async selectedDate(e: any) {
-
+    console.log(e);
     const modal = await this.modalController.create({
       component: CalendarDetailComponent,
       componentProps: {

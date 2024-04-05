@@ -1,0 +1,47 @@
+.container {
+    padding: 10px;
+    
+    height: 100%;
+    width: 100%;
+    /* background-size: cover;
+    background-repeat: no-repeat; */
+    
+}
+.week-calendar {
+    object-fit: cover;
+    background: rgb(250,120,6);
+    background: linear-gradient(319deg, rgba(250,120,6,1) 0%, rgba(255,2,2,0.6306897759103641) 95%);
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    border-radius: 10px;
+   
+  }
+  
+  .day-list {
+    flex: 1;
+    text-align: center;
+    padding: 15px;
+    /* border: 1px solid #ccc; */
+    
+  }
+  .day{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    z-index: 999;
+  }
+  .today{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: green;
+    color: red;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    z-index: 1;
+
+  }

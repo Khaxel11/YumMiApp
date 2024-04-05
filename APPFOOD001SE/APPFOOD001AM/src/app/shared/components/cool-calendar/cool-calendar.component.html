@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="week-calendar">
+    
+        <div *ngFor="let day of daysOfWeek" class="day-list" [ngStyle]="day === startDate ? {'background-color': 'green'} : {}" >
+            
+          <div class="day-week">
+            {{ obtenerDiaSemana(day) }}
+          </div>
+          <div class="day" >
+            
+            {{ obtenerDia(day) }}
+            <div [ngClass]="{'today': obtenerDia(day) === obtenerDia(startDate)}"></div>
+          </div>
+          
+        </div>
+      </div>
+</div>
+
+  

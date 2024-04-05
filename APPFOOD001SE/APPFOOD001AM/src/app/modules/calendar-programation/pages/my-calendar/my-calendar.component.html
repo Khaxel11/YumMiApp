@@ -21,9 +21,11 @@
 </ion-header>
 
   <ion-content>
-    
+    <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
     <div class="filter">
-      
+      <cool-calendar [startDate]="'2024-04-05'"></cool-calendar>
       <div class="filter-buttons-container">
         <ion-button  shape="round" fill="outline" [color]="sort ? 'success' : 'dark'" size="small" slot="end" (click)="clearFilters()">
             <ion-icon name="filter-outline"></ion-icon>
