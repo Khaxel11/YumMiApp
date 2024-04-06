@@ -16,7 +16,7 @@
     </ion-refresher>
     <div class="container">
         
-    <draggable [Title]="programacion.nombreProducto" [Image]="imagenBase64(programacion.fotoFoodHub)" [itemTemplate]="template" [headerTemplate]="templateHeader"></draggable>
+    <draggable [Title]="programacion.nombreProducto" [Image]="imagenBase64(programacion.fotoProducto)" [itemTemplate]="template" [headerTemplate]="templateHeader"></draggable>
     <ng-template #templateHeader let-item>
       <div class="unread-indicator-wrapper" slot="end">
         <div class="unread-indicator">
@@ -40,15 +40,15 @@
         </ion-segment>
 
         <div *ngIf="selectedSegment === 1" [ngClass]="selectedAltSegment > selectedSegment ? 'animated-from-left' : 'animated-from-right'">
-          <ion-card >
-            <!-- Contenido de la carta para el segmento 'General' -->
-            <ion-card-header>
-              <ion-card-title>Contenido General</ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-              <!-- Contenido específico para el segmento 'General' -->
-            </ion-card-content>
-          </ion-card>
+          <div class="container-segment">
+            <div class="segment-header">
+              <h1><strong>{{programacion.nombreProducto}}</strong></h1>
+              <ion-fab-button color="light">
+                <ion-icon name="notifications-outline"></ion-icon>
+              </ion-fab-button>
+            </div>
+            <cool-calendar [startDate]="programacion.fecha"></cool-calendar>
+          </div>
         </div>
         <div *ngIf="selectedSegment === 2" [ngClass]="selectedAltSegment > selectedSegment ? 'animated-from-left' : 'animated-from-right'">
           <ion-card >

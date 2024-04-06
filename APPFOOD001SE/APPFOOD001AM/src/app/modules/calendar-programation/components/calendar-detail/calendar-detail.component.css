@@ -45,3 +45,16 @@
     right: 0;
 
     }
+    .container-segment{
+        padding: 10px;
+    }
+.segment-header{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
