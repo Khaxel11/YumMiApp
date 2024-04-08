@@ -43,8 +43,45 @@
           <div class="container-segment">
             <div class="segment-header">
               <h1><strong>{{programacion.nombreProducto}}</strong></h1>
-              <ion-fab-button color="light">
+              <ion-fab-button color="light" (click)="openMdlReminder()">
                 <ion-icon name="notifications-outline"></ion-icon>
+                <!-- AGREGAR UNA NOTIFICACION -->
+                <ng-template #templateReminder let-item >
+                  <div class="reminder-template">
+                    <div class="icon-reminder">
+                      
+                      <ion-icon name="notifications-outline"></ion-icon>
+                      <h1>¡Agrega un recordatorio!</h1>
+                      <p>
+                        Te avisaremos a la hora que deberias de empezar a preparate
+                      </p>
+                    </div>
+                   
+                    
+                      
+                      <ion-datetime class="ion-text-center" [(ngModel)]="reminderDate" 
+                      dayShortNames="Lun, Mar, Mier, Jue, Sab, Dom"
+                      displayFormat="DDD. DD MMM"
+                      monthShortNames="Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre"
+                      ></ion-datetime>
+                    
+                    <reminder [Hour]="programacion.fecha"
+                      (selectedHourChange)="handleSelectedHourChange($event)"
+                      (selectedMinChange)="handleSelectedMinChange($event)"
+                      (selectedTimeChange)="handleSelectedTimeChange($event)"
+                      >
+
+                    ></reminder>
+                    <div class="buttons-reminder">
+                      <ion-button expand="block" fill="outline" shape="round" color="dark" (click)="closeModal()">
+                        cancelar
+                      </ion-button>
+                      <ion-button expand="block" fill="outline" shape="round" color="dark">
+                        Aceptar
+                      </ion-button>
+                    </div>
+                  </div>
+              </ng-template>
               </ion-fab-button>
             </div>
             <cool-calendar [startDate]="programacion.fecha"></cool-calendar>

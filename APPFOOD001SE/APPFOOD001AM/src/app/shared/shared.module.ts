@@ -30,6 +30,7 @@ import { ThumbsSkellyComponent } from './components/thumbs-skelly/thumbs-skelly.
 import { DraggableComponent } from './components/draggable/draggable.component';
 import { SheetModalComponent } from './components/sheet-modal/sheet-modal.component';
 import { CoolCalendarComponent } from './components/cool-calendar/cool-calendar.component';
+import { ReminderComponent } from './components/reminder/reminder.component';
 @NgModule({
   declarations: [    
     
@@ -59,7 +60,8 @@ import { CoolCalendarComponent } from './components/cool-calendar/cool-calendar.
     ThumbsSkellyComponent,
     DraggableComponent,
     SheetModalComponent,
-    CoolCalendarComponent
+    CoolCalendarComponent,
+    ReminderComponent
   ],
   imports: [ 
     CommonModule,
@@ -92,7 +94,8 @@ import { CoolCalendarComponent } from './components/cool-calendar/cool-calendar.
     ThumbsSkellyComponent,
     SheetModalComponent,
     DraggableComponent,
-    CoolCalendarComponent
+    CoolCalendarComponent,
+    ReminderComponent
   ],
   
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

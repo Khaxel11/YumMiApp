@@ -24,7 +24,7 @@ export class CoolCalendarComponent implements OnInit {
   generateWeek() {
     this.daysOfWeek = [];
     const today = new Date(); // Obtener la fecha de hoy
-    const start = new Date(today);
+    const start = new Date(this.startDate);
   
     // Asegurar que start sea un domingo
     start.setDate(start.getDate() - start.getDay());

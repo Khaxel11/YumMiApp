@@ -1,0 +1,30 @@
+<div class="reminder">
+  <div class="time-picker">
+    <div class="picker">
+      <div class="container" #container [ngClass]="isHour ? 'edit' : 'non'">
+        <div class="behind">{{ formatTime(getPreviousHour()) }}</div>
+        <div class="hour bold">{{formatTime(selectedHour)}}</div>
+        <div class="behind">{{ formatTime(getNextHour()) }}</div>
+      </div>
+    </div>
+  </div>
+  <span class="separator">:</span> 
+  <div class="time-picker">
+    <div class="picker">
+      <div class="container" #containerMinutes [ngClass]="isMin ? 'edit' : 'non'">
+        <div class="behind">{{ formatTime(getPreviousMin()) }}</div>
+        <div class="hour bold">{{ formatTime(selectedMin) }}</div>
+        <div class="behind">{{ formatTime(getNextMin()) }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="time-picker">
+    <div class="picker">
+      <div class="container" #containerTime [ngClass]="isTime ? 'edit' : 'non'">
+        <div class="behind">{{ selectedTime === "a. m." ? "-" : "a. m." }}</div>
+        <div class="hour bold">{{ selectedTime }}</div>
+        <div class="behind">{{ selectedTime === "a. m." ? "p. m" : "-" }}</div>
+      </div>
+    </div>
+  </div>
+</div>
