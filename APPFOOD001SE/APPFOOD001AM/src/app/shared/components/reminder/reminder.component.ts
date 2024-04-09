@@ -15,8 +15,8 @@ export class ReminderComponent implements AfterViewInit {
   @Output() selectedMinChange = new EventEmitter<any>();
   @Output() selectedTimeChange = new EventEmitter<any>();
   @Input() Hour : string;
-  selectedHour: number = 12; 
-  selectedMin : number = 0;
+  selectedHour: number ; 
+  selectedMin : number ;
   selectedTime : string = "a. m."
   hours: number[] = Array.from({ length: 12 }, (_, i) => (i === 0) ? 12 : i); 
   min: number[] = Array.from({ length: 59 }, (_, i) => (i === 0) ? 59 : i); 
@@ -191,16 +191,24 @@ export class ReminderComponent implements AfterViewInit {
   }
 
   getPreviousHour(): number {
-    const previousHour = (this.selectedHour === 1) ? 12 : this.selectedHour - 1;
-    return previousHour;
+    try {
+      const previousHour = (this.selectedHour === 1) ? 12 : this.selectedHour - 1;
+      return previousHour ?? 0;
+    } catch (error) {
+      return 0
+    }
   }
   getPreviousTime(): number {
     const previousHour = (this.selectedHour === 1) ? 12 : this.selectedHour - 1;
     return previousHour;
   }
   getPreviousMin() : number{
-    const previousMin = (this.selectedMin === 0) ? 59 : this.selectedMin - 1;
-    return previousMin;
+    try {
+      const previousMin = (this.selectedMin === 0) ? 59 : this.selectedMin - 1;
+      return previousMin;
+    } catch (error) {
+      return 0;
+    }
   }
   
   getNextHour(): number {

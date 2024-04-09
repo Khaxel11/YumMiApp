@@ -48,9 +48,18 @@ export class DraggableComponent implements OnInit {
   }
   reachedTop = false;
   onTouchMove(event: TouchEvent) {
+    
     if (this.startTop !== undefined && this.startHeight !== undefined && this.startImageSize !== undefined) {
       const deltaY = event.touches[0].clientY - this.startTop;
+
+      const direction = deltaY > 0 ? 'down' : 'up';
       const newTop = this.startTop + deltaY;
+      if(this.reachedTop && direction === "up" || this.reachedTop && direction === "down" && newTop > 100){
+        return;
+      }
+
+
+      
 
       const upperLimit = 40;
       const lowerLimit = window.innerHeight / 2;
@@ -63,7 +72,7 @@ export class DraggableComponent implements OnInit {
 
       if (newTop >= upperLimit && newTop <= lowerLimit) {
         this.container.nativeElement.style.top = newTop + 'px';
-        this.container.nativeElement.style.height = (this.startHeight - deltaY) + 'px';
+        // this.container.nativeElement.style.height = (this.startHeight - deltaY) + 'px';
         this.faded.nativeElement.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, ${gradientOpacity}), rgba(0, 0, 0, 0))`;
 
 
@@ -101,6 +110,6 @@ export class DraggableComponent implements OnInit {
     this.startImageSize = undefined;
   }
   goBack() {
-    this.navCtrl.navigateBack("/products/catalog");
+    // this.navCtrl.navigateBack("/products/catalog");
   }
 }

@@ -26,7 +26,7 @@
       </div>
     </ng-template>
     <ng-template #template let-item >
-      <div class="container">
+      <div class="container-template">
         <ion-segment [value]="1" color="dark"  (ionChange)="segmentChanged($event)">
           <ion-segment-button [value]="1">
             <ion-label>General</ion-label>
@@ -85,6 +85,76 @@
               </ion-fab-button>
             </div>
             <cool-calendar [startDate]="programacion.fecha"></cool-calendar>
+            <div class="detail-container">
+              <div class="icon-interested">
+                <ion-icon name="happy-outline"></ion-icon>
+              </div>
+              <div class="interest-text">
+                <div class="value">
+                  100
+                </div>
+                <div class="title">
+                  Interesados
+                </div>
+                <div class="chart-text">
+                  <div class="trending-up">
+                    <ion-icon name="trending-up-outline"></ion-icon>
+                    +10
+                  </div>
+                  desde ayer
+                  <!-- <ion-icon name="trending-down-outline"></ion-icon> -->
+                </div>
+              </div>
+              
+            </div>
+            <div class="detail-container">
+              <div class="icon-interested">
+                $
+              </div>
+              <div class="interest-text">
+                <div class="value">
+                  {{ 100 | currency}}
+                </div>
+                <div class="title">
+                  Precio
+                </div>
+                <div class="chart-text">
+                  <div class="trending-up">
+                    <ion-icon name="trending-up-outline"></ion-icon>
+                    Nivel 5
+                  </div>
+                  desde ayer
+                  <!-- <ion-icon name="trending-down-outline"></ion-icon> -->
+                </div>
+              </div>
+              
+            </div>
+            <div class="foodhub-container">
+              <h1>FoodHub Entrega</h1>
+              <ion-card class="animated-top" class="cardMargin" >
+                <div class="card-content">
+                  <div class="buttons-foodhub">
+                    <div class="button-maps">
+                      Ver Mapa
+                    </div>
+                  </div>
+                  <div class="image-container">
+                    <img [src]="imagenBase64(programacion.fotoFoodHub)" class="imagen-platillo" />
+                  </div>
+                  <div class="textContainer">
+                    <ion-card-header>
+                      <ion-card-title>{{ programacion.nombreFoodHub }}</ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content>
+                      
+                      <div class="descripcion-recortada">
+                        {{ programacion.municipio + ', ' + programacion.nombreEstado + ', ' + programacion.pais  }}
+                      </div>
+                    </ion-card-content>
+                  </div>
+                </div>
+              </ion-card>
+            </div>
           </div>
         </div>
         <div *ngIf="selectedSegment === 2" [ngClass]="selectedAltSegment > selectedSegment ? 'animated-from-left' : 'animated-from-right'">
