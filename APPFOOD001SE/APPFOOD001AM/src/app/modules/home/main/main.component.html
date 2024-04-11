@@ -1,7 +1,7 @@
 
 <ion-content id="main-menu" >
   <div class="ubication-container">
-    <div class="ubication">
+    <div class="ubication" (click)="openChangeUbication()">
       <ion-icon name="location" color="danger"></ion-icon>
       {{MyUbication.Ubicacion}}
     </div>
@@ -237,3 +237,38 @@
   </ion-content>
 </ion-menu> -->
 <app-menu-start #menu></app-menu-start>
+
+<ng-template #templateUbicacion let-item >
+  <div class="state-template">
+    <div class="list-states">
+      <ion-list>
+        <ion-list-header>
+          <ion-label>Estado</ion-label>
+        </ion-list-header>
+        <ion-item>
+          <ion-select aria-label="State" interface="action-sheet" placeholder="Seleccionar Estado"  (ngModelChange)="onChangeEstado()" [(ngModel)]="MyUbication.IdEstado">
+            <ion-select-option [value]="state.IdEstado" *ngFor="let state of lstEstados">{{state.Nombre}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-list-header>
+          <ion-label>Municipio</ion-label>
+        </ion-list-header>
+        <ion-item>
+          <ion-select aria-label="State" interface="action-sheet" placeholder="Seleccionar Estado" [(ngModel)]="MyUbication.IdMunicipio">
+            <ion-select-option [value]="municipio.IdMunicipio" *ngFor="let municipio of lstMunicipio">{{municipio.Nombre}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div class="buttons-container">
+      <ion-button class="ion-margin-top" (click)="closeMdlEstado()" fill="outline" shape="round" color="dark">
+        Cancelar
+      </ion-button>
+      <ion-button class="ion-margin-top" (click)="aceptarEstado()" fill="outline" shape="round" color="dark">
+        Aceptar
+      </ion-button>
+    </div>
+  </div>
+</ng-template>

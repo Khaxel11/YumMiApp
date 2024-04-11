@@ -4,12 +4,13 @@ import { EstablishService } from 'src/app/services/App/establish.service';
 import { KitchenService } from 'src/app/services/Kitchen/kitchen.service';
 import { UserJwt, MyUbication } from 'src/app/models/UserJwt';
 import { General, MESSAGE } from 'src/app/functions/general';
-import { LoadingController, ModalController, NavController, Platform } from '@ionic/angular';
+import { AlertController, LoadingController, ModalController, NavController, Platform } from '@ionic/angular';
 import { promise } from 'protractor';
 import { MenuStartComponent } from 'src/app/shared/utils/menu-start/menu-start.component';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NotificationComponent } from '../notification/notification.component';
 import { error } from 'console';
+import { SheetModalComponent } from 'src/app/shared/components/sheet-modal/sheet-modal.component';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -18,7 +19,7 @@ import { error } from 'console';
 export class MainComponent implements OnInit {
  
  
-
+  @ViewChild('templateUbicacion') public templateUbicacion: any;
   @ViewChild('menu') menu : MenuStartComponent;
   @ViewChild('highlightedButton', { read: ElementRef }) highlightedButton: ElementRef;
 
@@ -34,13 +35,17 @@ export class MainComponent implements OnInit {
   isHeaderHidden: boolean = false;
 
 
+  lstEstados = [];
+  lstMunicipio = [];
   constructor(
     private EstablishService : EstablishService,
     private KitchenService : KitchenService,
     private navcontrol : NavController,
     private Load : LoadingController,
     private geolocation: Geolocation,
-    private modalController: ModalController
+    private modalController: ModalController,
+    private alertController: AlertController,
+    private serviceKS : KitchenService
   ) { 
    
 
@@ -202,6 +207,97 @@ export class MainComponent implements OnInit {
     });
   }
 
-
+  async openChangeUbication(){
+    await this.confirm("Cambiar Ubicación",
+      "Parece que te encuentras en un lugar diferente a <strong>"+ this.MyUbication.Ubicacion + "</strong><br>¿Deseas cambiar de ubicación?",
+       "Seleccionar Diferente", 'Cancelar'
+    ).then(async(response) => {
+      if(response){
+        if(this.lstEstados.length === 0){
+          await this.getEstados();
+          await this.getMunicipios();
+        }
+    
+        await this.openMdlUbicacion();
+      }
+    });
+    
+  }
+  async confirm(header: string, Message: string, confirmButtonText: string, cancelButtonText: string): Promise<boolean> {
+    return new Promise<boolean>(async (resolve) => {
+      const alert = await this.alertController.create({
+        header: header,
+        message: Message,
+        buttons: [
+          {
+            text: cancelButtonText,
+            role: 'cancel',
+            // cssClass: 'secondary',
+            handler: () => {
+              resolve(false); 
+            }
+          }, 
+          {
+            text: confirmButtonText,
+            handler: () => {
+              resolve(true); 
+            }
+          }
+        ]
+      });
+      await alert.present();
+    });
+  }
   
+  async openMdlUbicacion() {
+   
+    await this.buildMessage("Cargando...");
+    await this.loading.present();
+    const modal = await this.modalController.create({
+      component: SheetModalComponent,
+      cssClass: 'adaptable-modal bottom-drawer',
+      swipeToClose: true,
+      backdropDismiss: false,
+      mode: 'ios',
+      componentProps: {
+        itemTemplate: this.templateUbicacion
+      }
+    });
+    modal.onWillDismiss().then(async (data) => {
+
+      if (data.data) {
+      
+      }else{
+       
+      }
+    })
+    await modal.present();
+    await this.loading.dismiss();
+  }
+  async aceptarEstado(){
+    const estado = this.lstEstados.find(item => item.IdEstado === this.MyUbication.IdEstado);
+    const municipio = this.lstMunicipio.find(item => item.IdMunicipio === this.MyUbication.IdMunicipio);
+    const ubicacion = municipio.Nombre + ', ' + String(estado.Abr);
+     sessionStorage.setItem("IdEstado", String(this.MyUbication.IdEstado));
+      sessionStorage.setItem("Ubicacion", ubicacion );
+      sessionStorage.setItem("IdMunicipio", String(this.MyUbication.IdMunicipio));
+
+      this.MyUbication.Ubicacion = ubicacion;
+      this.closeMdlEstado();
+  }
+  async getEstados(){
+    let data = await this.serviceKS.getUbication(2, 1);
+    this.lstEstados = data.data;
+    // this.selectedEstado = 
+  }
+  async onChangeEstado(){
+    await this.getMunicipios();
+  }
+  async getMunicipios(){
+    let data = await this.serviceKS.getUbication(3,Number(sessionStorage.getItem("IdEstado")))
+    this.lstMunicipio = data.data;
+  }
+  closeMdlEstado(){
+    this.modalController.dismiss();
+  }
 }
