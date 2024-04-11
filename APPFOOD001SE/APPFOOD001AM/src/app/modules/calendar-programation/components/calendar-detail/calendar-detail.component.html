@@ -116,7 +116,7 @@
                   {{ 100 | currency}}
                 </div>
                 <div class="title">
-                  Precio
+                  Precio Actual
                 </div>
                 <div class="chart-text">
                   <div class="trending-up">
@@ -134,7 +134,7 @@
               <ion-card class="animated-top" class="cardMargin" >
                 <div class="card-content">
                   <div class="buttons-foodhub">
-                    <div class="button-maps">
+                    <div class="button-maps" (click)="openMdlFoodHubDetail(programacion)">
                       Ver Mapa
                     </div>
                   </div>
@@ -176,7 +176,9 @@
               <ion-card-title>Contenido General</ion-card-title>
             </ion-card-header>
             <ion-card-content>
-              <!-- Contenido específico para el segmento 'General' -->
+              <!-- <linear-chart></linear-chart> -->
+              <!-- <linear-chart [puntos]="[{x: 10, y: 20}, {x: 50, y: 100}, {x: 100, y: 50}]" [tituloX]="tituloX" [tituloY]="tituloY" [intervalo]="100"></linear-chart> -->
+
             </ion-card-content>
           </ion-card>
         </div>

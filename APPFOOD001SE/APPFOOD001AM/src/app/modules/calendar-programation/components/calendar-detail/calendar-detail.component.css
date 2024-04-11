@@ -202,10 +202,10 @@ ion-card-header ion-card-title{
   width: 100%;
   height: 200px;
   border-radius: 20px;
-  border: 1px solid #000000;
+  /* border: 1px solid #000000; */
   padding: 28px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 .icon-interested{
@@ -226,7 +226,7 @@ ion-card-header ion-card-title{
   display: flex;
   flex-direction: column;
   margin-left: 28px;
-  align-items: start;
+  /* align-items: start; */
   
   .value{
     font-size: 60px;

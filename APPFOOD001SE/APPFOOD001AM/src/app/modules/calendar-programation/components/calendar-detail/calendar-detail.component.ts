@@ -3,6 +3,7 @@ import { SafeUrl } from '@angular/platform-browser';
 import { AlertController, LoadingController, ModalController } from '@ionic/angular';
 import { ProgramacionFechas } from 'src/app/models/Programation';
 import { SheetModalComponent } from 'src/app/shared/components/sheet-modal/sheet-modal.component';
+import { MdlDetailFoodhubComponent } from 'src/app/modules/home/foodhubs/components/mdl-detail-foodhub/mdl-detail-foodhub.component';
 @Component({
   selector: 'app-calendar-detail',
   templateUrl: './calendar-detail.component.html',
@@ -16,7 +17,6 @@ export class CalendarDetailComponent implements OnInit {
   selectedAltSegment : number;
   reminderDate: string;
   reminderTime : number [] = [0,0,0];
-  
   constructor(private modalController: ModalController, private alertController: AlertController,  private Load : LoadingController) { }
 
   ngOnInit(): void {
@@ -106,5 +106,21 @@ export class CalendarDetailComponent implements OnInit {
       'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
     ];
     return monthNames[fecha.getMonth()];
+  }
+  async openMdlFoodHubDetail(e : any){
+    
+    const modal = await this.modalController.create({
+      component: MdlDetailFoodhubComponent,
+      componentProps: {
+        foodHub : e
+      },
+    });
+     modal.onWillDismiss().then( async(data)=> {
+      
+      if(data.data === true){
+      }
+    })
+
+    await modal.present();
   }
 }

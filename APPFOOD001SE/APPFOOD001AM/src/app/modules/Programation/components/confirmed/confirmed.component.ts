@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { SafeUrl } from '@angular/platform-browser';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, NavController } from '@ionic/angular';
 import { General } from 'src/app/functions/general';
 import { Programation,FechasProgramadas } from 'src/app/models/Programation';
 import { Product } from 'src/app/models/product';
@@ -20,7 +20,7 @@ export class ConfirmedComponent implements AfterViewInit {
   };
   general = new General();
   loading : any;
-  constructor(private Load : LoadingController, private service : ProgramationService) { }
+  constructor(private Load : LoadingController, private service : ProgramationService, private navCtrll : NavController) { }
 
   ngAfterViewInit(): void {
     
@@ -55,7 +55,7 @@ export class ConfirmedComponent implements AfterViewInit {
         data.data.correct ? 'success' : 'danger'
       );
       if(data.data.correct){
-        
+        this.navCtrll.navigateBack('products/catalog/detail');
       }
     } catch (error) {
       this.general.showMessage("Error, no se ha podido programar el producto", 'danger'); return;
