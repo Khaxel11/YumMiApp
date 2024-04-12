@@ -152,6 +152,18 @@ namespace Data
                     }
                     objResult.data = result;
                 }
+
+                using (var con = new SqlConnection(DatosToken.Conection))
+                {
+                    var result = await con.QueryMultipleAsync(SP_CONSULTAS_INICIO,
+                        new
+                        {
+                            Opcion = 3,
+                            IdCuenta = IdCuenta
+                        },
+                    commandType: CommandType.StoredProcedure);
+                    objResult.data2 = await result.ReadAsync<FechasProgramadasEntity>();
+                }
                 return objResult;
             }
             catch (Exception ex)

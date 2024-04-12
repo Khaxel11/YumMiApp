@@ -11,6 +11,8 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NotificationComponent } from '../notification/notification.component';
 import { error } from 'console';
 import { SheetModalComponent } from 'src/app/shared/components/sheet-modal/sheet-modal.component';
+import { ProgramacionFechas } from 'src/app/models/Programation';
+import { CalendarDetailComponent } from '../../calendar-programation/components/calendar-detail/calendar-detail.component';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -37,6 +39,7 @@ export class MainComponent implements OnInit {
 
   lstEstados = [];
   lstMunicipio = [];
+  lstPedidosProximos = new Array<ProgramacionFechas>();
   constructor(
     private EstablishService : EstablishService,
     private KitchenService : KitchenService,
@@ -176,7 +179,11 @@ export class MainComponent implements OnInit {
         localStorage.setItem("picture", this.UserJwt.picture);    
         localStorage.setItem("username", this.UserJwt.username);    
         this.menu.username = this.UserJwt.username;
+
+
+        this.lstPedidosProximos = data.data2;
         await this.getSliderImages();
+        
       }
     }catch(error){
 
@@ -299,5 +306,20 @@ export class MainComponent implements OnInit {
   }
   closeMdlEstado(){
     this.modalController.dismiss();
+  }
+  async showDetails(e : any){
+    const modal = await this.modalController.create({
+      component: CalendarDetailComponent,
+      componentProps: {
+        programacion: e
+      },
+    });
+    modal.onWillDismiss().then(async (data) => {
+
+      if (data.data === true) {
+      }
+    })
+
+    await modal.present();
   }
 }

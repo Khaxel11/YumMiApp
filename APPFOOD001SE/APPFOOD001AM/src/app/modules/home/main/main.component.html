@@ -45,9 +45,9 @@
   <div class="content-val" *ngIf="lstSlider">
     <main-slider [items]="lstSlider"></main-slider>
     <tabs-menu></tabs-menu>
-    <events-visualization></events-visualization>  
+    <events-visualization [lstFechasProgramadas]="lstPedidosProximos" (onShowDetails)="showDetails($event)" *ngIf="lstPedidosProximos.length > 0"></events-visualization>  
     <!-- <events-visualization></events-visualization>   -->
-    <active-order></active-order>
+    <active-order ></active-order>
   </div>
   
 

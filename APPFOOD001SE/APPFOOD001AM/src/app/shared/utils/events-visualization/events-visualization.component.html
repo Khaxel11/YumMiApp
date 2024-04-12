@@ -2,13 +2,13 @@
     <ion-card-content>
       <p class="ion-text-start">
         <ion-icon name="calendar-outline"></ion-icon>
-        Próximo Evento de {{ proximoEvento.titulo }}
+        Próximo Evento de {{proximoEvento.confirmado ? 'Entrega' : 'Confirmacion'}}
       </p>
       <p class="ion-text-end">{{ proximoEvento.fecha | date: 'dd/MM/yyyy' }}</p>
-      <h1><strong>{{ proximoEvento.platilloProgramado }}</strong></h1>
+      <h1><strong>{{ proximoEvento.nombreProducto }}</strong></h1>
       <h2 class="cantidad"><strong>Cantidad:</strong> {{ proximoEvento.cantidad }}</h2>
-      <h3>{{ proximoEvento.foodHub }}</h3>
-      <ion-button fill="outline" shape="round">
+      <h3>{{ proximoEvento.nombreFoodHub }}</h3>
+      <ion-button fill="outline" shape="round" (click)="showDetails(proximoEvento)">
         Ver Detalles
       </ion-button>
     </ion-card-content>
@@ -20,9 +20,12 @@
           </ion-thumbnail>
           <ion-label>
             <h3>{{order.fecha |  date: 'dd/MM/yyyy'}}</h3>
-            <h2>{{ order.nombre }}</h2>
+            <h2>{{ order.nombreProducto }}</h2>
             <p>{{ order.descripcion }}</p>
             <ion-note>Cantidad Solicitada {{order.cantidad}}</ion-note>
+            <ion-button (click)="showDetails(order)" expand="block" fill="clear" shape="round" color="dark">
+              Ver Detalles
+            </ion-button>
           </ion-label>
         </ion-item>
       </ion-list>
