@@ -1,153 +1,160 @@
-<!-- <ion-header>
+
+<ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home"></ion-back-button>
+      <ion-back-button defaultHref="/profile"></ion-back-button>
     </ion-buttons>
-    <ion-title><strong>Mi Calendario</strong></ion-title>
+    <ion-title>Configuracion</ion-title>
   </ion-toolbar>
-</ion-header> -->
-<ion-content [scrollEvents]="true" (touchstart)="onTouchStart($event)" (touchmove)="onTouchMove($event)"
-  (touchend)="onTouchEnd()">
-
-  <div class="header">    
-    <div #icon class="icon-image animated-left" [style.backgroundImage]="'url(' + userJwt.picture+ ')'" *ngIf="reachedTop"></div>
-    <div class="headerImage"></div>
-    <div class="close-icon">
-      <!-- <ion-icon name="close-outline"></ion-icon> -->
-      <ion-back-button defaultHref="/home"></ion-back-button>
-      
+</ion-header>
+<ion-content>
+  <div class="container">
     
-    </div>
-  </div>
-  <div #image class="image-container">
-    <img class="image" src="" [style.backgroundImage]="'url(' + userJwt.picture+ ')'">
-  </div>
-  <div #container class="container" [style.overflow-y]="allowScroll ? 'scroll' : 'hidden'">
-    <!-- <ion-card >
-          <ion-card-header>
-            <ion-card-subtitle>Awesome Subtitle</ion-card-subtitle>
-            <ion-card-title>Awesome Title</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            Awesome content
-          </ion-card-content>
-        </ion-card> -->
-    
-    <div class="user-note">{{user}}</div>
-    <div class="card-container">
-      <ion-card>
-        <ion-card-content>
-          <ion-item lines="none">
-            <ion-thumbnail slot="start" class="item-icon">
-              <ion-icon name="notifications-outline"></ion-icon>
-            </ion-thumbnail>
+   <div class="card-container">
+    <strong class="header-item ion-margin-start">
+      Cuenta
+    </strong>
+    <ion-card>        
+      <ion-card-content>
+        <ion-item lines="none">
+          <ion-thumbnail slot="start" class="item-icon">
+            <ion-icon name="person-outline"></ion-icon>
+          </ion-thumbnail>
+          <!-- <div class="center-container"> -->
             <ion-label>
-              <h3>Notificaciones</h3>
-              <p>Ver mis notificaciones</p>
-            </ion-label>           
-          </ion-item>
-        </ion-card-content>
-      </ion-card>
-
-      <ion-card>
-        <ion-card-content>
-          <ion-item lines="none">
-            <ion-thumbnail slot="start" class="item-icon">
-              <ion-icon name="help-outline"></ion-icon>
-            </ion-thumbnail>
-            <ion-label>
-              <h3>Ayuda</h3>
-              <p>Respuestas a las dudas más comunes</p>
+              <h3>Configurar datos personales</h3>
+              <p>Edita tu correo, nombre, direción y más</p>
             </ion-label>
-            
-          </ion-item>
-        </ion-card-content>
-      </ion-card>
-
-      <ion-card>        
-        <ion-card-content>
-          <ion-item lines="none">
-            <ion-thumbnail slot="start" class="item-icon">
-              <ion-icon name="person-outline"></ion-icon>
-            </ion-thumbnail>
-            <div class="center-container">
-              <ion-label>
-                <h3>Configurar datos personales</h3>
-                <p>Edita tu correo, nombre, direción y más</p>
-              </ion-label>
-            </div>
-          </ion-item>
-        </ion-card-content>
-      </ion-card>
-
-      <ion-card>        
-        <ion-card-content>
-          <ion-item lines="none">
-            <ion-thumbnail slot="start" class="item-icon">
-              <ion-icon name="shield-outline"></ion-icon>
-            </ion-thumbnail>
-            <div class="center-container">
-              <ion-label>
-                <h3>Seguridad</h3>
-                <p>Cambia la contraseña de tu cuenta y más</p>
-              </ion-label>
-            </div>
-          </ion-item>
-        </ion-card-content>
-      </ion-card>
-
-      <ion-card href="/profile/cards">        
-        <ion-card-content>
-          <ion-item lines="none">
-            <ion-thumbnail slot="start" class="item-icon">
-              <ion-icon name="card-outline"></ion-icon>
-            </ion-thumbnail>
-            <div class="center-container">
-              <ion-label>
-                <h3>Cuentas y pagos</h3>
-                <p>Revisa tus cuentas y revisa tus pagos</p>
-              </ion-label>
-            </div>
-          </ion-item>
-        </ion-card-content>
-      </ion-card>
-
-      <ion-card>        
-        <ion-card-content>
-          <ion-item lines="none">
-            <ion-thumbnail slot="start" class="item-icon">
-              <ion-icon name="contrast-outline"></ion-icon>
-            </ion-thumbnail>
-            <div class="center-container">
-              <ion-label>
-                <h3>Modo Oscuro</h3>
-                <p>Ajusta el tema de la app</p>
-              </ion-label>
-              <ion-toggle [(ngModel)]="themeToggle" (ionChange)="toggleChange($event)" justify="space-between"></ion-toggle>
-            </div>
-          </ion-item>
-        </ion-card-content>
-      </ion-card>
-      <ion-card>        
-        <ion-card-content>
-          <ion-item lines="none">
-            <ion-thumbnail slot="start" class="item-icon">
-              <ion-icon name="log-out-outline"></ion-icon>
-            </ion-thumbnail>
-            <div class="center-container">
-              <ion-label>
-                <h3>Cerrar sesión</h3>
-              </ion-label>
-            </div>
-          </ion-item>
-        </ion-card-content>
-      </ion-card>
-    </div>
-    <!-- <div class="buttons"> -->
-    <!-- <button class="button video-message">Video Message</button>
-          <button class="button B call">B Call</button>
-          <button class="button edit-contact">Edit Contact</button> -->
-    <!-- </div> -->
+          <!-- </div> -->
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-content>
+        <ion-item lines="none">
+          <ion-thumbnail slot="start" class="item-icon">
+            <ion-icon name="notifications-outline"></ion-icon>
+          </ion-thumbnail>
+          <ion-label>
+            <h3>Notificaciones</h3>
+            <p>Ver mis notificaciones</p>
+          </ion-label>           
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>        
+      <ion-card-content>
+        <ion-item lines="none">
+          <ion-thumbnail slot="start" class="item-icon">
+            <ion-icon name="shield-outline"></ion-icon>
+          </ion-thumbnail>
+          <!-- <div class="center-container"> -->
+            <ion-label>
+              <h3>Seguridad</h3>
+              <p>Cambia la contraseña de tu cuenta y más</p>
+            </ion-label>
+          <!-- </div> -->
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+   </div>
+   <!--  -->
+   <div class="card-container">
+    <strong class="header-item ion-margin-start">
+      Soporte y Acerca de 
+    </strong>
+    <ion-card href="/profile/cards">        
+      <ion-card-content>
+        <ion-item lines="none">
+          <ion-thumbnail slot="start" class="item-icon">
+            <ion-icon name="card-outline"></ion-icon>
+          </ion-thumbnail>
+          <!-- <div class="center-container"> -->
+            <ion-label>
+              <h3>Cuentas y pagos</h3>
+              <p>Revisa tus cuentas y revisa tus pagos</p>
+            </ion-label>
+          <!-- </div> -->
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-content>
+        <ion-item lines="none">
+          <ion-thumbnail slot="start" class="item-icon">
+            <ion-icon name="help-outline"></ion-icon>
+          </ion-thumbnail>
+          <ion-label>
+            <h3>Ayuda</h3>
+            <p>Respuestas a las dudas más comunes</p>
+          </ion-label>
+          
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-content>
+        <ion-item lines="none">
+          <ion-thumbnail slot="start" class="item-icon">
+            <ion-icon name="information-outline"></ion-icon>
+          </ion-thumbnail>
+          <ion-label>
+            <h3>Terminos y condiciones</h3>
+            <p>Terminos y politicas de la aplicación</p>
+          </ion-label>
+          
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+   </div>
+   <!--  -->
+   <div class="card-container">
+    <strong class="header-item ion-margin-start">
+      Acciones 
+    </strong>
+    <ion-card href="/profile/cards">        
+      <ion-card-content>
+        <ion-item lines="none">
+          <ion-thumbnail slot="start" class="item-icon">
+            <ion-icon name="flag-outline"></ion-icon>
+          </ion-thumbnail>
+          <!-- <div class="center-container"> -->
+            <ion-label>
+              <h3>Reportar un problema</h3>
+              <p>¿Tienes un problema? ¡Te ayudamos a resolverlo!</p>
+            </ion-label>
+          <!-- </div> -->
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-content>
+        <ion-item lines="none">
+          <ion-thumbnail slot="start" class="item-icon">
+            <ion-icon name="trash-outline"></ion-icon>
+          </ion-thumbnail>
+          <ion-label>
+            <h3>Eliminar Cuenta</h3>
+            <p>¿No más comidas?, puedes eliminar tu cuenta</p>
+          </ion-label>
+          
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>        
+      <ion-card-content>
+        <ion-item lines="none">
+          <ion-thumbnail slot="start" class="item-icon">
+            <ion-icon name="log-out-outline"></ion-icon>
+          </ion-thumbnail>
+          <!-- <div class="center-container"> -->
+            <ion-label>
+              <h3>Cerrar sesión</h3>
+            </ion-label>
+          <!-- </div> -->
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+   </div>
   </div>
-
 </ion-content>
