@@ -1,0 +1,115 @@
+
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/profile"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Editar Perfil</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <div class="container">
+        <div class="image-container">
+            <div class="circular_image">
+                <img [src]="Foto">
+                <ion-icon class="icon" name="camera" (click)="openMdlSelector()"></ion-icon>
+                
+            </div>
+            
+            <ion-item class="name-container"
+            [class.invalid]="!LogUser.nombreEstablecimiento && !this.validateProp('nombreEstablecimiento')">
+                <ion-input type="text" placeholder="Nombre de Establecimiento" 
+                [(ngModel)]="LogUser.nombreEstablecimiento"
+                (ngModelChange)="onChangeDataValue('nombreEstablecimiento')" [required]="true"
+                ></ion-input>
+            </ion-item>
+            <stars-cs  [stars]="LogUser.calificacion" [showTotal]="true"></stars-cs>
+        </div>
+        <div class="form-container">
+            <strong class="ion-margin-start">Nombre</strong>
+            <ion-item 
+            [class.invalid]="!LogUser.nombreCocinero && !this.validateProp('nombreCocinero')"
+            >
+                
+                <ion-input type="text" placeholder="Nombre del cocinero" [(ngModel)]="LogUser.nombreCocinero" 
+                (ngModelChange)="onChangeDataValue('nombreCocinero')" [required]="true"></ion-input>
+            </ion-item>
+            <strong class="ion-margin-start">Apellido Paterno</strong>
+            <ion-item 
+            [class.invalid]="!LogUser.apellidoPaterno && !this.validateProp('apellidoPaterno')"
+            >
+                <ion-input type="text" placeholder="Apellido Paterno" [(ngModel)]="LogUser.apellidoPaterno"
+                (ngModelChange)="onChangeDataValue('apellidoPaterno')" ></ion-input>
+            </ion-item>
+            <strong class="ion-margin-start">Apellido Materno</strong>
+            <ion-item 
+            [class.invalid]="!LogUser.apellidoMaterno && !this.validateProp('apellidoMaterno')"
+            >
+                <ion-input type="text" placeholder="Apellido Materno" [(ngModel)]="LogUser.apellidoMaterno"
+                (ngModelChange)="onChangeDataValue('apellidoMaterno')" ></ion-input>
+            </ion-item>
+            <strong class="ion-margin-start">Correo</strong>
+            <ion-item 
+            [class.invalid]="!LogUser.correo && !this.validateProp('correo')"
+            >
+                <ion-input type="text" placeholder="Correo" [value]="formatEmailMask(LogUser.correo)"
+                [clearInput]="false" [clearOnEdit]="true"
+                (ionBlur)="onChangeDataValue('correo')" ></ion-input>
+            </ion-item>
+            <strong class="ion-margin-start">Numero Telefono</strong>
+            <ion-item 
+            [class.invalid]="!LogUser.numTelefono && !this.validateProp('numTelefono')"
+            >
+                <ion-input type="number" placeholder="Numero telefonico" [(ngModel)]="LogUser.numTelefono"
+                (ngModelChange)="onChangeDataValue('numTelefono')" ></ion-input>
+            </ion-item>
+            <strong class="ion-margin-start">Calle</strong>
+            <ion-item 
+            [class.invalid]="!LogUser.calle && !this.validateProp('calle')"
+            >
+                <ion-input type="text" placeholder="Calle" [(ngModel)]="LogUser.calle"
+                (ngModelChange)="onChangeDataValue('calle')" ></ion-input>
+            </ion-item>
+            <strong class="ion-margin-start">Entre Calles</strong>
+            <ion-item 
+            [class.invalid]="!LogUser.entreCalles && !this.validateProp('entreCalles')"
+            >
+                <ion-input type="text" placeholder="Entre Calles" [(ngModel)]="LogUser.entreCalles"
+                (ngModelChange)="onChangeDataValue('entreCalles')" ></ion-input>
+            </ion-item>
+            <strong class="ion-margin-start">Colonia</strong>
+            <ion-item 
+            [class.invalid]="!LogUser.colonia && !this.validateProp('colonia')"
+            >
+                <ion-input type="text" placeholder="Colonia" [(ngModel)]="LogUser.colonia"
+                (ngModelChange)="onChangeDataValue('colonia')" ></ion-input>
+            </ion-item>
+            <strong class="ion-margin-start">Ubicacion Completa</strong>
+            <ion-item 
+            [class.invalid]="!LogUser.ubicacionCompleta && !this.validateProp('ubicacionCompleta')"
+            >
+                <ion-input type="text" placeholder="Ubicacion Completa" [(ngModel)]="LogUser.ubicacionCompleta"
+                (ngModelChange)="onChangeDataValue('ubicacionCompleta')" ></ion-input>
+            </ion-item>
+        </div>
+    </div>
+   
+    <ng-template #templateSelector let-item >
+        <div class="selector-template">
+            <ion-button (click)="onSelectPicture()" expand="block" fill="outline" color="dark" shape="round">
+                <ion-icon name="images-outline" class="ion-margin-end"></ion-icon> 
+                Seleccionar Foto
+            </ion-button>
+            <ion-button (click)="onTakePicture()" expand="block" fill="outline" color="dark" shape="round">
+                <ion-icon name="camera-outline" class="ion-margin-end"></ion-icon> 
+                Tomar Foto
+            </ion-button>
+        </div>
+    </ng-template>
+ 
+    <div class="footer to-up" *ngIf="hasBeenChanged || fotoChanged">
+        <ion-button  expand="block" fill="outline" shape="round" (click)="confirmChanges()">
+            Guardar Cambios
+        </ion-button>
+    </div>
+  </ion-content>

@@ -8,9 +8,10 @@ import { IonicModule } from '@ionic/angular';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { CardsCatalogComponent } from './cards-catalog/cards-catalog.component';
 import { CardsCaptureComponent } from './cards-capture/cards-capture.component';
+import { EditProfileComponent } from './user-profile/edit-profile/edit-profile.component';
 
 @NgModule({
-  declarations: [UserProfileComponent, CardsCatalogComponent, CardsCaptureComponent],
+  declarations: [UserProfileComponent, CardsCatalogComponent, CardsCaptureComponent, EditProfileComponent],
   imports: [
     CommonModule,
     ProfileRoutingModule,
