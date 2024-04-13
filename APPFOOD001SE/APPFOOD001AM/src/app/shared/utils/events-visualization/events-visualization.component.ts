@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FechasProgramadas, ProgramacionFechas } from 'src/app/models/Programation';
 
 @Component({
@@ -13,7 +13,7 @@ export class EventsVisualizationComponent implements AfterViewInit {
 
 
   proximoEvento= new ProgramacionFechas();
-  constructor() { }
+  constructor(private cd: ChangeDetectorRef) { }
 
   ngAfterViewInit(): void {
     if(this.lstFechasProgramadas.length > 0){
@@ -21,6 +21,7 @@ export class EventsVisualizationComponent implements AfterViewInit {
       this.lstFechasProgramadas.shift()
       this.activedOrders = this.lstFechasProgramadas;
       console.log(this.lstFechasProgramadas);
+      this.cd.detectChanges();
     }
   }
   showDetails(e : any){

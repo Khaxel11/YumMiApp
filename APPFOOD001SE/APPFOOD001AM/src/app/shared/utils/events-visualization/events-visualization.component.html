@@ -4,10 +4,11 @@
         <ion-icon name="calendar-outline"></ion-icon>
         Próximo Evento de {{proximoEvento.confirmado ? 'Entrega' : 'Confirmacion'}}
       </p>
-      <p class="ion-text-end">{{ proximoEvento.fecha | date: 'dd/MM/yyyy' }}</p>
-      <h1><strong>{{ proximoEvento.nombreProducto }}</strong></h1>
-      <h2 class="cantidad"><strong>Cantidad:</strong> {{ proximoEvento.cantidad }}</h2>
-      <h3>{{ proximoEvento.nombreFoodHub }}</h3>
+      <p class="ion-text-end" *ngIf="proximoEvento.fecha">{{ proximoEvento?.fecha | date: 'dd/MM/yyyy' }}</p>
+      <h1><strong>{{ proximoEvento?.nombreProducto }}</strong></h1>
+      <h2 class="cantidad" *ngIf="proximoEvento.confirmado"><strong>Cantidad:</strong> {{ proximoEvento?.cantidad }}</h2>
+      <h2 class="cantidad" *ngIf="proximoEvento.confirmado"><strong>Cantidad:</strong> {{ proximoEvento?.cantidad }}</h2>
+      <h3>{{ proximoEvento?.nombreFoodHub }}</h3>
       <ion-button fill="outline" shape="round" (click)="showDetails(proximoEvento)">
         Ver Detalles
       </ion-button>
