@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { MdlCapturaTipoComponent } from './../../Components/mdl-captura-tipo/mdl-captura-tipo.component';
+import Swal from 'sweetalert2';
+import { TiposAlimentacionService } from './../../../../../services/tipos-alimentacion.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
+
 
 @Component({
   selector: 'app-tipos-alimentacion',
@@ -6,16 +10,41 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tipos-alimentacion.component.css']
 })
 export class TiposAlimentacionComponent implements OnInit {
-
+  @ViewChild("mdlCapturaTipo") mdlCapturaTipo : any;
   readonly MODULO = "Catalogo de Tipos de Alimentacion";
   readonly VERSION = "2024.03.24.01";
 
   columnsTiposAli: any;
   lstTiposAli: [];
-  constructor() { }
+  filtro: string = "";
+  idTipoUsuario: number = 0;
+  constructor(private service: TiposAlimentacionService) { }
 
   ngOnInit(): void {
     this.loadColumns();
+    this.getTiposAlimentacion();
+  }
+
+  openMdlCaptura(){
+
+  }
+
+ async getTiposAlimentacion(){
+    let data = await this.service.getTiposAlimentacion(this.filtro, this.idTipoUsuario);
+    try{
+      if(!data){
+        Swal.fire("Error", "Mensaje de Error", 'error');
+      }
+      if(data.data){
+        this.lstTiposAli = data.data;
+      }
+    } catch(error){
+
+    }
+  }
+
+  onCloseModal(e: any){
+
   }
 
   loadColumns(){
