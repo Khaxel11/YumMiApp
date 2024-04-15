@@ -412,5 +412,55 @@ namespace Data
                 throw new ArgumentException(ex.Message);
             }
         }
+
+        public async Task<Result> updateUserData(UserJwt DatosToken, string Foto, KitchenInfo userdata)
+        {
+            Result objResult = new Result();
+            try
+            {
+                ImageController img = new ImageController();
+                byte[] ImageByte = null;
+                if (Foto != null)
+                {
+                    ImageByte = img.getNoBase64Image(Foto);
+                }
+                using (var con = new SqlConnection(DatosToken.Conection))
+                {
+                    var result = await con.QueryMultipleAsync(
+                        SP_ACCIONES_COCINERO,
+                        new
+                        {
+                            Opcion = 3,
+                            IdUsuario = DatosToken.IdCuenta,
+                            Foto = ImageByte,
+                            Correo = userdata.Correo,
+                            NombreCocinero = userdata.NombreCocinero,
+                            ApellidoPaterno = userdata.ApellidoPaterno,
+                            ApellidoMaterno = userdata.ApellidoMaterno,
+                            FechaNacimiento = userdata.FechaNacimiento,
+                            ConRedesSociales = userdata.RedesSocialesConfig,
+                            NombreEstablecimiento = userdata.NombreEstablecimiento,
+                            TipoNegocio = userdata.TipoNegocio,
+                            NumeroTel = userdata.NumTelefono,
+                            Calle = userdata.Calle,
+                            EntreCalles = userdata.EntreCalles,
+                            Comentarios = userdata.Comentarios,
+                            Colonia = userdata.Colonia,
+                            Ciudad = userdata.Ciudad,
+                            Municipio = userdata.NombreMunicipio,
+                            IdEstado = userdata.IdEstado,
+                            CodigoPostal = userdata.CP,
+                            ServicioDomicilio = false,
+                        },
+                    commandType: CommandType.StoredProcedure);
+                    objResult.data = await result.ReadAsync<MessageEntity>();
+                }
+                return objResult;
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+        }
     }
 }

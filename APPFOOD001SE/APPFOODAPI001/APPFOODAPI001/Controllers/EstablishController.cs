@@ -34,5 +34,20 @@ namespace APPFOODAPI001.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Error, {ex.Message}");
             }
         }
+        [HttpPost("updateUserData")]
+        public async Task<IActionResult> updateUserData(int IdCuenta, KitchenInfo userdata)
+        {
+            
+            try
+            {
+                conection.IdCuenta = IdCuenta;
+                string Foto = userdata.Foto.ToString() ?? null;
+                return Ok(await new KitchenBusiness().updateUserData(conection, Foto, userdata));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Error, {ex.Message}");
+            }
+        }
     }
 }

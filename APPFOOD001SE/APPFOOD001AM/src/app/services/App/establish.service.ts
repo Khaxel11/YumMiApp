@@ -19,4 +19,12 @@ export class EstablishService {
     const headers = new HttpHeaders().set('ngrok-skip-browser-warning', '51197');
     return this.http.get(url, { params, headers }).toPromise();
   }
+  updateUserData(IdCuenta : number, Foto : string , userdata : any) : Promise<any>{
+    const url = URL + 'updateUserData';
+    const params = new HttpParams()    
+    .append('IdCuenta', String(IdCuenta))
+    userdata.Foto = Foto;
+    const headers = new HttpHeaders().set('ngrok-skip-browser-warning', '51197');
+    return this.http.post(url, userdata ,{ params, headers }).toPromise();
+  }
 }

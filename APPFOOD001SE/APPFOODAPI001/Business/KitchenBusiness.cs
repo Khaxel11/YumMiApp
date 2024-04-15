@@ -133,5 +133,16 @@ namespace Business
                 throw new ArgumentException(ex.Message);
             }
         }
+        public async Task<Result> updateUserData(UserJwt DatosToken, string Foto, KitchenInfo userdata)
+        {
+            try
+            {
+                return await new KitchenData().updateUserData(DatosToken, Foto, userdata);
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+        }
     }
 }

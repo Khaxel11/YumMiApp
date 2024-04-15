@@ -18,6 +18,7 @@ export class EditProfileComponent implements OnInit {
   ReadLogUser = new LogUser();
   ReadFoto = "";
   Foto = "";
+  FotoUri : any;
   hasBeenChanged : boolean = false;
   fotoChanged : boolean = false;
   countChanges : number = 0;
@@ -92,7 +93,7 @@ export class EditProfileComponent implements OnInit {
     this.closeModal();
     let photo = await this.Camera.takePicture();
     await loading.present();
-    // this.Foto = photo.uri;
+    this.FotoUri = photo.uri;
     this.Foto = photo.base64Image;
     this.fotoChanged = true;
     await loading.dismiss();
@@ -104,8 +105,7 @@ export class EditProfileComponent implements OnInit {
     this.closeModal();
     let photo = await this.Camera.openGallery();
     await loading.present();
-    //this.Foto = photo.uri;
-    // this.user.photo = photo.base64Image;
+    this.FotoUri = photo.uri;
     this.Foto = photo.base64Image;
     this.fotoChanged = true;
     await loading.dismiss();
@@ -142,7 +142,7 @@ export class EditProfileComponent implements OnInit {
 
   validateKeys(): string | boolean {
     for (const key in this.LogUser) {
-      if (this.LogUser.hasOwnProperty(key) && key !== "calificacion" && key !== "bancoConfig") {
+      if (this.LogUser.hasOwnProperty(key) && key !== "calificacion" && key !== "bancoConfig" && key !== "foto") {
         if (!this.LogUser[key]) {
           this.validateProp(key)
           return key;
@@ -174,11 +174,34 @@ export class EditProfileComponent implements OnInit {
         }, {
           text: 'Continuar',
           handler: async () => {
-            
+            await this.updateUserData();
           }
         }
       ]
     });
     await alert.present();
+  }
+
+  async updateUserData(){
+    try {
+      const idCuenta = localStorage.getItem("idCuenta");
+      let data = await this.EstablishService.updateUserData(Number(idCuenta), this.Foto, this.LogUser);
+      if(this.fotoChanged){
+        this.Foto;
+      }
+      if(!data || !data.data){
+        this.general.showMessage("Ha ocurrido algun error al momento de actualizar", "error");
+        return;
+      }
+      if(data.data){
+        this.general.showMessage("Datos actualizados correctamente", "error");
+        if(this.fotoChanged){
+          localStorage.setItem("picture", this.Foto);
+        }
+        this.getLogData();
+      }
+    } catch (error) {
+      
+    }
   }
 }

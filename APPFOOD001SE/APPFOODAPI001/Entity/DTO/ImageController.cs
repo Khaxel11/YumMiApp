@@ -15,6 +15,20 @@ namespace Entity.DTO
         {
             return Convert.ToBase64String(Image);
         }
+        public byte[] getNoBase64Image(string Image)
+        {
+            byte[] byteArray = null;
+                string suffixToFind = ";base64,";
 
+                int suffixIndex = Image.LastIndexOf(suffixToFind, StringComparison.OrdinalIgnoreCase);
+
+                if (suffixIndex != -1)
+                {
+                    Image = Image.Substring(suffixIndex + suffixToFind.Length);
+                }
+
+                byteArray = Convert.FromBase64String(Image);
+            return byteArray;
+        }
     }
 }

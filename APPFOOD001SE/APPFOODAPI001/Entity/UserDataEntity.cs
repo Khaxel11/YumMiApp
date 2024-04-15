@@ -103,5 +103,7 @@ namespace Entity
         public string NombreEstado { get; set; }
         public string NombreMunicipio { get; set; }
         public string UbicacionCompleta { get; set; }
+        public string Foto { get; set; }    
+        public string FechaNacimiento { get; set; }
     }
 }
