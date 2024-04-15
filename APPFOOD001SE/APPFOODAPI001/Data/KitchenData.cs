@@ -426,7 +426,7 @@ namespace Data
                 }
                 using (var con = new SqlConnection(DatosToken.Conection))
                 {
-                    var result = await con.QueryMultipleAsync(
+                    var result = await con.QuerySingleAsync<MessageEntity>(
                         SP_ACCIONES_COCINERO,
                         new
                         {
@@ -453,7 +453,35 @@ namespace Data
                             ServicioDomicilio = false,
                         },
                     commandType: CommandType.StoredProcedure);
-                    objResult.data = await result.ReadAsync<MessageEntity>();
+                    objResult.data = result;
+                }
+                return objResult;
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+        }
+
+        public async Task<Result> updatePassword(UserJwt DatosToken, string Password, string NewPassword)
+        {
+            Result objResult = new Result();
+            try
+            {
+                
+                using (var con = new SqlConnection(DatosToken.Conection))
+                {
+                    var result = await con.QuerySingleAsync<MessageEntity>(
+                        SP_ACCIONES_COCINERO,
+                        new
+                        {
+                            Opcion = 4, 
+                            IdUsuario = DatosToken.IdCuenta,
+                            Password = Password.ToString(),
+                            NewPassword = NewPassword.ToString()
+                        },
+                    commandType: CommandType.StoredProcedure);
+                    objResult.data = result;
                 }
                 return objResult;
             }

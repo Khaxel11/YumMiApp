@@ -27,4 +27,13 @@ export class EstablishService {
     const headers = new HttpHeaders().set('ngrok-skip-browser-warning', '51197');
     return this.http.post(url, userdata ,{ params, headers }).toPromise();
   }
+  updatePassword( Password : string , NewPassword : string) : Promise<any>{
+    const url = URL + 'updatePassword';
+    const params = new HttpParams()    
+    .append('IdCuenta', String(localStorage.getItem('idCuenta')))
+    .append('Password', String(Password))
+    .append('NewPassword', String(NewPassword))
+    const headers = new HttpHeaders().set('ngrok-skip-browser-warning', '51197');
+    return this.http.post(url, '' ,{ params, headers }).toPromise();
+  }
 }

@@ -68,6 +68,12 @@
     color: red; 
     animation: shake 0.2s;
   }
+  .invalidate {
+    color: red; 
+    --border-color: red;
+
+    animation: shake 0.2s;
+  }
   .valid {
     color: green; 
     animation: shake 0.2s;

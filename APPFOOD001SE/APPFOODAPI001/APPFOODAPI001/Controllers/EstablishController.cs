@@ -49,5 +49,19 @@ namespace APPFOODAPI001.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Error, {ex.Message}");
             }
         }
+        [HttpPost("updatePassword")]
+        public async Task<IActionResult> updatePassword(int IdCuenta, string Password, string NewPassword)
+        {
+
+            try
+            {
+                conection.IdCuenta = IdCuenta;
+                return Ok(await new KitchenBusiness().updatePassword(conection, Password, NewPassword));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Error, {ex.Message}");
+            }
+        }
     }
 }

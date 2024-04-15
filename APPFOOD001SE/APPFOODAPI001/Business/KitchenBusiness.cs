@@ -144,5 +144,16 @@ namespace Business
                 throw new ArgumentException(ex.Message);
             }
         }
+        public async Task<Result> updatePassword(UserJwt DatosToken, string Password, string NewPassword)
+        {
+            try
+            {
+                return await new KitchenData().updatePassword(DatosToken, Password, NewPassword);
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+        }
     }
 }
