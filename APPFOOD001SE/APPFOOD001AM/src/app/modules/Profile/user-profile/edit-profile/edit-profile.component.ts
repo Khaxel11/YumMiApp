@@ -157,7 +157,7 @@ export class EditProfileComponent implements OnInit {
   async confirmChanges(){
     const confirm = this.validateKeys();
     if(typeof confirm != "boolean"){
-      this.general.showMessage("Hay campos que no son correctos, favor de revisar", "danger" );
+      this.general.showMessage("Hay campos que no son correctos, favor de revisar", 'danger' );
       return;
     }
     const alert = await this.alertController.create({
@@ -190,11 +190,11 @@ export class EditProfileComponent implements OnInit {
         this.Foto;
       }
       if(!data || !data.data){
-        this.general.showMessage("Ha ocurrido algun error al momento de actualizar", "error");
+        this.general.showMessage("Ha ocurrido algun error al momento de actualizar", 'danger');
         return;
       }
       if(data.data){
-        this.general.showMessage("Datos actualizados correctamente", "error");
+        this.general.showMessage("Datos actualizados correctamente", 'success');
         if(this.fotoChanged){
           localStorage.setItem("picture", this.Foto);
         }

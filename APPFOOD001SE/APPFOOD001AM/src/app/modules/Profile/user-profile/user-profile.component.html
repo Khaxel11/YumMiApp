@@ -2,7 +2,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/profile"></ion-back-button>
+      <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
     <ion-title>Configuracion</ion-title>
   </ion-toolbar>
@@ -29,7 +29,7 @@
         </ion-item>
       </ion-card-content>
     </ion-card>
-    <ion-card>
+    <!-- <ion-card>
       <ion-card-content>
         <ion-item lines="none">
           <ion-thumbnail slot="start" class="item-icon">
@@ -41,17 +41,17 @@
           </ion-label>           
         </ion-item>
       </ion-card-content>
-    </ion-card>
+    </ion-card> -->
     <ion-card>        
       <ion-card-content>
-        <ion-item lines="none">
+        <ion-item lines="none" href="/profile/changepassword">
           <ion-thumbnail slot="start" class="item-icon">
             <ion-icon name="shield-outline"></ion-icon>
           </ion-thumbnail>
           <!-- <div class="center-container"> -->
             <ion-label>
               <h3>Seguridad</h3>
-              <p>Cambia la contraseña de tu cuenta y más</p>
+              <p>Cambiá la contraseña de tu cuenta y más</p>
             </ion-label>
           <!-- </div> -->
         </ion-item>
