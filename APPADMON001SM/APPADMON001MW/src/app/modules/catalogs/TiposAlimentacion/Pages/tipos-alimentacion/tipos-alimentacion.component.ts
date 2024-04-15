@@ -1,4 +1,4 @@
-import { MdlCapturaTipoComponent } from './../../Components/mdl-captura-tipo/mdl-captura-tipo.component';
+import { MdlCapturaTipoAlimentacionComponent } from './../../Components/mdl-captura-tipo/mdl-captura-tipo.component';
 import Swal from 'sweetalert2';
 import { TiposAlimentacionService } from './../../../../../services/tipos-alimentacion.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -10,12 +10,12 @@ import { Component, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./tipos-alimentacion.component.css']
 })
 export class TiposAlimentacionComponent implements OnInit {
-  @ViewChild("mdlCapturaTipo") mdlCapturaTipo : any;
+  @ViewChild("mdlCapturaTipo") mdlCapturaTipo : MdlCapturaTipoAlimentacionComponent;
   readonly MODULO = "Catalogo de Tipos de Alimentacion";
   readonly VERSION = "2024.03.24.01";
 
   columnsTiposAli: any;
-  lstTiposAli: [];
+  lstTiposAli = [];
   filtro: string = "";
   idTipoUsuario: number = 0;
   constructor(private service: TiposAlimentacionService) { }
@@ -26,7 +26,7 @@ export class TiposAlimentacionComponent implements OnInit {
   }
 
   openMdlCaptura(){
-
+    this.mdlCapturaTipo.openModal();
   }
 
  async getTiposAlimentacion(){

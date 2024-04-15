@@ -14,8 +14,8 @@
                         <input class="form-control" type="text" name="txtFiltro" id="txtFiltro">
                     </div>
                     <div class="col-md-8 text-right">
-                       <!--  <button class="btn btn-info" type="button" (click)="openModal(true)" ><i
-                            class="fas fa-plus"></i> Agregar</button> -->
+                        <button class="btn btn-info" type="button" (click)="openMdlCaptura()" ><i
+                            class="fas fa-plus"></i> Agregar</button>
                     </div>
                 </div>
                 <div class="row mt-4">
@@ -41,6 +41,6 @@
     </div>
 </div>
 
-<app-mdl-captura-tipo #mdlCapturaTipo (onClose)="onCloseModal($event)"></app-mdl-captura-tipo>
+<app-mdl-captura-tipo-alimentacion #mdlCapturaTipo (onClose)="onCloseModal($event)"></app-mdl-captura-tipo-alimentacion>
 
 

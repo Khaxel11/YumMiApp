@@ -4,11 +4,11 @@ import { CargosService } from 'src/app/services/cargos.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-mdl-captura-tipo',
+  selector: 'app-mdl-captura-tipo-alimentacion',
   templateUrl: './mdl-captura-tipo.component.html',
   styleUrls: ['./mdl-captura-tipo.component.css']
 })
-export class MdlCapturaTipoComponent implements OnInit {
+export class MdlCapturaTipoAlimentacionComponent implements OnInit {
   @Output() onClose = new EventEmitter<any>();
   @ViewChild('mdlCapturaTipo') mdlCapturaTipo : any;
   modalRef : NgbModalRef;

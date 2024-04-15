@@ -14,8 +14,9 @@ import { MdlCapturaAppsComponent } from './Aplicaciones/components/mdl-captura-a
 import { TiposNotificacionesComponent } from './TiposNotificaciones/Pages/tipos-notificaciones/tipos-notificaciones.component';
 import { MdlCapturaTipoComponent } from './TiposNotificaciones/Components/mdl-captura-tipo/mdl-captura-tipo.component';
 import { TiposAlimentacionComponent } from './TiposAlimentacion/Pages/tipos-alimentacion/tipos-alimentacion.component';
+import { MdlCapturaTipoAlimentacionComponent } from './TiposAlimentacion/Components/mdl-captura-tipo/mdl-captura-tipo.component';
 @NgModule({ 
-  declarations: [CargosComponent, MdlCapturaComponent, IngredientsComponent, TiposProductosComponent, MdlTiposProductosComponent, AplicacionesComponent, MdlCapturaAppsComponent, TiposNotificacionesComponent, MdlCapturaTipoComponent, TiposAlimentacionComponent],
+  declarations: [CargosComponent, MdlCapturaComponent, IngredientsComponent, TiposProductosComponent, MdlTiposProductosComponent, AplicacionesComponent, MdlCapturaAppsComponent, TiposNotificacionesComponent, MdlCapturaTipoComponent, TiposAlimentacionComponent, MdlCapturaTipoAlimentacionComponent],
   imports: [
     CommonModule,
     CatalogsRoutingModule,

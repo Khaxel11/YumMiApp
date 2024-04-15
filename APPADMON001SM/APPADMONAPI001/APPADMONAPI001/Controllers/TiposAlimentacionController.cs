@@ -23,11 +23,11 @@ namespace APPADMONAPI001.Controllers
             datosToken.Usuario = httpContext.HttpContext.Items["Usuario"].ToString();
         }
         [HttpGet("getTiposAlimentacion")]
-        public async Task<IActionResult> getTiposAlimentacion(string Filtro)
+        public async Task<IActionResult> getTiposAlimentacion(string Filtro, int IdTipoUsuario)
         {
             try
             {
-                return Ok(await new TiposAlimentacionBusiness().getTiposAlimentacion(datosToken, Filtro, int IdTipoUsuario));
+                return Ok(await new TiposAlimentacionBusiness().getTiposAlimentacion(datosToken, Filtro, IdTipoUsuario));
             }
             catch (Exception ex)
             {
