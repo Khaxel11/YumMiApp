@@ -14,7 +14,7 @@
     </div>
   <!-- <ion-header [class.hide-header]="isHeaderHidden"  translucent="true"> -->
     <ion-toolbar class="toolHeader" id="main-content">
-      <ion-buttons slot="start" style="position: fixed;">
+      <ion-buttons slot="start" >
         <ion-menu-button class="buttonImgProfile">
           <img class="userImg" [src]="UserJwt.picture" alt="User Image">
         </ion-menu-button>
@@ -32,7 +32,7 @@
       <!-- <ion-title> -->
         
       <!-- </ion-title> -->
-      <ion-buttons slot="end" style="position: relative;">
+      <ion-buttons slot="end">
         <ion-button class="buttonImgNotif" (click)="openMdlNotificacion()">
           <ion-icon name="notifications-outline"></ion-icon>
           <div class="mini-bubble" *ngIf="countNotification !== 0">{{countNotification}}</div>
