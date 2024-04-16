@@ -43,7 +43,7 @@ export class TiposAlimentacionComponent implements OnInit {
     }
   }
 
-  onCloseModal(e: any){
+  onCloseModal(event: any){
 
   }
 
