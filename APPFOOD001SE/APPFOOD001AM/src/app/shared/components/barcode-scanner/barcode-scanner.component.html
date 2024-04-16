@@ -1,0 +1,19 @@
+<ion-content>
+    <div class="container">
+      <div class="barcode-detector" [class.barcode-detected]="codigoDetectado"></div>
+    </div>
+    <div id="barcode-scanner-container"></div>
+  
+    <!-- Botón flotante -->
+    <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+      <ion-fab-button (click)="simularTomaDeFoto()" class="foto-button">
+        <ion-icon name="camera"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  
+    <!-- Superposición de la foto -->
+    <div class="photo-overlay" [class.show]="mostrarScreenshot">
+      <img [src]="photoURL" alt="Foto">
+    </div>
+  </ion-content>
+  
