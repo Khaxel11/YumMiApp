@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  APPFOODAPI001 : 'https://c68d-187-137-172-73.ngrok-free.app/',
+  APPFOODAPI001 : 'https://fa0a-187-137-206-121.ngrok-free.app/',
 };

@@ -48,11 +48,11 @@
       </ion-item>
     </div>
     <ion-list inset="true">
-      <ion-item class="itembtn transparent-item" >
+      <ion-item class="itembtn transparent-item" (click)="goToPedidos()">
         <ion-icon type="full" name="calendar-outline" slot="start" size="small" color="medium" class="ion-margin-end"></ion-icon>
         <ion-label color="medium">Pedidos Programados</ion-label>
       </ion-item>
-      <ion-item class="itembtn transparent-item">
+      <ion-item class="itembtn transparent-item" (click)="goToHistorial()">
         <ion-icon type="full" name="archive-outline" slot="start" size="small" color="medium"></ion-icon>
         <ion-label color="medium">Historial de pedidos</ion-label>
       </ion-item>

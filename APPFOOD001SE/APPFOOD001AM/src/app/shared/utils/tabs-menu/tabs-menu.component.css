@@ -3,7 +3,7 @@
     overflow-x: auto;
     white-space: nowrap;
     scrollbar-width: none;
-    margin: 5px;
+    /* margin: 5px; */
 }
 
 .category-container::-webkit-scrollbar {

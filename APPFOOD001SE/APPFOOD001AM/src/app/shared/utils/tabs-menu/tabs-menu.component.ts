@@ -16,7 +16,7 @@ export class TabsMenuComponent implements AfterViewInit {
       {
         icon : 'receipt-outline',
         tab : 'Pedidos',
-        route: ''
+        route: 'delivery'
        },
        {
         icon : 'calendar-outline',
@@ -33,11 +33,11 @@ export class TabsMenuComponent implements AfterViewInit {
         tab : 'FoodHubs',
         route: '/home/foodhubs'
        },
-       {
-        icon : 'trophy-outline',
-        tab : 'Recompensas',
-        route: ''
-       },
+      //  {
+      //   icon : 'trophy-outline',
+      //   tab : 'Recompensas',
+      //   route: ''
+      //  },
        {
         icon : 'person-circle-outline',
         tab : 'Perfil',

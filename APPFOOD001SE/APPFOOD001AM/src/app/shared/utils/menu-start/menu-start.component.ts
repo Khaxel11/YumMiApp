@@ -31,4 +31,10 @@ export class MenuStartComponent implements OnInit {
   goToProfile(){
     this.navCtrl.navigateForward('/profile');
   }
+  goToPedidos(){
+    this.navCtrl.navigateForward('/calendar');
+  }
+  goToHistorial(){
+    this.navCtrl.navigateForward('/calendar');
+  }
 }

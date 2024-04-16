@@ -18,7 +18,7 @@ ion-content{
   padding: 10px;
 }
 .login-content {
-  background-color: white;
+  /* background-color: white; */
   border-radius: 30px;
   position: fixed;
   padding: 20px;
