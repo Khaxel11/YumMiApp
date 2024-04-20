@@ -10,7 +10,7 @@ export class BarcodeScannerComponent {
   codigoDetectado: string = ''; // Código de barras más común
   mostrarScreenshot: boolean = false; // Mostrar la superposición de la "foto"
   photoURL: string | null = null; // URL de la foto capturada
-
+  finalCode : string = '';
   constructor() {}
 
   ngOnInit() {
@@ -56,17 +56,17 @@ export class BarcodeScannerComponent {
       this.codigoDetectado = codigosOrdenados[0]; // Establecer el código más común
       
       setTimeout(() => {
-        this.codigoDetectado = ''; // Restablecer después de un tiempo
+        this.codigoDetectado = ''; 
       }, 2000); 
     });
   }
-  simularTomaDeFoto() {
-    // Mostrar la superposición de la "foto"
+  takePicture() {
+    
     this.mostrarScreenshot = true;
 
-    // Después de un cierto período de tiempo, ocultar la superposición
+    
     setTimeout(() => {
       this.mostrarScreenshot = false;
-    }, 1000); // Duración de la "foto" en milisegundos (1 segundo en este caso)
+    }, 1000); 
   }
 }
