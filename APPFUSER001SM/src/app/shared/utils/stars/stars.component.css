@@ -1,0 +1,54 @@
+.estrellas {
+    display: flex;
+    /* position: relative; */
+    background-color: transparent;
+  }
+  
+  .estrella,
+  .estrella2,
+  .estrellaGray {
+    width: 20px;
+    height: 20px;
+  
+    margin-right: 4px;
+    
+  }
+  
+  .estrella {
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    background: #EF6C00;
+  }
+  
+  .estrellaGray {
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    background: #a5a5a5;
+  }
+  
+  .estrella2 {
+    position: relative;
+  
+  }
+  
+  .estrella2::before,
+  .estrella2::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  
+  }
+  
+  .estrella2::before {
+  
+    background: #EF6C00;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  }
+  
+  .estrella2::after {
+  
+    background: #a5a5a5;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 50% 65%, 50% 69%, 50% 64%, 50% 44%);
+  }
+  
+  

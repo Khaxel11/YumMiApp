@@ -1,0 +1,39 @@
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  border-bottom: 1px solid #ccc; /* Línea separadora */
+}
+.expand-wrapper {
+  transition: max-height 0.4s ease-in-out;
+  overflow: hidden;
+  height: auto;
+  max-height: 150px; /* Establece una altura máxima inicial */
+  border: 1px solid #ccc; /* Agrega un borde alrededor del acordeón */
+  border-radius: 5px; /* Agrega bordes redondeados */
+}
+
+.collapsed {
+  max-height: 0 !important;
+}
+
+.toggle-button {
+  padding: 5px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.arrow-icon {
+  margin-right: 5px;
+  transition: transform 0.3s ease;
+  font-size: 16px; 
+}
+
+.arrow-down::after {
+  content: "\25BC"; 
+}
+
+.arrow-up::after {
+  content: "\25B2"; 
+}

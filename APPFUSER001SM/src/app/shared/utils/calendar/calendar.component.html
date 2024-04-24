@@ -1,0 +1,57 @@
+<!-- calendar.component.html -->
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title><strong>Mi Calendario</strong></ion-title>
+  </ion-toolbar>
+</ion-header> -->
+<div class="legends">
+  <div class="legend select"></div>
+  <ion-label>Seleccionados</ion-label>
+  <div class="legend actual"></div>
+  <ion-label>Hoy</ion-label>
+  <div class="legend other"></div>
+  <ion-label>Otro Mes</ion-label>
+</div>
+<div class="calendar-container" [style.width]="Width" [style.height]="Height">
+
+  <div class="calendar-header">
+    <button (click)="prevMonth()" >
+      <!-- Anterior -->
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </button>
+    {{ getMonthName() }} {{ year }}
+    <button (click)="nextMonth()">
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+      <!-- Siguiente -->
+    </button>
+  </div>
+
+  <div class="day-of-week-container">
+    <div class="calendar-day" *ngFor="let day of [0,1,2,3,4,5,6]">
+      <div class="day-number">{{ getAbbreviatedDayOfWeek(day) }}</div> 
+    </div>
+  </div>
+
+  <div *ngFor="let week of weeks" class="calendar-row">
+    <div
+      *ngFor="let day of week"
+      (click)="selectDay(day)"
+      class="calendar-day cont"
+      [ngClass]="{
+        'other-month': day.isOtherMonth,
+        'today': (day.number === today && !day.isOtherMonth && this.month === this.actualMonth) ,
+        'select' :day.selected
+      }"
+      [style.height]="spaceBetweeen"
+
+    >
+      <div class="day-number">{{ day.number === 0 ? '' : day.number }}</div>
+      <div class="day-content">
+        <div class="notes">{{ day.notes }}</div>
+      </div>
+    </div>
+  </div>
+</div>

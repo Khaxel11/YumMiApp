@@ -1,0 +1,59 @@
+.container {
+    /* padding: 10px; */
+    height: 100%;
+    width: 100%;
+}
+
+.week-calendar {
+    display: flex;
+    /* flex-wrap: nowrap; */
+    justify-content: space-between;
+    
+    border-radius: 10px;
+    background: linear-gradient(319deg, rgba(250, 120, 6, 1) 0%, rgba(255, 2, 2, 0.6306897759103641) 95%);
+}
+
+.day-list {
+    flex: 1;
+    text-align: center;
+    padding: 15px;
+}
+
+.day-week{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    font-weight: bold;
+    color: white;
+}
+
+
+.day-number {
+    /* font-weight: bold; */
+    position: relative;
+    z-index: 1;
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.day-today .day-number {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+
+.day-today .day-number::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px; 
+    height: 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    z-index: -1;
+    padding: 10px;
+    
+}

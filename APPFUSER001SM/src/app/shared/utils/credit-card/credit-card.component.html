@@ -1,0 +1,166 @@
+<div class="wrapper" id="app">
+    <div class="card-form">
+      <div class="card-list">
+        <div class="card-item" [class.-active]="isCardFlipped">
+          <div class="card-item__side -front">
+            <div class="card-item__focus" [class.-active]="focusElementStyle" [style]="focusElementStyle" #focusElement></div>
+            <div class="card-item__cover">
+              <img [src]="'../../../../assets/Images/cards/' + currentCardBackground + '.jpeg'" class="card-item__bg">
+            </div>
+  
+            <div class="card-item__wrapper">
+              <div class="card-item__top">
+                <img src="../../../../assets/Images/cards/chip.png" class="card-item__chip">
+                <div class="card-item__type">
+                  <img [src]="'../../../../assets/Images/cards/' + getCardType() + '.png'" *ngIf="getCardType()" [key]="getCardType()" alt="" class="card-item__typeImg">
+                </div>
+              </div>
+              <label id="cardNumberRef" for="cardNumberRef" class="card-item__number" #cardNumberRef> 
+                <!-- {{getCardType()}} -->
+                {{formatCardNumberMask(cardNumber)}} 
+                <!-- <ng-container *ngIf="getCardType() === 'amex'">
+                    <span *ngFor="let n of amexCardMask.split(''); let $index = index">
+                        <div
+                            class="card-item__numberItem"
+                            *ngIf="$index > 4 && $index < 14 && cardNumber.length > $index && n.trim() !== ''"
+                        ></div>
+                        <div
+                            class="card-item__numberItem"
+                            [class.-active]="n.trim() === ''"
+                            [key]="$index"
+                            *ngIf="cardNumber.length > $index"
+                        >{{cardNumber[$index]}}</div>
+                        <div
+                            class="card-item__numberItem"
+                            [class.-active]="n.trim() === ''"
+                            *ngIf="n.trim() === ''"
+                            [key]="$index + 1"
+                        >{{n}}</div>
+                    </span>
+                </ng-container>
+                <ng-container *ngIf="getCardType() !== 'amex'">
+                    <span *ngFor="let n of otherCardMask.split(''); let $index = index">
+                        <div
+                            class="card-item__numberItem"
+                            *ngIf="$index > 4 && $index < 15 && cardNumber.length > $index && n.trim() !== ''"
+                        ></div>
+                        <div
+                            class="card-item__numberItem"
+                            [class.-active]="n.trim() === ''"
+                            [key]="$index"
+                            *ngIf="cardNumber.length > $index"
+                        >{{cardNumber[$index]}}</div>
+                        <div
+                            class="card-item__numberItem"
+                            [class.-active]="n.trim() === ''"
+                            *ngIf="n.trim() === ''"
+                            [key]="$index + 1"
+                        >{{n}}</div>
+                    </span>
+                </ng-container> -->
+                
+              </label>
+              <div class="card-item__content">
+                <label id="cardNameRef" for="cardNameRef" class="card-item__info" #cardNameRef>
+                  <div class="card-item__holder">Titular</div>
+                  <div class="card-item__name" *ngIf="cardName.length; else noName" key="1">
+                    <div class="card-item__nameItem" *ngFor="let n of formatCardName(cardName).split('')">{{n}}</div>
+                </div>
+                  <ng-template #noName>
+                    <div class="card-item__name" key="2">Nombre y apellido</div>
+                  </ng-template>
+                </label>
+                <!-- <div class="card-item__date" #cardDateRef>
+                  <label for="cardMonth" class="card-item__dateTitle">Expira</label>
+                  <label for="cardMonth" class="card-item__dateItem">
+                    <span *ngIf="cardMonth; else noMonth" [key]="cardMonth">{{cardMonth}}</span>
+                    <ng-template #noMonth>MM</ng-template>
+                  </label>
+                  /
+                  <label for="cardYear" class="card-item__dateItem">
+                    <span *ngIf="cardYear; else noYear" >{{String(cardYear).slice(2,4)}}</span>
+                    <ng-template #noYear>AA</ng-template>
+                  </label>
+                </div> -->
+              </div>
+            </div>
+          </div>
+          <div class="card-item__side -back">
+            <div class="card-item__cover">
+              <img
+              [src]="'../../../../assets/Images/cards/' + currentCardBackground + '.jpeg'" class="card-item__bg">
+            </div>
+            <div class="card-item__band"></div>
+            <div class="card-item__cvv">
+                <div class="card-item__cvvTitle">CLABE</div>
+                <div class="card-item__cvvBand">
+                    <!-- *ngFor="let n of cardCvv; let $index = index" [key]="$index" -->
+                  <span id="ClabeRef" for="ClabeRef" #ClabeRef>
+                    {{cardCLABE}}
+                  </span>
+              </div>
+                <div class="card-item__type">
+                    <img [src]="'../../../../assets/Images/cards/' + getBankName() + '.png'" *ngIf="getBankName()" class="card-item__typeImg">
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-form__inner">
+        <div class="card-input">
+          <label for="cardNumber" class="card-input__label">Numero de Tarjeta</label>
+          <!-- <input type="text" id="cardNumber" class="card-input__input"  [(ngModel)]="cardNumber" [placeholder]="amexCardMask" (focus)="focusInput('cardNumberRef')" (blur)="blurInput()" data-ref="cardNumberRef" autocomplete="off"> -->
+          <input type="text" id="cardNumber" class="card-input__input" [(ngModel)]="cardNumber" [placeholder]="generateCardNumberMask()" (keyup)="formatCardNumber()" (focus)="focusInput('cardNumberRef')" (blur)="blurInput()" data-ref="cardNumberRef" autocomplete="off" [maxlength]="this.generateCardNumberMask().length">
+
+
+
+        </div>
+        <div class="card-input">
+          <label for="cardName" class="card-input__label">Titular</label>
+          <input type="text" id="cardName" class="card-input__input" [(ngModel)]="cardName" placeholder="Nombre del Titular" (focus)="focusInput('cardNameRef')" (blur)="blurInput()" data-ref="cardNameRef" autocomplete="off">
+        </div>
+        <div class="card-form__row">
+          <!-- <div class="card-form__col"> -->
+            <!-- <div class="card-form__group">
+              <label for="cardMonth" class="card-input__label">Fecha de Expiración</label>
+              <select class="card-input__input -select" id="cardMonth" [(ngModel)]="cardMonth" (focus)="focusInput('cardDate')" (blur)="blurInput()" data-ref="cardMonthRef" autocomplete="off">
+                <option value="" disabled selected>Month</option>
+                <option [value]="n < 10 ? '0' + n : n" *ngFor="let n of months" [disabled]="n < minCardMonth" [key]="n">
+                    {{n < 10 ? '0' + n : n}}
+                </option>
+              </select>
+              <select class="card-input__input -select" id="cardYear" [(ngModel)]="cardYear" (focus)="focusInput('cardDate')" (blur)="blurInput()" data-ref="cardYearRef" autocomplete="off">
+                <option value="" disabled selected>Year</option>
+                <option [value]="$index + minCardYear" *ngFor="let n of years; let $index = index" [key]="n">
+                    {{$index + minCardYear}}
+                </option>
+              </select>
+            </div> -->
+          <!-- </div> -->
+          <!-- -cvv -->
+          <div class="card-form__col ">
+            <div class="card-input">
+              <label for="cardCvv" class="card-input__label">Banco</label>
+              <!-- <input type="text" class="card-input__input" id="cardCvv" maxlength="4" [(ngModel)]="cardCvv"  autocomplete="off"> -->
+              
+                <ion-select class="card-input__input" placeholder="Seleccione Banco de Tarjeta" name="txtBanco" id="txtBanco" (focus)="flipCard(true)" (blur)="flipCard(false)" [(ngModel)]="cardBankId">
+                    <ion-select-option  [value]="bank.IdBanco" *ngFor="let  bank of lstBanks">{{bank.NombreBanco}}</ion-select-option>
+                </ion-select>
+            </div>
+            <div class="card-input">
+                <label for="cardName" class="card-input__label">CLABE</label>
+                <input type="text" id="cardName" class="card-input__input" placeholder="CLABE de Tarjeta" [(ngModel)]="cardCLABE" (focus)="flipCard(true)" (blur)="flipCard(false)" data-ref="ClabeRef" autocomplete="off">
+              </div>
+          </div>
+        </div>
+        <ion-button expand="block" fill="outline" shape="round" color="dark" >
+            Guardar
+        </ion-button>
+        <!-- <button class="card-form__button">
+          Submit
+        </button> -->
+      </div>
+    </div>
+  
+  </div>
+  
