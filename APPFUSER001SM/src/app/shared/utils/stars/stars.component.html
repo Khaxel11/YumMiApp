@@ -1,0 +1,5 @@
+<div class="estrellas">
+    <div [ngClass]="star === 0 ? 'estrellaGray' : star % 1 !== 0 ? 'estrella2' : 'estrella'" *ngFor="let star of divideStar(stars)"></div>
+    <strong *ngIf="showStars">{{stars}} <label *ngIf="showTotal">({{total}})</label></strong>
+    
+  </div>

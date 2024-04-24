@@ -1,0 +1,52 @@
+.cal{
+    position: absolute;
+}
+stars-cs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.star-bar {
+    background-color: #ff7f16;
+    height: 20px;
+    margin-bottom: 5px;
+    border-radius: 20px;
+  }
+
+
+
+label{   
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.totalCal{
+    font-size: 60px;
+    
+}
+.total{
+    font-size: 18px;
+    color: #b1afaf ;
+    margin-top: 5px;
+}
+.container{
+    width: 85%;
+    background-color: #b1afaf;
+    height: 20px;
+    margin-bottom: 5px;
+    border-radius: 20px;
+    margin-left: 20px;
+}
+.promedio{
+    width: 30%;
+    /* background-color: #b1afaf; */
+    height: 150px;
+    position: absolute;
+}
+.starcont{
+    margin-left: 40%;
+    width: 60%;
+}

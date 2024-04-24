@@ -1,0 +1,13 @@
+<ion-content [scrollEvents]="true" (touchstart)="onTouchStart($event)" (touchmove)="onTouchMove($event)" (touchend)="onTouchEnd()">
+  <div #backgroundImage class="background-image" [style.backgroundImage]="'url(' + Image+ ')'"></div>
+  <div #faded class="background-image"></div>
+  <div class="header-template">
+    <ng-container *ngTemplateOutlet="headerTemplate"></ng-container>
+  </div>
+  <div #container class="container">
+    <div class="template" [style.overflow-y]="allowScroll ? 'scroll' : 'hidden'">
+      <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
+    </div>
+  </div>
+</ion-content>
+

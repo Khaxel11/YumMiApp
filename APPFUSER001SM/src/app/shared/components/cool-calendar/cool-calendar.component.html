@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="week-calendar">
+        <div *ngFor="let day of daysOfWeek" class="day-list">
+            <div class="day" [ngClass]="{'day-today': obtenerDia(day) === obtenerDia(startDate)}">
+                <div class="day-week">
+                    {{obtenerDiaSemana(day)}}
+                </div>
+                <div class="day-content">
+                    <div class="day-number">{{ obtenerDia(day) }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

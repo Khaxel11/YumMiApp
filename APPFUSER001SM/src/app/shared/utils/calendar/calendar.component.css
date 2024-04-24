@@ -1,0 +1,107 @@
+/* calendar.component.scss */
+
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+  /* width: 100%; */
+}
+
+.calendar-header,
+.day-of-week-container,
+.calendar-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendar-day {
+  flex: 1;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: calc(100% / 7); /* Ajuste del ancho para cada día de la semana */
+}
+/* .cont{
+  : 50px;
+} */
+
+.calendar-day:hover {
+  background-color: #f0f0f0;
+}
+
+.day-number {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.other-month .day-number{
+  color: #666666;
+}
+
+.day-of-week {
+  font-size: 16px;
+  color: #777;
+}
+
+.notes {
+  position: fixed;
+  margin-top: 8px;
+  font-size: 16px;
+  color: #777;
+}
+
+.other-month {
+  background-color: rgb(243, 243, 243);
+  color: #777;
+}
+
+.today {
+  background-color: rgb(171, 245, 162);
+}
+
+button {
+  background-color: #535353;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #363636;
+}
+
+.select{
+  color: white;
+  border: 2px green solid;
+}
+.legend{
+  width: 20px;
+  height: 20px;
+  margin: 10px
+}
+.legend.select{
+  border: 2px green solid;
+}
+.legend.actual{
+  background-color: rgb(171, 245, 162);
+}
+.legend.other{
+  background-color: rgb(243, 243, 243);
+  border: 1px #333 solid;
+}
+
+.other-month .select{
+  border: 1px greenyellow solid;
+}
+.legends{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  font-weight: bold;
+}
