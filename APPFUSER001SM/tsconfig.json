@@ -15,6 +15,8 @@
     "lib": [
       "es2018",
       "dom"
-    ]
-  }
+    ],
+    "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.json"]
+  },
+  
 }

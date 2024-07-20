@@ -7,8 +7,9 @@ import { LoaderComponent } from './loader/loader.component';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { IonicModule } from '@ionic/angular';
+import { LoginComponent } from './login/login.component';
 @NgModule({
-  declarations: [LoaderComponent],
+  declarations: [LoaderComponent, LoginComponent],
   imports: [
     CommonModule,
     StartRoutingModule,

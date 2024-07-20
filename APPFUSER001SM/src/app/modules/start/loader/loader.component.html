@@ -1,39 +1,36 @@
-<ion-content class="ion-text-center" >
-    <ion-fab vertical="top" horizontal="top" slot="fixed" class="ion-margin-top" style="width: 100px; height: 100px;" *ngIf="img">
-      <ion-fab-button color="#fffff" class="my-custom-fab-button" style="width: 100%; height: 100%;">
-        <img [src]="img" alt="User Image">
-      </ion-fab-button>
-    </ion-fab>
-    <!-- <img src="../../../../assets//Images/ToyFaces_Tansparent_BG_29 (1).png" alt=""> -->
-    <img class="ima2" src="../../../../assets/Images/ToyFaces_Tansparent_BG_29 (1).png" />
-    <img class="ima1" src="../../../../assets/Images//ToyFaces_Tansparent_BG_49 (1).png" />
+<ion-content>
+  <div class="wrapper">
+    <svg>
+      <text x="50%" y="50%" dy=".35em" text-anchor="middle">
+        YumMi
+      </text>
+    </svg>
+  </div>
+  
+    <div class="loading-container">
+      <div vertical="top" horizontal="top" slot="fixed" class="icon-container" *ngIf="img">
+        <ion-fab-button color="#fffff" class="fab-content">
+          <img [src]="'../../../../assets/Images/ToyFace_BG_Male_2.png'" alt="User Image">
+        </ion-fab-button>
+      </div>
+      <img class="img2" src="{{ToyFaceMale2}}" />
+      <img class="img1" src="{{ToyFaceMale3}}"/>
+      <ion-spinner name="bubbles"></ion-spinner>
+      <p class="loading-text">
+        <span *ngFor="let key of listMensaje">{{key}}</span>
+      </p>
+    </div>
+    <!--  />
     <div class="st1"></div>
   
-    <div class="wrapper">
-      <svg>
-        <text x="50%" y="50%" dy=".35em" text-anchor="middle">
-          YumMi
-        </text>
-      </svg>
-    </div>
+    
     <div class="loading-text" slot="fixed" style="margin-bottom: 40%;" >
       {{username}}
     </div>
-  
-    <div class="loading-container">
-      <ion-spinner></ion-spinner>
-      <p class="loading-text">
-        <span *ngFor="let key of listMensaje">{{key}}</span>
-        
-        <!-- <span>C</span>
-        <span>a</span>
-        <span>r</span>
-        <span>g</span>
-        <span>a</span>
-        <span>n</span>
-        <span>d</span>
-        <span>o</span> -->
-      </p>
+   -->
+    <div>
+      
+      
     </div>
   </ion-content>
   
