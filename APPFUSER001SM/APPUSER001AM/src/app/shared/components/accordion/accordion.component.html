@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <ion-item button (click)="toggleAccordion()" class="accordion-header">
   <ion-label>{{ title }}</ion-label>
   <ion-icon
@@ -44,3 +45,14 @@
           </ion-item>
         </app-accordion>
    -->
+=======
+<div class="accordion-header">
+  <h3>{{ title }}</h3>
+  <ion-button (click)="toggleAccordion()" class="toggle-button">
+    <span class="arrow-icon" [class.arrow-down]="!expanded" [class.arrow-up]="expanded"></span>
+  </ion-button>
+</div>
+<div #expandWrapper class="expand-wrapper" [class.collapsed]="!expanded">
+  <ng-content></ng-content>
+</div>
+>>>>>>> Stashed changes

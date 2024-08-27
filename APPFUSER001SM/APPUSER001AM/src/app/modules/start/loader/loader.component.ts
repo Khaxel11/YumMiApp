@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import {  ToyFaceMale2, ToyFaceMale3} from '../../../../assets/images'
 =======
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { General, MESSAGE } from 'src/app/functions/general';
 
+>>>>>>> Stashed changes
+=======
+import {  ToyFaceMale2, ToyFaceMale3} from '../../../../assets/images'
 >>>>>>> Stashed changes
 @Component({
   selector: 'app-loader',
@@ -14,6 +18,7 @@ import { General, MESSAGE } from 'src/app/functions/general';
 })
 export class LoaderComponent implements OnInit {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   
   ToyFaceMale2 = ToyFaceMale2;
   ToyFaceMale3 = ToyFaceMale3;
@@ -21,16 +26,26 @@ export class LoaderComponent implements OnInit {
   readonly imgloader1 = "../../../../assets/Images/ToyFace_BG_Male_2.png";
   readonly imgloader2 = "../../../../assets/Images/ToyFace_BG_Male.png";
 >>>>>>> Stashed changes
+=======
+  
+  ToyFaceMale2 = ToyFaceMale2;
+  ToyFaceMale3 = ToyFaceMale3;
+>>>>>>> Stashed changes
   mensaje : string = "Cargando"
   listMensaje = [] = this.mensaje.split('');
   username : string;
   img : string;
   idCuenta : string;
+<<<<<<< Updated upstream
   intervalId: any;
   general = new General();
   mensajes = new MESSAGE();
 
   constructor(private router: Router, private navCtrl : NavController, ) { }
+=======
+
+  constructor() { }
+>>>>>>> Stashed changes
 
   ngOnInit(): void {
     if(localStorage.getItem("picture")){
@@ -42,6 +57,7 @@ export class LoaderComponent implements OnInit {
      if(localStorage.getItem("username")){
       this.username = localStorage.getItem("username");
      }
+<<<<<<< Updated upstream
      this.checkConnection();
 
      const timeoutId = setTimeout(() => {
@@ -81,6 +97,10 @@ export class LoaderComponent implements OnInit {
       }
    
     }, 100); //3000
+=======
+
+    
+>>>>>>> Stashed changes
   }
 
 }
