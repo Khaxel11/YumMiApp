@@ -29,6 +29,7 @@
     "@ionic-native/geolocation": "^5.36.0",
     "@ionic/angular": "^5.9.4",
     "@ionic/pwa-elements": "^3.2.2",
+    "chart.js": "^2.9.4",
     "ion2-calendar": "^3.5.0",
     "js-sha256": "^0.11.0",
     "moment": "^2.30.1",

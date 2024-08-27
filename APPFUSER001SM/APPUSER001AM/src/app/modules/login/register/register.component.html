@@ -1,0 +1,28 @@
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <div class="header">
+      <img src="path-to-your-logo.svg" alt="Logo" class="logo" />
+    </div>
+    <h1 class="text-title">Log in</h1>
+    <div class="form-container">
+      <ion-item class="item-input">
+        <ion-label position="floating">Email address</ion-label>
+        <ion-input [required]="true" type="email"></ion-input>
+        <ion-icon slot="end" name="checkmark-circle-outline"></ion-icon>
+      </ion-item>
+      <ion-item class="item-input">
+        <ion-label position="floating">Password</ion-label>
+        <ion-input [required]="true" type="password"></ion-input>
+        <ion-icon slot="end" name="eye-off-outline"></ion-icon>
+      </ion-item>
+      <div class="forgot-password">
+        <a href="#">Forgot password?</a>
+      </div>
+      <ion-button expand="block" class="login-button">Log in</ion-button>
+    </div>
+    
+    <div class="signup">
+      <span>Don’t have an account? <a href="#">Sign up</a></span>
+    </div>
+  </div>
+</ion-content>

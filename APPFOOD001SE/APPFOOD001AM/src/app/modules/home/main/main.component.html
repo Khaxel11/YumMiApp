@@ -43,7 +43,13 @@
   <!-- </ion-header> -->
 
   <div class="content-val" *ngIf="lstSlider">
-    <div class="balance-container">
+    <div *ngIf="lstSlider"><main-slider [items]="lstSlider"></main-slider></div>
+    <tabs-menu></tabs-menu>
+    <events-visualization [lstFechasProgramadas]="lstPedidosProximos" (onShowDetails)="showDetails($event)" *ngIf="lstPedidosProximos.length > 0"></events-visualization>  
+    <!-- <events-visualization></events-visualization>   -->
+    <active-order ></active-order>
+    <app-balance></app-balance>
+    <!-- <div class="balance-container">
       
       <h2>
         <ion-icon name="wallet-outline"></ion-icon> 
@@ -54,12 +60,10 @@
           mx
         </div>
       </h2>
-    </div>
-    <main-slider [items]="lstSlider"></main-slider>
-    <tabs-menu></tabs-menu>
-    <events-visualization [lstFechasProgramadas]="lstPedidosProximos" (onShowDetails)="showDetails($event)" *ngIf="lstPedidosProximos.length > 0"></events-visualization>  
-    <!-- <events-visualization></events-visualization>   -->
-    <active-order ></active-order>
+    </div> -->
+    
+    
+   
   </div>
   
 

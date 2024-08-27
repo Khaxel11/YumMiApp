@@ -1,0 +1,19 @@
+.accordion-header {
+  --background: var(--ion-color-light);
+  --border-radius: 8px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  cursor: pointer;
+}
+
+.accordion-content {
+  padding: 16px;
+  transition: all 0.3s ease-out;
+  overflow: hidden;
+  max-height: 500px; 
+}
+
+.rotated {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}

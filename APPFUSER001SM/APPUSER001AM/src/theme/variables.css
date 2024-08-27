@@ -1,0 +1,131 @@
+
+*{
+    font-family: 'Work Sans', sans-serif;
+    
+  }
+  .main-container{
+    padding: 10px;
+  }
+  @font-face {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../assets/fonts/WorkSans-Regular.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'Work Sans';
+    font-style: italic;
+    font-weight: 400;
+    src: url('../assets/fonts/WorkSans-Italic.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../assets/fonts/WorkSans-Bold.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'Work Sans';
+    font-style: italic;
+    font-weight: 700;
+    src: url('../assets/fonts/WorkSans-BoldItalic.ttf') format('truetype');
+  }
+  
+  :root {
+      --ion-color-primary: #007bff;
+      --ion-color-secondary: #32db64;
+      --ion-color-tertiary: #ffc409;
+    }
+    
+    @keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+/* The following classes represent "standart" sizes for mobile and tablet devices.
+* 
+* NOTE: By default the modal-wrapper max-width will fit the content. 
+* So, if we don't add any custom-size class to the first element inside 
+* the component passed to the modal it will has the
+* default behavior of a modal for devices which is being full-width.
+*
+*/
+
+/* Extra small size */
+.modal-xm .modal-wrapper {
+  max-width: 220px;
+}
+@media only screen and (min-width: 768px) and (min-height: 768px) {
+  .modal-xm .modal-wrapper {
+    max-width: 320px;
+  }
+}
+
+/* Small size */
+.modal-sm .modal-wrapper {
+  max-width: 240px;
+}
+@media only screen and (min-width: 768px) and (min-height: 768px) {
+  .modal-sm .modal-wrapper {
+    max-width: 360px;
+  }
+}
+
+/* Medium size */
+.modal-md .modal-wrapper {
+  max-width: 260px;
+}
+@media only screen and (min-width: 768px) and (min-height: 768px) {
+  .modal-md .modal-wrapper {
+    max-width: 400px;
+  }
+}
+
+/* Large size */
+.modal-lg .modal-wrapper {
+  max-width: 280px;
+}
+@media only screen and (min-width: 768px) and (min-height: 768px) {
+  .modal-lg .modal-wrapper {
+    max-width: 440px;
+  }
+}
+
+/* Extra Large size */
+.modal-xl .modal-wrapper {
+  max-width: 300px;
+}
+@media only screen and (min-width: 768px) and (min-height: 768px) {
+  .modal-xl .modal-wrapper {
+    max-width: 480px;
+  }
+}
+
+
+.item-input {
+  border-radius: 10px;
+  border: 2px solid rgb(155, 155, 155);
+  --highlight-color-focused: #131313;
+  --placeholder-color: #999999;
+  --background: transparent;
+}
