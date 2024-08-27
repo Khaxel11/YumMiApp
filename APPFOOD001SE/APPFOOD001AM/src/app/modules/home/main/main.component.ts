@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { LogUser } from 'src/app/models/LogUser';
 import { EstablishService } from 'src/app/services/App/establish.service';
 import { KitchenService } from 'src/app/services/Kitchen/kitchen.service';
@@ -48,7 +48,8 @@ export class MainComponent implements OnInit {
     private geolocation: Geolocation,
     private modalController: ModalController,
     private alertController: AlertController,
-    private serviceKS : KitchenService
+    private serviceKS : KitchenService,
+    private cdr: ChangeDetectorRef,
   ) { 
    
 
@@ -151,6 +152,7 @@ export class MainComponent implements OnInit {
     let data = await this.EstablishService.getLogData(3, Number(this.UserJwt.idCuenta));
     console.log(data.data);
     this.LogUser = data.data;
+    this.cdr.detectChanges();
   }
   async getNotifications(){
     //let min = Math.ceil(1);
@@ -194,9 +196,13 @@ export class MainComponent implements OnInit {
   }
 
   async getSliderImages(){
-    let data = await this.KitchenService.getSliderMenu();
-    this.lstSlider = data.data;
-    console.log(data);
+    try {
+      let data = await this.KitchenService.getSliderMenu();
+      this.lstSlider = data.data;
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   goToProducts(){

@@ -1,0 +1,52 @@
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="header-login">
+    <img [src]="img_User" alt="User Image" class="user-image">
+  </div>
+  <div class="login-content">
+    <h1 class="ion-text-center ion-margin-bottom"><strong>Inicia Sesión</strong></h1>
+    
+    <div class="login-item ion-margin-top">
+      <ion-item lines="none" class="custom-item">
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-input required #usernameInput [(ngModel)]="userName"></ion-input>
+      </ion-item>
+    </div>
+    
+    <div class="login-item">
+      <ion-item lines="none" class="custom-item">
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password" [(ngModel)]="password" (input)="onInputChange($event)" (keyup.enter)="clickToLogin()"></ion-input>
+      </ion-item>
+      <ion-note class="ion-margin-start" *ngIf="uppActivaded">* Mayúsculas Activadas</ion-note>
+    </div>
+    
+    <div class="login-item options-container">
+      <ion-checkbox [(ngModel)]="stayConected" labelPlacement="end"></ion-checkbox>
+      <small class="link forgotPass">Permanecer Conectado</small>
+      <small class="link forgotPass">Olvidé mi contraseña</small>
+    </div>
+    
+    <div class="login-item button-container">
+      <ion-button class="btn" shape="round" (click)="clickToLogin()">Iniciar Sesión</ion-button>
+    </div>
+    
+   
+    <div class="divider">
+      <span>O registrate con</span>
+    </div>
+    <div class="social-buttons">
+      <ion-button class="social-btn">
+        <ion-icon slot="icon-only" name="logo-facebook"></ion-icon>
+      </ion-button>
+      <ion-button class="social-btn">
+        <ion-icon slot="icon-only" name="logo-google"></ion-icon>
+      </ion-button>
+      <ion-button class="social-btn">
+        <ion-icon slot="icon-only" name="logo-apple"></ion-icon>
+      </ion-button>
+    </div>
+    <div class="text-center">
+      <small class="link forgotPass" routerLink="/register">¿No tienes una cuenta? ¡Regístrate Ahora!</small>
+    </div>
+  </div>
+</ion-content>

@@ -31,6 +31,7 @@ import { DraggableComponent } from './components/draggable/draggable.component';
 import { SheetModalComponent } from './components/sheet-modal/sheet-modal.component';
 import { CoolCalendarComponent } from './components/cool-calendar/cool-calendar.component';
 import { ReminderComponent } from './components/reminder/reminder.component';
+import { BalanceComponent } from './components/balance/balance.component';
 @NgModule({
   declarations: [    
     
@@ -61,7 +62,8 @@ import { ReminderComponent } from './components/reminder/reminder.component';
     DraggableComponent,
     SheetModalComponent,
     CoolCalendarComponent,
-    ReminderComponent
+    ReminderComponent,
+    BalanceComponent
   ],
   imports: [ 
     CommonModule,
@@ -95,7 +97,8 @@ import { ReminderComponent } from './components/reminder/reminder.component';
     SheetModalComponent,
     DraggableComponent,
     CoolCalendarComponent,
-    ReminderComponent
+    ReminderComponent,
+    BalanceComponent
   ],
   
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

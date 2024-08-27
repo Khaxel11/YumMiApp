@@ -1,0 +1,75 @@
+.balance-graph{
+  margin-top: 1vh;
+  border-radius: 10px;
+}
+.balance-section {
+    text-align: center;
+    color: #fff;
+    background-color: #292929;
+    padding: 20px 0;
+    border-radius: 10px;
+    h1 {
+      font-size: 16px;
+      margin-bottom: 0;
+    }
+    h2 {
+      font-size: 36px;
+      margin: 0;
+    }
+  }
+  
+  .investment-section {
+    
+    padding: 20px;
+    text-align: center;
+    h3 {
+      margin-bottom: 20px;
+    }
+    .chart {
+      position: relative;
+ 
+      .legend {
+        position: absolute;
+        top: 0;
+        right: 0;
+        text-align: left;
+        p {
+          display: flex;
+          align-items: center;
+          margin: 0;
+          .dot {
+            width: 10px;
+            height: 10px;
+            margin-right: 5px;
+            border-radius: 50%;
+            &.purple { background-color: purple; }
+            &.green { background-color: green; }
+            &.blue { background-color: blue; }
+            &.yellow { background-color: yellow; }
+          }
+        }
+      }
+    }
+  }
+  
+  .transactions-section {
+    ion-card {
+      background-color: #f2f2f2;
+    }
+    ion-item {
+      display: flex;
+      align-items: center;
+      ion-label {
+        font-size: 14px;
+        small {
+          display: block;
+          color: #666;
+        }
+      }
+      ion-note {
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
+  }
+  

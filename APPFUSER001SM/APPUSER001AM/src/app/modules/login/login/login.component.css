@@ -1,0 +1,104 @@
+ion-content{
+    --background: rgb(250, 173, 6);
+    --background: linear-gradient(353deg, rgb(250, 83, 6) 0%, rgb(255, 116, 2) 95%);
+  }
+  .header-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+  }
+  
+  .header-login img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    background-color: rgb(241, 241, 241);
+    padding: 10px;
+  }
+  .login-content {
+    background-color: rgb(231, 231, 231);
+    border-radius: 30px;
+    position: fixed;
+    padding: 20px;
+    transform: translateY(10%);
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0px -9px 54px -12px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px -9px 54px -12px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px -9px 54px -12px rgba(0,0,0,0.75);
+  }
+  
+  .login-item {
+    margin-bottom: 20px;
+  }
+  
+  .login-item ion-item {
+    border-radius: 10px;
+    --background: rgba(0, 0, 0, 0.05);
+  }
+  
+  .login-item ion-label {
+    color: #333;
+  }
+  
+  .login-item ion-input {
+    --padding-start: 10px;
+  }
+  
+  .forgotPass {
+    color: #007bff;
+    cursor: pointer;
+  }
+  
+  .btn {
+    --background: rgba(250, 120, 6, 0.527);
+  --background: linear-gradient(319deg, rgba(250,120,6,1) 0%, rgba(255,2,2,1) 95%);
+    font-size: 1em;
+  
+    width: 100%;
+    transition: background 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-position: 100% 0; 
+  }
+  .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 20px 0;
+  }
+  
+  .divider span {
+    color: #888;
+    font-size: 0.9rem;
+    position: relative;
+  }
+  
+  .divider:before, .divider:after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background-color: #ddd;
+    margin: 0 10px;
+  }
+  
+  .social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .social-btn {
+    --background: #f9f9f9;
+    --color: #000;
+    --border-radius: 8px;
+    width: 50px;
+    height: 50px;
+  }
+  
