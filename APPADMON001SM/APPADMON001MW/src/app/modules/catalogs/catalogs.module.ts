@@ -13,8 +13,11 @@ import { AplicacionesComponent } from './Aplicaciones/Pages/aplicaciones/aplicac
 import { MdlCapturaAppsComponent } from './Aplicaciones/components/mdl-captura-apps/mdl-captura-apps.component';
 import { TiposNotificacionesComponent } from './TiposNotificaciones/Pages/tipos-notificaciones/tipos-notificaciones.component';
 import { MdlCapturaTipoComponent } from './TiposNotificaciones/Components/mdl-captura-tipo/mdl-captura-tipo.component';
+import { AppdisponiblesComponent } from './AppsDisponibles/Pages/appdisponibles/appdisponibles.component';
+import { OpcionesDisponiblesComponent } from './AppsDisponibles/components/opcionesdisponibles/opcionesdisponibles.component';
+import { mdlAppsadministraComponent } from './AppsDisponibles/components/mdlappsadministra/mdlappsadministra.component';
 @NgModule({ 
-  declarations: [CargosComponent, MdlCapturaComponent, IngredientsComponent, TiposProductosComponent, MdlTiposProductosComponent, AplicacionesComponent, MdlCapturaAppsComponent, TiposNotificacionesComponent, MdlCapturaTipoComponent],
+  declarations: [CargosComponent, MdlCapturaComponent, IngredientsComponent, TiposProductosComponent, MdlTiposProductosComponent, AplicacionesComponent, MdlCapturaAppsComponent, TiposNotificacionesComponent, MdlCapturaTipoComponent, AppdisponiblesComponent,OpcionesDisponiblesComponent, mdlAppsadministraComponent],
   imports: [
     CommonModule,
     CatalogsRoutingModule,

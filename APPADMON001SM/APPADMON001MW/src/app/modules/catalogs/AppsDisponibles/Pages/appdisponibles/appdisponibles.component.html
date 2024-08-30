@@ -1,0 +1,48 @@
+<div class="contenedor">
+    <div class="header">
+        <label>Catalogo de Aplicaciones Disponibles</label>
+    </div>
+    <div class="body">
+        <div class="container-fluid">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="cbxSistemas">Sistema</label>
+                        <select name="cbxSistemas" id="cbxSistemas" class="form-control" [(ngModel)]="filtroSistemas"  (ngModelChange)="changeSistemas($event)">
+                            <option [value]="0">Seleccione...</option>
+                            <option [value]="item.idSistema" *ngFor="let item of lstSistemas"> {{item.sistema}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <button class="btn btn-info" type="button" (click)="addEncabezado()" ><i
+                            class="fas fa-plus"></i> Agregar</button>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        
+                        <grid-cs-drag #gridEncabezados [rowsPerPage]="10"
+                             [columnDefs]="columnsEncabezados"
+                            [(data)]="lstEncabezados"
+                            [enablePagination]="enablePagination"
+                            [idField]="'idRegistro'"       
+                            [orderField]="'orden'"    
+                            (orderChanged)="OrderChange($event)">
+                        ></grid-cs-drag>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <small>Versión 23.08.2024</small>
+                <h5>Catalogo de Aplicaciones Disponibles</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+<mdlappsadministra #mdlAdministraApps (onClose)="onCloseModal($event)"></mdlappsadministra>
+<opcionesdisponibles #disponiblesApps (onClose)="onCloseModal($event)"></opcionesdisponibles>
