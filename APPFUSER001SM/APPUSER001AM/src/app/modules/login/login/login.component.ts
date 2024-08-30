@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
 import { General } from 'src/app/functions/general';
-import { UserJwt } from 'src/app/models/UserJwt';
+import { LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { UserJwt } from 'src/app/models/UserJwt';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
@@ -19,11 +19,11 @@ export class LoginComponent implements OnInit {
   uppActivaded : boolean;
   UserJwt = new UserJwt
   stayConected : boolean;
-  constructor(  
+  constructor( 
+     
     private Load : LoadingController
     ,private Router : Router
-    ,private AuthenticationService  : AuthenticationService
-  ) { }
+    ,private AuthenticationService  : AuthenticationService) { }
 
   ngOnInit(): void {
   }

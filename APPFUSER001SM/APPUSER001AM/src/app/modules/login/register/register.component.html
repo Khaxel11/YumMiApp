@@ -1,28 +1,128 @@
-<ion-content [fullscreen]="true">
-  <div class="container">
-    <div class="header">
-      <img src="path-to-your-logo.svg" alt="Logo" class="logo" />
-    </div>
-    <h1 class="text-title">Log in</h1>
-    <div class="form-container">
-      <ion-item class="item-input">
-        <ion-label position="floating">Email address</ion-label>
-        <ion-input [required]="true" type="email"></ion-input>
-        <ion-icon slot="end" name="checkmark-circle-outline"></ion-icon>
-      </ion-item>
-      <ion-item class="item-input">
-        <ion-label position="floating">Password</ion-label>
-        <ion-input [required]="true" type="password"></ion-input>
-        <ion-icon slot="end" name="eye-off-outline"></ion-icon>
-      </ion-item>
-      <div class="forgot-password">
-        <a href="#">Forgot password?</a>
+<ion-content fullscreen="true">
+  <div class="wave-container">
+    <svg class="wave" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,100 C150,200 250,50 400,100 C550,150 650,50 800,80 L800,500 L0,500 Z" />
+    </svg>
+  </div>
+  <div class="wave-container2">
+    <svg class="wave2" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,100 C150,200 250,50 400,100 C550,150 650,50 800,80 L800,500 L0,500 Z" />
+    </svg>
+  </div>
+  <div #slidesContainer class="slides-wrapper">
+    <!-- (touchstart)="onTouchStart($event)" (touchmove)="onTouchMove($event)"
+    (touchend)="onTouchEnd($event)" -->
+    <ng-container *ngIf="currentSlide === 'slide1'">
+      <div class="slide" [ngClass]="animationClass">
+        <div class="background-create">
+          <div class="container-create">
+            <div class="form-create">
+
+              <h1 class="text-tittle">Crear Cuenta</h1>
+              <ion-item class="transparent-item ion-margin-top" #username
+                [class.invalid]="(!userData.username && validate.username) || !validUsername ">
+                <ion-label position="floating">Nombre de Usuario <label class="requiered">*</label></ion-label>
+                <ion-input [required]="true" type="text" maxlength="10" (input)="onInput($event)"
+                  (change)="validateUsername()" [(ngModel)]="userData.username" [autofocus]="true" [clearOnEdit]="true"
+                  placeholder="Crea un nombre de usuario"></ion-input>
+              </ion-item>
+
+              <ion-item class="transparent-item ion-margin-top" #email
+                [class.invalid]="(!userData.correo && validate.email) || validate.email">
+                <ion-label position="floating">Correo</ion-label>
+                <ion-input class=" visible-input" type="email" placeholder="ejemplo@gmail.com"
+                  [(ngModel)]="userData.correo"></ion-input>
+              </ion-item>
+              <ion-item class="transparent-item ion-margin-top" #password
+                [class.invalid]="!userData.password && validate.password ">
+                <ion-label position="floating">Contraseña</ion-label>
+                <ion-input type="password" (input)="onInputChange($event)" (ionBlur)="blurPassword()"
+                  [clearInput]="true" placeholder="*****" [clearOnEdit]="true"
+                  [(ngModel)]="userData.password"></ion-input>
+              </ion-item>
+              <ion-note class="ion-margin-start" *ngIf="uppActivaded">* Mayusculas Activadas</ion-note>
+              <ion-text color="danger" class="ion-padding-start"
+                *ngIf="!validatePassword() && confirmPassword || pwMessage"><strong>{{pwMessage}}</strong></ion-text>
+              <ion-item class="transparent-item ion-margin-top" #confirmpass
+                [class.invalid]="!confirmPassword && validPassword ">
+                <ion-label position="floating">Confirmar Contraseña</ion-label>
+                <ion-input type="password" (input)="onInputChange($event)" [clearInput]="true" placeholder="*****"
+                  [clearOnEdit]="true" [(ngModel)]="confirmPassword"></ion-input>
+              </ion-item>
+
+              <div class="checkbox-container ion-margin-top">
+                <ion-checkbox id="termsCondicion" [(ngModel)]="termsCondition"></ion-checkbox>
+                <ion-label for="termsCondicion">Acepto <a href="#">Terminos y Condiciones</a></ion-label>
+              </div>
+
+              <div class="button-container">
+                <ion-button class="ion-margin-top" shape="round" color="dark" (click)="register()"
+                  routerLinkActive="active" routerDirection="back">
+                  Crear Cuenta
+                </ion-button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <ion-note *ngIf="mensaje" class="ion-padding-start" [class.invalid]="!validUsername"
+          [class.valid]="validUsername"><small>{{mensaje}}</small></ion-note>
       </div>
-      <ion-button expand="block" class="login-button">Log in</ion-button>
-    </div>
-    
-    <div class="signup">
-      <span>Don’t have an account? <a href="#">Sign up</a></span>
-    </div>
+
+    </ng-container>
+
+
+
+
+    <ng-container *ngIf="currentSlide === 'slide2'">
+      <div class="slide" [ngClass]="animationClass">
+        <div class="background-create">
+          <div class="container-create">
+            <div class="form-create">
+
+              <h1 class="text-tittle">Confirmar por SMS</h1>
+              <p class="text-subtitle">Por favor, confirma tu país y digite su número telefónico</p>
+              <div class="country-selector">
+                <span ngClass="fi fi-{{flagSelected.flag}}"></span>
+                <ion-select [(ngModel)]="flagSelected">
+                  <ion-select-option *ngFor="let item of flag" [value]="item" >
+                    {{ item.name }}
+                  </ion-select-option>
+                </ion-select>
+                
+              </div>
+               
+
+              <div class="phone-input">
+                <span>{{flagSelected.code}}</span>
+                <ion-input type="tel" placeholder="000-000-0000" PhoneMask></ion-input>
+              </div>
+
+              <div class="button-container">
+                <ion-button class="ion-margin-top" shape="round" color="dark" (click)="register()"
+                  routerLinkActive="active" routerDirection="back">
+                  Crear Cuenta
+                </ion-button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+       
+      </div>
+    </ng-container>
+    <ng-container *ngIf="currentSlide === 'slide3'">
+      <div class="slide" [ngClass]="animationClass">
+        <h1>Pantalla 3</h1>
+        <p>Contenido de la tercera pantalla</p>
+      </div>
+    </ng-container>
+  </div>
+
+  <!-- Indicadores de puntos -->
+  <div class="dots-container">
+    <span [class.active]="currentSlide === 'slide1'" (click)="navigateToSlide('slide1')"></span>
+    <span [class.active]="currentSlide === 'slide2'" (click)="navigateToSlide('slide2')"></span>
+    <span [class.active]="currentSlide === 'slide3'" (click)="navigateToSlide('slide3')"></span>
   </div>
 </ion-content>
