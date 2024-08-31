@@ -1,0 +1,99 @@
+<div class="contenedor">
+    <div class="header">
+        <label>{{moduleName}}</label>
+    </div>
+    <div class="body">
+        <div class="container-fluid">
+            
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">  
+                        <div class="row">
+                            <div class="col-6">
+                                <span>Aplicaciones:</span>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="chk1Progra" [(ngModel)]="programadas">
+                                    <label class="form-check-label" for="chk1Progra">
+                                      Ver Programadas
+                                    </label>
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <select name="cboAplicaciones" class="form-select form-control" [(ngModel)]="idSistema">
+                                    <option value="0" selected> -- TODAS -- </option>
+                                    <option *ngFor="let r of lstAplicaciones" [value]="r.idSistema">
+                                        {{r.descripcion}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-3">
+                        <div class="input-group mb-3">
+                    
+                            <input class="form-control" type="text" name="txtFiltro" id="txtFiltro" [(ngModel)]="filtro">
+                            <div class="input-group-prepend" (click)="getVisuales()">
+                                <button class="btn btn-outline-info" id="basic-addon1"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                        <!-- <button class="btn btn-info" type="button"><iclass="fas fa-search"></i> Buscar</button> -->
+                    </div>
+                    <div class="col-sm-12 col-md-3">
+                        <button class="btn btn-info" type="button" (click)="openModal()"><i
+                            class="fas fa-plus"></i> Agregar</button>
+                    </div>
+                </div>
+
+
+               
+                <div class="row mt-4">
+                    <div class="col-md-12 mb-5">
+  
+                        <card-swipper [items]="lstVisuales" [itemTemplate]="_template" [loading]="loaded"
+                            *ngIf="lstVisuales"></card-swipper>
+  
+                          
+
+                        <ng-template #_template let-item class="classTemplate">
+                            <div class="row mb-2">
+                                <div class="col-md-12 text-right">
+                                    <button class="btn btn-sm btn-warning mr-2" id="btnEdit" (click)="edit(item);"><i class="fa fa-edit"></i></button>
+                                    <button class="btn btn-sm btn-danger" id="btnDelete" (click)="drop(item)"><i class="fa fa-times"></i></button>
+  
+                                </div>
+                            </div>
+                            <div class="card" *ngIf="lstVisuales">
+                                
+                                <div class="card-name">{{ item.titulo }}</div>
+                                <div class="card-value">{{ item.subtitulo }}</div>
+                                <div class="card-image-container">
+                                    <img [src]="convertToBase64(item.imagen)" alt="Sample Image" class="card-image">
+                                </div>
+
+                                <!-- <img [src]="convertToBase64(item.imagen)" alt="?" class="card-image"> -->
+                            </div>
+                        </ng-template>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <small>Versión {{version}}</small>
+                <h5>{{moduleName}}</h5>
+            </div>
+        </div>
+    </div>
+  </div>
+  
+  
+  <app-visualescapmdl #mdlCaptura (onClose)="onCloseModal($event)"></app-visualescapmdl>
+   
+  
+  
+  
