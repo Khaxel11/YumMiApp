@@ -1,0 +1,35 @@
+<ng-template #mdlCapturaTiposUsuarios let-modal>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">
+                {{ modalname }}
+            </h5>
+            <button type="button" class="close" aria-label="Close" (click)="closeModal()"><i class="fas fa-times"
+                aria-hidden="true"></i></button>
+        </div>
+        <div class="modal-body">
+            <div class="container">
+                <div class="row mt-3">
+                    <div class="col-md-7">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="txtNombre">Tipo de Usuario</label>
+                                <input class="form-control" type="text" name="txtNombre" id="txtNombre" [(ngModel)]="tipoUsuario" [maxlength]="20">
+                        </div>
+                        </div>
+                        <div class="row mt-1">
+                            <div class="col-md-12">
+                                <label for="txtNombre">Descripción</label>
+                                <textarea class="form-control" type="text" name="txtNombre" id="txtNombre" [(ngModel)]="descripcion" [maxlength]="100" [rows]="4"></textarea>
+                            </div>
+                        </div>  
+                    </div>  
+                </div>
+            </div>
+        </div>
+       <div class="modal-footer">
+            <button class="btn btn-info" type="button" (click)="saveTiposUsuarios()" ><i
+                class="fas fa-save"></i> Guardar</button>
+        </div> 
+    </div>
+</ng-template>
