@@ -1,0 +1,43 @@
+
+<ng-template #mdlCapturaOpcMenuCargo let-modal>
+    
+    <div class="contenedor">
+        <div class="header">
+            <label>{{moduleName}}</label>
+            <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+                <i class="fas fa-times " aria-hidden="true"></i>
+              </button>
+        </div>
+        
+        <div class="modal-footer">
+            <button class="btn btn-Secondary" type="button" (click)="selectOpciones()"><i class="fas fa-plus"></i> Agregar Opciones</button>
+            <button class="btn btn-Secondary" type="button" (click)="eliminarOpcionesIdCargo()"><i class="fas fa-trash-alt"></i> Eliminar Todo</button>
+        </div>
+        
+        <div class="col-md-6 mt-1">Opciones de Admin</div>
+        <div class="body">
+            <div class="container-xxl">
+                <div class="col-md-12 ">   
+                            <div class="row mt-4">
+                                <div class="col-md-12">
+                            <grid-cs #gridOpcMenuCargo [rowsPerPage]="10"
+                                 [columnDefs]="columnsOpcPorCargo"
+                                [(data)]="listaOpcPorCargo"
+                                [enablePagination]="true"
+                            ></grid-cs>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>  
+ 
+    </div>
+</ng-template>
+
+<app-mdl-detalle-opc-menu-cargo #mdlDetalleOpcMenuCargo (onClose)="recargar($event)" (onClose)="guardar($event)"></app-mdl-detalle-opc-menu-cargo>
+
+
+
+
