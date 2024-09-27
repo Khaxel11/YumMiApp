@@ -1,0 +1,96 @@
+.contenedor{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.header{
+    background-color: #333;
+    color: white;
+    flex: 0.09;
+    font-size: 20px;
+    font-weight: bold;
+}
+.body{
+    flex: 1;
+    margin-top: 2%;
+}
+.footer{
+    flex: 0;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    font-size: 10px;
+    padding: 10px;
+}
+.header label{
+    margin-left: 30px;
+    margin-top: 15px;
+}
+
+.classTemplate{
+  width: 800px;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.card-image-container {
+  /*width: 100%;*/ /* Ajusta el ancho del contenedor de la imagen */
+  height: auto; /* Permite ajustar la altura automáticamente */
+  display: flex;
+  justify-content: center; /* Centra la imagen horizontalmente */
+  align-items: center; /* Centra la imagen verticalmente si hay espacio */
+}
+
+.card-image {
+  max-width: 100%; /* Limita el ancho máximo de la imagen */
+  max-height: 50vw; /* Limita la altura máxima a una cuarta parte del ancho de la ventana */
+  height: auto; /* Mantiene la proporción de la imagen */
+  width: auto; /* Permite que la imagen ajuste el ancho automáticamente */
+  object-fit: contain; /* Ajusta la imagen para que esté completamente visible sin recortes */
+  border-radius: 5px; /* Opcional: para bordes redondeados */
+}
+
+
+
+
+/*
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    height: 88%;
+    display: flex;
+  }
+  
+  .card-name {
+    font-weight: bold;
+  }
+  
+  .card-value {
+    margin-top: 5px;
+  }
+  
+  .card-image {
+    max-width: 90%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 5px;
+    align-items: center;
+  }
+  */
+  
