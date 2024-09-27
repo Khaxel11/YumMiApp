@@ -8,11 +8,12 @@ namespace Entity
     {
         public Connection()
         {
-            this.IP = "172.16.2.28";
+            //this.IP = "172.16.2.28";
             //this.IP = "DESKTOP-IUJCE2C\\SQLEXPRESS";
+            this.IP = "172.16.15.45";
             this.Catalog = "ProcAppDelivery";
-            this.user = "sa";
-            this.password = "desarrollo2008";
+            this.user = "ciipdetec";
+            this.password = "Desarrollo2024";
         }
         private string IP { get; set; }
         private string user { get; set; }
