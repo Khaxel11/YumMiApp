@@ -1,0 +1,42 @@
+
+<ng-template #mdlDetalleOpcMenuCargo let-modal>
+    
+    <div class="contenedor">
+        <div class="header">
+            <label>{{moduleName}}</label>
+            <button type="button" class="close" aria-label="Close" (click)="closeModal()"><i class="fas fa-times"
+                aria-hidden="true"></i></button>
+        </div> 
+        <div class="col-md-6 mt-1">
+            Agregar Nuevas Opciones
+        </div>
+        <div class="body">
+            <div class="container-xxl">
+                <div class="col-md-12">   
+                    <div class="row mt-4">
+                        <div class="col-md-12">
+                            <grid-cs  [rowsPerPage]="10"
+                                 [columnDefs]="columnsOpciones"
+                                [(data)]="listaOpciones"
+                                [enablePagination]="false"
+                                rowSelection="multiple"
+                                [autoHeight]="false"
+                                [height]="'400px'"
+                                [headerHeight]="30"
+                                [rowHeight]="28"
+                                (onReady)="gridOpciones = $event" 
+                            ></grid-cs>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div> 
+        <div class="modal-footer">
+            <button class="btn btn-Secondary" type="button" (click)="postGuardarOpciones()" ><i
+                ></i> Aceptar</button>
+        </div> 
+        <!-- (click)="postGuardarOpciones()" -->
+    </div>
+</ng-template>

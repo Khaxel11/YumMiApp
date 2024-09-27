@@ -1,0 +1,50 @@
+<div class="contenedor">
+    <div class="header">
+        <label>{{moduleName}}</label>
+    </div>
+    <div class="body">
+        <div class="container-fluid">
+
+            <div class="col-md-12">
+                <div class="row">
+                    
+                    <div class="col-md-1 mt-1">
+                        Filtro:
+                    </div>
+                    <div class="col-md-3">
+                        <input class="form-control" type="text" name="txtFiltro" id="txtFiltro" [(ngModel)]="filtro" (keyup)="getTiposUsuarios()">
+                    </div>
+                   
+                    <!-- Movemos el botón "Agregar" aquí -->
+                    <div class="col-md-4 text-right">
+                        <button class="btn btn-info" type="button" (click)="openModal(true)"><i class="fas fa-plus"></i> Agregar</button>
+                    </div>
+
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        
+                        <grid-cs #gridCategorias [rowsPerPage]="10"
+                             [columnDefs]="columnsTiposUsuarios"
+                            [(data)]="listaTiposUsuarios"
+                            [enablePagination]="true"
+                        ></grid-cs>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="footer">
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <small>Versión {{version}}</small>
+                <h5>{{moduleName}}</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-mdl-tipos-usuarios #mdlCapturaTiposUsuarios (onClose)="recargar($event)"></app-mdl-tipos-usuarios>
+
+
