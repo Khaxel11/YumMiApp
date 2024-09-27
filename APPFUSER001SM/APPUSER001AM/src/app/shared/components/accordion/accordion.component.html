@@ -1,0 +1,47 @@
+<ion-item button (click)="toggleAccordion()" class="accordion-header">
+  <ion-label>{{ title }}</ion-label>
+  <ion-icon
+    [name]="isOpen ? 'chevron-up-outline' : 'chevron-down-outline'"
+    slot="end"
+    [ngClass]="{ rotated: isOpen }"
+  ></ion-icon>
+</ion-item>
+
+<ng-container *ngIf="isOpen">
+  <ion-card class="accordion-content">
+    <ion-card-content>
+      <ng-content></ng-content>
+    </ion-card-content>
+  </ion-card>
+</ng-container>
+
+
+<!-- 
+ <ion-card-content>
+        <app-accordion title="Información Básica" [isOpen]="showBasicInfo" (toggle)="toggleSection('basic-info')">
+          <ion-item>
+            <ion-label position="floating">Nombre</ion-label>
+            <ion-input [(ngModel)]="user.nombre" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Apellido Paterno</ion-label>
+            <ion-input [(ngModel)]="user.apellidoPaterno" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Apellido Materno</ion-label>
+            <ion-input [(ngModel)]="user.apellidoMaterno"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Género</ion-label>
+            <ion-select [(ngModel)]="user.genero" placeholder="Selecciona el género">
+              <ion-select-option value="M">Masculino</ion-select-option>
+              <ion-select-option value="F">Femenino</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Fecha de Nacimiento</ion-label>
+            <ion-datetime [(ngModel)]="user.fechaNacimiento" displayFormat="MMM DD, YYYY"></ion-datetime>
+          </ion-item>
+        </app-accordion>
+   -->
+

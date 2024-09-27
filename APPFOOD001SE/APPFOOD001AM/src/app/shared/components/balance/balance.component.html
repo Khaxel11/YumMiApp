@@ -1,0 +1,50 @@
+
+  <ion-content>
+    <div class="balance-graph">
+      <div class="balance-section">
+        <h1>Saldo</h1>
+        <h2> {{ 500  | currency}}</h2>
+      </div>
+    
+      <div class="investment-section">
+        <h3>Productos Vendidos</h3>
+        <div class="chart">
+          <canvas id="investmentChart"></canvas>
+          <!-- <div class="legend">
+            <p><span class="dot purple"></span> 21%</p>
+            <p><span class="dot green"></span> 45%</p>
+            <p><span class="dot blue"></span> 12%</p>
+            <p><span class="dot yellow"></span> 9%</p>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  
+    <div class="transactions-section">
+      <ion-card>
+        <ion-card-content>
+          <ion-item>
+            <ion-icon name="checkmark-circle" slot="start" color="success"></ion-icon>
+            <ion-label>Estado de cuenta<br><small>Excelente</small></ion-label>
+            <ion-note slot="end" color="danger">+10</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="fast-food" slot="start" color="primary"></ion-icon>
+            <ion-label>Productos Vendidos<br><small>1 mes</small></ion-label>
+            <ion-note slot="end" color="danger">+10</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="happy" slot="start" color="tertiary"></ion-icon>
+            <ion-label>Valoraciones Positivas<br><small>Clientes Satisfechos</small></ion-label>
+            <ion-note slot="end" color="danger">+2</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="cash" slot="start" color="success"></ion-icon>
+            <ion-label>Ganancias<br><small>Ultimo Mes</small></ion-label>
+            <ion-note slot="end" color="success">+ {{550 | currency}}</ion-note>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </ion-content>
+  

@@ -1,0 +1,158 @@
+<ng-template #mdlAggEdit let-modal>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">
+                {{ modalname }}
+            </h5>
+            <button type="button" class="close" aria-label="Close" (click)="closeModal()"><i class="fas fa-times"
+                    aria-hidden="true"></i></button>
+        </div>
+        <div class="modal-body">
+            <div class="container-fluid p-0">
+                <div class="row">
+                    <!-- Sección de carga de imagen -->
+                     <div class="col-md-4">
+                        <div class="custom-file-upload" >
+                            <ng-container *ngIf="!DtsUsuario.imageSrc" >
+                                <div class="upload-box text-center" [ngClass]="{'border-danger': !DtsUsuario.imageSrc && showError}">
+                                    <input type="file" id="formFileSm" (change)="onFileSelected($event)"
+                                        class="form-control-file"/>
+                                    <h6 class="mt-2" [ngClass]="{'border-danger': !DtsUsuario.imageSrc && showError}">Selecciona una imagen</h6>
+                                </div>
+                            </ng-container>
+                            <ng-container *ngIf="DtsUsuario.imageSrc">
+                                <div class="image-container">
+                                    <button (click)="removeImage()" class="remove-button">x</button>
+                                    <img [src]="DtsUsuario.imageSrc" alt="Vista previa"
+                                        class="preview-image img-fluid" />
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <!-- Sección de información personal -->
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <label for="nombre">Nombre</label>
+                                <input id="nombre" placeholder="Nombre(s)" class="form-control"
+                                    type="text" name="nombre" [(ngModel)]="DtsUsuario.nombre"
+                                    [ngClass]="{'border-danger': !DtsUsuario.nombre && showError}">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="apellidoPaterno">Apellido Paterno</label>
+                                <input id="apellidoPaterno" placeholder="Apellido Paterno" class="form-control"
+                                    type="text" name="apellidoPaterno" [(ngModel)]="DtsUsuario.ApellPaterno"
+                                    [ngClass]="{'border-danger': !DtsUsuario.ApellPaterno && showError}">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="apellidoMaterno">Apellido Materno</label>
+                                <input id="apellidoMaterno" placeholder="Apellido Materno" class="form-control"
+                                    type="text" name="apellidoMaterno" [(ngModel)]="DtsUsuario.ApellMaterno"
+                                    [ngClass]="{'border-danger': !DtsUsuario.ApellMaterno && showError}">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <label for="fechaNac">Fecha de Nacimiento</label>
+                                <input id="fechaNac" class="form-control" type="date" name="fechaNac"
+                                    [(ngModel)]="DtsUsuario.FechaNac" [ngClass]="{'border-danger': !DtsUsuario.FechaNac && showError}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Sección de selección de ubicación -->
+                <div class="row mt-2">
+                    <div class="col-md-4 form-group">
+                        <label for="pais">País</label>
+                        <select id="pais" name="Pais" class="form-control"
+                            [(ngModel)]="DtsUsuario.SelectPais" (change)="onEstado()"
+                            [ngClass]="{'border-danger': DtsUsuario.SelectPais === 0 && showError}">
+                            <option [value]="0">Seleccione un País</option>
+                            <option [value]="item.idpais" *ngFor="let item of Pais">{{item.abrev + ' - ' + item.pais}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 form-group">
+                        <label for="estado">Estado</label>
+                        <select  id="estado" name="Estado" class="form-control"
+                            [(ngModel)]="DtsUsuario.SelectEstado" (change)="onMunicipio()"
+                            [ngClass]="{'border-danger': DtsUsuario.SelectEstado === 0 && showError}">
+                            <option [value]="0">Seleccione un Estado</option>
+                            <option [value]="item.idestado" *ngFor="let item of Estado">{{item.abrev +' - '+item.nomestado}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 form-group">
+                        <label for="municipio">Municipio</label>
+                        <select id="municipio" name="Municipio" class="form-control"
+                            [(ngModel)]="DtsUsuario.SelectMunicipio"
+                            [ngClass]="{'border-danger': DtsUsuario.SelectMunicipio === 0 && showError}">
+                            <option [value]="0">Seleccione un Municipio</option>
+                            <option [value]="item.idmunicipio" *ngFor="let item of Municipio">{{item.cvelocalidad + ' -' +item.nommunicipio}}</option>
+                        </select>
+                    </div>
+                </div>
+        
+                <!-- Sección de credenciales -->
+                <div class="row mt-2">
+                    <div class="col-md-6 form-group">
+                        <label>Usuario</label>
+                        <input id="Usuario" placeholder="Usuario" class="form-control" type="text" name="Usuario"
+                            [(ngModel)]="DtsUsuario.usuario"
+                            [ngClass]="{'border-danger': !DtsUsuario.usuario && showError}">
+                    </div>
+                    
+                    <div class="col-md-6 form-group">
+                        <label>Contraseña</label>
+                        <div class="input-group">
+                            <input placeholder="Password" class="form-control" type="password" name="password"
+                                [value]="opcion === 2 ? contraseniaOculta : DtsUsuario.password"
+                                [disabled]="opcion === 2 && !passwordEnabled"
+                                (input)="updatePassword($event)" 
+                                [ngClass]="{'border-danger': !DtsUsuario.password && showError}">
+                            <div *ngIf="opcion === 2" class="input-group-append">
+                                <div class="input-group-text">
+                                    <input class="form-check" type="checkbox" [(ngModel)]="passwordChecked" 
+                                           (change)="togglePasswordChange()">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  
+                    <div class="col-md-12 form-group">
+                        <label>Correo Electrónico</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1"
+                            placeholder="nombre@ejemplo.com" [(ngModel)]="DtsUsuario.correo"
+                            [ngClass]="{'border-danger': !DtsUsuario.correo && showError}">
+                    </div>
+                </div>
+        
+                <!-- Sección de tipo de cargo y usuario -->
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <label>Tipo de Cargo</label>
+                        <select name="TpoCargo" class="form-control" [(ngModel)]="DtsUsuario.SelectTpoCargo"
+                            [ngClass]="{'border-danger': DtsUsuario.SelectTpoCargo === 0 && showError}">
+                            <option [value]="0">Seleccione un tipo de cargo...</option>
+                            <option [value]="item.idcargo" *ngFor="let item of TpoCargo">{{item.nomcargo}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label>Tipo de Usuario</label>
+                        <select name="TpoUsuario" class="form-control" [(ngModel)]="DtsUsuario.SelectTpoUsuario"
+                            [ngClass]="{'border-danger': DtsUsuario.SelectTpoUsuario === 0 && showError}">
+                            <option [value]="0">Seleccione un tipo de usuario...</option>
+                            <option [value]="item.idtpousuario" *ngFor="let item of TpoUsuario">{{item.tpousuario}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="modal-footer">
+            <button class="btn btn-success" type="button" (click)="btnGuardar()"><i class="fas fa-save"></i>
+                Guardar</button>
+        
+            <button class="btn btn-danger" type="button" (click)="closeModal()"><i class="fas fa-times"></i>
+                Cancelar</button>
+        </div>
+    </div>
+</ng-template>

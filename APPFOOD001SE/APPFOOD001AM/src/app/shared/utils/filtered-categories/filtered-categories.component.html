@@ -13,7 +13,7 @@
         <div class="category">
           <div class="itemCategory" [ngClass]="option.selected? 'selected' : ''" *ngFor="let option of lstCategory" (click)="selectedCategory(option)">
             <div>             
-              <img [src]="imagenBase64(option.Foto)" slot="start">
+              <img [src]="imagenBase64(option.Foto)" slot="start" alt="">
               <div class="category-tittle">
                 {{option.Categoria}}
               </div>

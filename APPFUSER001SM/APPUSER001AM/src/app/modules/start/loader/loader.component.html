@@ -1,0 +1,31 @@
+
+<ion-content class="ion-text-center" >
+    <ion-fab vertical="top" horizontal="top" slot="fixed" class="fabber ion-margin-top" *ngIf="img">
+      <ion-fab-button color="#fffff" class="fab-btn-img">
+        <img [src]="img" alt="User Image">
+      </ion-fab-button>
+    </ion-fab>
+    <img class="ima2" [src]="imgloader1" />
+    <img class="ima1" [src]="imgloader2" />
+    <div class="st1"></div>
+  
+    <div class="wrapper">
+      <svg>
+        <text x="50%" y="50%" dy=".35em" text-anchor="middle">
+          YumMi
+        </text>
+      </svg>
+    </div>
+    <div class="loading-text" slot="fixed" >
+      {{username}}
+    </div>
+  
+    <div class="loading-container">
+      <ion-spinner></ion-spinner>
+      <p class="loading-text">
+        <span *ngFor="let key of listMensaje">{{key}}</span>
+      </p>
+
+    </div>
+  </ion-content>
+  

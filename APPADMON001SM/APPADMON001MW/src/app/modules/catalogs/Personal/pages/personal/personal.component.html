@@ -1,0 +1,45 @@
+<div class="contenedor">
+    <div class="header">
+        <label>Catalogo de Personal</label>
+    </div>
+    <div class="body">
+        <div class="container-fluid">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-10">
+                        <input class="form form-control" type="text" name="usuario" [(ngModel)]="usuario"
+                            placeholder="Buscar Usuario">
+                    </div>
+                    <div class="col-md-2 pr-0">
+                        <button class="btn btn-primary" style="width: 100%;" (click)="btnBuscar()"> <i
+                                class="fas fa-search"></i> Buscar </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 mt-4">
+                <div class="row" style="display: flex; justify-content: end; align-content: end;">
+                    <div class="col-md-2 pr-0">
+                        <button class="btn btn-info" style="width: 100%;" (click)="btnAgregar()"> <i
+                                class="fas fa-plus"></i> Agregar </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 mt-2 pr-0">
+                <grid-cs #gridCargos [rowsPerPage]="10" [columnDefs]="columnsPersonal" [(data)]="DtsPersonal"
+                    [enablePagination]="true"></grid-cs>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <small>Versión 23.08.2024</small>
+                <h5>Catalogo de Personal</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-mdl-agg-edit-personal #mdlAggEdit (onClose)="onCloseModal($event)"></app-mdl-agg-edit-personal>

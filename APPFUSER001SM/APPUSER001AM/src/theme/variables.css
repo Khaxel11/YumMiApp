@@ -1,0 +1,256 @@
+
+
+*{
+    font-family: 'Work Sans', sans-serif;
+    
+  }
+  .main-container{
+    padding: 10px;
+  }
+  @font-face {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../assets/fonts/WorkSans-Regular.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'Work Sans';
+    font-style: italic;
+    font-weight: 400;
+    src: url('../assets/fonts/WorkSans-Italic.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../assets/fonts/WorkSans-Bold.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'Work Sans';
+    font-style: italic;
+    font-weight: 700;
+    src: url('../assets/fonts/WorkSans-BoldItalic.ttf') format('truetype');
+  }
+  
+  :root {
+      --ion-color-primary: #007bff;
+      --ion-color-secondary: #32db64;
+      --ion-color-tertiary: #ffc409;
+    }
+    
+
+/* The following classes represent "standart" sizes for mobile and tablet devices.
+* 
+* NOTE: By default the modal-wrapper max-width will fit the content. 
+* So, if we don't add any custom-size class to the first element inside 
+* the component passed to the modal it will has the
+* default behavior of a modal for devices which is being full-width.
+*
+*/
+
+/* Extra small size */
+.modal-xm .modal-wrapper {
+  max-width: 220px;
+}
+@media only screen and (min-width: 768px) and (min-height: 768px) {
+  .modal-xm .modal-wrapper {
+    max-width: 320px;
+  }
+}
+
+/* Small size */
+.modal-sm .modal-wrapper {
+  max-width: 240px;
+}
+@media only screen and (min-width: 768px) and (min-height: 768px) {
+  .modal-sm .modal-wrapper {
+    max-width: 360px;
+  }
+}
+
+/* Medium size */
+.modal-md .modal-wrapper {
+  max-width: 260px;
+}
+@media only screen and (min-width: 768px) and (min-height: 768px) {
+  .modal-md .modal-wrapper {
+    max-width: 400px;
+  }
+}
+.requiered{
+  color: red;
+  font-size: 14px;
+}
+/* Large size */
+.modal-lg .modal-wrapper {
+  max-width: 280px;
+}
+@media only screen and (min-width: 768px) and (min-height: 768px) {
+  .modal-lg .modal-wrapper {
+    max-width: 440px;
+  }
+}
+
+/* Extra Large size */
+.modal-xl .modal-wrapper {
+  max-width: 300px;
+}
+@media only screen and (min-width: 768px) and (min-height: 768px) {
+  .modal-xl .modal-wrapper {
+    max-width: 480px;
+  }
+}
+
+
+
+.item-input {
+  border-radius: 10px;
+  border: 2px solid rgb(155, 155, 155);
+  --highlight-color-focused: #131313;
+  --placeholder-color: #999999;
+  --background: transparent;
+}
+.to-up {
+  animation: slideUp 0.7s ease-in-out; 
+}
+.animated-text {
+  animation: slideUp 0.5s ease-in-out; 
+}
+.animated-top {
+  animation: slideDown 0.5s ease-in-out; 
+}
+
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animated-right {
+  animation: slideLeft 0.5s ease-in-out; 
+}
+@keyframes slideLeft {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animated-from-left {
+  animation: slideFLeft 0.4s ease-in-out; 
+}
+.animated-from-right {
+  animation: slideFRight 0.4s ease-in-out; 
+}
+.animated-left {
+  animation: slideLeft 0.5s ease-in-out; 
+}
+
+@keyframes slideFLeft {
+  from {
+    transform: translateX(100px);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slideFRight {
+  from {
+    transform: translateX(-100px);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(50px);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.invalid {
+  color: red; 
+  animation: shake 0.2s;
+}
+.invalidate {
+  color: red; 
+  --border-color: red;
+
+  animation: shake 0.2s;
+}
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(-10px);
+  }
+  30%, 50%, 70% {
+    transform: translateX(10px);
+  }
+}
+
+
+ion-checkbox {
+  
+  --size: 25px;
+  --checkbox-background-checked: #1d1d1d;
+  --checkbox-background:var(--background)
+}
+
+ion-checkbox::part(container) {
+  border-radius: 50%;
+  border: 2px solid #1d1d1d;
+}
+
+ion-checkbox {
+  --ion-color-primary: #1d1d1d; 
+  --color: #1b1b1b; 
+  
+}
+
+.checkbox-container{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

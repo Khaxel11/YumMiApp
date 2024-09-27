@@ -12,6 +12,8 @@ import { PromocionesComponent } from './Promociones/pages/promociones/promocione
 import { TiposSolicitudesComponent } from './TiposSolicitudes/pages/tipos-solicitudes/tipos-solicitudes.component';
 import { TiposAlimentacionComponent } from './TiposAlimentacion/pages/tipos-alimentacion/tipos-alimentacion.component';
 import { OpcMenuCargoComponent } from './OpcMenuCargo/pages/opc-menu-cargo/opc-menu-cargo.component';
+import { PersonalComponent } from './Personal/pages/personal/personal.component';
+import { VisualesComponent } from './visuales/pages/visuales/visuales.component';
 
 
 const routes: Routes = [
@@ -25,7 +27,9 @@ const routes: Routes = [
   { path: 'promociones', component : PromocionesComponent, canActivate: [AuthGuard]},
   { path: 'tipossolicitudes', component : TiposSolicitudesComponent, canActivate: [AuthGuard]},
   { path: 'tiposalimentacion', component : TiposAlimentacionComponent, canActivate: [AuthGuard]},
-  { path: 'opcmenucargo', component : OpcMenuCargoComponent, canActivate: [AuthGuard]}
+  { path: 'opcmenucargo', component : OpcMenuCargoComponent, canActivate: [AuthGuard]},
+  { path: 'personal', component : PersonalComponent,  canActivate: [AuthGuard]},
+  { path: 'visuales', component : VisualesComponent },
 
 ];
 
