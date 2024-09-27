@@ -1,33 +1,32 @@
-ion-content {
-  height: 100vh;
-
-}
-
 .loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   height: 100%;
   background: linear-gradient(45deg, #405de6, #5851db, #f56040, #ff9f40);
   background-size: 600% 600%;
   animation: gradientAnimation 10s ease infinite;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow-x: hidden;
-
 }
 
-
+.circleImage {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  position: absolute;
+  margin-left: 34%;
+  margin-top: 7%;
+}
 
 ion-spinner {
   color: white;
-
+  animation: spin 1s infinite linear;
 }
 
 .loading-text {
   font-size: 1.5em;
   display: flex;
-  color: white;
-  position: absolute;
-  margin-top: 100px;
+  color: white
 }
 
 .loading-text span {
@@ -117,46 +116,37 @@ ion-spinner {
   }
 }
 
-.icon-container{
-  width: 100px; height: 100px;
-  position: absolute;
-  margin-bottom: 200px;
-  .fab-content{
-    width: 100px; height: 100px;
-    img{
-      width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
-    }
-  }
-
-}
-
-
-.img1,
-.img2 {
+ion-fab {
   position: fixed;
-  bottom: -50px;
-  object-fit: cover;
-
-  @media screen and (min-width: 768px) and (max-width: 1023px), (min-width: 1024px){
-   width: 50%;
-  }
-  
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.img1 {
-  left: -100px;
-  transform: rotate(-10deg);
+.my-custom-fab-button {
+  width: 100px;
+  height: 100px;
+  font-size: 24px;
+}
+.ima2 {
+  width: 15rem;
+  flex-shrink: 0;
+  position: fixed;
+  bottom: 10vh;
+  right: 0.5rem;
+  transform: translate(15%, 50%) rotate(-20deg);
+
 }
 
-.img2 {
-  right: -150px;
-  transform: rotate(10deg);
+.ima1 {
+  width: 25rem;
+  flex-shrink: 0;
+  position: fixed;
+  bottom: 10vh;
+  transform: translate(-70%, 30%) rotate(20deg);
 }
-
-
 
 svg {
-  font-family: Arial, Helvetica, sans-serif;
   width: 100%;
   height: 100%;
   position: fixed;

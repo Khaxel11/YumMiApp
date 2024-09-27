@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { IonicModule } from '@ionic/angular';
 import { RegisterComponent } from './register/register.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @NgModule({
   declarations: [LoginComponent, RegisterComponent],
@@ -17,6 +18,12 @@ import { RegisterComponent } from './register/register.component';
     SharedModule,
     IonicModule,
     IonicModule.forRoot(),
-  ]
+    
+  ],
+  providers: [
+    
+  ],
+  // schemas: [CUSTOM_ELEMENTS_SCHEMA]
+
 })
 export class LoginModule { }
