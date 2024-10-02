@@ -7,14 +7,18 @@ import { AuthGuard } from '../../../../src/app/helpers/auth.guard';
 import { AplicacionesComponent } from './Aplicaciones/Pages/aplicaciones/aplicaciones.component';
 import { TiposNotificacionesComponent } from './TiposNotificaciones/Pages/tipos-notificaciones/tipos-notificaciones.component';
 import { PersonalComponent } from './Personal/pages/personal/personal.component';
+import { VisualesComponent } from './visuales/pages/visuales/visuales.component';
+import { RestriccionesingreComponent } from './RestriccionesIngre/pages/restriccionesingre/restriccionesingre.component';
 
 const routes: Routes = [
   { path: "cargos", component: CargosComponent },
-  { path: 'ingredientes', component : IngredientsComponent },
+  { path: 'ingredientes', component : IngredientsComponent,  canActivate: [AuthGuard] },
   { path: 'tiposproductos', component : TiposProductosComponent,  canActivate: [AuthGuard]},
   { path: 'aplicaciones', component : AplicacionesComponent,  canActivate: [AuthGuard]},
   { path: 'tiposnotificaciones', component : TiposNotificacionesComponent,  canActivate: [AuthGuard]},
-  { path: 'personal', component : PersonalComponent,  canActivate: [AuthGuard]}
+  { path: 'personal', component : PersonalComponent,  canActivate: [AuthGuard]},
+  { path: 'visuales', component : VisualesComponent,  canActivate: [AuthGuard] },
+  { path: 'restricciones', component : RestriccionesingreComponent,  canActivate: [AuthGuard]}
 ];
 
 @NgModule({
