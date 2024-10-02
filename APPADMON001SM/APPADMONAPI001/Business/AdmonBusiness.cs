@@ -21,5 +21,19 @@ namespace Business
                 throw new ArgumentException(ex.Message);
             }
         }
+
+        public async Task<Result> getOpcionesMenu(TokenData DatosToken, int idEmpleado)
+        {
+            try
+            {
+                return await new AdmonData().getOpcionesMenu(DatosToken, idEmpleado);
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+        }
+
+        
     }
 }

@@ -28,6 +28,36 @@ namespace Data
                 return builder.ToString();
             }
         }
+        // Manuel Valenzuela 27Sep2024: cambio para que regres el idempleado y no solo true o false
+        //public async Task<Result> login(TokenData DatosToken, string NombreUsuario, string Password)
+        //{
+        //    Result objResult = new Result();
+        //    try
+        //    {
+        //        using (var conexion = new SqlConnection(DatosToken.Conexion))
+        //        {
+        //            var result = await conexion.QuerySingleAsync<bool>(
+        //                SP_CONSULTAS_ADMON,
+        //                new
+        //                {
+        //                    Opcion = 1,
+        //                    NombreUsuario = NombreUsuario,
+        //                    Password = Password 
+
+        //                },
+
+        //                commandType: CommandType.StoredProcedure);
+        //            objResult.data = result;
+        //        }
+        //        return objResult;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new ArgumentException(ex.Message);
+        //    }
+        //}
+
+      
         public async Task<Result> login(TokenData DatosToken, string NombreUsuario, string Password)
         {
             Result objResult = new Result();
@@ -35,18 +65,17 @@ namespace Data
             {
                 using (var conexion = new SqlConnection(DatosToken.Conexion))
                 {
-                    var result = await conexion.QuerySingleAsync<bool>(
+                    var result = await conexion.QueryMultipleAsync(
                         SP_CONSULTAS_ADMON,
                         new
                         {
                             Opcion = 1,
                             NombreUsuario = NombreUsuario,
-                            Password = Password 
-
+                            Password = Password
                         },
 
                         commandType: CommandType.StoredProcedure);
-                    objResult.data = result;
+                    objResult.data = await result.ReadAsync<AdmonUsuarioEntity>();
                 }
                 return objResult;
             }
@@ -55,6 +84,34 @@ namespace Data
                 throw new ArgumentException(ex.Message);
             }
         }
+
+        public async Task<Result> getOpcionesMenu(TokenData DatosToken, int idEmpleado)
+        {
+            Result objResult = new Result();
+            try
+            {
+                using (var conexion = new SqlConnection(DatosToken.Conexion))
+                {
+                    var result = await conexion.QueryMultipleAsync(
+                        SP_CONSULTAS_ADMON,
+                        new
+                        {
+                            Opcion = 2,
+                            idEmpleado = idEmpleado
+
+                        },
+
+                        commandType: CommandType.StoredProcedure);
+                    objResult.data = await result.ReadAsync<AdmonUsuarioMenuEntity>();
+                }
+                return objResult;
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+        }
+
 
     }
 }

@@ -16,7 +16,7 @@
               <li (click)="closeSession()">Cerrar Sesión</li>
             </ul>
           </div>
-          <span class="user-name">Axel</span>
+          <span class="user-name">{{userName}}</span>
         </div>
       </div>
       
@@ -27,7 +27,30 @@
           <i class="fas fa-times"></i>
         </div>
         
+
+        <!-- Ahora menu dinamico Manuel Valenzuela 02Oct2024 -->
         <nav>
+          <ul>
+            <li *ngFor="let item of menuItems">
+
+              <div (click)="toggleSubMenu(item.tituloEncabezado)" [class.selected]="selectedMenu === item.tituloEncabezado">
+                <i class="{{item.icono}}"></i>
+                <a>{{item.tituloEncabezado}}</a>
+              </div>
+              
+              <ul class="sub-menu" [ngClass]="{ 'active': subMenuOpen && selectedMenu === item.tituloEncabezado }">
+
+                <li *ngFor="let subItem of item.subItems">
+                  <a [routerLink]="subItem.linkDet">{{ subItem.tituloDetalle }}</a>
+                </li>
+
+              </ul>
+
+            </li>
+          </ul>
+        </nav>
+        <!-- Antes menu estatico Manuel Valenzuela 02Oct2024 -->
+        <!-- <nav>
           <ul>
             <li><i class="fas fa-home"></i> <a href="/">Inicio</a></li>
             <li (click)="toggleSubMenu('catalogos')" [class.selected]="selectedMenu === 'catalogos'">
@@ -40,6 +63,7 @@
                 <li><a href="/catalog/ingredientes">Ingredientes</a></li>
                 <li><a href="/catalog/tiposnotificaciones">Tipos Notificaciones</a></li>
                 <li><a href="/catalog/personal">Personal</a></li>
+                <li><a href="/catalog/restricciones">Restricciones</a></li>
               </ul>
             </li>
             <li><i class="fas fa-file-contract"></i> <a href="#/report">Reportes</a></li>
@@ -51,7 +75,7 @@
             <li><i class="far fa-id-badge"></i> <a href="#/documents">Solicitudes</a></li>
             <li><i class="fas fa-wallet"></i> <a href="#/settings">Pagos</a></li>
           </ul>
-        </nav>
+        </nav> -->
       </aside>
       <main id="main-content">
         <router-outlet >
@@ -62,3 +86,7 @@
 </body>
 
 <block-ui></block-ui>
+
+
+
+
