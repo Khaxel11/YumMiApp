@@ -94,7 +94,7 @@
       "name": "rubros",
       "request": "launch",
       "type": "firefox",
-      "url": "http://localhost:4200/auth/APPADMON01MW/APPADMON01MW?pUsuario=012810&pZona=01",
+      "url": "http://localhost:4200/auth/APPADMON001MW/APPADMON001MW?pUsuario=012810&pZona=01",
       "webRoot": "${workspaceFolder}"
     },
     

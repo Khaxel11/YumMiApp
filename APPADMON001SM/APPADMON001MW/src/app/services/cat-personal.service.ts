@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
-const URL = environment.APPADMON01MW + 'CatPersonal/';
+const URL = environment.APPADMON001MW + 'CatPersonal/';
 @Injectable({
   providedIn: 'root'
 })

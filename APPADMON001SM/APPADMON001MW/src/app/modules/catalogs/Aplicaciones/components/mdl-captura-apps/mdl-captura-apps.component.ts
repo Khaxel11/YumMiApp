@@ -29,7 +29,7 @@ export class MdlCapturaAppsComponent implements OnInit {
   }
   openModal(){
     this.modalRef = this.modalService.open(this.mdlCaptura, {
-      size: 'md',
+      size: 'xl',
       backdrop : 'static',
       keyboard : false
     });

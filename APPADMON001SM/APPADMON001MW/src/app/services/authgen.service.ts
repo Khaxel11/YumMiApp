@@ -13,7 +13,7 @@ export class AuthgenService {
   constructor(private httpClient: HttpClient) { }
 
   genToken(user: UserJwt): Observable<any> {
-    const url = `${environment.APPADMON01MW}auth/Token`;
+    const url = `${environment.APPADMON001MW}auth/Token`;
     return this.httpClient.post(url, user);
   }
 }

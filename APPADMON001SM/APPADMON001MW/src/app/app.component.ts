@@ -3,6 +3,7 @@ import { Title }     from '@angular/platform-browser';
 import { Router, NavigationEnd, NavigationStart, ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from './shared/services/authentication.service'
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,6 +11,7 @@ import { BlockUI, NgBlockUI } from 'ng-block-ui';
 })
 
 export class AppComponent implements OnInit {
+  env = environment;
   @BlockUI() blockUI: NgBlockUI;
   sidebarOpen;
   menuOpen: boolean = false;
