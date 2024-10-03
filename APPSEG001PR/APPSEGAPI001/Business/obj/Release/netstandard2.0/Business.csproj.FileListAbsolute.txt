@@ -1,0 +1,60 @@
+C:\Users\AdminDell\Desktop\ANAPAULINAGT\2023\PROYECTOS\MARZO\Proyecto Monedas\API\ADMGRALAPI002\Business\bin\Release\netstandard2.0\Business.deps.json
+C:\Users\AdminDell\Desktop\ANAPAULINAGT\2023\PROYECTOS\MARZO\Proyecto Monedas\API\ADMGRALAPI002\Business\bin\Release\netstandard2.0\Business.dll
+C:\Users\AdminDell\Desktop\ANAPAULINAGT\2023\PROYECTOS\MARZO\Proyecto Monedas\API\ADMGRALAPI002\Business\bin\Release\netstandard2.0\Business.pdb
+C:\Users\AdminDell\Desktop\ANAPAULINAGT\2023\PROYECTOS\MARZO\Proyecto Monedas\API\ADMGRALAPI002\Business\bin\Release\netstandard2.0\Data.dll
+C:\Users\AdminDell\Desktop\ANAPAULINAGT\2023\PROYECTOS\MARZO\Proyecto Monedas\API\ADMGRALAPI002\Business\bin\Release\netstandard2.0\Entity.dll
+C:\Users\AdminDell\Desktop\ANAPAULINAGT\2023\PROYECTOS\MARZO\Proyecto Monedas\API\ADMGRALAPI002\Business\bin\Release\netstandard2.0\Data.pdb
+C:\Users\AdminDell\Desktop\ANAPAULINAGT\2023\PROYECTOS\MARZO\Proyecto Monedas\API\ADMGRALAPI002\Business\bin\Release\netstandard2.0\Entity.pdb
+C:\Users\AdminDell\Desktop\ANAPAULINAGT\2023\PROYECTOS\MARZO\Proyecto Monedas\API\ADMGRALAPI002\Business\obj\Release\netstandard2.0\Business.csproj.AssemblyReference.cache
+C:\Users\AdminDell\Desktop\ANAPAULINAGT\2023\PROYECTOS\MARZO\Proyecto Monedas\API\ADMGRALAPI002\Business\obj\Release\netstandard2.0\Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\AdminDell\Desktop\ANAPAULINAGT\2023\PROYECTOS\MARZO\Proyecto Monedas\API\ADMGRALAPI002\Business\obj\Release\netstandard2.0\Business.AssemblyInfoInputs.cache
+C:\Users\AdminDell\Desktop\ANAPAULINAGT\2023\PROYECTOS\MARZO\Proyecto Monedas\API\ADMGRALAPI002\Business\obj\Release\netstandard2.0\Business.AssemblyInfo.cs
+C:\Users\AdminDell\Desktop\ANAPAULINAGT\2023\PROYECTOS\MARZO\Proyecto Monedas\API\ADMGRALAPI002\Business\obj\Release\netstandard2.0\Business.csproj.CoreCompileInputs.cache
+C:\Users\AdminDell\Desktop\ANAPAULINAGT\2023\PROYECTOS\MARZO\Proyecto Monedas\API\ADMGRALAPI002\Business\obj\Release\netstandard2.0\Business.csproj.CopyComplete
+C:\Users\AdminDell\Desktop\ANAPAULINAGT\2023\PROYECTOS\MARZO\Proyecto Monedas\API\ADMGRALAPI002\Business\obj\Release\netstandard2.0\Business.dll
+C:\Users\AdminDell\Desktop\ANAPAULINAGT\2023\PROYECTOS\MARZO\Proyecto Monedas\API\ADMGRALAPI002\Business\obj\Release\netstandard2.0\Business.pdb
+C:\Users\ciipdetec\Desktop\2023\04_ABRIL\ban002mf\ADMBANCAPI003\Business\bin\Release\netstandard2.0\Business.deps.json
+C:\Users\ciipdetec\Desktop\2023\04_ABRIL\ban002mf\ADMBANCAPI003\Business\bin\Release\netstandard2.0\Business.dll
+C:\Users\ciipdetec\Desktop\2023\04_ABRIL\ban002mf\ADMBANCAPI003\Business\bin\Release\netstandard2.0\Business.pdb
+C:\Users\ciipdetec\Desktop\2023\04_ABRIL\ban002mf\ADMBANCAPI003\Business\bin\Release\netstandard2.0\Data.dll
+C:\Users\ciipdetec\Desktop\2023\04_ABRIL\ban002mf\ADMBANCAPI003\Business\bin\Release\netstandard2.0\Entity.dll
+C:\Users\ciipdetec\Desktop\2023\04_ABRIL\ban002mf\ADMBANCAPI003\Business\bin\Release\netstandard2.0\Data.pdb
+C:\Users\ciipdetec\Desktop\2023\04_ABRIL\ban002mf\ADMBANCAPI003\Business\bin\Release\netstandard2.0\Entity.pdb
+C:\Users\ciipdetec\Desktop\2023\04_ABRIL\ban002mf\ADMBANCAPI003\Business\obj\Release\netstandard2.0\Business.csproj.AssemblyReference.cache
+C:\Users\ciipdetec\Desktop\2023\04_ABRIL\ban002mf\ADMBANCAPI003\Business\obj\Release\netstandard2.0\Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ciipdetec\Desktop\2023\04_ABRIL\ban002mf\ADMBANCAPI003\Business\obj\Release\netstandard2.0\Business.AssemblyInfoInputs.cache
+C:\Users\ciipdetec\Desktop\2023\04_ABRIL\ban002mf\ADMBANCAPI003\Business\obj\Release\netstandard2.0\Business.AssemblyInfo.cs
+C:\Users\ciipdetec\Desktop\2023\04_ABRIL\ban002mf\ADMBANCAPI003\Business\obj\Release\netstandard2.0\Business.csproj.CoreCompileInputs.cache
+C:\Users\ciipdetec\Desktop\2023\04_ABRIL\ban002mf\ADMBANCAPI003\Business\obj\Release\netstandard2.0\Business.csproj.CopyComplete
+C:\Users\ciipdetec\Desktop\2023\04_ABRIL\ban002mf\ADMBANCAPI003\Business\obj\Release\netstandard2.0\Business.dll
+C:\Users\ciipdetec\Desktop\2023\04_ABRIL\ban002mf\ADMBANCAPI003\Business\obj\Release\netstandard2.0\Business.pdb
+C:\Users\ciipdetec\Desktop\BANCOS\MOVIMIENTOS BANCARIOS\ADMBANCAPI003\Business\bin\Release\netstandard2.0\Business.deps.json
+C:\Users\ciipdetec\Desktop\BANCOS\MOVIMIENTOS BANCARIOS\ADMBANCAPI003\Business\bin\Release\netstandard2.0\Business.dll
+C:\Users\ciipdetec\Desktop\BANCOS\MOVIMIENTOS BANCARIOS\ADMBANCAPI003\Business\bin\Release\netstandard2.0\Business.pdb
+C:\Users\ciipdetec\Desktop\BANCOS\MOVIMIENTOS BANCARIOS\ADMBANCAPI003\Business\bin\Release\netstandard2.0\Data.dll
+C:\Users\ciipdetec\Desktop\BANCOS\MOVIMIENTOS BANCARIOS\ADMBANCAPI003\Business\bin\Release\netstandard2.0\Entity.dll
+C:\Users\ciipdetec\Desktop\BANCOS\MOVIMIENTOS BANCARIOS\ADMBANCAPI003\Business\bin\Release\netstandard2.0\Data.pdb
+C:\Users\ciipdetec\Desktop\BANCOS\MOVIMIENTOS BANCARIOS\ADMBANCAPI003\Business\bin\Release\netstandard2.0\Entity.pdb
+C:\Users\ciipdetec\Desktop\BANCOS\MOVIMIENTOS BANCARIOS\ADMBANCAPI003\Business\obj\Release\netstandard2.0\Business.csproj.AssemblyReference.cache
+C:\Users\ciipdetec\Desktop\BANCOS\MOVIMIENTOS BANCARIOS\ADMBANCAPI003\Business\obj\Release\netstandard2.0\Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ciipdetec\Desktop\BANCOS\MOVIMIENTOS BANCARIOS\ADMBANCAPI003\Business\obj\Release\netstandard2.0\Business.AssemblyInfoInputs.cache
+C:\Users\ciipdetec\Desktop\BANCOS\MOVIMIENTOS BANCARIOS\ADMBANCAPI003\Business\obj\Release\netstandard2.0\Business.AssemblyInfo.cs
+C:\Users\ciipdetec\Desktop\BANCOS\MOVIMIENTOS BANCARIOS\ADMBANCAPI003\Business\obj\Release\netstandard2.0\Business.csproj.CoreCompileInputs.cache
+C:\Users\ciipdetec\Desktop\BANCOS\MOVIMIENTOS BANCARIOS\ADMBANCAPI003\Business\obj\Release\netstandard2.0\Business.csproj.CopyComplete
+C:\Users\ciipdetec\Desktop\BANCOS\MOVIMIENTOS BANCARIOS\ADMBANCAPI003\Business\obj\Release\netstandard2.0\Business.dll
+C:\Users\ciipdetec\Desktop\BANCOS\MOVIMIENTOS BANCARIOS\ADMBANCAPI003\Business\obj\Release\netstandard2.0\Business.pdb
+C:\Users\user\Documents\GitHub\YumMiApp\APPFOOD001SE\APPFOODAPI001\Business\bin\Release\netstandard2.0\Business.deps.json
+C:\Users\user\Documents\GitHub\YumMiApp\APPFOOD001SE\APPFOODAPI001\Business\bin\Release\netstandard2.0\Business.dll
+C:\Users\user\Documents\GitHub\YumMiApp\APPFOOD001SE\APPFOODAPI001\Business\bin\Release\netstandard2.0\Business.pdb
+C:\Users\user\Documents\GitHub\YumMiApp\APPFOOD001SE\APPFOODAPI001\Business\bin\Release\netstandard2.0\Data.dll
+C:\Users\user\Documents\GitHub\YumMiApp\APPFOOD001SE\APPFOODAPI001\Business\bin\Release\netstandard2.0\Entity.dll
+C:\Users\user\Documents\GitHub\YumMiApp\APPFOOD001SE\APPFOODAPI001\Business\bin\Release\netstandard2.0\Data.pdb
+C:\Users\user\Documents\GitHub\YumMiApp\APPFOOD001SE\APPFOODAPI001\Business\bin\Release\netstandard2.0\Entity.pdb
+C:\Users\user\Documents\GitHub\YumMiApp\APPFOOD001SE\APPFOODAPI001\Business\obj\Release\netstandard2.0\Business.csproj.AssemblyReference.cache
+C:\Users\user\Documents\GitHub\YumMiApp\APPFOOD001SE\APPFOODAPI001\Business\obj\Release\netstandard2.0\Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Documents\GitHub\YumMiApp\APPFOOD001SE\APPFOODAPI001\Business\obj\Release\netstandard2.0\Business.AssemblyInfoInputs.cache
+C:\Users\user\Documents\GitHub\YumMiApp\APPFOOD001SE\APPFOODAPI001\Business\obj\Release\netstandard2.0\Business.AssemblyInfo.cs
+C:\Users\user\Documents\GitHub\YumMiApp\APPFOOD001SE\APPFOODAPI001\Business\obj\Release\netstandard2.0\Business.csproj.CoreCompileInputs.cache
+C:\Users\user\Documents\GitHub\YumMiApp\APPFOOD001SE\APPFOODAPI001\Business\obj\Release\netstandard2.0\Business.csproj.CopyComplete
+C:\Users\user\Documents\GitHub\YumMiApp\APPFOOD001SE\APPFOODAPI001\Business\obj\Release\netstandard2.0\Business.dll
+C:\Users\user\Documents\GitHub\YumMiApp\APPFOOD001SE\APPFOODAPI001\Business\obj\Release\netstandard2.0\Business.pdb
