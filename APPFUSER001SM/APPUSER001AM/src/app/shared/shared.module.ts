@@ -22,6 +22,7 @@ import { SheetModalComponent } from './components/sheet-modal/sheet-modal.compon
 import { CoolCalendarComponent } from './components/cool-calendar/cool-calendar.component';
 import { ReminderComponent } from './components/reminder/reminder.component';
 import { PhoneMaskDirective } from './directives/phone-mask.directive';
+import { CodeInputComponent } from './components/code-input/code-input.component';
 @NgModule({
   declarations: [    
     
@@ -43,7 +44,8 @@ import { PhoneMaskDirective } from './directives/phone-mask.directive';
     SheetModalComponent,
     CoolCalendarComponent,
     ReminderComponent,
-    PhoneMaskDirective
+    PhoneMaskDirective,
+    CodeInputComponent
   ],
   imports: [ 
     CommonModule,
@@ -69,7 +71,8 @@ import { PhoneMaskDirective } from './directives/phone-mask.directive';
     DraggableComponent,
     CoolCalendarComponent,
     ReminderComponent,
-    PhoneMaskDirective
+    PhoneMaskDirective,
+    CodeInputComponent
   ],
   
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

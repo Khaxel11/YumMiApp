@@ -1,0 +1,62 @@
+<div class="auth-code-container">
+    <ion-input
+      class="auth-input"
+      [(ngModel)]="inputs[0].value"
+      #authInput0
+      (ionInput)="onInputCode($event, 0)"
+      (ionFocus)="onFocus($event, 0)"
+      (keydown)="onKeyDown($event, 0)"
+      maxlength="1"
+      (paste)="onPaste($event, 0)"
+      [ngClass]="{ 'auth-input-error': inputs[0].isError, 'focused': focusedIndex === 0 }"
+
+    ></ion-input>
+    <ion-input
+      class="auth-input"
+      [(ngModel)]="inputs[1].value"
+      #authInput1
+      (ionInput)="onInputCode($event, 1)"
+      (ionFocus)="onFocus($event, 1)"
+      (keydown)="onKeyDown($event, 1)"
+      maxlength="1"
+      (paste)="onPaste($event, 0)"
+      [ngClass]="{ 'auth-input-error': inputs[1].isError, 'focused': focusedIndex === 1 }"
+
+    ></ion-input>
+    <ion-input
+      class="auth-input"
+      [(ngModel)]="inputs[2].value"
+      #authInput2
+      (ionInput)="onInputCode($event, 2)"
+      (ionFocus)="onFocus($event, 2)"
+      (keydown)="onKeyDown($event, 2)"
+      maxlength="1"
+      (paste)="onPaste($event, 0)"
+      [ngClass]="{ 'auth-input-error': inputs[2].isError, 'focused': focusedIndex === 2 }"
+
+    ></ion-input>
+    <ion-input
+      class="auth-input"
+      [(ngModel)]="inputs[3].value"
+      #authInput3
+      (ionInput)="onInputCode($event, 3)"
+      (ionFocus)="onFocus($event, 3)"
+      (keydown)="onKeyDown($event, 3)"
+      maxlength="1"
+      (paste)="onPaste($event, 0)"
+      [ngClass]="{ 'auth-input-error': inputs[3].isError, 'focused': focusedIndex === 3 }"
+
+    ></ion-input>
+    <ion-input
+      class="auth-input"
+      [(ngModel)]="inputs[4].value"
+      #authInput4
+      (ionInput)="onInputCode($event, 4)"
+      (ionFocus)="onFocus($event, 4)"
+      (keydown)="onKeyDown($event, 4)"
+      maxlength="1"
+      (paste)="onPaste($event, 0)"
+      [ngClass]="{ 'auth-input-error': inputs[4].isError, 'focused': focusedIndex === 4 }"
+
+    ></ion-input>
+  </div>
