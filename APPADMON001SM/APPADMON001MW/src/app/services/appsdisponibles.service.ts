@@ -29,14 +29,14 @@ export class AppsDisponiblesService {
   }
 
   postEncabezado(Opcion : number, Aplicaciones : any) : Promise<any>{
-    const url = URL + 'controlAplicaciones';
+    const url = URL + 'postEncabezados';
     const params = new HttpParams()
       .append('Opcion', String(Opcion))
       .append('IdUsuario', '000100');
       return this.http.post(url , Aplicaciones, {params}).toPromise();
   }
   postAplicaciones(Opcion : number, Aplicaciones : any) : Promise<any>{
-    const url = URL + 'controlAplicaciones';
+    const url = URL + 'postAplicaciones';
     const params = new HttpParams()
       .append('Opcion', String(Opcion))
       .append('IdUsuario', '000100');

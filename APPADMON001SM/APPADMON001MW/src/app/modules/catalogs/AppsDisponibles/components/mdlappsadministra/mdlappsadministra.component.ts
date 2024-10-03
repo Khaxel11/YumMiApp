@@ -5,6 +5,7 @@ import { AppsDisponiblesService } from '../../../../../services/appsdisponibles.
 import swal from 'sweetalert2';
 import { aplicaciones } from 'src/app/models/Aplicaciones';
 import { encabezados } from 'src/app/models/Encabezados';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'mdlappsadministra',
@@ -78,10 +79,10 @@ export class mdlAppsadministraComponent implements OnInit {
     } else if (this.tipoCaptura === false) {
       if (this.tipoCapturaNombre === 'A') {
         this.modalname = 'Nueva Opcion para ' + this.nomEncabezado;
-        this.opcion = 3;
+        this.opcion = 5;
       } else if (this.tipoCapturaNombre === 'E') {
         this.modalname = 'Modificar ' + this.titulo;
-        this.opcion = 4;
+        this.opcion = 6;
       }
     }
   }
@@ -108,7 +109,7 @@ export class mdlAppsadministraComponent implements OnInit {
   }
   async saveInfo() {
 
-    if (this.tipoCaptura = true) {
+    if (this.tipoCaptura === true) {
       if (this.idSistemaMod = 0) {
         swal.fire("Campos incompletos", "Los campos deben de estar completos", 'warning');
         return;
@@ -131,14 +132,15 @@ export class mdlAppsadministraComponent implements OnInit {
           swal.fire("Error", "Ocurrio un error", 'error');
           return;
         }
-        swal.fire(data.data.mensaje, "", data.data.icon === 1 ? 'success' : data.data.icon === 2 ? 'error' : 'warning' )
+        Swal.fire('Correcto', `Se ha ${this.opcion === 5 ? 'Guardado' : 'Modificado'} el encabezado`, 'success');
+        // swal.fire(data.data.mensaje, "", data.data.icon === 1 ? 'success' : data.data.icon === 2 ? 'error' : 'warning' )
         this.closeModal();
       } catch (error) {
         swal.fire("Error", "Ocurrio un error " + error.error , 'error');
           return;
       }
     } 
-    else if (this.tipoCaptura = false) {
+    else if (this.tipoCaptura === false) {
       if (!this.titulo || !this.ruta) {
         swal.fire("Campos incompletos", "Los campos deben de estar completos", 'warning');
         return;
@@ -151,12 +153,15 @@ export class mdlAppsadministraComponent implements OnInit {
       }
 
       try {
+
         let data = await this.service.postAplicaciones(this.opcion, aplicacion);
         if(!data.data){
           swal.fire("Error", "Ocurrio un error", 'error');
           return;
         }
-        swal.fire(data.data.mensaje, "", data.data.icon === 1 ? 'success' : data.data.icon === 2 ? 'error' : 'warning' )
+        // swal.fire(data.data.mensaje, "", data.data.icon === 1 ? 'success' : data.data.icon === 2 ? 'error' : 'warning' )
+        Swal.fire('Correcto', `Se ha ${this.opcion === 1 ? 'Guardado' : 'Modificado'} el encabezado`, 'success');
+
         this.closeModal();
       } catch (error) {
         swal.fire("Error", "Ocurrio un error " + error.error , 'error');
