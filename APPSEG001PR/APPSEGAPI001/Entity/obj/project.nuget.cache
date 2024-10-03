@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "cWmDS/4aY4+b5nQ/es/MU6I3aDOhIegCpeMkzuH2ujop2YzABjNex27W6SERgNCoKqk4d8sqmf/Dw8JpQYu4FA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\user\\Documents\\GitHub\\YumMiApp\\APPSEG001PR\\APPSEGAPI001\\Entity\\Entity.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

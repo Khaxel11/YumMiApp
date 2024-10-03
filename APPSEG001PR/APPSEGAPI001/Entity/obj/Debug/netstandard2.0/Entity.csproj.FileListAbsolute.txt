@@ -1,0 +1,130 @@
+C:\Users\ciipdetec\Downloads\AXEL\ADMCXPAAPI001\Entity\bin\Debug\netstandard2.0\Entity.deps.json
+C:\Users\ciipdetec\Downloads\AXEL\ADMCXPAAPI001\Entity\bin\Debug\netstandard2.0\Entity.dll
+C:\Users\ciipdetec\Downloads\AXEL\ADMCXPAAPI001\Entity\bin\Debug\netstandard2.0\Entity.pdb
+C:\Users\ciipdetec\Downloads\AXEL\ADMCXPAAPI001\Entity\obj\Debug\netstandard2.0\Entity.csproj.AssemblyReference.cache
+C:\Users\ciipdetec\Downloads\AXEL\ADMCXPAAPI001\Entity\obj\Debug\netstandard2.0\Entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ciipdetec\Downloads\AXEL\ADMCXPAAPI001\Entity\obj\Debug\netstandard2.0\Entity.AssemblyInfoInputs.cache
+C:\Users\ciipdetec\Downloads\AXEL\ADMCXPAAPI001\Entity\obj\Debug\netstandard2.0\Entity.AssemblyInfo.cs
+C:\Users\ciipdetec\Downloads\AXEL\ADMCXPAAPI001\Entity\obj\Debug\netstandard2.0\Entity.csproj.CoreCompileInputs.cache
+C:\Users\ciipdetec\Downloads\AXEL\ADMCXPAAPI001\Entity\obj\Debug\netstandard2.0\Entity.dll
+C:\Users\ciipdetec\Downloads\AXEL\ADMCXPAAPI001\Entity\obj\Debug\netstandard2.0\Entity.pdb
+C:\Users\ciipdetec\Desktop\2023\MARZO\ENRIQUE 01-03\BANCOS\BACK\ADMCXPAAPI001\Entity\obj\Debug\netstandard2.0\Entity.csproj.AssemblyReference.cache
+C:\Users\ciipdetec\Desktop\2023\MARZO\ENRIQUE 01-03\BANCOS\BACK\ADMCXPAAPI001\Entity\obj\Debug\netstandard2.0\Entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ciipdetec\Desktop\2023\MARZO\ENRIQUE 01-03\BANCOS\BACK\ADMCXPAAPI001\Entity\obj\Debug\netstandard2.0\Entity.AssemblyInfoInputs.cache
+C:\Users\ciipdetec\Desktop\2023\MARZO\ENRIQUE 01-03\BANCOS\BACK\ADMCXPAAPI001\Entity\obj\Debug\netstandard2.0\Entity.AssemblyInfo.cs
+C:\Users\ciipdetec\Desktop\2023\MARZO\ENRIQUE 01-03\BANCOS\BACK\ADMCXPAAPI001\Entity\obj\Debug\netstandard2.0\Entity.csproj.CoreCompileInputs.cache
+C:\Users\ciipdetec\Desktop\2023\MARZO\ENRIQUE 01-03\BANCOS\BACK\ADMCXPAAPI001\Entity\obj\Debug\netstandard2.0\Entity.dll
+C:\Users\ciipdetec\Desktop\2023\MARZO\ENRIQUE 01-03\BANCOS\BACK\ADMCXPAAPI001\Entity\obj\Debug\netstandard2.0\Entity.pdb
+C:\Users\ciipdetec\Desktop\2023\MARZO\ENRIQUE 01-03\BANCOS\BACK\ADMCXPAAPI001\Entity\bin\Debug\netstandard2.0\Entity.deps.json
+C:\Users\ciipdetec\Desktop\2023\MARZO\ENRIQUE 01-03\BANCOS\BACK\ADMCXPAAPI001\Entity\bin\Debug\netstandard2.0\Entity.dll
+C:\Users\ciipdetec\Desktop\2023\MARZO\ENRIQUE 01-03\BANCOS\BACK\ADMCXPAAPI001\Entity\bin\Debug\netstandard2.0\Entity.pdb
+C:\Users\AdminDell\Desktop\ANAPAULINAGT\2023\PROYECTOS\MARZO\Proyecto Monedas\API\ADMCXPAAPI001\Entity\bin\Debug\netstandard2.0\Entity.deps.json
+C:\Users\AdminDell\Desktop\ANAPAULINAGT\2023\PROYECTOS\MARZO\Proyecto Monedas\API\ADMCXPAAPI001\Entity\bin\Debug\netstandard2.0\Entity.dll
+C:\Users\AdminDell\Desktop\ANAPAULINAGT\2023\PROYECTOS\MARZO\Proyecto Monedas\API\ADMCXPAAPI001\Entity\bin\Debug\netstandard2.0\Entity.pdb
+C:\Users\AdminDell\Desktop\ANAPAULINAGT\2023\PROYECTOS\MARZO\Proyecto Monedas\API\ADMCXPAAPI001\Entity\obj\Debug\netstandard2.0\Entity.csproj.AssemblyReference.cache
+C:\Users\AdminDell\Desktop\ANAPAULINAGT\2023\PROYECTOS\MARZO\Proyecto Monedas\API\ADMCXPAAPI001\Entity\obj\Debug\netstandard2.0\Entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\AdminDell\Desktop\ANAPAULINAGT\2023\PROYECTOS\MARZO\Proyecto Monedas\API\ADMCXPAAPI001\Entity\obj\Debug\netstandard2.0\Entity.AssemblyInfoInputs.cache
+C:\Users\AdminDell\Desktop\ANAPAULINAGT\2023\PROYECTOS\MARZO\Proyecto Monedas\API\ADMCXPAAPI001\Entity\obj\Debug\netstandard2.0\Entity.AssemblyInfo.cs
+C:\Users\AdminDell\Desktop\ANAPAULINAGT\2023\PROYECTOS\MARZO\Proyecto Monedas\API\ADMCXPAAPI001\Entity\obj\Debug\netstandard2.0\Entity.csproj.CoreCompileInputs.cache
+C:\Users\AdminDell\Desktop\ANAPAULINAGT\2023\PROYECTOS\MARZO\Proyecto Monedas\API\ADMCXPAAPI001\Entity\obj\Debug\netstandard2.0\Entity.dll
+C:\Users\AdminDell\Desktop\ANAPAULINAGT\2023\PROYECTOS\MARZO\Proyecto Monedas\API\ADMCXPAAPI001\Entity\obj\Debug\netstandard2.0\Entity.pdb
+C:\Users\AdminDell\Desktop\ANAPAULINAGT\2023\PROYECTOS\MARZO\Proyecto Monedas\API\ADMGRALAPI002\Entity\bin\Debug\netstandard2.0\Entity.deps.json
+C:\Users\AdminDell\Desktop\ANAPAULINAGT\2023\PROYECTOS\MARZO\Proyecto Monedas\API\ADMGRALAPI002\Entity\bin\Debug\netstandard2.0\Entity.dll
+C:\Users\AdminDell\Desktop\ANAPAULINAGT\2023\PROYECTOS\MARZO\Proyecto Monedas\API\ADMGRALAPI002\Entity\bin\Debug\netstandard2.0\Entity.pdb
+C:\Users\AdminDell\Desktop\ANAPAULINAGT\2023\PROYECTOS\MARZO\Proyecto Monedas\API\ADMGRALAPI002\Entity\obj\Debug\netstandard2.0\Entity.csproj.AssemblyReference.cache
+C:\Users\AdminDell\Desktop\ANAPAULINAGT\2023\PROYECTOS\MARZO\Proyecto Monedas\API\ADMGRALAPI002\Entity\obj\Debug\netstandard2.0\Entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\AdminDell\Desktop\ANAPAULINAGT\2023\PROYECTOS\MARZO\Proyecto Monedas\API\ADMGRALAPI002\Entity\obj\Debug\netstandard2.0\Entity.AssemblyInfoInputs.cache
+C:\Users\AdminDell\Desktop\ANAPAULINAGT\2023\PROYECTOS\MARZO\Proyecto Monedas\API\ADMGRALAPI002\Entity\obj\Debug\netstandard2.0\Entity.AssemblyInfo.cs
+C:\Users\AdminDell\Desktop\ANAPAULINAGT\2023\PROYECTOS\MARZO\Proyecto Monedas\API\ADMGRALAPI002\Entity\obj\Debug\netstandard2.0\Entity.csproj.CoreCompileInputs.cache
+C:\Users\AdminDell\Desktop\ANAPAULINAGT\2023\PROYECTOS\MARZO\Proyecto Monedas\API\ADMGRALAPI002\Entity\obj\Debug\netstandard2.0\Entity.dll
+C:\Users\AdminDell\Desktop\ANAPAULINAGT\2023\PROYECTOS\MARZO\Proyecto Monedas\API\ADMGRALAPI002\Entity\obj\Debug\netstandard2.0\Entity.pdb
+C:\Users\ciipdetec\Desktop\2023\MARZO\ENRIQUE 01-03\BANCOS\TIPOCAMBIO\Proyecto Monedas\API\ADMGRALAPI002\Entity\bin\Debug\netstandard2.0\Entity.deps.json
+C:\Users\ciipdetec\Desktop\2023\MARZO\ENRIQUE 01-03\BANCOS\TIPOCAMBIO\Proyecto Monedas\API\ADMGRALAPI002\Entity\bin\Debug\netstandard2.0\Entity.dll
+C:\Users\ciipdetec\Desktop\2023\MARZO\ENRIQUE 01-03\BANCOS\TIPOCAMBIO\Proyecto Monedas\API\ADMGRALAPI002\Entity\bin\Debug\netstandard2.0\Entity.pdb
+C:\Users\ciipdetec\Desktop\2023\MARZO\ENRIQUE 01-03\BANCOS\TIPOCAMBIO\Proyecto Monedas\API\ADMGRALAPI002\Entity\obj\Debug\netstandard2.0\Entity.csproj.AssemblyReference.cache
+C:\Users\ciipdetec\Desktop\2023\MARZO\ENRIQUE 01-03\BANCOS\TIPOCAMBIO\Proyecto Monedas\API\ADMGRALAPI002\Entity\obj\Debug\netstandard2.0\Entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ciipdetec\Desktop\2023\MARZO\ENRIQUE 01-03\BANCOS\TIPOCAMBIO\Proyecto Monedas\API\ADMGRALAPI002\Entity\obj\Debug\netstandard2.0\Entity.AssemblyInfoInputs.cache
+C:\Users\ciipdetec\Desktop\2023\MARZO\ENRIQUE 01-03\BANCOS\TIPOCAMBIO\Proyecto Monedas\API\ADMGRALAPI002\Entity\obj\Debug\netstandard2.0\Entity.AssemblyInfo.cs
+C:\Users\ciipdetec\Desktop\2023\MARZO\ENRIQUE 01-03\BANCOS\TIPOCAMBIO\Proyecto Monedas\API\ADMGRALAPI002\Entity\obj\Debug\netstandard2.0\Entity.csproj.CoreCompileInputs.cache
+C:\Users\ciipdetec\Desktop\2023\MARZO\ENRIQUE 01-03\BANCOS\TIPOCAMBIO\Proyecto Monedas\API\ADMGRALAPI002\Entity\obj\Debug\netstandard2.0\Entity.dll
+C:\Users\ciipdetec\Desktop\2023\MARZO\ENRIQUE 01-03\BANCOS\TIPOCAMBIO\Proyecto Monedas\API\ADMGRALAPI002\Entity\obj\Debug\netstandard2.0\Entity.pdb
+C:\Users\ciipdetec\Desktop\2023\MARZO\ENRIQUE 01-03\BANCOS\TIPOCAMBIO\Proyecto Monedas\API\ADMGRALAPI003\Entity\bin\Debug\netstandard2.0\Entity.deps.json
+C:\Users\ciipdetec\Desktop\2023\MARZO\ENRIQUE 01-03\BANCOS\TIPOCAMBIO\Proyecto Monedas\API\ADMGRALAPI003\Entity\bin\Debug\netstandard2.0\Entity.dll
+C:\Users\ciipdetec\Desktop\2023\MARZO\ENRIQUE 01-03\BANCOS\TIPOCAMBIO\Proyecto Monedas\API\ADMGRALAPI003\Entity\bin\Debug\netstandard2.0\Entity.pdb
+C:\Users\ciipdetec\Desktop\2023\MARZO\ENRIQUE 01-03\BANCOS\TIPOCAMBIO\Proyecto Monedas\API\ADMGRALAPI003\Entity\obj\Debug\netstandard2.0\Entity.csproj.AssemblyReference.cache
+C:\Users\ciipdetec\Desktop\2023\MARZO\ENRIQUE 01-03\BANCOS\TIPOCAMBIO\Proyecto Monedas\API\ADMGRALAPI003\Entity\obj\Debug\netstandard2.0\Entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ciipdetec\Desktop\2023\MARZO\ENRIQUE 01-03\BANCOS\TIPOCAMBIO\Proyecto Monedas\API\ADMGRALAPI003\Entity\obj\Debug\netstandard2.0\Entity.AssemblyInfoInputs.cache
+C:\Users\ciipdetec\Desktop\2023\MARZO\ENRIQUE 01-03\BANCOS\TIPOCAMBIO\Proyecto Monedas\API\ADMGRALAPI003\Entity\obj\Debug\netstandard2.0\Entity.AssemblyInfo.cs
+C:\Users\ciipdetec\Desktop\2023\MARZO\ENRIQUE 01-03\BANCOS\TIPOCAMBIO\Proyecto Monedas\API\ADMGRALAPI003\Entity\obj\Debug\netstandard2.0\Entity.csproj.CoreCompileInputs.cache
+C:\Users\ciipdetec\Desktop\2023\MARZO\ENRIQUE 01-03\BANCOS\TIPOCAMBIO\Proyecto Monedas\API\ADMGRALAPI003\Entity\obj\Debug\netstandard2.0\Entity.dll
+C:\Users\ciipdetec\Desktop\2023\MARZO\ENRIQUE 01-03\BANCOS\TIPOCAMBIO\Proyecto Monedas\API\ADMGRALAPI003\Entity\obj\Debug\netstandard2.0\Entity.pdb
+C:\Users\ciipdetec\Desktop\2023\03_MARZO\ENRIQUE 01-03\Nueva carpeta\ADMGRAL01-TiposCambio\BACK\ADMGRALAPI003\Entity\bin\Debug\netstandard2.0\Entity.deps.json
+C:\Users\ciipdetec\Desktop\2023\03_MARZO\ENRIQUE 01-03\Nueva carpeta\ADMGRAL01-TiposCambio\BACK\ADMGRALAPI003\Entity\bin\Debug\netstandard2.0\Entity.dll
+C:\Users\ciipdetec\Desktop\2023\03_MARZO\ENRIQUE 01-03\Nueva carpeta\ADMGRAL01-TiposCambio\BACK\ADMGRALAPI003\Entity\bin\Debug\netstandard2.0\Entity.pdb
+C:\Users\ciipdetec\Desktop\2023\03_MARZO\ENRIQUE 01-03\Nueva carpeta\ADMGRAL01-TiposCambio\BACK\ADMGRALAPI003\Entity\obj\Debug\netstandard2.0\Entity.csproj.AssemblyReference.cache
+C:\Users\ciipdetec\Desktop\2023\03_MARZO\ENRIQUE 01-03\Nueva carpeta\ADMGRAL01-TiposCambio\BACK\ADMGRALAPI003\Entity\obj\Debug\netstandard2.0\Entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ciipdetec\Desktop\2023\03_MARZO\ENRIQUE 01-03\Nueva carpeta\ADMGRAL01-TiposCambio\BACK\ADMGRALAPI003\Entity\obj\Debug\netstandard2.0\Entity.AssemblyInfoInputs.cache
+C:\Users\ciipdetec\Desktop\2023\03_MARZO\ENRIQUE 01-03\Nueva carpeta\ADMGRAL01-TiposCambio\BACK\ADMGRALAPI003\Entity\obj\Debug\netstandard2.0\Entity.AssemblyInfo.cs
+C:\Users\ciipdetec\Desktop\2023\03_MARZO\ENRIQUE 01-03\Nueva carpeta\ADMGRAL01-TiposCambio\BACK\ADMGRALAPI003\Entity\obj\Debug\netstandard2.0\Entity.csproj.CoreCompileInputs.cache
+C:\Users\ciipdetec\Desktop\2023\03_MARZO\ENRIQUE 01-03\Nueva carpeta\ADMGRAL01-TiposCambio\BACK\ADMGRALAPI003\Entity\obj\Debug\netstandard2.0\Entity.dll
+C:\Users\ciipdetec\Desktop\2023\03_MARZO\ENRIQUE 01-03\Nueva carpeta\ADMGRAL01-TiposCambio\BACK\ADMGRALAPI003\Entity\obj\Debug\netstandard2.0\Entity.pdb
+C:\Users\ciipdetec\Desktop\2023\04_ABRIL\ban002mf\ADMBANCAPI003\Entity\bin\Debug\netstandard2.0\Entity.deps.json
+C:\Users\ciipdetec\Desktop\2023\04_ABRIL\ban002mf\ADMBANCAPI003\Entity\bin\Debug\netstandard2.0\Entity.dll
+C:\Users\ciipdetec\Desktop\2023\04_ABRIL\ban002mf\ADMBANCAPI003\Entity\bin\Debug\netstandard2.0\Entity.pdb
+C:\Users\ciipdetec\Desktop\2023\04_ABRIL\ban002mf\ADMBANCAPI003\Entity\obj\Debug\netstandard2.0\Entity.csproj.AssemblyReference.cache
+C:\Users\ciipdetec\Desktop\2023\04_ABRIL\ban002mf\ADMBANCAPI003\Entity\obj\Debug\netstandard2.0\Entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ciipdetec\Desktop\2023\04_ABRIL\ban002mf\ADMBANCAPI003\Entity\obj\Debug\netstandard2.0\Entity.AssemblyInfoInputs.cache
+C:\Users\ciipdetec\Desktop\2023\04_ABRIL\ban002mf\ADMBANCAPI003\Entity\obj\Debug\netstandard2.0\Entity.AssemblyInfo.cs
+C:\Users\ciipdetec\Desktop\2023\04_ABRIL\ban002mf\ADMBANCAPI003\Entity\obj\Debug\netstandard2.0\Entity.csproj.CoreCompileInputs.cache
+C:\Users\ciipdetec\Desktop\2023\04_ABRIL\ban002mf\ADMBANCAPI003\Entity\obj\Debug\netstandard2.0\Entity.dll
+C:\Users\ciipdetec\Desktop\2023\04_ABRIL\ban002mf\ADMBANCAPI003\Entity\obj\Debug\netstandard2.0\Entity.pdb
+C:\Users\ciipdetec\Desktop\BANCOS\MOVIMIENTOS BANCARIOS\ADMBANCAPI003\Entity\bin\Debug\netstandard2.0\Entity.deps.json
+C:\Users\ciipdetec\Desktop\BANCOS\MOVIMIENTOS BANCARIOS\ADMBANCAPI003\Entity\bin\Debug\netstandard2.0\Entity.dll
+C:\Users\ciipdetec\Desktop\BANCOS\MOVIMIENTOS BANCARIOS\ADMBANCAPI003\Entity\bin\Debug\netstandard2.0\Entity.pdb
+C:\Users\ciipdetec\Desktop\BANCOS\MOVIMIENTOS BANCARIOS\ADMBANCAPI003\Entity\obj\Debug\netstandard2.0\Entity.csproj.AssemblyReference.cache
+C:\Users\ciipdetec\Desktop\BANCOS\MOVIMIENTOS BANCARIOS\ADMBANCAPI003\Entity\obj\Debug\netstandard2.0\Entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ciipdetec\Desktop\BANCOS\MOVIMIENTOS BANCARIOS\ADMBANCAPI003\Entity\obj\Debug\netstandard2.0\Entity.AssemblyInfoInputs.cache
+C:\Users\ciipdetec\Desktop\BANCOS\MOVIMIENTOS BANCARIOS\ADMBANCAPI003\Entity\obj\Debug\netstandard2.0\Entity.AssemblyInfo.cs
+C:\Users\ciipdetec\Desktop\BANCOS\MOVIMIENTOS BANCARIOS\ADMBANCAPI003\Entity\obj\Debug\netstandard2.0\Entity.csproj.CoreCompileInputs.cache
+C:\Users\ciipdetec\Desktop\BANCOS\MOVIMIENTOS BANCARIOS\ADMBANCAPI003\Entity\obj\Debug\netstandard2.0\Entity.dll
+C:\Users\ciipdetec\Desktop\BANCOS\MOVIMIENTOS BANCARIOS\ADMBANCAPI003\Entity\obj\Debug\netstandard2.0\Entity.pdb
+C:\Users\user\Desktop\App-Comida\APPFOODAPI001\Entity\bin\Debug\netstandard2.0\Entity.deps.json
+C:\Users\user\Desktop\App-Comida\APPFOODAPI001\Entity\bin\Debug\netstandard2.0\Entity.dll
+C:\Users\user\Desktop\App-Comida\APPFOODAPI001\Entity\bin\Debug\netstandard2.0\Entity.pdb
+C:\Users\user\Desktop\App-Comida\APPFOODAPI001\Entity\obj\Debug\netstandard2.0\Entity.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\App-Comida\APPFOODAPI001\Entity\obj\Debug\netstandard2.0\Entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\App-Comida\APPFOODAPI001\Entity\obj\Debug\netstandard2.0\Entity.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\App-Comida\APPFOODAPI001\Entity\obj\Debug\netstandard2.0\Entity.AssemblyInfo.cs
+C:\Users\user\Desktop\App-Comida\APPFOODAPI001\Entity\obj\Debug\netstandard2.0\Entity.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\App-Comida\APPFOODAPI001\Entity\obj\Debug\netstandard2.0\Entity.dll
+C:\Users\user\Desktop\App-Comida\APPFOODAPI001\Entity\obj\Debug\netstandard2.0\Entity.pdb
+C:\Users\user\Documents\GitHub\YumMiApp\APPFOOD001SE\APPFOODAPI001\Entity\bin\Debug\netstandard2.0\Entity.deps.json
+C:\Users\user\Documents\GitHub\YumMiApp\APPFOOD001SE\APPFOODAPI001\Entity\bin\Debug\netstandard2.0\Entity.dll
+C:\Users\user\Documents\GitHub\YumMiApp\APPFOOD001SE\APPFOODAPI001\Entity\bin\Debug\netstandard2.0\Entity.pdb
+C:\Users\user\Documents\GitHub\YumMiApp\APPFOOD001SE\APPFOODAPI001\Entity\obj\Debug\netstandard2.0\Entity.csproj.AssemblyReference.cache
+C:\Users\user\Documents\GitHub\YumMiApp\APPFOOD001SE\APPFOODAPI001\Entity\obj\Debug\netstandard2.0\Entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Documents\GitHub\YumMiApp\APPFOOD001SE\APPFOODAPI001\Entity\obj\Debug\netstandard2.0\Entity.AssemblyInfoInputs.cache
+C:\Users\user\Documents\GitHub\YumMiApp\APPFOOD001SE\APPFOODAPI001\Entity\obj\Debug\netstandard2.0\Entity.AssemblyInfo.cs
+C:\Users\user\Documents\GitHub\YumMiApp\APPFOOD001SE\APPFOODAPI001\Entity\obj\Debug\netstandard2.0\Entity.csproj.CoreCompileInputs.cache
+C:\Users\user\Documents\GitHub\YumMiApp\APPFOOD001SE\APPFOODAPI001\Entity\obj\Debug\netstandard2.0\Entity.dll
+C:\Users\user\Documents\GitHub\YumMiApp\APPFOOD001SE\APPFOODAPI001\Entity\obj\Debug\netstandard2.0\Entity.pdb
+C:\Users\user\Documents\GitHub\YumMiApp\APPFUSER001SM\APPUSERAPI001\Entity\bin\Debug\netstandard2.0\Entity.deps.json
+C:\Users\user\Documents\GitHub\YumMiApp\APPFUSER001SM\APPUSERAPI001\Entity\bin\Debug\netstandard2.0\Entity.dll
+C:\Users\user\Documents\GitHub\YumMiApp\APPFUSER001SM\APPUSERAPI001\Entity\bin\Debug\netstandard2.0\Entity.pdb
+C:\Users\user\Documents\GitHub\YumMiApp\APPFUSER001SM\APPUSERAPI001\Entity\obj\Debug\netstandard2.0\Entity.csproj.AssemblyReference.cache
+C:\Users\user\Documents\GitHub\YumMiApp\APPFUSER001SM\APPUSERAPI001\Entity\obj\Debug\netstandard2.0\Entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Documents\GitHub\YumMiApp\APPFUSER001SM\APPUSERAPI001\Entity\obj\Debug\netstandard2.0\Entity.AssemblyInfoInputs.cache
+C:\Users\user\Documents\GitHub\YumMiApp\APPFUSER001SM\APPUSERAPI001\Entity\obj\Debug\netstandard2.0\Entity.AssemblyInfo.cs
+C:\Users\user\Documents\GitHub\YumMiApp\APPFUSER001SM\APPUSERAPI001\Entity\obj\Debug\netstandard2.0\Entity.csproj.CoreCompileInputs.cache
+C:\Users\user\Documents\GitHub\YumMiApp\APPFUSER001SM\APPUSERAPI001\Entity\obj\Debug\netstandard2.0\Entity.dll
+C:\Users\user\Documents\GitHub\YumMiApp\APPFUSER001SM\APPUSERAPI001\Entity\obj\Debug\netstandard2.0\Entity.pdb
+C:\Users\user\Documents\GitHub\YumMiApp\APPSEG001PR\APPSEGAPI001\Entity\bin\Debug\netstandard2.0\Entity.deps.json
+C:\Users\user\Documents\GitHub\YumMiApp\APPSEG001PR\APPSEGAPI001\Entity\bin\Debug\netstandard2.0\Entity.dll
+C:\Users\user\Documents\GitHub\YumMiApp\APPSEG001PR\APPSEGAPI001\Entity\bin\Debug\netstandard2.0\Entity.pdb
+C:\Users\user\Documents\GitHub\YumMiApp\APPSEG001PR\APPSEGAPI001\Entity\obj\Debug\netstandard2.0\Entity.csproj.AssemblyReference.cache
+C:\Users\user\Documents\GitHub\YumMiApp\APPSEG001PR\APPSEGAPI001\Entity\obj\Debug\netstandard2.0\Entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Documents\GitHub\YumMiApp\APPSEG001PR\APPSEGAPI001\Entity\obj\Debug\netstandard2.0\Entity.AssemblyInfoInputs.cache
+C:\Users\user\Documents\GitHub\YumMiApp\APPSEG001PR\APPSEGAPI001\Entity\obj\Debug\netstandard2.0\Entity.AssemblyInfo.cs
+C:\Users\user\Documents\GitHub\YumMiApp\APPSEG001PR\APPSEGAPI001\Entity\obj\Debug\netstandard2.0\Entity.csproj.CoreCompileInputs.cache
+C:\Users\user\Documents\GitHub\YumMiApp\APPSEG001PR\APPSEGAPI001\Entity\obj\Debug\netstandard2.0\Entity.dll
+C:\Users\user\Documents\GitHub\YumMiApp\APPSEG001PR\APPSEGAPI001\Entity\obj\Debug\netstandard2.0\Entity.pdb

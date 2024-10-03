@@ -168,6 +168,8 @@ export class OpcionesDisponiblesComponent implements OnInit {
         swal.fire("Error", "Ha ocurrido un error", 'error');
         return;
       }
+      // swal.fire('Correcto', `Se ha ${this.opcion === 1 ? 'Guardado' : 'Modificado'} el encabezado`, 'success');
+
       swal.fire(data.data.mensaje, "", data.data.icon === 1 ? 'success' : data.data.icon === 2 ? 'error' : 'warning');
       this.getAppsDisponibles();
     } catch (error) {
@@ -197,6 +199,7 @@ export class OpcionesDisponiblesComponent implements OnInit {
     this.mdlAdministra.idEncabezado = this.filtroEncabezado;
     this.mdlAdministra.nomEncabezado = this.nombreEncabezado;
     this.mdlAdministra.tipoCapturaNombre = 'A';
+    this.mdlAdministra.opcion = 5;
     this.openModal();
   }
   //Del mismo Modal

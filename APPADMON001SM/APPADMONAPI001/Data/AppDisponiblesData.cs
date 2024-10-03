@@ -98,7 +98,7 @@ namespace Data
             {
                 using (var conexion = new SqlConnection(DatosToken.Conexion))
                 {
-                    var result = await conexion.QuerySingleAsync<MensajesEntity>(
+                     await conexion.ExecuteAsync(
                         SP_ACCIONES_APLICACIONES,
                         new
                         {
@@ -111,7 +111,7 @@ namespace Data
                             Usuario = DatosToken.Usuario
                         },
                         commandType: CommandType.StoredProcedure);
-                    objResult.data = result;
+                    objResult.data = true;
                 }
 
                 return objResult;
@@ -129,7 +129,7 @@ namespace Data
             {
                 using (var conexion = new SqlConnection(DatosToken.Conexion))
                 {
-                    var result = await conexion.QuerySingleAsync<MensajesEntity>(
+                    await conexion.ExecuteAsync(
                         SP_ACCIONES_APLICACIONES,
                         new
                         {
@@ -141,7 +141,7 @@ namespace Data
                             Usuario = DatosToken.Usuario
                         },
                         commandType: CommandType.StoredProcedure);
-                    objResult.data = result;
+                    objResult.data = true;
                 }
 
                 return objResult;
