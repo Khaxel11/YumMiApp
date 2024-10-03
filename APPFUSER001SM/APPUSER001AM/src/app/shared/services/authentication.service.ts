@@ -5,7 +5,7 @@ import { environment } from '../../../environments/environment';
 import { sha256 } from 'js-sha256';
 import { Router } from '@angular/router';
 import { General } from 'src/app/functions/general'; 
-const URL = environment.APPFOODAPI001 + 'Admon/';
+const URL = environment.APPUSERAPI001 + 'Admon/';
 
 import { Observable } from 'rxjs'
 @Injectable({
@@ -76,7 +76,7 @@ export class AuthenticationService {
     return 'Bearer ' + token  
   }
   public genToken(entity : any):Observable<any>{
-    return this.http.post(environment.APPFOODAPI001 + 'Auth/Token', entity);
+    return this.http.post(environment.APPUSERAPI001 + 'Auth/Token', entity);
   }
 
 }

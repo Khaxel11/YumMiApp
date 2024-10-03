@@ -31,22 +31,6 @@ ion-content{
     -moz-box-shadow: 0px -9px 54px -12px rgba(0,0,0,0.75);
   }
   
-  .login-item {
-    margin-bottom: 20px;
-  }
-  
-  .login-item ion-item {
-    border-radius: 10px;
-    --background: rgba(0, 0, 0, 0.05);
-  }
-  
-  .login-item ion-label {
-    color: #333;
-  }
-  
-  .login-item ion-input {
-    --padding-start: 10px;
-  }
   
   .forgotPass {
     color: #007bff;

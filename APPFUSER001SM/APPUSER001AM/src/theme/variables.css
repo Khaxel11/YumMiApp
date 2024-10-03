@@ -248,9 +248,68 @@ ion-checkbox {
   --color: #1b1b1b; 
   
 }
+/* ion-input, ion-datetime {
+  font-size: 1.25rem;
+  width: 100%;
+} */
 
 .checkbox-container{
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.lg-title{
+  font-style: 36px;
+  font-weight: bold;
+}
+.lg-subtitle{
+  font-style: 24px;
+  font-weight: 500;
+}
+.sm-subtitle{
+  font-style: 14px;
+  font-weight: 100;
+  color: #2c2c2c;
+}
+.container{
+  padding: 1rem;
+  width: 100vw;
+}
+
+
+.login-item {
+  margin-bottom: 20px;
+}
+
+.login-item ion-item {
+  border-radius: 10px;
+  --background: rgba(0, 0, 0, 0.05);
+}
+
+.login-item ion-label {
+  color: #333;
+}
+
+.login-item ion-input , .login-item ion-datetime {
+  --padding-start: 10px;
+}
+
+ion-item ion-datetime{
+  text-align: center;
+  width: 60px;
+  height: 60px;
+  margin: 0 5px;
+  --padding-start: 0;
+  --padding-end: 0;
+  --inner-padding-top: 0;
+  --inner-padding-bottom: 0;
+  --border-radius: 30px;
+  --background: #ffffff;
+  --border-color: #000000;
+  --border-width: 3px;
+  --border-style : solid;
+  transition: all 0.3s ease-in-out;
+  border: solid 1px rgb(184, 184, 184);
+  border-radius: 10px;
 }

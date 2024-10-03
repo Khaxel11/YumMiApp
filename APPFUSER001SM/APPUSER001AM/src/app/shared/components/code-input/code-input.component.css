@@ -1,0 +1,35 @@
+.auth-code-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.auth-input {
+  text-align: center;
+  width: 60px;
+  height: 60px;
+  margin: 0 5px;
+  --padding-start: 0;
+  --padding-end: 0;
+  --inner-padding-top: 0;
+  --inner-padding-bottom: 0;
+  --border-radius: 30px;
+  --background: #ffffff;
+  --border-color: #000000;
+  --border-width: 3px;
+  --border-style : solid;
+  transition: all 0.3s ease-in-out;
+  border: solid 1px rgb(184, 184, 184);
+  border-radius: 10px;
+
+
+}
+.focused {
+  border: solid 1px rgb(99, 99, 99);
+  --background: #ffffff;
+}
+
+.auth-input-error {
+  border: solid 1px red;
+  --background: #ffebeb;
+}

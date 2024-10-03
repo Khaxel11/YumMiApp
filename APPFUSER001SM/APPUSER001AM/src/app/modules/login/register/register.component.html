@@ -94,14 +94,14 @@
                
 
               <div class="phone-input">
-                <span>{{flagSelected.code}}</span>
-                <ion-input type="tel" placeholder="000-000-0000" PhoneMask></ion-input>
+                <span>+{{flagSelected.code}}</span>
+                <ion-input type="tel" placeholder="000-000-0000" PhoneMask [(ngModel)]="userData.telefono"></ion-input>
               </div>
 
               <div class="button-container">
-                <ion-button class="ion-margin-top" shape="round" color="dark" (click)="register()"
+                <ion-button class="ion-margin-top" shape="round" color="dark" (click)="sendCode(true)"
                   routerLinkActive="active" routerDirection="back">
-                  Crear Cuenta
+                  Enviar Código
                 </ion-button>
               </div>
             </div>
@@ -113,10 +113,31 @@
     </ng-container>
     <ng-container *ngIf="currentSlide === 'slide3'">
       <div class="slide" [ngClass]="animationClass">
-        <h1>Pantalla 3</h1>
-        <p>Contenido de la tercera pantalla</p>
+        <div class="background-create">
+          <div class="container-create">
+            <div class="form-create">
+    
+              <h1 class="text-title">Digite Código</h1>
+              <p class="text-subtitle">Se ha enviado un código a su celular</p>
+              <p class="text-subtitle"><strong>+ {{flagSelected.code}} {{userData.telefono}}</strong></p>
+    
+              <code-input #code></code-input>
+              
+              <div class="timer-resend">
+                <p>Enviar otra vez <strong>{{timer}}</strong></p>
+                <p>No haz recibido tu código <a (click)="resendCode()">Enviar otra vez</a></p>
+              </div>
+    
+              <ion-button class="ion-margin-top verify-button" shape="round" color="dark" (click)="verifyCode()"
+                routerLinkActive="active" routerDirection="back">
+                Verificar Código
+              </ion-button>
+            </div>
+          </div>
+        </div>
       </div>
     </ng-container>
+    
   </div>
 
   <!-- Indicadores de puntos -->

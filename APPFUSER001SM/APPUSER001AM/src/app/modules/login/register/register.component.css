@@ -205,8 +205,22 @@
     margin-right: 10px;
   }
 
-  ion-input {
-    font-size: 1.25rem;
-    width: 100%;
+  
+}
+
+
+.timer-resend {
+  text-align: center;
+  margin-bottom: 20px;
+  a{
+    color: dark;
+    font-weight: bold;
   }
+  a:link { color: rgb(0, 0, 0); } 
+
+}
+
+.verify-button {
+  width: 100%;
+  font-size: 1em;
 }

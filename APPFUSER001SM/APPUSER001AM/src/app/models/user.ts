@@ -31,6 +31,8 @@ export class Username {
   password : string ;
   correo : string ;
   foto : string;
+  telefono : string;
+  verificadoMovil : boolean;
 }
 
 export class User {

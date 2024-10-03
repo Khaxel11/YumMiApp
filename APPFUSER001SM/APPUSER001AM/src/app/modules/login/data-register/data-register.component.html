@@ -1,0 +1,75 @@
+<ion-content>
+    <div #slidesContainer class="slides-wrapper">
+        <!-- (touchstart)="onTouchStart($event)" (touchmove)="onTouchMove($event)"
+(touchend)="onTouchEnd($event)"  -->
+        <ng-container *ngIf="currentSlide === 'slide1'">
+            <div [ngClass]="animationClass">
+                <div class="animated-from-left float-circle-bg gray-bg-mini"></div>
+                <div class="animated-from-left float-circle-bg img-bg-mini"></div>
+                <div class="animated-from-right float-circle-bg gray-bg"></div>
+                <div class="animated-from-right float-circle-bg img-bg"></div>
+
+                <div class="container welcome-slide animated-text">
+                    <h1 class="lg-title">
+                        ¡Bienvenido!
+                    </h1>
+                    <h2 class="lg-subtitle">
+                        ¡Gracias por usar YumMi!
+                    </h2>
+                    <h2 class="lg-subtitle">
+                        Antes de empezar necesitamos conocer más de ti y de tus gustos 😊
+                    </h2>
+                    <ion-button expand="block" fill="solid" color="dark" (click)="navigateToNextSlide()">
+                        ¡Claro!
+                    </ion-button>
+                </div>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="currentSlide === 'slide2'">
+            <div [ngClass]="animationClass">
+                <div class="container">
+                    <div class="form-create">
+                        <h1 class="lg-title">
+                            Acerca de Ti
+                        </h1>
+                        <h2 class="sm-subtitle">
+                            Proporcione sus datos
+                        </h2>
+                        <ion-item class="transparent-item ion-margin-top">
+                            <ion-label position="floating">Nombre<label class="requiered"> *</label></ion-label>
+                            <ion-input [required]="true" type="text" maxlength="10" [autofocus]="true"
+                                [clearOnEdit]="true" placeholder="Tu nombre"></ion-input>
+                        </ion-item>
+                        <ion-item class="transparent-item ion-margin-top">
+                            <ion-label position="floating">Apellido Paterno<label class="requiered"> *</label></ion-label>
+                            <ion-input [required]="true" type="text" maxlength="10" [autofocus]="true"
+                                [clearOnEdit]="true" placeholder="Tu apellido paterno"></ion-input>
+                        </ion-item>
+                        <ion-item class="transparent-item ion-margin-top">
+                            <ion-label position="floating">Apellido Materno<label class="requiered"> *</label></ion-label>
+                            <ion-input [required]="true" type="text" maxlength="10" [autofocus]="true"
+                                [clearOnEdit]="true" placeholder="Tu apellido materno"></ion-input>
+                        </ion-item>
+                        <ion-item class="transparent-item ion-margin-top">
+                            <ion-label position="floating">Fecha Nacimiento<label class="requiered"> *</label></ion-label>
+                            <ion-datetime [required]="true" type="date" [autofocus]="true" display-format="DD/MM/YYYY"
+                                [clearOnEdit]="true" placeholder="dd/MM/yyyy"></ion-datetime>
+                        </ion-item>
+                    </div>
+
+                </div>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="currentSlide === 'slide3'">
+            <div [ngClass]="animationClass"></div>
+        </ng-container>
+    </div>
+
+    <!-- Indicadores de puntos -->
+    <div class="dots-container">
+        <span [class.active]="currentSlide === 'slide1'" (click)="navigateToSlide('slide1')"></span>
+        <span [class.active]="currentSlide === 'slide2'" (click)="navigateToSlide('slide2')"></span>
+        <span [class.active]="currentSlide === 'slide3'" (click)="navigateToSlide('slide3')"></span>
+    </div>
+
+</ion-content>

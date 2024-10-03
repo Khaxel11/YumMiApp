@@ -8,9 +8,10 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { IonicModule } from '@ionic/angular';
 import { RegisterComponent } from './register/register.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { DataRegisterComponent } from './data-register/data-register.component';
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent],
+  declarations: [LoginComponent, RegisterComponent, DataRegisterComponent],
   imports: [
     CommonModule,
     LoginRoutingModule,
