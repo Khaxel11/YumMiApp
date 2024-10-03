@@ -1,0 +1,26 @@
+<ng-template #mdlCapturaTiposSolicitudes let-modal>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">
+                {{ modalname }}
+            </h5>
+            <button type="button" class="close" aria-label="Close" (click)="closeModal()"><i class="fas fa-times"
+                aria-hidden="true"></i></button>
+        </div>
+        <div class="modal-body">
+            <div class="container">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="txtNombre">Titulo de Solicitud</label>
+                            <input class="form-control" type="text" name="txtNombre" id="txtNombre" [(ngModel)]="tituloSolicitud" [maxlength]="50" >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-info" type="button" (click)="saveTipoSolicitud()"><i class="fas fa-save"></i> Guardar</button>
+        </div>
+    </div>
+</ng-template>

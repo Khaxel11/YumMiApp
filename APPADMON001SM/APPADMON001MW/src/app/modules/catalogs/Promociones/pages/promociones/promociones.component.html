@@ -1,0 +1,65 @@
+<div class="contenedor">
+    <div class="header">
+        <label>{{moduleName}}</label>
+    </div>
+    <div class="body">
+        <div class="container-fluid">
+
+            <div class="col-md-12">
+                <div class="row">
+                    
+                    <div class="col-md-1 mt-1">
+                        Filtro:
+                    </div>
+                    <div class="col-md-2">
+                        <input class="form-control" type="text" name="txtFiltro" id="txtFiltro" [(ngModel)]="filtro" (keyup)="getPromos()">
+                    </div>
+                    
+                    <div class="col-md-1 mt-1">
+                        Fechas:
+                    </div>
+                    <div class="col-md-2.5">
+                        <input type="date" class="form-control" id="fechaInicio" name="fechaInicio" required>
+                    </div>
+
+                    <div class="col-md-.5 mt-2">
+                        Al:
+                    </div>
+                    <div class="col-md-2.5">
+                        <input type="date" class="form-control" id="fechaFin" name="fechaFin" required>
+                    </div>
+
+                    <div class="col-md-3s text-right">
+                        <button class="btn btn-success mr-1" type="button" (click)="getPromos()" ><i
+                            class="fas fa-search"></i> Buscar</button>
+                        <button class="btn btn-info" type="button" (click)="openModal()" ><i
+                            class="fas fa-plus"></i> Agregar</button>
+                    </div>
+
+                   
+
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        
+                        <grid-cs #gridCategorias [rowsPerPage]="10"
+                             [columnDefs]="columnsPromociones"
+                            [(data)]="listaPromociones"
+                            [enablePagination]="true"
+                        ></grid-cs>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <small>Versión {{version}}</small>
+                <h5>{{moduleName}}</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-mdl-promociones #mdlCapturaPromociones (onClose)="recargar($event)"></app-mdl-promociones>

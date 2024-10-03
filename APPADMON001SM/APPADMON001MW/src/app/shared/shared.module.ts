@@ -16,6 +16,7 @@ import { GridCsComponent } from './components/grid-cs/grid-cs.component';
 import { GridSsComponent } from './components/grid-ss/grid-ss.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { BtnCellRenderComponent } from './components/btn-cell-render/btn-cell-render.component';
+import { GridCsDragComponent } from './components/grid-cs-drag/grid-cs-drag.component';
 
 // Directive
 import { AgregarIdFTPDirective } from './directives/AgregarIdFTP.directive';
@@ -75,6 +76,7 @@ import { CardSwipperComponent } from './components/card-swipper/card-swipper.com
     ListElementsComponent,
     ChartCsComponent,
     CardSwipperComponent,
+    GridCsDragComponent,
   ],
   imports: [
     CommonModule,
@@ -122,7 +124,8 @@ import { CardSwipperComponent } from './components/card-swipper/card-swipper.com
     DatePickerComponent,
     ListElementsComponent,
     ChartCsComponent,
-    CardSwipperComponent
+    CardSwipperComponent,
+    GridCsDragComponent
   ],
   bootstrap: []
 })

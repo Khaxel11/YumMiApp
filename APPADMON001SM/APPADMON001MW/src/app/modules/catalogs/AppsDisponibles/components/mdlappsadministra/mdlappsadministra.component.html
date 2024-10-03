@@ -1,0 +1,79 @@
+<ng-template #mdlAdministraApps let-modal>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">
+                {{ modalname }}
+            </h5>
+            <button type="button" class="close" aria-label="Close" (click)="closeModal()"><i class="fas fa-times"
+                    aria-hidden="true"></i></button>
+        </div>
+        <div class="modal-body">
+            <div class="container" *ngIf="tipoCaptura">
+                <div class="mt-3">
+                    <div class="row col-md-12">
+                        <div class="col-12">
+                            <label for="cbxSistemas">Sistema</label>
+                            <select name="cbxSistemas" id="cbxSistemas" class="form-control" [(ngModel)]="idSistemaMod">
+                                <option [value]="0">Seleccione...</option>
+                                <option [value]="item.idSistema" *ngFor="let item of lstSistemas"> {{item.sistema}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row col-12">
+                        <div class="col-12">
+                            <label for="txtid" hidden>id</label>
+                            <input class="form-control" type="text" hidden name="txtid" id="txtid"
+                                [(ngModel)]="idEncabezado" [maxlength]="60">
+                        </div>
+                    </div>
+                    <div class="row col-12">
+                        <div class="col-12">
+                            <label for="txtTituloEncabezado">Titulo</label>
+                            <input class="form-control" type="text" name="txtTituloEncabezado" id="txtTituloEncabezado"
+                                [(ngModel)]="titulo" [maxlength]="60">
+                        </div>
+                    </div>
+                    <div class="row col-12">
+                        <div class="col-12">
+                            <label for="txtrutaEncabezado">Ruta</label>
+                            <input class="form-control" type="text" name="txtrutaEncabezado" id="txtrutaEncabezado"
+                                [(ngModel)]="ruta" [maxlength]="60">
+                        </div>
+                    </div>
+                    <div class="row col-12">
+                        <div class="col-10">
+                            <label for="txtIcono">Icono</label>
+                            <input class="form-control" type="text" name="txtIcono" id="txtIcono" [(ngModel)]="icono"
+                                [maxlength]="120"  (ngModelChange)="changeIcon($event)" >
+                        </div>
+                        <div class="col-2">
+                            <i class="divIcon" [class]="icono"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container" *ngIf="!tipoCaptura">
+                <div class="mt-3">
+                    <div hidden class=" row col-md-12">
+                        <label for="txtIdCatalogo" hidden>id</label>
+                        <input class="form-control" type="text" hidden name="txtIdCatalogo" id="txtIdCatalogo"
+                            [(ngModel)]="idOpcion" [maxlength]="60">
+                    </div>
+                    <div class="row col-md-12">
+                        <label for="txtTituloCatalogo">Titulo</label>
+                        <input class="form-control" type="text" name="txtTituloCatalogo" id="txtTituloCatalogo"
+                            [(ngModel)]="titulo" [maxlength]="60">
+                    </div>
+                    <div class="row col-md-12">
+                        <label for="txtSubRuta">SubRuta</label>
+                        <input class="form-control" type="text" name="txtSubRuta" id="txtSubRuta" [(ngModel)]="ruta"
+                            [maxlength]="60">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-info" type="button" (click)="saveInfo()"><i class="fas fa-save"></i> Guardar</button>
+        </div>
+    </div>
+</ng-template>
