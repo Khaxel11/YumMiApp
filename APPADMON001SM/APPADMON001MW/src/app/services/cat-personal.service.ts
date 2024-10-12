@@ -61,4 +61,10 @@ export class CatPersonalService {
     const url = URL + "EliminarUsuario";
     return this.http.post(url, Datos);
   }
+  
+  //Axel 12/10/2024
+  changePassword(Password: string): Promise<any> {
+    const url = URL + "changePassword";
+    return this.http.post(url, {Password}).toPromise();
+  }
 }

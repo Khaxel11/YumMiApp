@@ -201,6 +201,8 @@ namespace Data
             Result objResult = new Result();
             try
             {
+                //string fotoBase64 = Convert.ToBase64String(dts.foto);
+
                 using (var conexion = new SqlConnection(DatosToken.Conexion))
                 {
                     await conexion.ExecuteAsync(SP_ACCION,
@@ -267,7 +269,35 @@ namespace Data
             }
             return objResult;
         }
+        //Axel 12/10/2021 : SE AGREGA PARA CAMBIAR CONTRASEÑA SEPARADO
+        public async Task<Result> changePassword(TokenData DatosToken, CatPersonalEntity dts)
+        {
+            Result objResult = new Result();
+            try
+            {
+                using (var conexion = new SqlConnection(DatosToken.Conexion))
+                {
+                    await conexion.ExecuteAsync(SP_ACCION,
+                        new
+                        {
+                            Opcion = 4,
+                            UsuarioERP = DatosToken.Usuario,
+                            Password = dts.password
+                        },
+                        commandType: CommandType.StoredProcedure,
+                        commandTimeout: 300);
 
+                    objResult.Correcto = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                objResult.Correcto = false;
+                objResult.Mensaje = ex.Message;
+                Console.WriteLine($"Error al eliminar usuario: {ex.Message}");
+            }
+            return objResult;
+        }
         #endregion
     }
 }

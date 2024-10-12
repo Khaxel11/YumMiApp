@@ -138,6 +138,18 @@ namespace APPADMONAPI001.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Error, {ex.Message}");
             }
         }
+        [HttpPost("changePassword")]
+        public async Task<IActionResult> changePassword(CatPersonalEntity dts)
+        {
+            try
+            {
+                return Ok(await new CatPersonalBusiness().changePassword(datosToken, dts));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Error, {ex.Message}");
+            }
+        }
         #endregion
     }
 }
