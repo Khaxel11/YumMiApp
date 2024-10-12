@@ -1,0 +1,81 @@
+<div class="contenedor">
+    
+    <div class="header">
+        <label>Catalogo de Restricciones de Alimentación</label>
+    </div> <!--  FIN HEADER --> 
+
+    <div class="body">
+        <div class="container-fluid">
+            <div class="col-md-12">
+                <div class="row">
+                    <!-- <div class="col-md-1 mt-1">
+                        Filtro:
+                    </div>
+                    <div class="col-md-3">
+                        <input class="form-control" type="text" name="txtFiltro" id="txtFiltro">
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-info" (click)="getRestricciones()"><i class="fas fa-search"></i> Buscar</button>
+                    </div> -->
+                    <div class="col-md-12 text-right">
+                        <button class="btn btn-info" type="button" (click)="openModalCapt()" ><i
+                            class="fas fa-plus"></i> Nueva Restricción</button>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <div class="scrollable-div" style="font-size: small;">
+                
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="table-secondary rounded-left">#</th>
+                                        <th scope="col" class="table-secondary">Tipo de Alimentación</th>
+                                        <th scope="col" class="table-secondary">Cantidad de Restricciones</th>
+                                        <th scope="col" class="table-secondary">Detalle</th>
+                                        <th scope="col" class="table-secondary rounded-right">Eliminar</th>
+                
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let r of lst; let i = index;">
+                                        <td scope="row">{{r.idTipoAlimentacion}}</td>
+                                        <td scope="row">{{r.tipoAlimentacion}}</td>
+                                        <td scope="row">{{r.cantidadRestriciones}}</td>
+                                        <td scope="row">
+                                            <button type="button" (click)="Detalle(r)" class="btn btn-info btn-sm">
+                                                <i>detalle</i>
+                                            </button>
+                                        </td>
+                                        <td scope="row">
+                                            <button type="button" (click)="btnEliminar(r)" class="btn btn-danger btn-sm">
+                                                <i>eliminar</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                
+                        </div>
+                    </div>
+                </div>
+             
+            </div>
+        </div>
+    </div> <!--  FIN BODY --> 
+
+
+    <div class="footer">
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <small>Versión 12.02.2024</small>
+                <h5>Catalogo de Restricción de Alimentación</h5>
+            </div>
+        </div>
+    </div> <!--  FIN FOOTER --> 
+
+
+</div>
+
+<app-restriccionesingrelstmdl #mdlLst></app-restriccionesingrelstmdl>
+<app-restriccionesingrecapmdl #mdlCapt (onClose)="closeCaptura($event)"></app-restriccionesingrecapmdl>

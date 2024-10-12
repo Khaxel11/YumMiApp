@@ -37,5 +37,19 @@ namespace APPADMONAPI001.Controllers
             }
 
         }
+
+        [HttpGet("getOpcionesMenu")]
+        public async Task<IActionResult> getOpcionesMenu(int idEmpleado)
+        {
+            try
+            {
+                return Ok(await new AdmonBusiness().getOpcionesMenu(datosToken, idEmpleado));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Error, {ex.Message}");
+            }
+
+        }
     }
 }

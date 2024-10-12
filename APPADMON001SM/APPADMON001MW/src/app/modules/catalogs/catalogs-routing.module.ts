@@ -16,12 +16,18 @@ import { TiposAlimentacionComponent } from './TiposAlimentacion/pages/tipos-alim
 import { OpcMenuCargoComponent } from './OpcMenuCargo/pages/opc-menu-cargo/opc-menu-cargo.component';
 import { PersonalComponent } from './Personal/pages/personal/personal.component';
 import { VisualesComponent } from './visuales/pages/visuales/visuales.component';
+
+import { RestriccionesingreComponent } from './RestriccionesIngre/pages/restriccionesingre/restriccionesingre.component';
+
+
+
 const routes: Routes = [
   { path: "cargos", component: CargosComponent },
-  { path: 'ingredientes', component : IngredientsComponent },
+  { path: 'ingredientes', component : IngredientsComponent,  canActivate: [AuthGuard] },
   { path: 'tiposproductos', component : TiposProductosComponent,  canActivate: [AuthGuard]},
   { path: 'aplicaciones', component : AplicacionesComponent,  canActivate: [AuthGuard]},
   { path: 'tiposnotificaciones', component : TiposNotificacionesComponent,  canActivate: [AuthGuard]},
+  { path: 'restricciones', component : RestriccionesingreComponent,  canActivate: [AuthGuard]}
   { path: 'appdisponibles', component : AppdisponiblesComponent,  canActivate: [AuthGuard]},
   { path: 'opcionesdisponibles', component : OpcionesDisponiblesComponent,  canActivate: [AuthGuard]},
   { path: 'categorias', component : CategoriasComponent,  canActivate: [AuthGuard]},
@@ -32,6 +38,7 @@ const routes: Routes = [
   { path: 'opcmenucargo', component : OpcMenuCargoComponent, canActivate: [AuthGuard]},
   { path: 'personal', component : PersonalComponent,  canActivate: [AuthGuard]},
   { path: 'visuales', component : VisualesComponent },
+
 ];
 
 @NgModule({

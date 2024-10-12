@@ -1,0 +1,73 @@
+<ng-template #mdlLst let-modal>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">
+                {{ modalname }}
+            </h5>
+            <button type="button" class="close" aria-label="Close" (click)="closeModalLst()"><i class="fas fa-times"
+                    aria-hidden="true"></i></button>
+        </div>
+        <div class="modal-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <label for="lblIngRest">Ingredientes restringidos para:</label>
+                        <div id="lblIngRest">
+                            <span class="h6"> CATEGORIA: {{tipoAlimentacion.tipoAlimentacion.toLocaleUpperCase()}}</span>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 text-right">
+                        <button class="btn btn-info" type="button" (click)="openModalCapt()"><i class="fas fa-plus"></i>
+                            Agregar</button>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-md-12">
+
+
+                        <div class="scrollable-div" style="font-size: small;">
+
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="table-secondary">IdRestriccion</th>
+                                        <th scope="col" class="table-secondary">#</th>
+                                        <th scope="col" class="table-secondary">Ingrediente</th>
+                                        <th scope="col" class="table-secondary">Eliminar</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let r of lstRestricciones; let i = index;">
+                                        <th scope="row">{{r.idRestriccionIngrediente}}</th>
+                                        <th scope="row">{{r.idIngrediente}}</th>
+                                        <th scope="row">{{r.ingrediente}}</th>
+
+                                        <th scope="row">
+                                            <button type="button" (click)="btnEliminar(r)" class="btn btn-danger btn-sm">
+                                                <i>eliminar</i>
+                                            </button>
+                                        </th>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="modal-footer">
+            <span>x</span>
+        </div>
+    </div>
+</ng-template>
+
+<app-restriccionesingrecapmdl #mdlCapt (onClose)="closeCaptura($event)"></app-restriccionesingrecapmdl>

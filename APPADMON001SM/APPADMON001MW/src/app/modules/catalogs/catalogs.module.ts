@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
 import { CatalogsRoutingModule } from './catalogs-routing.module';
 import { CargosComponent } from './Cargos/Pages/cargos/cargos.component';
 import { SharedModule } from '../../shared/shared.module'
-import { FormsModule } from '@angular/forms';
+//import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms'
 import { MdlCapturaComponent } from './Cargos/Components/mdl-captura/mdl-captura.component';
 import { IngredientsComponent } from './Ingredients/pages/ingredients/ingredients.component';
 import { IngredientscapmdlComponent } from './Ingredients/modals/ingredientscapmdl/ingredientscapmdl.component';
@@ -35,6 +36,9 @@ import { PersonalComponent } from './Personal/pages/personal/personal.component'
 import { MdlAggEditPersonalComponent } from './Personal/components/mdl-agg-edit-personal/mdl-agg-edit-personal.component';
 import { VisualesComponent } from './visuales/pages/visuales/visuales.component';
 import { VisualescapmdlComponent } from './visuales/modals/visualescapmdl/visualescapmdl.component';
+import { RestriccionesingreComponent } from './RestriccionesIngre/pages/restriccionesingre/restriccionesingre.component';
+import { RestriccionesingrecapmdlComponent } from './RestriccionesIngre/modals/restriccionesingrecapmdl/restriccionesingrecapmdl.component';
+import { RestriccionesingrelstmdlComponent } from './RestriccionesIngre/modals/restriccionesingrelstmdl/restriccionesingrelstmdl.component';
 
 @NgModule({ 
   declarations: [
@@ -71,11 +75,13 @@ import { VisualescapmdlComponent } from './visuales/modals/visualescapmdl/visual
                 , AppdisponiblesComponent
               ,OpcionesDisponiblesComponent
             , mdlAppsadministraComponent],
+
   imports: [
     CommonModule,
     CatalogsRoutingModule,
     SharedModule,
     FormsModule
-  ]
+  ],
+  providers: [DatePipe]
 })
 export class CatalogsModule { }
