@@ -113,7 +113,17 @@ namespace Business
                 throw new ArgumentException(ex.Message);
             }
         }
-
+        public async Task<Result> changePassword(TokenData DatosToken, CatPersonalEntity dts)
+        {
+            try
+            {
+                return await new CatPersonalData().changePassword(DatosToken, dts);
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+        }
         #endregion
     }
 }

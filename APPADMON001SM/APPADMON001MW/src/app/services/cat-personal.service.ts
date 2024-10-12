@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
-const URL = environment.APPADMON01MW + 'CatPersonal/';
+const URL = environment.APPADMON001MW + 'CatPersonal/';
 @Injectable({
   providedIn: 'root'
 })
@@ -60,5 +60,11 @@ export class CatPersonalService {
   EliminarUsuario(Datos: any): any {
     const url = URL + "EliminarUsuario";
     return this.http.post(url, Datos);
+  }
+  
+  //Axel 12/10/2024
+  changePassword(Password: string): Promise<any> {
+    const url = URL + "changePassword";
+    return this.http.post(url, {Password}).toPromise();
   }
 }

@@ -1,0 +1,137 @@
+
+<ng-template #mdlCaptura let-modal>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">
+                {{ modalname }}
+            </h5>
+            <button type="button" class="close" aria-label="Close" (click)="closeModal()"><i class="fas fa-times"
+                aria-hidden="true"></i></button>
+        </div>
+        <div class="modal-body">
+            <div class="container">
+                <div class="row mt-3">
+                    <!-- Lado Izquierdo -->
+                    <div class="col-md-7">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="Visual">Visual</label>
+                                <input class="form-control" type="text" name="Visual" id="Visual" [(ngModel)]="model.idVisual" [maxLength]="10" readonly>
+                            </div>
+                        </div>
+                        <div class="row mt-1">
+                            <div class="col-md-12">
+                                <label for="Titulo">Titulo</label>
+                                <input class="form-control" type="text" name="Titulo" id="Titulo" [(ngModel)]="model.titulo" [maxLength]="80" >
+                            </div>
+                        </div>
+                        <div class="row mt-1">
+                            <div class="col-md-12">
+                                <label for="Subtitulo">Subtitulo</label>
+                                <input class="form-control" type="text" name="Subtitulo" id="Subtitulo" [(ngModel)]="model.subtitulo" [maxLength]="150" >
+                            </div>
+                        </div>
+                        <div class="row mt-1">
+                            <div class="col-md-12">
+                                <label for="Descripcion">Descripcion</label>
+                                <textarea class="form-control" type="text" name="Descripcion" id="Descripcion" [(ngModel)]="model.descripcionUso" [maxLength]="120" [rows]="4"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row mt-1">
+                            <div class="col-sm-12 col-md-12">
+                                <label for="cboSistema">Sistema</label>
+                                <select name="cboSistema" id="cboSistema" class="form-select form-control" [(ngModel)]="model.idSistema">
+                                    <option value="0" disabled selected>Seleccione una opción</option>
+                                    <option *ngFor="let r of lstAplicaciones" [value]="r.idSistema">
+                                        {{r.descripcion}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="col-sm-12 col-md-12">
+                                <label for="Uso">Uso</label>
+                                <input class="form-control" type="text" name="Uso" id="Uso" [(ngModel)]="model.idUsoMenu">
+                            </div>
+                        </div>
+
+                        <div class="row mt-1">
+                            <div class="col-md-12">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="chkprog" [(ngModel)]="model.esProgramado">
+                                    <label class="form-check-label" for="chkprog">
+                                        Añadir Programación
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-1">
+                            <div class="col-sm-12 col-md-5">
+                                <label for="FechaInicial">Fecha Inicial</label>
+                                <input class="form-control" type="date" name="FechaInicial" id="FechaInicial" 
+                                [(ngModel)]="model.fechaInicioProgramado" (change)="diasDiferencia()">
+                            </div>
+                            <div class="col-sm-12 col-md-5">
+                                <label for="FechaFinal">Fecha Final</label>
+                                <input class="form-control" type="date" name="FechaFinal" id="FechaFinal" 
+                                [(ngModel)]="model.fechaFinalProgramado" (change)="diasDiferencia()">
+                            </div>
+                            <div class="col-sm-12 col-md-2">
+                                <label for="Dias">Dias</label>
+                                <input class="form-control" type="number" readonly name="Dias" id="Dias" [(ngModel)]="model.diasApartirProgramado">
+                            </div>
+                        </div>
+                       
+                        <div class="row mt-1">
+                            <div class="col-sm-12 col-md-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="chkredi" [(ngModel)]="model.redirecciona">
+                                    <label class="form-check-label" for="chkredi">
+                                        Redireccionar
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <div class="col-12">
+                                    <label for="cboCatProductos">Cat. productos</label>
+                                    <select name="cboCatProductos" class="form-select form-control" [(ngModel)]="model.idOpcionRedirecciona">
+                                        <option value="0" disabled selected>Seleccione una opción</option>
+                                        <option *ngFor="let r of lstProductos" [value]="r.idOpcion">
+                                            {{r.tituloOpcion}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Lado derecho -->
+                    <div class="col-md-5">
+                        <div class="row mt-1 type-image">
+                            <div class="col-md-12">
+                                <div class="card text-center d-flex align-items-center justify-content-center">
+                                    <img class="card-img " [src]="imageURL" alt="Seleccione un archivo">
+                                    <div class="card-name">{{ model.titulo }}</div>
+                                    <div class="card-value">{{ model.subtitulo }}</div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 mt-1">
+                                <input type="file" name="file" id="file" class="form-control-file" 
+                                [(ngModel)]="fileSelected" (change)="onFileSelected($event)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-info" type="button" (click)="controlVisuales()"><i
+                class="fas fa-save"></i> Guardar</button>
+        </div>
+    </div>
+</ng-template>

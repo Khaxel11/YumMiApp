@@ -157,9 +157,10 @@ export class MdlAggEditPersonalComponent implements OnInit {
         cancelButtonText: 'No, cancelar'
       }).then((result) => {
         if (result.isConfirmed) {
-          this.passwordEnabled = true;
-          this.DtsUsuario.password = '';
-          this.contraseniaOculta = null;
+          this.promptNewPassword();
+          // this.passwordEnabled = true;
+          // this.DtsUsuario.password = '';
+          // this.contraseniaOculta = null;
         } else {
           this.passwordChecked = false;
           this.passwordEnabled = false;
@@ -169,7 +170,68 @@ export class MdlAggEditPersonalComponent implements OnInit {
       this.passwordEnabled = false;
     }
   }
-
+  //Axel
+  promptNewPassword(): void {
+    Swal.fire({
+      title: 'Introduce tu nueva contraseña',
+      input: 'password',
+      inputPlaceholder: 'Nueva contraseña',
+      showCancelButton: true,
+      confirmButtonText: 'Guardar',
+      cancelButtonText: 'Cancelar',
+      inputValidator: (value) => {
+        if (!value) {
+          return 'Por favor, introduce una contraseña';
+        }
+      }
+    }).then((passwordResult : any) => {
+      if (passwordResult.isConfirmed) {
+        this.promptConfirmPassword(passwordResult.value);
+      } else {
+        this.passwordChecked = false;
+        this.passwordEnabled = false;
+      }
+    });
+  }
+  promptConfirmPassword(newPassword: string): void {
+    Swal.fire({
+      title: 'Confirma tu nueva contraseña',
+      input: 'password',
+      inputPlaceholder: 'Confirma tu nueva contraseña',
+      showCancelButton: true,
+      confirmButtonText: 'Confirmar',
+      cancelButtonText: 'Cancelar',
+      inputValidator: (confirmValue) => {
+        if (!confirmValue) {
+          return 'Por favor, confirma tu contraseña';
+        } else if (confirmValue !== newPassword) {
+          return 'Las contraseñas no coinciden';
+        }
+      }
+    }).then((confirmResult) => {
+      if (confirmResult.isConfirmed) {
+        this.applyPasswordChange(newPassword);
+      } else {
+        this.passwordChecked = false;
+        this.passwordEnabled = false;
+      }
+    });
+  }
+   
+  async applyPasswordChange(newPassword: string): Promise<void> {
+    try {
+      const hashedPassword = sha256(newPassword);
+      const data = await this.Servicio.changePassword(hashedPassword);
+      if(!data.correcto){
+        Swal.fire('Error', 'Ha ocurrido un error al querer cambiar la contraseña', 'error');
+        return;
+      }
+      Swal.fire('¡Contraseña cambiada con éxito!', '', 'success');
+    } catch (error) {
+      Swal.fire('Error', error.message, 'error');
+    }
+    
+  }
   updatePassword(event: any): void {
     this.DtsUsuario.password = event.target.value;
   }

@@ -1,0 +1,38 @@
+<ng-template #disponiblesApps let-modal>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">
+                {{ modalnameOpciones }}
+            </h5>
+            <button type="button" class="close" aria-label="Close" (click)="closeModalOpciones()"><i class="fas fa-times"
+                    aria-hidden="true"></i></button>
+        </div>
+        <div class="modal-body">
+            <div class="container-fluid">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button class="btn btn-info" type="button" (click)="addOpciones()" ><i
+                                class="fas fa-plus"></i> Agregar</button>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-md-12">
+                            
+                            <grid-cs-drag #gridAplicaciones [rowsPerPage]="10"
+                                 [columnDefs]="columnsAplicaciones"
+                                [(data)]="lstAplicaciones"
+                                [enablePagination]="false"
+                                [idField]="'idRegistro'"       
+                                [orderField]="'orden'"    
+                                (orderChanged)="OrderChange($event)"
+                            ></grid-cs-drag>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </div>
+</ng-template>
+
+<mdlappsadministra #mdlAdministraApps (onClose)="onCloseModal($event)"></mdlappsadministra>

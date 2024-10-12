@@ -1,6 +1,6 @@
 ion-content{
-    --background: rgb(250, 173, 6);
-    --background: linear-gradient(353deg, rgb(250, 83, 6) 0%, rgb(255, 116, 2) 95%);
+    --background: rgb(228,250,6);
+    --background: linear-gradient(353deg, rgba(228,250,6,1) 0%, rgba(255,39,2,0.7343312324929971) 95%);
   }
   .header-login {
     display: flex;
@@ -18,7 +18,7 @@ ion-content{
     padding: 10px;
   }
   .login-content {
-    background-color: rgb(231, 231, 231);
+    background-color: #fff;
     border-radius: 30px;
     position: fixed;
     padding: 20px;
@@ -31,22 +31,6 @@ ion-content{
     -moz-box-shadow: 0px -9px 54px -12px rgba(0,0,0,0.75);
   }
   
-  .login-item {
-    margin-bottom: 20px;
-  }
-  
-  .login-item ion-item {
-    border-radius: 10px;
-    --background: rgba(0, 0, 0, 0.05);
-  }
-  
-  .login-item ion-label {
-    color: #333;
-  }
-  
-  .login-item ion-input {
-    --padding-start: 10px;
-  }
   
   .forgotPass {
     color: #007bff;
@@ -54,7 +38,7 @@ ion-content{
   }
   
   .btn {
-    --background: rgba(250, 120, 6, 0.527);
+    --background: rgb(250,120,6);
   --background: linear-gradient(319deg, rgba(250,120,6,1) 0%, rgba(255,2,2,1) 95%);
     font-size: 1em;
   
@@ -63,8 +47,10 @@ ion-content{
   }
   
   .btn:hover {
-    background-position: 100% 0; 
+    background-position: 100% 0;
   }
+  
+
   .divider {
     display: flex;
     align-items: center;
@@ -100,5 +86,15 @@ ion-content{
     --border-radius: 8px;
     width: 50px;
     height: 50px;
+  }
+  
+  .signup {
+    text-align: center;
+  }
+  
+  .signup a {
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
   }
   

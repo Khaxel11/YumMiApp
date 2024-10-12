@@ -56,6 +56,7 @@ namespace Data
                             IdSistema = Aplicacion.IdSistema,
                             NomenclaturaSistema = Aplicacion.Nomenclatura,
                             Sistema = Aplicacion.Sistema,
+                            Descripcion = Aplicacion.Descripcion,
                             Usuario = DatosToken.Usuario
                         },
                         commandType: CommandType.StoredProcedure);

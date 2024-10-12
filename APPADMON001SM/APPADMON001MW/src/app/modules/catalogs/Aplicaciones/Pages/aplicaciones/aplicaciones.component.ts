@@ -113,9 +113,9 @@ export class AplicacionesComponent implements OnInit {
   selectCargo(e : any){
     this.mdlCaptura.opcion = 2;
     this.mdlCaptura.idSistema = e.data.idSistema;
-    this.mdlCaptura.nomenclatura = e.data.Nomenclatura;
-    this.mdlCaptura.sistema = e.data.nombreSistema;
-    this.mdlCaptura.descripcion = e.data.Descripcion;
+    this.mdlCaptura.nomenclatura = e.data.nomenclatura;
+    this.mdlCaptura.sistema = e.data.sistema;
+    this.mdlCaptura.descripcion = e.data.descripcion;
     this.openModal();
   }
   deleteAplicaciones(e : any){

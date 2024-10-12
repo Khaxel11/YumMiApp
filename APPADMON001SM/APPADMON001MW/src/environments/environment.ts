@@ -4,9 +4,13 @@
 
 export const environment = {
   production: false,
-  
+  baseURL: '',
  
-  APPADMON01MW : 'http://localhost:51197/',
+  APPADMON001MW : 'http://localhost:51197/',
+  APPFIREAPI001: 'http://localhost:3000/api',
+  // APPADMON001MW : 'http://172.16.15.45/YumMiApp/ADMON/api/APPADMONAPI001/',
+  // APPADMON001MW : 'http://localhost/AppYummi/ADMON/api/APPADMONAPI001/',
+
   VERSION: '12.02.2024' 
  
 };

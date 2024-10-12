@@ -3,8 +3,12 @@ import { Title }     from '@angular/platform-browser';
 import { Router, NavigationEnd, NavigationStart, ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from './shared/services/authentication.service'
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
+
 import { clsUsuarioMenu } from './modules/login/models/clsLoginModels';
 import { transform } from 'typescript';
+
+
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +17,7 @@ import { transform } from 'typescript';
 })
 
 export class AppComponent implements OnInit {
+  env = environment;
   @BlockUI() blockUI: NgBlockUI;
   sidebarOpen;
   menuOpen: boolean = false;
