@@ -8,7 +8,10 @@ const sendMessage = require('./sendMessage'); // Importa la función de envío d
 
 const app = express();
 const port = 3000;
-const SECURITY_API = "http://localhost:50100";
+// const SECURITY_API = "http://localhost:50100";
+const SECURITY_API = 'http://172.16.15.137/AppYummi/Seguridad/APPSEGAPI001';
+
+const router = require('./router');
 
 // Configurar cliente de WhatsApp
 const client = new Client({
@@ -30,6 +33,7 @@ client.on('ready', () => {
 
 // Inicializar cliente de WhatsApp
 client.initialize();
+app.use(router);
 app.use(cors());
 
 // Middleware para analizar JSON
@@ -40,6 +44,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use((req, res, next) => {
     console.log('Cuerpo de la solicitud:', req.rawHeaders, req.url);
     next();
+});
+// Ruta de prueba
+app.get('/health', (req, res) => {
+    res.status(200).json({ message: 'API de WhatsApp está funcionando correctamente' });
 });
 // Ruta para enviar un mensaje de autenticación mediante una solicitud POST
 app.post('/send-auth-message', async (req, res) => {
