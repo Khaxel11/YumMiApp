@@ -14,7 +14,8 @@ namespace Entity
         public string idEmpleado { get; set; }
         public string userName { get; set; }
         public string email { get; set; }
-        public string picture { get; set; }
+        //public string picture { get; set; }
+        public byte[] picture { get; set; }
 
     }
 

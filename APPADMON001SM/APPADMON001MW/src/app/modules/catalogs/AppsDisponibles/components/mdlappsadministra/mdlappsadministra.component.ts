@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
   templateUrl: './mdlappsadministra.component.html',
   styleUrls: ['./mdlappsadministra.component.css']
 })
-export class mdlAppsadministraComponent implements OnInit {
+export class MdlAppsAdministraComponent implements OnInit {
 
   lstSistemas = [];
   filtroSistemas: number = 0;

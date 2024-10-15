@@ -27,7 +27,7 @@ const routes: Routes = [
   { path: 'tiposproductos', component : TiposProductosComponent,  canActivate: [AuthGuard]},
   { path: 'aplicaciones', component : AplicacionesComponent,  canActivate: [AuthGuard]},
   { path: 'tiposnotificaciones', component : TiposNotificacionesComponent,  canActivate: [AuthGuard]},
-  { path: 'restricciones', component : RestriccionesingreComponent,  canActivate: [AuthGuard]}
+  { path: 'restricciones', component : RestriccionesingreComponent,  canActivate: [AuthGuard]},
   { path: 'appdisponibles', component : AppdisponiblesComponent,  canActivate: [AuthGuard]},
   { path: 'opcionesdisponibles', component : OpcionesDisponiblesComponent,  canActivate: [AuthGuard]},
   { path: 'categorias', component : CategoriasComponent,  canActivate: [AuthGuard]},

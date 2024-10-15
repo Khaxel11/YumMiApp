@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { mdlAppsadministraComponent } from './mdlappsadministra.component';
+import { MdlAppsAdministraComponent} from './mdlappsadministra.component';
 
-describe('mdlAppsadministraComponent', () => {
-  let component: mdlAppsadministraComponent;
-  let fixture: ComponentFixture<mdlAppsadministraComponent>;
+describe('MdlAppsAdministraComponent', () => {
+  let component: MdlAppsAdministraComponent;
+  let fixture: ComponentFixture<MdlAppsAdministraComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ mdlAppsadministraComponent ]
+      declarations: [ MdlAppsAdministraComponent]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(mdlAppsadministraComponent);
+    fixture = TestBed.createComponent(MdlAppsAdministraComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

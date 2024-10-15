@@ -5,7 +5,7 @@ import { AppsDisponiblesService } from '../../../../../services/appsdisponibles.
 import swal from 'sweetalert2';
 import { aplicaciones } from 'src/app/models/Aplicaciones';
 import { encabezados } from 'src/app/models/Encabezados';
-import { mdlAppsadministraComponent } from '../../components/mdlappsadministra/mdlappsadministra.component';
+import { MdlAppsAdministraComponent} from '../../components/mdlappsadministra/mdlappsadministra.component';
 import { OpcionesDisponiblesComponent } from '../../components/opcionesdisponibles/opcionesdisponibles.component';
 import { Grid } from 'ag-grid-community';
 
@@ -16,7 +16,7 @@ import { Grid } from 'ag-grid-community';
 })
 export class AppdisponiblesComponent implements OnInit {
 
-  @ViewChild('mdlAdministraApps') public mdlAdministra : mdlAppsadministraComponent;
+  @ViewChild('mdlAdministraApps') public mdlAdministra : MdlAppsAdministraComponent;
   @ViewChild('disponiblesApps') public mdlOpciones : OpcionesDisponiblesComponent;
 
   columnsAplicaciones: any;

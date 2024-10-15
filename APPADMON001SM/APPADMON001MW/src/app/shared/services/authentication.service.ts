@@ -8,7 +8,7 @@ import { General } from '../../helpers/general'
 
 import { Observable } from 'rxjs'
 
-const URL = environment.APPADMON01MW + 'Admon/';
+const URL = environment.APPADMON001MW + 'Admon/';
 
 
 @Injectable({

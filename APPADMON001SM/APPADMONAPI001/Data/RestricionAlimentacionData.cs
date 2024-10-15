@@ -3,7 +3,7 @@ using Data.BDAdmon;
 using Entity;
 using Entity.DTO;
 using Entity.DTO.Common;
-using Newtonsoft.Json;
+
 using System;
 using System.Collections.Generic;
 using System.Data;

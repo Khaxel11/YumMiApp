@@ -5,7 +5,7 @@ import { AppsDisponiblesService } from '../../../../../services/appsdisponibles.
 import swal from 'sweetalert2';
 import { aplicaciones } from 'src/app/models/Aplicaciones';
 import { encabezados } from 'src/app/models/Encabezados';
-import { mdlAppsadministraComponent } from '../../components/mdlappsadministra/mdlappsadministra.component';
+import { MdlAppsAdministraComponent} from '../../components/mdlappsadministra/mdlappsadministra.component';
 
 @Component({
   selector: 'opcionesdisponibles',
@@ -14,7 +14,7 @@ import { mdlAppsadministraComponent } from '../../components/mdlappsadministra/m
 })
 export class OpcionesDisponiblesComponent implements OnInit {
   
-  @ViewChild('mdlAdministraApps') public mdlAdministra : mdlAppsadministraComponent;
+  @ViewChild('mdlAdministraApps') public mdlAdministra : MdlAppsAdministraComponent;
   @Output() onClose = new EventEmitter<any>();
 
   @ViewChild('disponiblesApps') mdlOpciones: any;

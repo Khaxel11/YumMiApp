@@ -3,7 +3,7 @@ import  { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { clsIngredient } from '../modules/catalogs/Ingredients/models/clsIngredients';
 
-const URL = environment.APPADMON01MW + 'RestricionAlimentacion/';
+const URL = environment.APPADMON001MW + 'RestricionAlimentacion/';
 
 @Injectable({
   providedIn: 'root'
